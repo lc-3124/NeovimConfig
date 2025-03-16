@@ -21,6 +21,7 @@ Plug 'git@github.com:akinsho/toggleterm.nvim', { 'tag': '*' }
 Plug 'git@github.com:flazz/vim-colorschemes'
 Plug 'git@github.com:folke/which-key.nvim'
 Plug 'git@github.com:mhartington/formatter.nvim'
+Plug 'git@github.com:rhysd/vim-clang-format'
 
 call plug#end()
 " 加载luainit.lua文件
@@ -29,6 +30,7 @@ call plug#end()
 set guifont=Hack:h13
 
 let g:neovide_cursor_trail_size=0.8
+
 "toggleterm 配置" set
 autocmd TermEnter term://*toggleterm#*
             \ tnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
@@ -39,7 +41,7 @@ autocmd TermEnter term://*toggleterm#*
 nnoremap <silent><c-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 inoremap <silent><c-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
 ""格式化配置
-noremap <silent> <leader>F :Format<CR> 0gg10000000==
+noremap <silent> <leader>F :ClangFormat <CR>
 
 "插入模式退出时自动禁用fcitx输法
 let fcitx5state=system("fcitx5-remote")
@@ -68,6 +70,8 @@ let g:gutentags_ctags_extra_args += ['--c++-kinds=+pxI']
 let g:gutentags_ctags_extra_args += ['--c-kinds=+px']
 
 "coc nvim配置
+
+command! -nargs=0 Prettier :CocCommand prettier.forceFormatDocument
 " if hidden is not set, TextEdit might fail.
 set hidden
 " Some servers have issues with backup files, see #649
@@ -83,15 +87,16 @@ set shortmess+=c
 " always show signcolumns
 set signcolumn=yes
 
+
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
 inoremap <silent><expr> <TAB>
             \ pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
+            \ <SNR>check_back_space() ? "\<TAB>" :
             \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+inoremap  <expr><S-TAB> coc#pum#visible() ? "\<C-p>" : "\<C-h>"
 
-function! s:check_back_space() abort
+function <SNR>check_back_space() abort
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
@@ -101,7 +106,7 @@ inoremap <silent><expr> <c-space> coc#refresh()
 
 " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
 " Coc only does snippet and additional edit on confirm.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <cr> coc#pum#visible() ? "\<C-y>" : "\<C-g>u\<CR>"
 " Or use `complete_info` if your vim support it, like:
 " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
@@ -116,6 +121,7 @@ nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call <SID>show_documentation()<CR>
+
 
 function! s:show_documentation()
     if (index(['vim','help'], &filetype) >= 0)
@@ -334,7 +340,6 @@ if version >= 603
     set encoding=utf-8
 endif
 set fencs=utf-8,ucs-bom,shift-jis,gb18030,gbk,gb2312,cp936
-set termencoding=utf-8
 set encoding=utf-8
 set fileencodings=ucs-bom,utf-8,cp936
 set fileencoding=utf-8
@@ -379,44 +384,7 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 "nnoremap <leader>fg <cmd>lua require('telescope.builtin').live_grep()<cr>
 "nnoremap <leader>fb <cmd>lua require('telescope.builtin').buffers()<cr>
 "nnoremap <leader>fh <cmd>lua require('telescope.builtin').help_tags()<cr>
-
-
-
-"编译运行C++
-nmap <leader>c2 <cmd>call FLTK_Gpp_Compiler()<cr>
-nmap <leader>c1 <cmd>call Gpp_Compiler()<cr>
-nmap <leader>c4 <cmd>call EasyX_Gpp_Compiler()<cr>
-nmap <leader>cr <cmd>call Run_Compiled_Application()<cr>
-nmap <leader>c3 <cmd>call Gpp_openGL_Compiler()<cr>
-
-
-function EasyX_Gpp_Compiler()
-    exec "w"
-    exec "!x86_64-w64-mingw32-g++ -Wall % -o %< -leasyx -static" 
-
-endfunction
-function Gpp_Compiler()
-    exec "w"
-    exec "!g++ -Wall % -o  %< -g" 
-endfunction
-
-function Gpp_openGL_Compiler()
-    exec "w"
-    exec "!g++ -Wall % -o %< -lGL -lGLU -lglut" 
-
-endfunction
-function FLTK_Gpp_Compiler()
-    exec "w"
-    exec "!fltk-config --compile %"
-    exec "!mv main %<"
-endfunction
-
-function Run_Compiled_Application()
-    exec "!echo Now test the compiled application！\n"
-    exec "!time ./%<"
-endfunction
-
-
+"
 "在插入模式下的map
 "重载文件
 imap <F4> <cmd> exec "w!" <cr>
@@ -428,3 +396,5 @@ nnoremap <S-j> <C-d>
 nnoremap <S-k> <C-u>
 
 set scrolloff=3
+
+
