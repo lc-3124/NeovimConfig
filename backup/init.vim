@@ -1,6 +1,6 @@
 call plug#begin('~/.config/nvim/plugged')
-Plug 'git@github.com:Yggdroot/indentLine'            "缩进显示
-Plug 'git@github.com:folke/lazy.nvim'
+Plug 'git@github.com:Yggdroot/indentLine'            "缩进显示 OK
+Plug 'git@github.com:folke/lazy.nvim' 		     " OK
 Plug 'git@github.com:crusoexia/vim-monokai'          "颜色
 Plug 'git@github.com:Kurama622/llm.nvim'
 Plug 'git@github.com:nvim-lua/plenary.nvim'
