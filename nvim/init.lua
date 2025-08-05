@@ -1,22 +1,26 @@
 -- init.lua
--- By lc3124                        
+-- By `lc3124`                        
 
+vim.api.nvim_create_autocmd("UIEnter", {
+  once = true,
+  callback = function()
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#202E36", force = true })
+    vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#FF00F0", bg = "#202E36", force = true })
+  end
+})
 
--- 禁用报错                         
-vim.deprecate('vim.lsp.buf_get_clients', 'vim.lsp.get_clients', '0.11')
-
--- LAZY NVIM
+-- LAZY `NVIM`
 -- 指定插件位置，不存在则clone到本地
 local lazypath = vim.fn.stdpath("data") .. "~/.config/nvim/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", 
-		lazypath,
-	})
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", 
+    lazypath,
+  })
 end
 vim.opt.rtp:prepend(lazypath)
 
@@ -60,33 +64,33 @@ vim.cmd("filetype plugin indent on")        -- 启用文件类型检测
 -- 快捷键映射
 -- 基础操作
 -- vim.keymap.set("n", "<Space>", ":w<CR>")    -- 空格保存文件
---vim.keymap.set("i", "jj", "<Esc>")           -- jj 退出插入模式 [1](@ref)
+--vim.keymap.set("i", "jj", "<Esc>")           -- `jj` 退出插入模式 [1](@ref)
 vim.keymap.set("n", "<S-j>", "<C-d>")       -- Shift+j 向下翻页
 vim.keymap.set("n", "<S-k>", "<C-u>")       -- Shift+k 向上翻页
 
 -- 自动命令
 -- 退出插入模式时禁用 fcitx 输入法
 vim.api.nvim_create_autocmd("InsertLeave", {
-    pattern = "*",
-    command = "silent !fcitx5-remote -c"
+  pattern = "*",
+  command = "silent !fcitx5-remote -c"
 })
 
 -- 进入插入模式时恢复输入法
 vim.api.nvim_create_autocmd("InsertEnter", {
-    pattern = "*",
-    callback = function()
-        if vim.v.fcitx5state == "2" then  -- 检查输入法状态
-            vim.cmd("silent !fcitx5-remote -o")
-        end
+  pattern = "*",
+  callback = function()
+    if vim.v.fcitx5state == "2" then  -- 检查输入法状态
+      vim.cmd("silent !fcitx5-remote -o")
     end
+  end
 })
 
 -- 恢复上次编辑位置 [1](@ref)
 vim.api.nvim_create_autocmd("BufReadPost", {
-    pattern = "*",
-    callback = function()
-        if vim.fn.line("'\"") > 1 and vim.fn.line("'\"") <= vim.fn.line("$") then
-            vim.cmd("normal! g'\"")
-        end
+  pattern = "*",
+  callback = function()
+    if vim.fn.line("'\"") > 1 and vim.fn.line("'\"") <= vim.fn.line("$") then
+      vim.cmd("normal! g'\"")
     end
+  end
 })
