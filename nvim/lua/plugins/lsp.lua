@@ -1,4 +1,3 @@
--- lua/plugins/lsp.lua
 return {
   {
     "neovim/nvim-lspconfig",
@@ -10,24 +9,6 @@ return {
       "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-
-      -- 先设置主题相关的高亮组
-      vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#7e9cd8", bg = "#1e1e2e" })  -- 悬浮窗口边框
-      vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#1e1e2e" })                 -- 悬浮窗口背景
-      vim.api.nvim_set_hl(0, "LspFloatWinNormal", { bg = "#1e1e2e" })           -- LSP 浮动窗口
-      vim.api.nvim_set_hl(0, "DiagnosticFloating", { bg = "#1e1e2e" })          -- 诊断窗口背景
-
-      -- 诊断信息颜色（适配 `NeoDark`）
-      vim.api.nvim_set_hl(0, "DiagnosticError", { fg = "#e46876" })  -- 错误
-      vim.api.nvim_set_hl(0, "DiagnosticWarn", { fg = "#d7a65a" })   -- 警告
-      vim.api.nvim_set_hl(0, "DiagnosticInfo", { fg = "#7e9cd8" })   -- 信息
-      vim.api.nvim_set_hl(0, "DiagnosticHint", { fg = "#6a9589" })   -- 提示
-
-      -- 面包屑导航颜色
-      vim.api.nvim_set_hl(0, "LspReferenceText", { bg = "#363646" })  -- 代码引用
-      vim.api.nvim_set_hl(0, "LspReferenceRead", { bg = "#363646" })
-      vim.api.nvim_set_hl(0, "LspReferenceWrite", { bg = "#363646" })
-
       -- 设置 LSP 相关快捷键
       vim.api.nvim_create_autocmd('LspAttach', {
         group = vim.api.nvim_create_augroup('UserLspConfig', {}),
@@ -40,7 +21,7 @@ return {
           vim.keymap.set('n', '<leader>ggD', vim.lsp.buf.declaration, opts)
           vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, opts)
           vim.keymap.set('n', '<leader>K', vim.lsp.buf.hover, opts)
-          vim.keymap.set('n', '<leader>ggi', vim.lsp.buf.implementation, opts)
+          vim.keymap.set('n', '<leade>ggi', vim.lsp.buf.implementation, opts)
           vim.keymap.set('n', '<leader>g<C-k>', vim.lsp.buf.signature_help, opts)
           vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
           vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
@@ -56,53 +37,32 @@ return {
           end, opts)
         end,
       })
-      -- 自动显示诊断信息（悬停时）
+        -- 自动显示诊断信息（悬停时）
       vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
         vim.lsp.handlers.hover, {
-          border = "rounded",
-          silent = true,
-          -- 添加这些样式配置
-          style = "minimal",
-          focusable = false,
-          max_width = 80,
-          max_height = 30,
+          border = "rounded",  -- 边框样式
+          silent = true,       -- 不显示多余提示
         }
       )
 
-      -- 显示诊断信息（浮动窗口）
-      vim.diagnostic.config({
-        virtual_text = {
-          prefix = "●",  -- 改为圆点图标
-          spacing = 4,
-          severity = {
-            min = vim.diagnostic.severity.HINT,
+      -- 自动显示诊断信息（浮动窗口）
+      vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+        vim.lsp.diagnostic.on_publish_diagnostics, {
+          virtual_text = true,  -- 行内虚拟文本
+          signs = true,          -- 显示左侧标记
+          underline = true,      -- 显示错误下划线
+          update_in_insert = false,
+          -- 忽略参数错误
+          float = {             -- 悬停时显示浮动窗口
+            focusable = false,
+            style = "minimal",
+            border = "rounded",
+            source = "always",   -- 显示诊断来源
+            header = "",
+            prefix = "",
           },
-        },
-        float = {
-          border = "rounded",
-          source = "always",
-          header = "",
-          header = "",
-          -- 关键设置：强制使用自定义背景色
-          focusable = false,
-          close_events = { "CursorMoved", "CursorMovedI" },
-          -- 直接指定窗口样式
-          winhighlight = "NormalFloat:DiagnosticFloating,BorderFloat:DiagnosticFloatingBorder",
-          prefix = function(diagnostic)
-            local icons = {
-              Error = " ",
-              Warn = " ",
-              Info = " ",
-              Hint = " ",
-            }
-            return icons[diagnostic.severity]
-          end,
-        },
-        signs = true,
-        underline = true,
-        update_in_insert = false,
-        severity_sort = true,
-      })
+        }
+      )
       vim.o.updatetime = 500  -- 单位是毫秒
       -- 设置悬停自动触发诊断
       vim.api.nvim_create_autocmd("CursorHold", {
@@ -127,21 +87,6 @@ return {
       local lspconfig = require('lspconfig')
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-      -- 通用服务器配置
-      local servers = {
-        'clangd',       -- C/C++
-        'pyright',      -- Python
-        'lua_ls',       -- Lua
-        'jsonls',       -- JSON
-        'marksman',     -- Markdown
-      }
-
-      for _, lsp in ipairs(servers) do
-        lspconfig[lsp].setup {
-          capabilities = capabilities,
-        }
-      end
-
       -- Lua 特殊配置
       lspconfig.lua_ls.setup {
         capabilities = capabilities,
@@ -163,11 +108,25 @@ return {
           },
         },
       }
+
+
       require("lspconfig").clangd.setup({
         root_dir = function()
-          return vim.fn.getcwd()  -- 返回 nvim 启动时的目录
+          return vim.fn.getcwd()  -- 返回 `nvim` 启动时的目录
         end,
         capabilities = require("cmp_nvim_lsp").default_capabilities(),
+        cmd = {
+          "clangd",
+          "--background-index",
+          "--clang-tidy",
+          "--header-insertion=never",
+          "--query-driver=/usr/bin/g++,/usr/bin/clang++",  -- 指定有效编译器
+          "--offset-encoding=utf-16",  -- 防止跳转位置错乱
+        },
+        init_options = {
+          clangdFileStatus = true,
+          usePlaceholders = true,
+        }
       })
 
     end

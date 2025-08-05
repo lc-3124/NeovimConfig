@@ -1,6 +1,12 @@
 -- init.lua
 -- By `lc3124`                        
 
+-- 插件颜色主题冲突，配置失效，全局强制指定颜色无奈之举。
+vim.api.nvim_set_hl(0, "BufferLineBufferSelected", {
+  fg = "#7e9cd8",
+  bg = "#1e1e2e",
+  ctermbg = "NONE"  -- 防止终端背景覆盖
+})
 vim.api.nvim_create_autocmd("UIEnter", {
   once = true,
   callback = function()
@@ -9,7 +15,7 @@ vim.api.nvim_create_autocmd("UIEnter", {
   end
 })
 
--- LAZY `NVIM`
+-- 启动Lazy.nvim
 -- 指定插件位置，不存在则clone到本地
 local lazypath = vim.fn.stdpath("data") .. "~/.config/nvim/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
@@ -18,12 +24,11 @@ if not vim.loop.fs_stat(lazypath) then
     "clone",
     "--filter=blob:none",
     "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", 
+    "--branch=stable",
     lazypath,
   })
 end
 vim.opt.rtp:prepend(lazypath)
-
 require("lazy").setup({
   { import = "plugins" }
 }, {
@@ -32,9 +37,12 @@ require("lazy").setup({
   checker = { enabled = false },
 })
 
+-- 颜色主题设置
 vim.cmd[[colorscheme neodark]]
 
--- 基础配置
+--------------------
+--    基础配置    --
+--------------------
 -- 基础编辑器设置
 vim.opt.guifont = "Hack:h12"               -- 字体设置
 vim.opt.number = true                       -- 显示行号
