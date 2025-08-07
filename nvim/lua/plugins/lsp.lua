@@ -21,7 +21,7 @@ return {
           vim.keymap.set('n', '<leader>ggD', vim.lsp.buf.declaration, opts)
           vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, opts)
           vim.keymap.set('n', '<leader>K', vim.lsp.buf.hover, opts)
-          vim.keymap.set('n', '<leade>ggi', vim.lsp.buf.implementation, opts)
+          vim.keymap.set('n', '<leader>ggi', vim.lsp.buf.implementation, opts)
           vim.keymap.set('n', '<leader>g<C-k>', vim.lsp.buf.signature_help, opts)
           vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
           vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
@@ -87,6 +87,11 @@ return {
       local lspconfig = require('lspconfig')
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+      -- 禁用 emmylua_ls
+      lspconfig.emmylua_ls.setup({
+        enabled = false -- 明确禁用
+      })
+
       -- Lua 特殊配置
       lspconfig.lua_ls.setup {
         capabilities = capabilities,
@@ -108,26 +113,6 @@ return {
           },
         },
       }
-
-
-      require("lspconfig").clangd.setup({
-        root_dir = function()
-          return vim.fn.getcwd()  -- 返回 `nvim` 启动时的目录
-        end,
-        capabilities = require("cmp_nvim_lsp").default_capabilities(),
-        cmd = {
-          "clangd",
-          "--background-index",
-          "--clang-tidy",
-          "--header-insertion=never",
-          "--query-driver=/usr/bin/g++,/usr/bin/clang++",  -- 指定有效编译器
-          "--offset-encoding=utf-16",  -- 防止跳转位置错乱
-        },
-        init_options = {
-          clangdFileStatus = true,
-          usePlaceholders = true,
-        }
-      })
 
     end
   },

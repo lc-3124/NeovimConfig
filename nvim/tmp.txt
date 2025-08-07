@@ -1,0 +1,814 @@
+-- init.lua
+-- By `lc3124`                        
+-- 启动Lazy.nvim
+-- 指定插件位置，不存在则clone到本地
+local lazypath = vim.fn.stdpath("data") .. "~/.config/nvim/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable",
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+require("lazy").setup({
+  { import = "plugins" }
+}, {
+  ui = { notify = false },
+  change_detection = { notify = false },
+  checker = { enabled = false },
+})
+-- 插件颜色主题冲突，配置失效，全局强制指定颜色无奈之举。
+vim.api.nvim_set_hl(0, "BufferLineBufferSelected", {
+  fg = "#7e9cd8",
+  bg = "#1e1e2e",
+  ctermbg = "NONE"  -- 防止终端背景覆盖
+})
+vim.api.nvim_create_autocmd("UIEnter", {
+  once = true,
+  callback = function()
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#202E36", force = true })
+    vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#FF00F0", bg = "#202E36", force = true })
+  end
+})
+
+-- vim 心跳速度
+vim.o.updatetime = 300  -- 单位是毫秒
+
+-- 颜色主题设置
+vim.cmd[[colorscheme neodark]]
+
+--------------------
+--    基础配置    --
+--------------------
+-- 基础编辑器设置
+vim.opt.guifont = "Hack:h12"               -- 字体设置
+vim.opt.number = true                       -- 显示行号
+vim.opt.cursorline = true                   -- 高亮当前行
+vim.opt.showmatch = true                    -- 高亮匹配括号 [1,4](@ref)
+vim.opt.matchtime = 1                       -- 括号匹配高亮时间(0.1秒)
+vim.opt.ignorecase = true                    -- 搜索忽略大小写
+vim.opt.smartcase = true                     -- 智能大小写检测
+vim.opt.expandtab = true                     -- Tab转空格
+vim.opt.tabstop = 2                          -- Tab显示宽度
+vim.opt.shiftwidth = 2                       -- 自动缩进宽度
+vim.opt.softtabstop = -1                     -- 使用 shiftwidth 值 [1](@ref)
+vim.opt.autoindent = true                    -- 自动缩进 [4](@ref)
+vim.opt.backup = false                       -- 禁用备份文件
+vim.opt.writebackup = false                  -- 禁用写入备份
+vim.opt.history = 1000                       -- 命令历史记录
+vim.opt.scrolloff = 5                        -- 上下滚动保留行数
+vim.opt.signcolumn = "yes"                   -- 始终显示标记列
+vim.opt.cmdheight = 1                        -- 命令栏高度
+vim.opt.wrap = false                         -- 禁用自动换行
+
+
+-- 语法与文件类型
+vim.cmd("syntax enable")                    -- 启用语法高亮 [1](@ref)
+vim.cmd("filetype plugin indent on")        -- 启用文件类型检测
+
+-- 快捷键映射
+-- 基础操作
+-- vim.keymap.set("n", "<Space>", ":w<CR>")    -- 空格保存文件
+--vim.keymap.set("i", "jj", "<Esc>")           -- `jj` 退出插入模式 [1](@ref)
+vim.keymap.set("n", "<S-j>", "<C-d>")       -- Shift+j 向下翻页
+vim.keymap.set("n", "<S-k>", "<C-u>")       -- Shift+k 向上翻页
+
+-- 自动命令
+-- 退出插入模式时禁用 fcitx 输入法
+vim.api.nvim_create_autocmd("InsertLeave", {
+  pattern = "*",
+  command = "silent !fcitx5-remote -c"
+})
+
+-- 进入插入模式时恢复输入法
+vim.api.nvim_create_autocmd("InsertEnter", {
+  pattern = "*",
+  callback = function()
+    if vim.v.fcitx5state == "2" then  -- 检查输入法状态
+      vim.cmd("silent !fcitx5-remote -o")
+    end
+  end
+})
+
+-- 恢复上次编辑位置 [1](@ref)
+vim.api.nvim_create_autocmd("BufReadPost", {
+  pattern = "*",
+  callback = function()
+    if vim.fn.line("'\"") > 1 and vim.fn.line("'\"") <= vim.fn.line("$") then
+      vim.cmd("normal! g'\"")
+    end
+  end
+})
+-- lua/plugins/barbecue.lua
+return {
+  {
+    "utilyre/barbecue.nvim",
+    event = "BufRead",
+    dependencies = {
+      "SmiteshP/nvim-navic",
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("barbecue").setup({
+        theme = "auto",  -- 自动适配当前主题（包括 NeoDark）
+        symbols = {
+          separator = "",  -- 更美观的分隔符
+        },
+        show_modified = true,  -- 显示文件修改状态
+        -- 自定义 NeoDark 配色（可选）
+        context_fg = "#dcd7ba",
+        context_bg = "#1e1e2e",
+        separator_fg = "#727169",
+      })
+    end,
+  }
+}
+return {
+  "akinsho/bufferline.nvim",
+  lazy = false,
+  version = "*",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  config = function()
+    vim.opt.termguicolors = true  -- 必需：启用真彩色支持
+
+    require("bufferline").setup({
+      options = {
+        mode = "buffers",
+        -- diagnostics = "nvim_lsp",
+        offsets = {
+          { filetype = "NvimTree", text = "Good job, lc3124!", text_align = "left" }
+        },
+      },
+      highlights = {
+        -- 未选中缓冲区（保持与主题一致）
+        buffer_visible = {
+          fg = "#cdd6f4",  -- 文字颜色（浅色）
+          bg = "#313244",  -- 背景色（深灰）
+        },
+        -- 选中缓冲区（仅加粗，不反色）
+        buffer_selected = {
+          fg = "#cdd6f4",  -- 文字颜色不变
+          bg = "#313244",  -- 背景色不变
+          bold = false,     -- 唯一强调：加粗
+          italic = false,
+          underline = false,
+        },
+        -- 背景填充区域
+        fill = {
+          bg = "#1e1e2e",  -- 匹配NeoDark主题背景
+        },
+        -- 分隔线颜色
+        separator = {
+          fg = "#45475a",  -- 中灰色分隔线
+          bg = "#1e1e2e",
+        },
+      }
+    })
+
+    -- 快捷键绑定（保持原有）
+    vim.keymap.set("n", "<Tab>", ":BufferLineCycleNext<CR>", { desc = "下一个缓冲区" })
+    vim.keymap.set("n", "<S-Tab>", ":BufferLineCyclePrev<CR>", { desc = "上一个缓冲区" })
+  end
+}
+-- lua/plugins/cmp.lua
+return {
+  {
+    "hrsh7th/nvim-cmp",
+    lazy = false,
+    event = "InsertEnter",
+    dependencies = {
+      "hrsh7th/cmp-buffer",
+      "hrsh7th/cmp-path",
+      "hrsh7th/cmp-nvim-lsp",
+      "hrsh7th/cmp-nvim-lua",
+      "saadparwaiz1/cmp_luasnip",
+      "L3MON4D3/LuaSnip",
+      "rafamadriz/friendly-snippets",
+    },
+    config = function()
+      local cmp = require("cmp")
+      local luasnip = require("luasnip")
+
+      -- 加载友好代码片段
+      require("luasnip.loaders.from_vscode").lazy_load()
+
+      cmp.setup({
+        snippet = {
+          expand = function(args)
+            luasnip.lsp_expand(args.body)
+          end,
+        },
+        mapping = cmp.mapping.preset.insert({
+          ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+          ['<C-f>'] = cmp.mapping.scroll_docs(4),
+          ['<C-Space>'] = cmp.mapping.complete(),
+          ['<C-e>'] = cmp.mapping.abort(),
+          ['<CR>'] = cmp.mapping.confirm({ select = true }),
+          ['<Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_next_item()
+            elseif luasnip.expand_or_jumpable() then
+              luasnip.expand_or_jump()
+            else
+              fallback()
+            end
+          end, { 'i', 's' }),
+          ['<S-Tab>'] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              cmp.select_prev_item()
+            elseif luasnip.jumpable(-1) then
+              luasnip.jump(-1)
+            else
+              fallback()
+            end
+          end, { 'i', 's' }),
+        }),
+        sources = cmp.config.sources({
+          { name = "nvim_lsp" },
+          { name = "luasnip" },
+          { name = "buffer" },
+          { name = "path" },
+          { name = "nvim_lua" },
+        }),
+      })
+    end,
+  },
+  {
+    "L3MON4D3/LuaSnip",
+    dependencies = { "rafamadriz/friendly-snippets" },
+    config = function()
+      require("luasnip.loaders.from_vscode").lazy_load()
+    end,
+  },
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "InsertEnter",
+    config = function()
+      require("lsp_signature").setup({
+        bind = true,               -- 自动绑定到Insert模式
+        hint_enable = true,         -- 启用虚拟文本提示
+        handler_opts = {
+          border = "rounded",       -- 浮动窗口圆角边框
+        },
+        zindex = 50,                -- 避免被补全窗口遮挡
+        fix_pos = true,             -- 固定提示窗口位置
+        toggle_key = "<C-s>",       -- 手动切换签名提示的快捷键（Insert模式）
+      })
+    end
+  }
+}
+return {
+  "j-hui/fidget.nvim",
+  lazy = false,
+  opts = {
+    -- options
+  },
+  config = function ()
+	  require('fidget').setup(
+{
+  -- Options related to LSP progress subsystem
+  progress = {
+    poll_rate = 0,                -- How and when to poll for progress messages
+    suppress_on_insert = false,   -- Suppress new messages while in insert mode
+    ignore_done_already = false,  -- Ignore new tasks that are already complete
+    ignore_empty_message = false, -- Ignore new tasks that don't contain a message
+    clear_on_detach =             -- Clear notification group when LSP server detaches
+      function(client_id)
+        local client = vim.lsp.get_client_by_id(client_id)
+        return client and client.name or nil
+      end,
+    notification_group =          -- How to get a progress message's notification group key
+      function(msg) return msg.lsp_client.name end,
+    ignore = {},                  -- List of LSP servers to ignore
+
+    -- Options related to how LSP progress messages are displayed as notifications
+    display = {
+      render_limit = 16,          -- How many LSP messages to show at once
+      done_ttl = 3,               -- How long a message should persist after completion
+      done_icon = "✔",            -- Icon shown when all LSP progress tasks are complete
+      done_style = "Constant",    -- Highlight group for completed LSP tasks
+      progress_ttl = math.huge,   -- How long a message should persist when in progress
+      progress_icon =             -- Icon shown when LSP progress tasks are in progress
+        { "dots" },
+      progress_style =            -- Highlight group for in-progress LSP tasks
+        "WarningMsg",
+      group_style = "Title",      -- Highlight group for group name (LSP server name)
+      icon_style = "Question",    -- Highlight group for group icons
+      priority = 30,              -- Ordering priority for LSP notification group
+      skip_history = true,        -- Whether progress notifications should be omitted from history
+      format_message =            -- How to format a progress message
+        require("fidget.progress.display").default_format_message,
+      format_annote =             -- How to format a progress annotation
+        function(msg) return msg.title end,
+      format_group_name =         -- How to format a progress notification group's name
+        function(group) return tostring(group) end,
+      overrides = {               -- Override options from the default notification config
+        rust_analyzer = { name = "rust-analyzer" },
+      },
+    },
+
+    -- Options related to Neovim's built-in LSP client
+    lsp = {
+      progress_ringbuf_size = 0,  -- Configure the nvim's LSP progress ring buffer size
+      log_handler = false,        -- Log `$/progress` handler invocations (for debugging)
+    },
+  },
+
+  -- Options related to notification subsystem
+  notification = {
+    poll_rate = 10,               -- How frequently to update and render notifications
+    filter = vim.log.levels.INFO, -- Minimum notifications level
+    history_size = 128,           -- Number of removed messages to retain in history
+    override_vim_notify = false,  -- Automatically override vim.notify() with Fidget
+    configs =                     -- How to configure notification groups when instantiated
+      { default = require("fidget.notification").default_config },
+    redirect =                    -- Conditionally redirect notifications to another backend
+      function(msg, level, opts)
+        if opts and opts.on_open then
+          return require("fidget.integration.nvim-notify").delegate(msg, level, opts)
+        end
+      end,
+
+    -- Options related to how notifications are rendered as text
+    view = {
+      stack_upwards = true,       -- Display notification items from bottom to top
+      icon_separator = " ",       -- Separator between group name and icon
+      group_separator = "---",    -- Separator between notification groups
+      group_separator_hl =        -- Highlight group used for group separator
+        "Comment",
+      render_message =            -- How to render notification messages
+        function(msg, cnt)
+          return cnt == 1 and msg or string.format("(%dx) %s", cnt, msg)
+        end,
+    },
+
+    -- Options related to the notification window and buffer
+    window = {
+      normal_hl = "Comment",      -- Base highlight group in the notification window
+      winblend = 100,             -- Background color opacity in the notification window
+      border = "none",            -- Border around the notification window
+      zindex = 45,                -- Stacking priority of the notification window
+      max_width = 0,              -- Maximum width of the notification window
+      max_height = 0,             -- Maximum height of the notification window
+      x_padding = 1,              -- Padding from right edge of window boundary
+      y_padding = 0,              -- Padding from bottom edge of window boundary
+      align = "bottom",           -- How to align the notification window
+      relative = "editor",        -- What the notification window position is relative to
+    },
+  },
+
+  -- Options related to integrating with other plugins
+  integration = {
+    ["nvim-tree"] = {
+      enable = true,              -- Integrate with nvim-tree/nvim-tree.lua (if installed)
+    },
+    ["xcodebuild-nvim"] = {
+      enable = true,              -- Integrate with wojciech-kulik/xcodebuild.nvim (if installed)
+    },
+  },
+
+  -- Options related to logging
+  logger = {
+    level = vim.log.levels.WARN,  -- Minimum logging level
+    max_size = 10000,             -- Maximum log file size, in KB
+    float_precision = 0.01,       -- Limit the number of decimals displayed for floats
+    path =                        -- Where Fidget writes its logs to
+      string.format("%s/fidget.nvim.log", vim.fn.stdpath("cache")),
+  },
+}
+	  )
+  end
+}
+return {
+    "lukas-reineke/indent-blankline.nvim",
+    main = "ibl",
+    ---@module "ibl"
+    ---@type ibl.config
+    config = function ()
+    require("ibl").setup()
+    end
+  }
+
+return {
+  {
+    "neovim/nvim-lspconfig",
+    lazy = false,
+    event = { "BufReadPre", "BufNewFile" },
+    dependencies = {
+      "williamboman/mason.nvim",
+      "williamboman/mason-lspconfig.nvim",
+      "hrsh7th/cmp-nvim-lsp",
+    },
+    config = function()
+      -- 设置 LSP 相关快捷键
+      vim.api.nvim_create_autocmd('LspAttach', {
+        group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+        callback = function(ev)
+          -- 启用面包屑导航
+          vim.opt_local.winbar = "%=%m %f"
+
+          -- 快捷键绑定
+          local opts = { buffer = ev.buf }
+          vim.keymap.set('n', '<leader>ggD', vim.lsp.buf.declaration, opts)
+          vim.keymap.set('n', '<leader>gd', vim.lsp.buf.definition, opts)
+          vim.keymap.set('n', '<leader>K', vim.lsp.buf.hover, opts)
+          vim.keymap.set('n', '<leader>ggi', vim.lsp.buf.implementation, opts)
+          vim.keymap.set('n', '<leader>g<C-k>', vim.lsp.buf.signature_help, opts)
+          vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+          vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+          vim.keymap.set('n', '<space>wl', function()
+            print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+          end, opts)
+          vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+          vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+          vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+          vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+          vim.keymap.set('n', '<space>f', function()
+            vim.lsp.buf.format { async = true }
+          end, opts)
+        end,
+      })
+        -- 自动显示诊断信息（悬停时）
+      vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+        vim.lsp.handlers.hover, {
+          border = "rounded",  -- 边框样式
+          silent = true,       -- 不显示多余提示
+        }
+      )
+
+      -- 自动显示诊断信息（浮动窗口）
+      vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+        vim.lsp.diagnostic.on_publish_diagnostics, {
+          virtual_text = true,  -- 行内虚拟文本
+          signs = true,          -- 显示左侧标记
+          underline = true,      -- 显示错误下划线
+          update_in_insert = false,
+          -- 忽略参数错误
+          float = {             -- 悬停时显示浮动窗口
+            focusable = false,
+            style = "minimal",
+            border = "rounded",
+            source = "always",   -- 显示诊断来源
+            header = "",
+            prefix = "",
+          },
+        }
+      )
+      vim.o.updatetime = 500  -- 单位是毫秒
+      -- 设置悬停自动触发诊断
+      vim.api.nvim_create_autocmd("CursorHold", {
+        pattern = "*",
+        callback = function()
+          vim.diagnostic.open_float(nil, {
+            focusable = false,
+            close_events = { "CursorMoved", "CursorMovedI", "BufHidden", "InsertCharPre" },
+            border = "rounded",
+            source = "always",
+          })
+        end,
+      })
+      -- 添加诊断符号
+      local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+      for type, icon in pairs(signs) do
+        local hl = "DiagnosticSign" .. type
+        vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+      end
+
+      -- 语言服务器配置
+      local lspconfig = require('lspconfig')
+      local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+      -- Lua 特殊配置
+      lspconfig.lua_ls.setup {
+        capabilities = capabilities,
+        settings = {
+          Lua = {
+            runtime = {
+              version = 'LuaJIT',
+            },
+            diagnostics = {
+              globals = { 'vim' },
+            },
+            workspace = {
+              library = vim.api.nvim_get_runtime_file("", true),
+              checkThirdParty = false,
+            },
+            telemetry = {
+              enable = false,
+            },
+          },
+        },
+      }
+
+    end
+  },
+  {
+    "williamboman/mason.nvim",
+    lazy = false,
+    cmd = "Mason",
+    build = ":MasonUpdate",
+    config = true,
+  },
+  {
+    "williamboman/mason-lspconfig.nvim",
+    lazy = false,
+    dependencies = { "williamboman/mason.nvim" },
+    config = true,
+  }
+}
+return {
+  'nvim-lualine/lualine.nvim',
+    lazy = false,
+  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  config = function()
+    require('lualine').setup()
+  end
+}
+return {
+  "nvim-tree/nvim-tree.lua",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
+  lazy = false,
+  keys = {
+    { "<F3>", ":NvimTreeToggle<CR>", desc = "Toggle file tree" }
+  },
+  config = function()
+    vim.g.loaded_netrw = 1
+    vim.g.loaded_netrwPlugin = 1
+
+    -- 高亮配置
+    vim.cmd([[
+      hi NvimTreeExecFile    guifg=#ffa0a0
+      hi NvimTreeSymlink     guifg=Yellow gui=italic
+    ]])
+
+    require("nvim-tree").setup({
+      sort = { sorter = "case_sensitive" },
+      view = {
+        width = 30,
+        side = "left",  -- 窗口位置[4](@ref)
+        number = false  -- 禁用行号
+      },
+       filesystem_watchers = {
+        enable = false,  -- 禁用文件系统监听
+      },
+      renderer = {
+        indent_width = 2,
+        group_empty = true,
+        icons = {
+          git_placement = "before",
+          show = { file = true, folder = true, git = true }
+        }
+      },
+      git = { enable = true },
+      actions = {
+        open_file = { quit_on_open = false }
+      },
+      --on_attach = function(bufnr)  -- 自定义快捷键
+      --  local api = require("nvim-tree.api")
+      --  vim.keymap.set("n", "<CR>", api.node.open.edit, { buffer = bufnr })
+  --	-- 空格键打开文件
+      --	vim.keymap.set("n", "<Space>", api.node.open.edit, { buffer = bufnr })
+      --end
+ -- 当仅剩 nvim-tree 窗口时自动退出
+   })
+  end
+}
+
+-- manual
+--[[
+`<C-]>`           CD                         |nvim-tree-api.tree.change_root_to_node()|
+`<C-e>`           Open: In Place             |nvim-tree-api.node.open.replace_tree_buffer()|
+`<C-k>`           Info                       |nvim-tree-api.node.show_info_popup()|
+`<C-r>`           Rename: Omit Filename      |nvim-tree-api.fs.rename_sub()|
+`<C-t>`           Open: New Tab              |nvim-tree-api.node.open.tab()|
+`<C-v>`           Open: Vertical Split       |nvim-tree-api.node.open.vertical()|
+`<C-x>`           Open: Horizontal Split     |nvim-tree-api.node.open.horizontal()|
+`<BS>`            Close Directory            |nvim-tree-api.node.navigate.parent_close()|
+`<CR>`            Open                       |nvim-tree-api.node.open.edit()|
+`<Tab>`           Open Preview               |nvim-tree-api.node.open.preview()|
+`>`               Next Sibling               |nvim-tree-api.node.navigate.sibling.next()|
+`<`               Previous Sibling           |nvim-tree-api.node.navigate.sibling.prev()|
+`.`               Run Command                |nvim-tree-api.node.run.cmd()|
+`-`               Up                         |nvim-tree-api.tree.change_root_to_parent()|
+`a`               Create File Or Directory   |nvim-tree-api.fs.create()|
+`bd`              Delete Bookmarked          |nvim-tree-api.marks.bulk.delete()|
+`bt`              Trash Bookmarked           |nvim-tree-api.marks.bulk.trash()|
+`bmv`             Move Bookmarked            |nvim-tree-api.marks.bulk.move()|
+`B`               Toggle Filter: No Buffer   |nvim-tree-api.tree.toggle_no_buffer_filter()|
+`c`               Copy                       |nvim-tree-api.fs.copy.node()|
+`C`               Toggle Filter: Git Clean   |nvim-tree-api.tree.toggle_git_clean_filter()|
+`[c`              Prev Git                   |nvim-tree-api.node.navigate.git.prev()|
+`]c`              Next Git                   |nvim-tree-api.node.navigate.git.next()|
+`d`               Delete                     |nvim-tree-api.fs.remove()|
+`D`               Trash                      |nvim-tree-api.fs.trash()|
+`E`               Expand All                 |nvim-tree-api.tree.expand_all()|
+`e`               Rename: Basename           |nvim-tree-api.fs.rename_basename()|
+`]e`              Next Diagnostic            |nvim-tree-api.node.navigate.diagnostics.next()|
+`[e`              Prev Diagnostic            |nvim-tree-api.node.navigate.diagnostics.prev()|
+`F`               Live Filter: Clear         |nvim-tree-api.live_filter.clear()|
+`f`               Live Filter: Start         |nvim-tree-api.live_filter.start()|
+`g?`              Help                       |nvim-tree-api.tree.toggle_help()|
+`gy`              Copy Absolute Path         |nvim-tree-api.fs.copy.absolute_path()|
+`ge`              Copy Basename              |nvim-tree-api.fs.copy.basename()|
+`H`               Toggle Filter: Dotfiles    |nvim-tree-api.tree.toggle_hidden_filter()|
+`I`               Toggle Filter: Git Ignore  |nvim-tree-api.tree.toggle_gitignore_filter()|
+`J`               Last Sibling               |nvim-tree-api.node.navigate.sibling.last()|
+`K`               First Sibling              |nvim-tree-api.node.navigate.sibling.first()|
+`L`               Toggle Group Empty         |nvim-tree-api.node.open.toggle_group_empty()|
+`M`               Toggle Filter: No Bookmark |nvim-tree-api.tree.toggle_no_bookmark_filter()|
+`m`               Toggle Bookmark            |nvim-tree-api.marks.toggle()|
+`o`               Open                       |nvim-tree-api.node.open.edit()|
+`O`               Open: No Window Picker     |nvim-tree-api.node.open.no_window_picker()|
+`p`               Paste                      |nvim-tree-api.fs.paste()|
+`P`               Parent Directory           |nvim-tree-api.node.navigate.parent()|
+`q`               Close                      |nvim-tree-api.tree.close()|
+`r`               Rename                     |nvim-tree-api.fs.rename()|
+`R`               Refresh                    |nvim-tree-api.tree.reload()|
+`s`               Run System                 |nvim-tree-api.node.run.system()|
+`S`               Search                     |nvim-tree-api.tree.search_node()|
+`u`               Rename: Full Path          |nvim-tree-api.fs.rename_full()|
+`U`               Toggle Filter: Hidden      |nvim-tree-api.tree.toggle_custom_filter()|
+`W`               Collapse All               |nvim-tree-api.tree.collapse_all()|
+`x`               Cut                        |nvim-tree-api.fs.cut()|
+`y`               Copy Name                  |nvim-tree-api.fs.copy.filename()|
+`Y`               Copy Relative Path         |nvim-tree-api.fs.copy.relative_path()|
+`<2-LeftMouse>`   Open                       |nvim-tree-api.node.open.edit()|
+`<2-RightMouse>`  CD                         |nvim-tree-api.tree.change_root_to_node()|
+]]--
+-- lua/plugins/path.lua
+return {
+  {
+    "FotiadisM/tabset.nvim",
+    lazy = false,
+    event = "BufRead",
+    config = function()
+      require("tabset").setup({
+        defaults = {
+          tabwidth = 2,
+          expandtab = true,
+        },
+        languages = {
+          python = { tabwidth = 4 },
+          c = { tabwidth = 4 },
+          cpp = { tabwidth = 4 },
+          lua = { tabwidth = 2 },
+          markdown = { tabwidth = 2 },
+          json = { tabwidth = 2 },
+        },
+      })
+    end,
+  },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+      require("nvim-autopairs").setup({})
+      -- 与 cmp 集成
+      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+      local cmp = require("cmp")
+      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+    end,
+  },
+}
+-- Neovim 专用（支持 Tree-sitter 精准解析）
+return {
+  "HiPhish/rainbow-delimiters.nvim",
+  config = function()
+    require("rainbow-delimiters.setup")({
+      strategy = { global = require("rainbow-delimiters").strategy["global"] },
+      highlight = { "#FF0000", "#00FF00", "#0000FF" }  -- 自定义颜色
+    })
+  end
+}
+return {
+	"petertriho/nvim-scrollbar",
+	lazy = false ,
+	config = function ()
+	require("scrollbar").setup({
+	})
+end
+	}
+return {
+	'simrat39/symbols-outline.nvim',
+	lazy = false,
+	keys = {
+		{ "<F9>", ":SymbolsOutline<CR>", desc = "Toggle Symbols outline" }
+	},
+	opts = {
+		highlight_hovered_item = true,
+		show_guides = true,
+		auto_preview = false,
+		position = 'right',
+		relative_width = true,
+		width = 25,
+		auto_close = false,
+		show_numbers = false,
+		show_relative_numbers = false,
+		show_symbol_details = true,
+		preview_bg_highlight = 'Pmenu',
+		autofold_depth = nil,
+		auto_unfold_hover = true,
+		fold_markers = { '', '' },
+		wrap = false,
+		keymaps = { -- These keymaps can be a string or a table for multiple keys
+			close = {"<Esc>", "q"},
+			goto_location = "<Cr>",
+			focus_location = "o",
+			hover_symbol = "<C-space>",
+			toggle_preview = "K",
+			rename_symbol = "r",
+			code_actions = "a",
+			fold = "h",
+			unfold = "l",
+			fold_all = "W",
+			unfold_all = "E",
+			fold_reset = "R",
+		},
+		lsp_blacklist = {},
+		symbol_blacklist = {},
+		symbols = {
+			File = { icon = "", hl = "@text.uri" },
+			Module = { icon = "", hl = "@namespace" },
+			Namespace = { icon = "", hl = "@namespace" },
+			Package = { icon = "", hl = "@namespace" },
+			Class = { icon = "𝓒", hl = "@type" },
+			Method = { icon = "ƒ", hl = "@method" },
+			Property = { icon = "", hl = "@method" },
+			Field = { icon = "", hl = "@field" },
+			Constructor = { icon = "", hl = "@constructor" },
+			Enum = { icon = "ℰ", hl = "@type" },
+			Interface = { icon = "ﰮ", hl = "@type" },
+			Function = { icon = "", hl = "@function" },
+			Variable = { icon = "", hl = "@constant" },
+			Constant = { icon = "", hl = "@constant" },
+			String = { icon = "𝓐", hl = "@string" },
+			Number = { icon = "#", hl = "@number" },
+			Boolean = { icon = "⊨", hl = "@boolean" },
+			Array = { icon = "", hl = "@constant" },
+			Object = { icon = "⦿", hl = "@type" },
+			Key = { icon = "🔐", hl = "@type" },
+			Null = { icon = "NULL", hl = "@type" },
+			EnumMember = { icon = "", hl = "@field" },
+			Struct = { icon = "𝓢", hl = "@type" },
+			Event = { icon = "🗲", hl = "@type" },
+			Operator = { icon = "+", hl = "@operator" },
+			TypeParameter = { icon = "𝙏", hl = "@parameter" },
+			Component = { icon = "", hl = "@function" },
+			Fragment = { icon = "", hl = "@constant" },
+		},
+	},
+
+	config = function ()
+		require("symbols-outline").setup()
+	end
+}
+
+return {
+  'nvim-telescope/telescope.nvim',
+  tag = '0.1.8',
+  lazy = false,
+  dependencies = { 'nvim-lua/plenary.nvim' },
+  config = function()
+    local builtin = require('telescope.builtin')  -- 局部化模块
+    require('telescope').setup({})  -- 基础配置，可按需扩展[1,5](@ref)
+
+    -- 键位映射
+    vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+    vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+    vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+    vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+  end
+}
+return{
+	lazy = false,
+	"catppuccin/nvim",
+	'shaunsingh/solarized.nvim',
+	'KeitaNakamura/neodark.vim',
+	'daschw/leaf.nvim',
+	'rafamadriz/neon',
+	'flazz/vim-colorschemes'
+}
+return {
+	"folke/which-key.nvim",
+	lazy = false, 
+	event = "VeryLazy",
+	opts = {
+		-- your configuration comes here
+		-- or leave it empty to use the default settings
+		-- refer to the configuration section below
+	},
+	keys = {
+		{
+			"<leader>?",
+			function()
+				require("which-key").show({ global = false })
+			end,
+			desc = "Buffer Local Keymaps (which-key)",
+		},
+	},
+
+}

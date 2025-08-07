@@ -1,5 +1,4 @@
 return {
-  {
     "octol/vim-cpp-enhanced-highlight",
     ft = { "cpp", "c", "objc", "objcpp" }, -- 仅对 C/C++ 文件加载
     init = function()
@@ -8,5 +7,4 @@ return {
       vim.g.cpp_member_variable_highlight = 1  -- 高亮成员变量
       vim.g.cpp_experimental_template_highlight = 1 -- 改进模板高亮
     end
-  }
 }

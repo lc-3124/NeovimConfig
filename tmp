@@ -1,5 +1,20 @@
 -- init.lua
 -- By `lc3124`                        
+
+-- 插件颜色主题冲突，配置失效，全局强制指定颜色无奈之举。
+vim.api.nvim_set_hl(0, "BufferLineBufferSelected", {
+  fg = "#7e9cd8",
+  bg = "#1e1e2e",
+  ctermbg = "NONE"  -- 防止终端背景覆盖
+})
+vim.api.nvim_create_autocmd("UIEnter", {
+  once = true,
+  callback = function()
+    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#202E36", force = true })
+    vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#FF00F0", bg = "#202E36", force = true })
+  end
+})
+
 -- 启动Lazy.nvim
 -- 指定插件位置，不存在则clone到本地
 local lazypath = vim.fn.stdpath("data") .. "~/.config/nvim/lazy.nvim"
@@ -21,22 +36,6 @@ require("lazy").setup({
   change_detection = { notify = false },
   checker = { enabled = false },
 })
--- 插件颜色主题冲突，配置失效，全局强制指定颜色无奈之举。
-vim.api.nvim_set_hl(0, "BufferLineBufferSelected", {
-  fg = "#7e9cd8",
-  bg = "#1e1e2e",
-  ctermbg = "NONE"  -- 防止终端背景覆盖
-})
-vim.api.nvim_create_autocmd("UIEnter", {
-  once = true,
-  callback = function()
-    vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#202E36", force = true })
-    vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#FF00F0", bg = "#202E36", force = true })
-  end
-})
-
--- vim 心跳速度
-vim.o.updatetime = 300  -- 单位是毫秒
 
 -- 颜色主题设置
 vim.cmd[[colorscheme neodark]]

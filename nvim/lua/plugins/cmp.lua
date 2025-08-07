@@ -68,4 +68,20 @@ return {
       require("luasnip.loaders.from_vscode").lazy_load()
     end,
   },
+  {
+    "ray-x/lsp_signature.nvim",
+    event = "InsertEnter",
+    config = function()
+      require("lsp_signature").setup({
+        bind = true,               -- 自动绑定到Insert模式
+        hint_enable = true,         -- 启用虚拟文本提示
+        handler_opts = {
+          border = "rounded",       -- 浮动窗口圆角边框
+        },
+        zindex = 50,                -- 避免被补全窗口遮挡
+        fix_pos = true,             -- 固定提示窗口位置
+        toggle_key = "<C-s>",       -- 手动切换签名提示的快捷键（Insert模式）
+      })
+    end
+  }
 }
