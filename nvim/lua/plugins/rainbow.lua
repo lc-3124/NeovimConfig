@@ -1,8 +1,9 @@
 return{
   {
+    -- 暂时用这个，之后安装nvim treesitter
   "luochen1990/rainbow",
   lazy = false,
-  config = function()
+  init = function()
     vim.g.rainbow_active = 1
     -- 自定义颜色（Gruvbox 主题示例）
     vim.cmd([[
