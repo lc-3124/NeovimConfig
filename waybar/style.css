@@ -1,0 +1,85 @@
+* {
+  font-family: "Ubuntu Nerd Font";
+  font-size: 13px; /* 调小字体 */
+  min-height: 0;
+  color: #c0c0ff;
+}
+
+/* 整体窗口 */
+window#waybar {
+  background: rgba(15, 15, 20, 0.65);
+  border: 2px solid rgba(80, 200, 255, 0.5);
+  border-radius: 13px;
+  box-shadow: 0 0 15px rgba(80, 200, 255, 0.3);
+}
+
+/* Workspace 按钮 - 更圆 */
+#workspaces button {
+  padding: 1 1px;
+  margin: 2px 2px;
+  border-radius: 90%; /* 圆形按钮 */
+  min-width: 22px;
+  min-height: 22px;
+  background: rgba(30, 30, 60, 0.3);
+  color: #80c8ff;
+  text-shadow: 0 0 2px rgba(128, 200, 255, 0.8);
+  border: 1px solid rgba(128, 200, 255, 0.3);
+}
+
+/* 激活 workspace */
+#workspaces button.active {
+  color: #ffffff;
+  background: rgba(128, 200, 255, 0.2);
+  border: 1px solid #50c8ff;
+}
+
+/* Taskbar 程序按钮 */
+#taskbar button {
+  padding: 0 10px;
+  margin: 3px 4px;
+  border-radius: 10px;
+  background: rgba(30, 30, 60, 0.25);
+  color: #c0c0ff;
+  text-shadow: 0 0 2px rgba(128, 200, 255, 0.5);
+}
+
+#taskbar button.focused {
+  border: 1px solid #50c8ff;
+  background: rgba(80, 200, 255, 0.15);
+}
+
+/* 模块美化 */
+#tray, #network, #pulseaudio, #temperature, #cpu, #memory, #battery, #clock {
+  padding: 0 8px;
+  margin: 4px 4px;
+  border-radius: 10px;
+  background: rgba(30, 30, 60, 0.25);
+  border: 1px solid rgba(128, 200, 255, 0.2);
+  text-shadow: 0 0 2px rgba(128, 200, 255, 0.5);
+}
+
+/* 温度状态 */
+#temperature.warning { color: #f0c674; }
+#temperature.critical { color: #ff6a6a; }
+
+/* 电池状态 */
+#battery.warning { color: #ffffff; background: rgba(182,45,102,0.3); }
+#battery.charging { color: #50c8ff; }
+
+/* 网络断开 */
+#network.disconnected { color: #ff4c4c; }
+
+/* Hover glow 特效 */
+#workspaces button:hover,
+#taskbar button:hover,
+#tray:hover,
+#network:hover,
+#pulseaudio:hover,
+#cpu:hover,
+#memory:hover,
+#battery:hover,
+#clock:hover {
+  border: 1px solid #50c8ff;
+  box-shadow: 0 0 8px rgba(80, 200, 255, 0.5);
+}
+

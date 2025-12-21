@@ -1,0 +1,55 @@
+{
+  "layer": "bottom",
+  "position": "top",
+  "height": 21,
+  "margin-top": 2,
+  "margin-left": 2,
+  "margin-right": 2,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["wlr/taskbar"],
+  "modules-right": ["tray", "network", "pulseaudio", "temperature", "cpu", "memory", "battery", "clock"],
+
+  "hyprland/workspaces": {
+    "disable-scroll": true,
+    "format": "{icon}",
+    "on-click": "focus",
+    "tooltip": true
+  },
+
+  "wlr/taskbar": {
+    "on-click": "activate",
+    "tooltip": true
+  },
+
+  "tray": { "icon-size": 16, "spacing": 8 },
+  "clock": { "format": " {:%H:%M}", "tooltip-format": "{:%A %Y-%m-%d}" },
+  "cpu": { "format": " {usage}%", "tooltip": true },
+  "memory": { "format": " {used:0.1f}G", "tooltip": true },
+  "temperature": { "critical-threshold": 75, "warning-threshold": 65, "format": " {temperatureC}°C" },
+  "battery": {
+    "bat": "BAT0",
+    "interval": 30,
+    "states": { "good": 80, "warning": 30, "critical": 15 },
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
+    "format-icons": ["","","","",""],
+    "tooltip": true
+  },
+  "network": {
+    "format-wifi": " {essid}",
+    "format-ethernet": "󰈀 Wired",
+    "format-disconnected": "⚠ Offline",
+    "tooltip-format": "Up: {bandwidthUpBits}\nDown: {bandwidthDownBits}"
+  },
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 Muted",
+    "format-icons": {"default":["󰕿","󰖀","󰕾"]},
+    "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+    "tooltip": false
+  }
+}
+
