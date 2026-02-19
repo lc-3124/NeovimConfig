@@ -21,7 +21,7 @@ require("lazy").setup({
   change_detection = { notify = false },
   checker = { enabled = false },
 })
--- 插件颜色主题冲突，配置失效，全局强制指定颜色无奈之举。
+-- 插件颜色主题冲突，配置失效，全局强制指定颜色 --TODO:硬编码是无奈之举，之后要修复。
 vim.api.nvim_set_hl(0, "BufferLineBufferSelected", {
   fg = "#7e9cd8",
   bg = "#1e1e2e",
