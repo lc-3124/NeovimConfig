@@ -1,8 +1,8 @@
 {
   "layer": "bottom",
   "position": "top",
-  "height": 21,
-  "margin-top": 2,
+  "height": 16,
+  "margin-top": 1,
   "margin-left": 2,
   "margin-right": 2,
 
@@ -22,18 +22,38 @@
     "tooltip": true
   },
 
-  "tray": { "icon-size": 16, "spacing": 8 },
-  "clock": { "format": " {:%H:%M}", "tooltip-format": "{:%A %Y-%m-%d}" },
-  "cpu": { "format": " {usage}%", "tooltip": true },
-  "memory": { "format": " {used:0.1f}G", "tooltip": true },
-  "temperature": { "critical-threshold": 75, "warning-threshold": 65, "format": " {temperatureC}°C" },
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  },
+  "clock": {
+    "format": " {:%H:%M}",
+    "tooltip-format": "{:%A %Y-%m-%d}"
+  },
+  "cpu": {
+    "format": " {usage}%",
+    "tooltip": true
+  },
+  "memory": {
+    "format": " {used:0.1f}G",
+    "tooltip": true
+  },
+  "temperature": {
+    "critical-threshold": 75,
+    "warning-threshold": 65,
+    "format": " {temperatureC}°C"
+  },
   "battery": {
     "bat": "BAT0",
     "interval": 30,
-    "states": { "good": 80, "warning": 30, "critical": 15 },
+    "states": {
+      "good": 80,
+      "warning": 30,
+      "critical": 15
+    },
     "format": "{icon} {capacity}%",
     "format-charging": " {capacity}%",
-    "format-icons": ["","","","",""],
+    "format-icons": ["", "", "", "", ""],
     "tooltip": true
   },
   "network": {
@@ -45,11 +65,12 @@
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-muted": "󰝟 Muted",
-    "format-icons": {"default":["󰕿","󰖀","󰕾"]},
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
     "on-click": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
     "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
     "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
     "tooltip": false
   }
 }
-
