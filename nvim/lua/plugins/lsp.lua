@@ -87,11 +87,6 @@ return {
       local lspconfig = require('lspconfig')
       local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
-      -- 禁用 emmylua_ls
-      lspconfig.emmylua_ls.setup({
-        enabled = false -- 明确禁用
-      })
-
       -- Lua 特殊配置
       lspconfig.lua_ls.setup {
         capabilities = capabilities,

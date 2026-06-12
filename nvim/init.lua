@@ -1,8 +1,13 @@
 -- init.lua
 -- By `lc3124`                        
+--
+-- 屏蔽无足轻重的报错
+-- 屏蔽所有 deprecated 警告
+vim.deprecate = function() end
+
 -- 启动Lazy.nvim
 -- 指定插件位置，不存在则clone到本地
-local lazypath = vim.fn.stdpath("data") .. "~/.config/nvim/lazy.nvim"
+local lazypath = vim.fn.stdpath("data") .. "lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
