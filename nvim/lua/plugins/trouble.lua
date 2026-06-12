@@ -22,10 +22,7 @@ return {
     modes = {
       preview = {
         mode = "diagnostics",
-        preview = {
-          type = "main",
-          scratch = true,
-        },
+        preview = { type = "main", scratch = true },
       },
     },
   },

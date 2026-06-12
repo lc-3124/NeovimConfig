@@ -9,10 +9,7 @@ return {
     vim.g.loaded_netrwPlugin = 1
     require("nvim-tree").setup({
       sort = { sorter = "case_sensitive" },
-      view = {
-        width = 30,
-        side = "left",
-      },
+      view = { width = 30, side = "left" },
       renderer = {
         indent_width = 2,
         group_empty = true,
@@ -21,13 +18,9 @@ return {
           show = { file = true, folder = true, git = true },
         },
       },
-      filesystem_watchers = {
-        enable = false,
-      },
+      filesystem_watchers = { enable = false },
       git = { enable = true },
-      actions = {
-        open_file = { quit_on_open = false },
-      },
+      actions = { open_file = { quit_on_open = false } },
     })
   end,
 }

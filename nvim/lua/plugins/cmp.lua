@@ -10,6 +10,7 @@ return {
       "L3MON4D3/LuaSnip",
       "rafamadriz/friendly-snippets",
       "ray-x/lsp_signature.nvim",
+      "windwp/nvim-autopairs",
     },
     config = function()
       local cmp = require("cmp")
@@ -19,9 +20,7 @@ return {
 
       cmp.setup({
         snippet = {
-          expand = function(args)
-            luasnip.lsp_expand(args.body)
-          end,
+          expand = function(args) luasnip.lsp_expand(args.body) end,
         },
         mapping = cmp.mapping.preset.insert({
           ["<C-b>"] = cmp.mapping.scroll_docs(-4),
@@ -64,6 +63,9 @@ return {
         fix_pos = true,
         toggle_key = "<C-s>",
       })
+
+      local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+      cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
     end,
   },
 }

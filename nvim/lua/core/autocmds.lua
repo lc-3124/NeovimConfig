@@ -8,9 +8,7 @@ autocmd("InsertLeave", {
   group = vim.api.nvim_create_augroup("FcitxConfig", {}),
   pattern = "*",
   callback = function()
-    if fcitx_available() then
-      vim.fn.system("fcitx5-remote -c")
-    end
+    if fcitx_available() then vim.fn.system("fcitx5-remote -c") end
   end,
 })
 
@@ -18,9 +16,7 @@ autocmd("InsertEnter", {
   group = vim.api.nvim_create_augroup("FcitxConfig", {}),
   pattern = "*",
   callback = function()
-    if fcitx_available() and vim.v.fcitx5state == "2" then
-      vim.fn.system("fcitx5-remote -o")
-    end
+    if fcitx_available() and vim.v.fcitxstate == "2" then vim.fn.system("fcitx5-remote -o") end
   end,
 })
 

@@ -29,7 +29,7 @@
   "clock": {
     "format": " {:%H:%M}",
     "tooltip-format": "{:%A %Y-%m-%d}",
-    "on-click": "gnome-calendar || thunderbird",
+    "on-click": "sh -c 'gnome-calendar || thunderbird'",
     "tooltip": true
   },
   "cpu": {

@@ -12,9 +12,7 @@ return {
     },
     update_debounce = 200,
     current_line_blame = false,
-    preview_config = {
-      border = "rounded",
-    },
+    preview_config = { border = "rounded" },
     on_attach = function(bufnr)
       local gs = package.loaded.gitsigns
       local map = function(mode, lhs, rhs, opts)

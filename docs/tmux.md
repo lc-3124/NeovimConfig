@@ -6,7 +6,7 @@
 tmux/
 ├── .tmux.conf              # 主配置文件
 ├── install.sh              # 一键安装脚本
-├── TMUX_README.md          # 本手册
+├── docs/tmux.md            # 本手册（详见项目根目录 docs/）
 └── plugins/                # TPM 插件（预装）
     ├── tpm/                # Tmux Plugin Manager
     ├── tmux-sensible/      # 通用优化

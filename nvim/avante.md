@@ -19,6 +19,6 @@
 
 ## 注意事项
 
-- 快捷键使用 `<Space>` 作为 leader 键
+- 快捷键使用 `\` 作为 leader 键
 - 不要修改 lazy-lock.json 的锁版本
 - API keys 通过环境变量设置（DEEPSEEK_API_KEY、TAVILY_API_KEY）
