@@ -1,8 +1,14 @@
 return {
-  'nvim-lualine/lualine.nvim',
-    lazy = false,
-  dependencies = { 'nvim-tree/nvim-web-devicons' },
+  "nvim-lualine/lualine.nvim",
+  dependencies = { "nvim-tree/nvim-web-devicons" },
   config = function()
-    require('lualine').setup()
-  end
+    require("lualine").setup({
+      options = {
+        theme = "tokyonight",
+        globalstatus = true,
+        component_separators = { left = "", right = "" },
+        section_separators = { left = "", right = "" },
+      },
+    })
+  end,
 }

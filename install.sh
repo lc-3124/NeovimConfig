@@ -1,16 +1,14 @@
 #!/bin/bash
 set -e
 
-# ========= 基础变量 =========
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG_DIR="$HOME/.config"
 BACKUP_SUFFIX=".BAK.$(date +%s)"
 
-echo "== Dotfiles installer =="
+echo "== Dotfiles Installer =="
 echo "Source: $SCRIPT_DIR"
 echo
 
-# ========= 工具函数 =========
 link_config() {
     local name="$1"
     local source="$SCRIPT_DIR/$name"
@@ -18,21 +16,16 @@ link_config() {
 
     echo "[*] Processing $name"
 
-    if [ ! -e "$source" ]; then
+    if [ ! -d "$source" ]; then
         echo "    [!] Source not found: $source"
         return
     fi
 
     if [ -L "$target" ]; then
-        echo "    - Removing existing symlink"
         rm "$target"
-
     elif [ -d "$target" ]; then
-        echo "    - Backing up existing directory"
         mv "$target" "$target$BACKUP_SUFFIX"
-
     elif [ -e "$target" ]; then
-        echo "    - Backing up existing file"
         mv "$target" "$target$BACKUP_SUFFIX"
     fi
 
@@ -41,30 +34,44 @@ link_config() {
     echo
 }
 
-# ========= 开始安装 =========
 mkdir -p "$CONFIG_DIR"
 
 link_config hypr
 link_config nvim
 link_config waybar
 
-# tmux 是特殊的（~/.tmux.conf）
-TMUX_SOURCE="$SCRIPT_DIR/tmux/tmux.conf"
-TMUX_TARGET="$HOME/.tmux.conf"
-
+# tmux 特殊处理：~/.tmux.conf + ~/.tmux/plugins
 echo "[*] Processing tmux"
-if [ -f "$TMUX_SOURCE" ]; then
-    if [ -L "$TMUX_TARGET" ]; then
-        rm "$TMUX_TARGET"
-    elif [ -f "$TMUX_TARGET" ]; then
-        mv "$TMUX_TARGET" "$TMUX_TARGET$BACKUP_SUFFIX"
+TMUX_SOURCE_CONF="$SCRIPT_DIR/tmux/.tmux.conf"
+TMUX_TARGET_CONF="$HOME/.tmux.conf"
+TMUX_SOURCE_PLUGINS="$SCRIPT_DIR/tmux/plugins"
+TMUX_TARGET_PLUGINS="$HOME/.tmux/plugins"
+
+if [ -f "$TMUX_SOURCE_CONF" ]; then
+    if [ -L "$TMUX_TARGET_CONF" ]; then
+        rm "$TMUX_TARGET_CONF"
+    elif [ -f "$TMUX_TARGET_CONF" ]; then
+        mv "$TMUX_TARGET_CONF" "$TMUX_TARGET_CONF$BACKUP_SUFFIX"
     fi
-    ln -s "$TMUX_SOURCE" "$TMUX_TARGET"
-    echo "    ✓ Linked tmux config"
-else
-    echo "    [!] tmux.conf not found"
+    ln -s "$TMUX_SOURCE_CONF" "$TMUX_TARGET_CONF"
+    echo "    ✓ Linked $TMUX_TARGET_CONF"
 fi
 
+if [ -d "$TMUX_SOURCE_PLUGINS" ]; then
+    mkdir -p "$HOME/.tmux"
+    if [ -L "$TMUX_TARGET_PLUGINS" ]; then
+        rm "$TMUX_TARGET_PLUGINS"
+    elif [ -d "$TMUX_TARGET_PLUGINS" ]; then
+        mv "$TMUX_TARGET_PLUGINS" "$TMUX_TARGET_PLUGINS$BACKUP_SUFFIX"
+    fi
+    ln -s "$TMUX_SOURCE_PLUGINS" "$TMUX_TARGET_PLUGINS"
+    echo "    ✓ Linked tmux plugins"
+fi
 echo
-echo "== Done =="
 
+echo "== Done =="
+echo
+echo "Post-install:"
+echo "  tmux: tmux source ~/.tmux.conf"
+echo "  hypr: hyprctl reload"
+echo "  waybar: killall waybar && waybar &"
