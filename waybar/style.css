@@ -1,124 +1,256 @@
+/* =============================================================================
+ * Waybar — TokyoNight Storm · 毛玻璃 · 动画
+ * ============================================================================= */
+
+@define-color bg        rgba(36, 40, 59, 0.75);
+@define-color bg2       rgba(41, 46, 66, 0.6);
+@define-color fg        #c0caf5;
+@define-color fg2       #a9b1d6;
+@define-color blue      #7aa2f7;
+@define-color cyan      #7dcfff;
+@define-color green     #9ece6a;
+@define-color yellow    #e0af68;
+@define-color magenta   #bb9af7;
+@define-color red       #f7768e;
+@define-color orange    #ff9e64;
+@define-color border    rgba(122, 162, 247, 0.15);
+
 * {
-  font-family: "Ubuntu Nerd Font", "Font Awesome 6 Free";
-  font-size: 12px;
+  font-family: "JetBrains Mono Nerd Font", "Ubuntu Nerd Font", sans-serif;
+  font-size: 13px;
   min-height: 0;
-  color: #cdd6f4;
+  color: @fg;
   border: none;
   border-radius: 0;
 }
 
-/* 整体窗口 */
+/* ── 主窗口 ─────────────────────────────────────────────────── */
 window#waybar {
-  background: rgba(24, 24, 37, 0.8);
-  border: 1px solid rgba(137, 180, 250, 0.15);
-  border-radius: 12px;        /* 圆角稍微缩小一点，配合更扁的高度 */
-  margin: 0px 0px;            /* 上下边距减小，左右也略微收窄 */
+  background: transparent;
 }
 
-/* ===== Workspace 按钮 ===== */
+window#waybar > box {
+  background: @bg;
+  border: 1px solid @border;
+  border-radius: 14px;
+  margin: 0 4px;
+  padding: 0 8px;
+  transition: background 0.3s ease;
+}
+
+/* ── 工作区 ─────────────────────────────────────────────────── */
 #workspaces {
-  margin-left: 2px;
+  margin: 0 2px;
 }
 
 #workspaces button {
-  padding: 0 6px;
-  min-width: 18px;
-  min-height: 16px;
-  color: #cdd6f4;
-  background: rgba(49, 50, 68, 0.5);
-  border: 1px solid rgba(137, 180, 250, 0.2);
-  border-radius: 20px;        /* 极度圆润，胶囊感 */
-  transition: all 0.2s ease;
-}
-
-#workspaces button.active {
-  color: #cdd6f4;
-  background: rgba(137, 180, 250, 0.2);
-  border-color: rgba(137, 180, 250, 0.4);
+  padding: 2px 8px;
+  min-width: 24px;
+  min-height: 24px;
+  color: @fg2;
+  background: transparent;
+  border: none;
+  border-radius: 12px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 #workspaces button:hover {
-  background: rgba(137, 180, 250, 0.15);
+  background: rgba(122, 162, 247, 0.15);
+  transform: translateY(-1px) scale(1.08);
 }
 
-/* ===== 任务栏 ===== */
-#taskbar {
-  margin: 0 8px;
+#workspaces button.active {
+  color: @bg;
+  background: @blue;
+  font-weight: bold;
+  box-shadow: 0 0 12px rgba(122, 162, 247, 0.3);
 }
 
-#taskbar button {
+#workspaces button.empty {
+  color: rgba(192, 202, 245, 0.3);
+}
+
+#workspaces button.urgent {
+  color: @red;
+  animation: pulse-red 1.5s ease-in-out infinite;
+}
+
+/* ── Submap ─────────────────────────────────────────────────── */
+#submap {
+  padding: 0 8px;
+  color: @magenta;
+  font-style: italic;
+}
+
+/* ── 窗口标题 ─────────────────────────────────────────────────── */
+#window {
   padding: 0 12px;
-  min-height: 18px;
-  color: #bac2de;
-  background: rgba(49, 50, 68, 0.5);
-  border: 1px solid rgba(137, 180, 250, 0.12);
+  color: @fg2;
+  font-size: 12px;
+}
+
+/* ── 系统分组 ─────────────────────────────────────────────────── */
+#group#system {
+  background: @bg2;
+  border: 1px solid @border;
   border-radius: 10px;
-  margin: 3px 3px;
+  padding: 0 4px;
+  margin: 0 2px;
+}
+
+#group#system > .system-child {
+  padding: 0 8px;
+  margin: 0 1px;
+  border-radius: 8px;
   transition: all 0.2s ease;
 }
 
-#taskbar button.focused {
-  background: rgba(137, 180, 250, 0.2);
-  border-color: rgba(137, 180, 250, 0.35);
-  color: #ffffff;
+#group#system > .system-child:hover {
+  background: rgba(122, 162, 247, 0.1);
+  transform: translateY(-1px);
 }
 
-/* ===== 右侧模块统一容器 ===== */
-#tray,
+#group#system > .system-child:active {
+  transform: scale(0.92);
+}
+
+/* ── 各模块统一样式 ─────────────────────────────────────────── */
 #network,
 #pulseaudio,
-#temperature,
 #cpu,
 #memory,
 #battery,
-#clock {
+#clock,
+#custom-power {
   padding: 0 10px;
-  margin: 4px 3px;
-  color: #cdd6f4;
-  background: rgba(49, 50, 68, 0.5);
-  border: 1px solid rgba(137, 180, 250, 0.12);
-  border-radius: 10px;
+  margin: 2px 1px;
+  border-radius: 8px;
   transition: all 0.2s ease;
 }
 
-/* 托盘无背景更干净 */
-#tray {
-  background: transparent;
-  border: none;
-  padding: 0 6px;
-}
-
-/* ===== 状态颜色 ===== */
-#temperature.warning {
-  color: #f9e2af;
-}
-#temperature.critical {
-  color: #f38ba8;
-}
-
-#battery.warning {
-  color: #f9e2af;
-}
-#battery.critical {
-  color: #f38ba8;
-}
-#battery.charging {
-  color: #a6e3a1;
-}
-
-#network.disconnected {
-  color: #f38ba8;
-}
-
-/* ===== 鼠标悬停微光 ===== */
-#workspaces button:hover,
-#taskbar button:hover,
 #network:hover,
 #pulseaudio:hover,
 #cpu:hover,
 #memory:hover,
 #battery:hover,
-#clock:hover {
-  background: rgba(137, 180, 250, 0.12);
-  border-color: rgba(137, 180, 250, 0.35);
+#clock:hover,
+#custom-power:hover {
+  background: rgba(122, 162, 247, 0.1);
+  transform: translateY(-1px);
+}
+
+#network:active,
+#pulseaudio:active,
+#cpu:active,
+#memory:active,
+#battery:active,
+#clock:active {
+  transform: scale(0.95);
+}
+
+/* ── Tray ────────────────────────────────────────────────────── */
+#tray {
+  padding: 0 4px;
+  background: transparent;
+  border: none;
+}
+
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+  -gtk-icon-effect: highlight;
+}
+
+/* ── Clock ───────────────────────────────────────────────────── */
+#clock {
+  font-weight: bold;
+  min-width: 60px;
+}
+
+/* ── 电源菜单 ─────────────────────────────────────────────────── */
+#custom-power {
+  font-size: 15px;
+  font-weight: bold;
+  padding: 0 12px;
+  color: @red;
+  transition: all 0.25s ease;
+}
+
+#custom-power:hover {
+  background: rgba(247, 118, 142, 0.2);
+  animation: glow-red 1.5s ease-in-out infinite;
+}
+
+#custom-power:active {
+  transform: scale(0.9);
+}
+
+/* ── 状态颜色 ─────────────────────────────────────────────────── */
+#temperature.warning,
+#battery.warning {
+  color: @yellow;
+}
+
+#temperature.critical,
+#battery.critical {
+  color: @red;
+}
+
+#battery.charging {
+  color: @green;
+  animation: pulse-green 2s ease-in-out infinite;
+}
+
+#network.disconnected {
+  color: @red;
+}
+
+/* ── Tooltip ─────────────────────────────────────────────────── */
+tooltip {
+  background: rgba(36, 40, 59, 0.95);
+  border: 1px solid @border;
+  border-radius: 10px;
+  padding: 8px 12px;
+}
+
+tooltip label {
+  color: @fg;
+  font-size: 12px;
+}
+
+/* ══════════════════════════════════════════════════════════════
+ * 动画关键帧
+ * ══════════════════════════════════════════════════════════════ */
+
+@keyframes pulse-red {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(247, 118, 142, 0.4);
+    background: transparent;
+  }
+  50% {
+    box-shadow: 0 0 12px 4px rgba(247, 118, 142, 0.2);
+    background: rgba(247, 118, 142, 0.1);
+  }
+}
+
+@keyframes pulse-green {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(158, 206, 106, 0);
+  }
+  50% {
+    box-shadow: 0 0 10px 2px rgba(158, 206, 106, 0.3);
+  }
+}
+
+@keyframes glow-red {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(247, 118, 142, 0);
+    text-shadow: 0 0 0 rgba(247, 118, 142, 0);
+  }
+  50% {
+    box-shadow: 0 0 8px 2px rgba(247, 118, 142, 0.2);
+    text-shadow: 0 0 8px rgba(247, 118, 142, 0.6);
+  }
 }
