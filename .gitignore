@@ -1,0 +1,4 @@
+# API 密钥（用户私有，不提交）
+zsh/secrets.zsh
+*.local
+.env
