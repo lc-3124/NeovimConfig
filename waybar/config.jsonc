@@ -1,95 +1,52 @@
 {
-  "layer": "top",
+  "layer": "bottom",
   "position": "top",
-  "height": 28,
-  "margin-top": 4,
-  "margin-left": 6,
-  "margin-right": 6,
-  "spacing": 4,
+  "height": 16,
+  "margin-top": 1,
+  "margin-left": 2,
+  "margin-right": 2,
 
-  "modules-left": ["hyprland/workspaces", "hyprland/submap"],
-  "modules-center": ["hyprland/window"],
-  "modules-right": ["tray", "group#system", "clock", "custom/power"],
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["wlr/taskbar"],
+  "modules-right": ["tray", "network", "pulseaudio", "temperature", "cpu", "memory", "battery", "clock"],
 
-  // ===== Workspaces =====
   "hyprland/workspaces": {
     "disable-scroll": true,
     "format": "{icon}",
     "on-click": "focus",
-    "tooltip": true,
-    "persistent-workspaces": {
-      "*": 6
-    }
-  },
-
-  // ===== Submap =====
-  "hyprland/submap": {
-    "format": " ﴑ {}",
-    "tooltip": false
-  },
-
-  // ===== Window Title =====
-  "hyprland/window": {
-    "max-length": 50,
-    "separate": true,
-    "rewrite": {
-      "(.*) — Mozilla Firefox": "🔥 $1",
-      "(.*) - Visual Studio Code": "💻 $1"
-    }
-  },
-
-  // ===== System Group =====
-  "group#system": {
-    "orientation": "horizontal",
-    "drawer": {
-      "transition-duration": 200,
-      "children-class": "system-child"
-    },
-    "modules": [
-      "network",
-      "pulseaudio",
-      "cpu",
-      "memory",
-      "battery"
-    ]
-  },
-
-  "network": {
-    "format-wifi": "",
-    "format-ethernet": "󰈀",
-    "format-disconnected": "⚠",
-    "tooltip-format": "WiFi: {essid}\nIP: {ipaddr}\n {bandwidthDownBytes}  {bandwidthUpBytes}",
-    "on-click": "nm-connection-editor",
-    "on-click-middle": "pavucontrol",
     "tooltip": true
   },
 
-  "pulseaudio": {
-    "format": "{icon}",
-    "format-icons": {
-      "default": ["󰕿", "󰖀", "󰕾"]
-    },
-    "format-muted": "󰝟",
-    "on-click": "pavucontrol",
-    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
-    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+  "wlr/taskbar": {
+    "on-click": "activate",
     "tooltip": true
   },
 
+  "tray": {
+    "icon-size": 16,
+    "spacing": 8
+  },
+  "clock": {
+    "format": " {:%H:%M}",
+    "tooltip-format": "{:%A %Y-%m-%d}",
+    "on-click": "gnome-calendar || thunderbird",
+    "tooltip": true
+  },
   "cpu": {
-    "format": "",
-    "tooltip-format": "CPU: {usage}%",
+    "format": " {usage}%",
     "on-click": "kitty -e htop",
     "tooltip": true
   },
-
   "memory": {
-    "format": "",
-    "tooltip-format": "RAM: {used:0.1f}G / {total:0.1f}G",
+    "format": " {used:0.1f}G",
     "on-click": "kitty -e btop",
     "tooltip": true
   },
-
+  "temperature": {
+    "critical-threshold": 75,
+    "warning-threshold": 65,
+    "format": " {temperatureC}°C"
+  },
   "battery": {
     "bat": "BAT0",
     "interval": 30,
@@ -98,34 +55,29 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "{icon}",
-    "format-charging": "",
+    "format": "{icon} {capacity}%",
+    "format-charging": " {capacity}%",
     "format-icons": ["", "", "", "", ""],
-    "tooltip-format": "Battery: {capacity}%\n{timeTo} {power:.1f}W",
     "on-click": "kitty -e powertop",
     "tooltip": true
   },
-
-  // ===== Tray =====
-  "tray": {
-    "icon-size": 18,
-    "spacing": 6
-  },
-
-  // ===== Clock =====
-  "clock": {
-    "format": " {:%H:%M}",
-    "format-alt": " {:%Y-%m-%d}",
-    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-    "interval": 30,
-    "on-click": "gnome-calendar || thunderbird",
+  "network": {
+    "format-wifi": " {essid}",
+    "format-ethernet": "󰈀 Wired",
+    "format-disconnected": "⚠ Offline",
+    "tooltip-format": "Up: {bandwidthUpBits}\nDown: {bandwidthDownBits}",
+    "on-click": "nm-connection-editor",
     "tooltip": true
   },
-
-  // ===== Power Menu =====
-  "custom/power": {
-    "format": "⏻",
-    "on-click": "$HOME/.config/waybar/scripts/power.sh",
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "󰝟 Muted",
+    "format-icons": {
+      "default": ["󰕿", "󰖀", "󰕾"]
+    },
+    "on-click": "pavucontrol",
+    "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
+    "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
     "tooltip": false
   }
 }
