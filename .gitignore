@@ -2,6 +2,3 @@
 zsh/secrets.zsh
 *.local
 .env
-
-# Hyprland 自动生成的配置（lua 文件优先时此文件被忽略）
-hypr/hyprland.conf
