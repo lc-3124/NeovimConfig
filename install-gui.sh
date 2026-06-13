@@ -86,6 +86,22 @@ if [ -d "$FCITX5_THEME_SOURCE" ]; then
 fi
 echo
 
+# GUI: systemd user drop-ins
+echo "[*] Deploying systemd user overrides"
+SYSTEMD_USER_DIR="$HOME/.config/systemd/user"
+SYSTEMD_SOURCE="$SCRIPT_DIR/systemd/user"
+if [ -d "$SYSTEMD_SOURCE" ]; then
+    find "$SYSTEMD_SOURCE" -type f -name "*.conf" | while read -r f; do
+        relative="${f#$SYSTEMD_SOURCE/}"
+        target="$SYSTEMD_USER_DIR/$relative"
+        mkdir -p "$(dirname "$target")"
+        cp "$f" "$target"
+        echo "    Copied $relative"
+    done
+    systemctl --user daemon-reload 2>/dev/null || true
+fi
+echo
+
 echo "== GUI install complete =="
 echo
 echo "Post-install:"
