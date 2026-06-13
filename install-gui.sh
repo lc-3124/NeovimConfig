@@ -86,6 +86,19 @@ if [ -d "$FCITX5_THEME_SOURCE" ]; then
 fi
 echo
 
+# GUI: Fcitx5 anytalk 密钥配置（从模板，不覆盖已有）
+echo "[*] Deploying fcitx5 anytalk config"
+ANYTALK_TARGET="$CONFIG_DIR/fcitx5/conf/anytalk.conf"
+ANYTALK_TEMPLATE="$SCRIPT_DIR/fcitx5/conf/anytalk.conf.example"
+if [ -f "$ANYTALK_TEMPLATE" ] && [ ! -f "$ANYTALK_TARGET" ]; then
+    cp "$ANYTALK_TEMPLATE" "$ANYTALK_TARGET"
+    echo "    Created anytalk.conf from template"
+    echo "    >>> 请编辑 $ANYTALK_TARGET 填入 AppID / AccessToken / SecretKey"
+elif [ -f "$ANYTALK_TARGET" ]; then
+    echo "    anytalk.conf already exists, skipped"
+fi
+echo
+
 # GUI: systemd user drop-ins
 echo "[*] Deploying systemd user overrides"
 SYSTEMD_USER_DIR="$HOME/.config/systemd/user"
