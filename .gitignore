@@ -2,3 +2,4 @@
 zsh/secrets.zsh
 *.local
 .env
+fcitx5/conf/anytalk.conf
