@@ -106,6 +106,7 @@ link_file "$SCRIPT_DIR/gtk/gtk-3.0/settings.ini" "$CONFIG_DIR/gtk-3.0/settings.i
 link_file "$SCRIPT_DIR/gtk/gtk-3.0/gtk.css" "$CONFIG_DIR/gtk-3.0/gtk.css"
 link_file "$SCRIPT_DIR/gtk/gtk-4.0/settings.ini" "$CONFIG_DIR/gtk-4.0/settings.ini"
 link_file "$SCRIPT_DIR/gtk/Kvantum/kvantum.kvconfig" "$CONFIG_DIR/Kvantum/kvantum.kvconfig"
+link_file "$SCRIPT_DIR/gtk/mimeapps.list" "$CONFIG_DIR/mimeapps.list"
 echo
 
 # GUI: systemd user drop-ins
