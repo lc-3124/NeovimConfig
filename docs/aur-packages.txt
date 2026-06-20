@@ -1,40 +1,38 @@
-adw-gtk-theme-git 6.5.r4.g47922ed-1
-aml-flash-tool 4.9-6
-android-sdk-platform-tools 37.0.0-1
-breeze-plus 6.26.0-1
-catppuccin-sddm-theme-frappe 1.1.2-1
-darkly-bin 0.5.38-1
-fcitx5-anytalk 0.5.2-1
-fcitx5-voice-input-git r25.8962a05-1
-illogical-impulse-audio 1.0-3
-illogical-impulse-backlight 1.0-2
-illogical-impulse-basic 1.0-3
-illogical-impulse-bibata-modern-classic-bin 2.0.6-2
-illogical-impulse-fonts-themes 1.0-6
-illogical-impulse-hyprland 1.0-5
-illogical-impulse-kde 1.0-3
-illogical-impulse-portal 1.0-3
-illogical-impulse-python 1.1-5
-illogical-impulse-quickshell-git 0.1.0.r1-8
-illogical-impulse-screencapture 1.0-2
-illogical-impulse-toolkit 1.0-3
-illogical-impulse-widgets 1.0-7
-jhentai-bin v8.0.13_312-1
-libsoup 2.74.3-4
-linuxqq-nt 5:3.2.29_260528-3
-luckybackup 0.5.0-1
-mmtui 0.2.0-1
-opencode-desktop-bin 1.17.4-1
-oss-browser2 2.1.1-1
-ossutil 1.7.19-1
-otf-space-grotesk 2-2
-ttf-material-symbols-variable-git 4.0.0.r159.g27aa4d49-1
-ttf-readex-pro 1.204-2
-ttf-rubik-vf 2.3.0-3
-ttf-twemoji 17.0.2-3
-wechat-appimage 4.1.1-3
-wlogout 1.2.2-0
-xdg-desktop-portal-termfilechooser-hunkyburrito-git v1.4.2.r0.g9e4de2e-1
-xtop-git r13.7be4d1a-1
-yay-bin 12.6.0-1
-yay-bin-debug 12.6.0-1
+adw-gtk-theme-git
+aml-flash-tool
+android-sdk-platform-tools
+catppuccin-sddm-theme-frappe
+darkly-bin
+fcitx5-anytalk
+fcitx5-voice-input-git
+illogical-impulse-audio
+illogical-impulse-backlight
+illogical-impulse-basic
+illogical-impulse-bibata-modern-classic-bin
+illogical-impulse-fonts-themes
+illogical-impulse-hyprland
+illogical-impulse-portal
+illogical-impulse-python
+illogical-impulse-quickshell-git
+illogical-impulse-screencapture
+illogical-impulse-toolkit
+illogical-impulse-widgets
+jhentai-bin
+libsoup
+linuxqq-nt
+luckybackup
+mmtui
+opencode-desktop-bin
+oss-browser2
+ossutil
+otf-space-grotesk
+ttf-material-symbols-variable-git
+ttf-readex-pro
+ttf-rubik-vf
+ttf-twemoji
+wechat-appimage
+wlogout
+xdg-desktop-portal-termfilechooser-hunkyburrito-git
+xtop-git
+yay-bin
+yay-bin-debug
