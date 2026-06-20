@@ -5,7 +5,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG_DIR="$HOME/.config"
 BACKUP_SUFFIX=".BAK.$(date +%s)"
 
-echo "== GUI Software Installer (hypr, waybar, fcitx5, kitty) =="
+echo "== GUI Software Installer (hypr, waybar, fcitx5, kitty, gtk) =="
 echo
 
 link_config() {
@@ -97,6 +97,15 @@ if [ -f "$ANYTALK_TEMPLATE" ] && [ ! -f "$ANYTALK_TARGET" ]; then
 elif [ -f "$ANYTALK_TARGET" ]; then
     echo "    anytalk.conf already exists, skipped"
 fi
+echo
+
+# GUI: GTK themes
+echo "[*] Deploying GTK theme configs"
+link_file "$SCRIPT_DIR/gtk/gtkrc-2.0" "$HOME/.gtkrc-2.0"
+link_file "$SCRIPT_DIR/gtk/gtk-3.0/settings.ini" "$CONFIG_DIR/gtk-3.0/settings.ini"
+link_file "$SCRIPT_DIR/gtk/gtk-3.0/gtk.css" "$CONFIG_DIR/gtk-3.0/gtk.css"
+link_file "$SCRIPT_DIR/gtk/gtk-4.0/settings.ini" "$CONFIG_DIR/gtk-4.0/settings.ini"
+link_file "$SCRIPT_DIR/gtk/Kvantum/kvantum.kvconfig" "$CONFIG_DIR/Kvantum/kvantum.kvconfig"
 echo
 
 # GUI: systemd user drop-ins
