@@ -41,7 +41,7 @@ yay -S --needed - < docs/aur-packages.txt
 | Tmux | tokyo-night-tmux |
 | Hyprland | Catppuccin Frappe |
 | Waybar | Catppuccin Frappe |
-| GTK | adw-gtk3-dark |
+| GTK | Nordic |
 | Qt | Kvantum MaterialAdw |
 | Kitty | Nord |
 | SDDM | Catppuccin Frappe |
