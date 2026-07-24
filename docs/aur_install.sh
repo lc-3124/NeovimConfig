@@ -1,0 +1,40 @@
+#!/bin/bash
+
+paru -S adw-gtk-theme-git --noconfirm ;
+paru -S aml-flash-tool --noconfirm ;
+paru -S android-sdk-platform-tools --noconfirm ;
+paru -S catppuccin-sddm-theme-frappe --noconfirm ;
+paru -S darkly-bin --noconfirm ;
+paru -S fcitx5-anytalk --noconfirm ;
+paru -S fcitx5-voice-input-git --noconfirm ;
+paru -S illogical-impulse-audio --noconfirm ;
+paru -S illogical-impulse-backlight --noconfirm ;
+paru -S illogical-impulse-basic --noconfirm ;
+paru -S illogical-impulse-bibata-modern-classic-bin --noconfirm ;
+paru -S illogical-impulse-fonts-themes --noconfirm ;
+paru -S illogical-impulse-hyprland --noconfirm ;
+paru -S illogical-impulse-portal --noconfirm ;
+paru -S illogical-impulse-python --noconfirm ;
+paru -S illogical-impulse-quickshell-git --noconfirm ;
+paru -S illogical-impulse-screencapture --noconfirm ;
+paru -S illogical-impulse-toolkit --noconfirm ;
+paru -S illogical-impulse-widgets --noconfirm ;
+paru -S jhentai-bin --noconfirm ;
+paru -S libsoup --noconfirm ;
+paru -S linuxqq-nt --noconfirm ;
+paru -S luckybackup --noconfirm ;
+paru -S mmtui --noconfirm ;
+paru -S opencode-desktop-bin --noconfirm ;
+paru -S oss-browser2 --noconfirm ;
+paru -S ossutil --noconfirm ;
+paru -S otf-space-grotesk --noconfirm ;
+paru -S ttf-material-symbols-variable-git --noconfirm ;
+paru -S ttf-readex-pro --noconfirm ;
+paru -S ttf-rubik-vf --noconfirm ;
+paru -S ttf-twemoji --noconfirm ;
+paru -S wechat-appimage --noconfirm ;
+paru -S wlogout --noconfirm ;
+paru -S xdg-desktop-portal-termfilechooser-hunkyburrito-git --noconfirm ;
+paru -S xtop-git --noconfirm ;
+paru -S yay-bin --noconfirm ;
+paru -S yay-bin-debug --noconfirm

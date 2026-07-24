@@ -1,0 +1,19 @@
+#!/bin/bash
+dir="$HOME/Documents/Pictures/screenshot"
+mkdir -p "$dir"
+file="$dir/$(date +%Y%m%d_%H%M%S).png"
+
+case "${1:-region}" in
+  full)
+    grim "$file"
+    ;;
+  region)
+    grim -g "$(slurp -d)" "$file"
+    ;;
+  focused)
+    grim -g "$(hyprctl activewindow -j | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"')" "$file"
+    ;;
+esac
+
+wl-copy < "$file"
+notify-send -t 2000 "截图已保存" "$(basename "$file")"

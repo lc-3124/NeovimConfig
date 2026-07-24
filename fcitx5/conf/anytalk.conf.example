@@ -1,0 +1,14 @@
+# ============================
+# AnyTalk 语音输入配置模板
+# 重命名为 anytalk.conf 并填入凭据
+# ============================
+
+[ASR]
+Backend=doubao
+AppID=YOUR_APP_ID
+AccessToken=YOUR_ACCESS_TOKEN
+SecretKey=YOUR_SECRET_KEY
+
+# 快捷键
+[Hotkey]
+TriggerKey=F2

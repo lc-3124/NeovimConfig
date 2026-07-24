@@ -1,0 +1,144 @@
+/* =============================================================================
+ * Waybar — TokyoNight Storm · 窗口名 + 媒体 + 音频输出 (居中)
+ * ============================================================================= */
+
+@define-color bg        rgba(24, 24, 37, 0.8);
+@define-color fg        #c0caf5;
+@define-color blue      #7aa2f7;
+@define-color green     #9ece6a;
+@define-color yellow    #e0af68;
+@define-color red       #f7768e;
+@define-color border    rgba(122, 162, 247, 0.15);
+
+* {
+  font-family: "Ubuntu Nerd Font", "Font Awesome 6 Free";
+  font-size: 12px;
+  min-height: 0;
+  color: #cdd6f4;
+  border: none;
+  border-radius: 0;
+}
+
+window#waybar {
+  background: @bg;
+  border: 1px solid @border;
+  border-radius: 12px;
+  margin: 0px 0px;
+}
+
+/* ===== Workspace 按钮 ===== */
+#workspaces {
+  margin-left: 2px;
+}
+
+#workspaces button {
+  padding: 0 6px;
+  min-width: 18px;
+  min-height: 16px;
+  color: @fg;
+  background: rgba(49, 50, 68, 0.5);
+  border: 1px solid @border;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+}
+
+#workspaces button.active {
+  color: #cdd6f4;
+  background: rgba(122, 162, 247, 0.25);
+  border-color: rgba(122, 162, 247, 0.4);
+}
+
+#workspaces button:hover {
+  background: rgba(122, 162, 247, 0.15);
+}
+
+#workspaces button.urgent {
+  color: @red;
+  background: rgba(247, 118, 142, 0.15);
+}
+
+/* ===== 居中模块组 ===== */
+#window,
+#mpris {
+  padding: 0 10px;
+  margin: 4px 3px;
+  color: @fg;
+  background: rgba(49, 50, 68, 0.5);
+  border: 1px solid @border;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+#window:hover,
+#mpris:hover,
+#custom-audio-device:hover {
+  background: rgba(122, 162, 247, 0.12);
+  border-color: rgba(122, 162, 247, 0.35);
+}
+
+/* window 的特殊配色 — 更柔和 */
+#window {
+  color: #a9b1d6;
+}
+
+/* mpris 播放中加亮 */
+#mpris {
+  color: @green;
+}
+
+/* ===== 右侧模块 ===== */
+#tray,
+#network,
+#pulseaudio,
+#temperature,
+#cpu,
+#memory,
+#battery,
+#clock {
+  padding: 0 10px;
+  margin: 4px 3px;
+  color: @fg;
+  background: rgba(49, 50, 68, 0.5);
+  border: 1px solid @border;
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+#tray {
+  background: transparent;
+  border: none;
+  padding: 0 6px;
+}
+
+#network:hover,
+#pulseaudio:hover,
+#temperature:hover,
+#cpu:hover,
+#memory:hover,
+#battery:hover,
+#clock:hover {
+  background: rgba(122, 162, 247, 0.12);
+  border-color: rgba(122, 162, 247, 0.35);
+}
+
+/* ===== 状态颜色 ===== */
+#temperature.warning {
+  color: @yellow;
+}
+#temperature.critical {
+  color: @red;
+}
+
+#battery.warning {
+  color: @yellow;
+}
+#battery.critical {
+  color: @red;
+}
+#battery.charging {
+  color: @green;
+}
+
+#network.disconnected {
+  color: @red;
+}

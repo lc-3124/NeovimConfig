@@ -1,0 +1,23 @@
+vim.opt.number = true
+vim.opt.cursorline = true
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+vim.opt.expandtab = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.softtabstop = -1
+vim.opt.autoindent = true
+vim.opt.scrolloff = 5
+vim.opt.signcolumn = "yes"
+vim.opt.wrap = false
+vim.opt.updatetime = 300
+vim.opt.termguicolors = true
+vim.opt.mouse = "a"
+vim.opt.laststatus = 3
+vim.opt.splitbelow = true
+vim.opt.splitright = true
+vim.opt.list = true
+vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
+vim.opt.pumheight = 10
+vim.opt.completeopt = "menu,menuone,noselect"
+vim.opt.conceallevel = 2
