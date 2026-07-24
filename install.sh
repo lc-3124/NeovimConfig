@@ -8,6 +8,7 @@ echo "Source: $SCRIPT_DIR"
 echo
 echo "⚠️  注意：本脚本不涉及 Wine / Winetricks 的恢复。"
 echo "    Winetricks 已安装列表见 docs/winetricks-list.txt，需手动处理。"
+echo "    蓝牙音频配置见 docs/audio.md，部署后需 systemctl --user restart wireplumber。"
 echo
 
 usage() {

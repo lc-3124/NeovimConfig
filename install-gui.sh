@@ -133,12 +133,23 @@ mkdir -p "$HOME/.local/bin"
 link_file "$SCRIPT_DIR/hypr/scripts/screenshot" "$HOME/.local/bin/screenshot"
 echo
 
+# GUI: WirePlumber 蓝牙音频
+echo "[*] Deploying WirePlumber bluetooth config"
+WP_DIR="$HOME/.config/wireplumber/wireplumber.conf.d"
+WP_SOURCE="$SCRIPT_DIR/wireplumber/51-bluetooth-buffer.conf"
+if [ -f "$WP_SOURCE" ]; then
+    mkdir -p "$WP_DIR"
+    link_file "$WP_SOURCE" "$WP_DIR/51-bluetooth-buffer.conf"
+fi
+echo
+
 echo "== GUI install complete =="
 echo
 echo "Post-install:"
 echo "  hypr:   hyprctl reload"
 echo "  waybar: killall waybar && waybar &"
 echo "  fcitx5: fcitx5 -r"
+echo "  wireplumber: systemctl --user restart wireplumber"
 echo "  screenshot: Print (region), Shift+Print (full), Ctrl+Print (focused)"
 echo
 echo "手动配置："

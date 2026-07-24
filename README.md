@@ -16,6 +16,7 @@ Arch Linux 配置管理项目。通过符号链接（symlink）统一管理桌�
 | `fuzzel/` | Fuzzel 应用启动器 | [docs/hypr.md](docs/hypr.md) |
 | `gtk/` | GTK/Qt 主题（adw-gtk3-dark, Kvantum）及 mimeapps | — |
 | `coding/` | 代码格式化配置（clang-format, lua-ls） | — |
+| `wireplumber/` | WirePlumber 蓝牙音频配置 | [docs/audio.md](docs/audio.md) |
 | `systemd/` | systemd 用户服务 | — |
 | `docs/` | 文档 + 包 + 凭据模板 | 本目录 |
 
