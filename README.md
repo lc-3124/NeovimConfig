@@ -6,18 +6,18 @@ Arch Linux 配置管理项目。通过符号链接（symlink）统一管理桌�
 
 | 目录 | 说明 | 文档 |
 |------|------|------|
-| `nvim/` | Neovim 编辑器 (lazy.nvim) | [docs/neovim.md](docs/neovim.md) |
+| `nvim/` | Neovim 编辑器 (lazy.nvim) | [docs/neovim.md](docs/neovim.md), [docs/avante.md](docs/avante.md) |
 | `tmux/` | Tmux 终端复用器 (TPM) | [docs/tmux.md](docs/tmux.md) |
-| `hypr/` | Hyprland 桌面环境 | — |
-| `waybar/` | Waybar 状态栏配置 | — |
-| `kitty/` | Kitty 终端模拟器 | — |
+| `hypr/` | Hyprland 桌面环境 | [docs/hypr.md](docs/hypr.md) |
+| `waybar/` | Waybar 状态栏配置 | [docs/hypr.md](docs/hypr.md) |
+| `kitty/` | Kitty 终端模拟器 | [docs/hypr.md](docs/hypr.md) |
 | `zsh/` | Zsh shell 配置 | — |
-| `fcitx5/` | Fcitx5 输入法配置 + 豆包语音输入 | — |
-| `fuzzel/` | Fuzzel 应用启动器 | — |
+| `fcitx5/` | Fcitx5 输入法配置 + 豆包语音输入 | [docs/hypr.md](docs/hypr.md) |
+| `fuzzel/` | Fuzzel 应用启动器 | [docs/hypr.md](docs/hypr.md) |
 | `gtk/` | GTK/Qt 主题（adw-gtk3-dark, Kvantum）及 mimeapps | — |
 | `coding/` | 代码格式化配置（clang-format, lua-ls） | — |
 | `systemd/` | systemd 用户服务 | — |
-| `docs/` | 文档 + 包列表 | 本目录 |
+| `docs/` | 文档 + 包 + 凭据模板 | 本目录 |
 
 ## 重装后恢复
 

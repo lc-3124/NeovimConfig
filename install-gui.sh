@@ -140,3 +140,7 @@ echo "  hypr:   hyprctl reload"
 echo "  waybar: killall waybar && waybar &"
 echo "  fcitx5: fcitx5 -r"
 echo "  screenshot: Print (region), Shift+Print (full), Ctrl+Print (focused)"
+echo
+echo "手动配置："
+echo "  Fcitx5 AnyTalk 语音输入 → cp fcitx5/conf/anytalk.conf.example ~/.config/fcitx5/conf/anytalk.conf"
+echo "                           然后填入火山引擎 AppID / AccessToken / SecretKey"

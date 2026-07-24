@@ -128,6 +128,8 @@ echo "== TUI install complete =="
 echo
 echo "Post-install:"
 echo "  tmux: tmux source ~/.tmux.conf"
-echo "  zsh: 重新打开终端或 exec zsh"
+echo "  zsh:  重新打开终端或 exec zsh"
 echo
-echo "API keys: ~/.config/zsh/secrets.zsh"
+echo "手动配置："
+echo "  Shell API 密钥 → cp zsh/secrets.zsh.example ~/.config/zsh/secrets.zsh"
+echo "                  然后填入 DEEPSEEK_API_KEY、TAVILY_API_KEY 等"

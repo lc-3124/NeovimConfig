@@ -41,3 +41,24 @@ case "${1:-all}" in
 esac
 
 echo "== All done =="
+echo
+echo "========================================"
+echo "  安装后手动配置"
+echo "========================================"
+echo
+echo "以下凭据文件不包含在仓库中，需要你在对应目录自行创建或填写："
+echo
+echo "  1. Shell API 密钥"
+echo "     cp zsh/secrets.zsh.example ~/.config/zsh/secrets.zsh"
+echo "     然后编辑填入 DEEPSEEK_API_KEY、TAVILY_API_KEY 等"
+echo "     （此文件已加入 .gitignore，不会泄露）"
+echo
+echo "  2. Fcitx5 AnyTalk 语音输入"
+echo "     cp fcitx5/conf/anytalk.conf.example ~/.config/fcitx5/conf/anytalk.conf"
+echo "     然后填入火山引擎 AppID / AccessToken / SecretKey"
+echo "     （此文件已加入 .gitignore，不会泄露）"
+echo
+echo "  3. Winetricks 组件"
+echo "     如果使用 Wine，用 winetricks 重新安装列表中的组件："
+echo "     cat docs/winetricks-list.txt"
+echo
