@@ -82,6 +82,7 @@ neovim
 networkmanager
 nmap
 nodejs
+nordic-theme-git
 noto-fonts-cjk
 npm
 nwg-look
