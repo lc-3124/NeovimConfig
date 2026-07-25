@@ -10,6 +10,7 @@ Arch Linux 配置管理项目。通过符号链接（symlink）统一管理桌�
 | `tmux/` | Tmux 终端复用器 (TPM) | [docs/tmux.md](docs/tmux.md) |
 | `hypr/` | Hyprland 桌面环境 | [docs/hypr.md](docs/hypr.md) |
 | `waybar/` | Waybar 状态栏配置 | [docs/hypr.md](docs/hypr.md) |
+| `dunst/` | Dunst 通知守护进程 (Catppuccin Frappé) | [docs/dunst.md](docs/dunst.md) |
 | `kitty/` | Kitty 终端模拟器 | [docs/hypr.md](docs/hypr.md) |
 | `zsh/` | Zsh shell 配置 | — |
 | `fcitx5/` | Fcitx5 输入法配置 + 豆包语音输入 | [docs/hypr.md](docs/hypr.md) |

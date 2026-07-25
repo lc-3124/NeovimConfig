@@ -5,7 +5,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG_DIR="$HOME/.config"
 BACKUP_SUFFIX=".BAK.$(date +%s)"
 
-echo "== GUI Software Installer (hypr, waybar, fcitx5, kitty, gtk) =="
+echo "== GUI Software Installer (hypr, waybar, dunst, fcitx5, kitty, gtk) =="
 echo
 echo "⚠️  本脚本不恢复 Wine/Winetricks，参见 docs/winetricks-list.txt"
 echo
@@ -61,6 +61,9 @@ link_config hypr
 
 # GUI: Waybar
 link_config waybar
+
+# GUI: Dunst (notification daemon)
+link_config dunst
 
 # GUI: Kitty (terminal emulator)
 link_config kitty
@@ -147,6 +150,7 @@ echo "== GUI install complete =="
 echo
 echo "Post-install:"
 echo "  hypr:   hyprctl reload"
+echo "  dunst:  killall dunst; dunst &"
 echo "  waybar: killall waybar && waybar &"
 echo "  fcitx5: fcitx5 -r"
 echo "  wireplumber: systemctl --user restart wireplumber"
