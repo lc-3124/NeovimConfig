@@ -78,6 +78,7 @@ hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("~/.config/hypr/scripts/cycle-wallpap
 hl.bind("F2",                         hl.dsp.exec_cmd("busctl --user call org.fcitx.Fcitx5.AnyTalk.Overlay /overlay org.fcitx.Fcitx5.AnyTalk.Overlay ToggleRecording"))
 hl.bind(mainMod .. " + SHIFT + Q",    hl.dsp.exec_cmd("busctl --user call org.fcitx.Fcitx5.AnyTalk.Overlay /overlay org.fcitx.Fcitx5.AnyTalk.Overlay ToggleRecording"))
 
--- 光标缩放（通过 hyprctl 热修改）------------------------------------------
-hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd([[hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.1')]]))
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd([[hyprctl -q keyword cursor:zoom_factor $(hyprctl getoption cursor:zoom_factor -j | jq '(.float * 0.9) | if . < 1 then 1 else . end')]]))
+-- 光标缩放（通过 hyprctl eval 热修改）----------------------------------------
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd([[NEW_VAL=$(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.1'); hyprctl eval "hl.config({cursor={zoom_factor=$NEW_VAL}})"]]))
+
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd([[NEW_VAL=$(hyprctl getoption cursor:zoom_factor -j | jq '.float * 0.9 | if . < 1 then 1 else . end'); hyprctl eval "hl.config({cursor={zoom_factor=$NEW_VAL}})"]]) )

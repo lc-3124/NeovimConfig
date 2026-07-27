@@ -84,6 +84,13 @@ hl.window_rule({
   float = true,
 })
 
+-- Wine 窗口浮动 -----------------------------------------------------------
+hl.window_rule({
+  name = "wine-float",
+  match = { class = "^(wine|Wine|.*\\.[Ee][Xx][Ee])$" },
+  float = true,
+})
+
 -- Dunst 通知 --------------------------------------------------------------
 -- 通知弹窗设透明度
 hl.window_rule({
