@@ -1,19 +1,25 @@
 #!/bin/bash
+# ============================================================================
+# 截图脚本 — 支持区域 / 全屏 / 窗口三种模式
+# 依赖: grim, slurp, wl-clipboard, hyprctl, jq
+# 绑定: hypr/configure/keybind.lua
+# ============================================================================
+
 dir="$HOME/Documents/Pictures/screenshot"
 mkdir -p "$dir"
 file="$dir/$(date +%Y%m%d_%H%M%S).png"
 
 case "${1:-region}" in
-  full)
+  full)                                             # 全屏截图
     grim "$file"
     ;;
-  region)
+  region)                                           # 区域选择截图（slurp 交互选择）
     grim -g "$(slurp -d)" "$file"
     ;;
-  focused)
+  focused)                                          # 当前活跃窗口截图
     grim -g "$(hyprctl activewindow -j | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"')" "$file"
     ;;
 esac
 
-wl-copy < "$file"
+wl-copy < "$file"                                   # 自动复制到剪贴板
 notify-send -t 2000 "截图已保存" "$(basename "$file")"
