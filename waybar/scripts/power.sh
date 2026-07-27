@@ -13,7 +13,7 @@ SELECTION=$(printf "⏻  Shutdown\n🔄  Reboot\n🚪  Logout\n⏾  Suspend\n�
 case "$SELECTION" in
   *Shutdown) systemctl poweroff ;;
   *Reboot)   systemctl reboot ;;
-  *Logout)   hyprctl dispatch exit ;;
+  *Logout)   hyprctl dispatch 'hl.dsp.exit()' ;;
   *Suspend)  systemctl suspend ;;
   *Lock)     loginctl lock-session ;;
 esac

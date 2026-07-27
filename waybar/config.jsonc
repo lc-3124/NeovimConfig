@@ -13,7 +13,7 @@
   "hyprland/workspaces": {
     "disable-scroll": true,
     "format": "{icon}",
-    "on-click": "focus",
+    "on-click": "hyprctl dispatch 'hl.dsp.focus({workspace=\"{}\"})'",
     "tooltip": true
   },
 

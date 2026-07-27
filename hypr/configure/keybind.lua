@@ -48,8 +48,8 @@ hl.bind(mainMod .. " + mouse_down",           hl.dsp.focus({ workspace = "+1" })
 hl.bind(mainMod .. " + mouse_up",             hl.dsp.focus({ workspace = "-1" }))
 
 -- 鼠标拖拽操作 -------------------------------------------------------------
-hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),  { drag = true, description = "move window" })
-hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { drag = true, description = "resize window" })
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),  { description = "move window" })
+hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { description = "resize window" })
 
 -- 多媒体键（锁屏下可用 + 松手触发）----------------------------------------
 hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),      { locked = true, release = true })
