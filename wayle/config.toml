@@ -1,0 +1,188 @@
+# Wayle 配置 —— 严格复刻本机 waybar（TokyoNight Storm 主题）
+# 参考 waybar config.jsonc + style.css：
+#   尺寸 16px/字号12px、背景 #181825@80%、边框 1px #7aa2f7@15%、圆角 12px
+#   布局：左 workspaces / 中 mpris / 右 系统托盘+网络+麦克风+音量+CPU+内存+电池+时钟
+
+[general]
+font-sans = "Ubuntu Nerd Font"
+font-mono = "JetBrains Mono"
+
+[bar]
+scale = 0.8
+inset-edge = 0.25
+inset-ends = 0.3
+padding = 0.12
+padding-ends = 0.3
+module-gap = 0.2
+location = "right"
+exclusive = true
+layer = "top"
+bg = "bg-base"
+background-opacity = 80
+border-location = "all"
+border-width = 1
+border-color = "#7aa2f726"
+rounding = "lg"
+shadow = "none"
+button-variant = "block-prefix"
+button-opacity = 100
+button-bg-opacity = 50
+button-icon-size = 0.9
+button-icon-padding = 0.7
+button-label-size = 0.95
+button-label-weight = "normal"
+button-label-padding = 0.75
+button-rounding = "md"
+button-gap = 0.6
+button-icon-position = "start"
+button-border-location = "none"
+button-border-width = 1
+button-group-border-location = "none"
+button-group-border-width = 1
+button-group-padding = 0.0
+button-group-module-gap = 0.25
+button-group-background = "bg-elevated"
+button-group-opacity = 100
+button-group-border-color = "border-accent"
+button-group-rounding = "sm"
+dropdown-shadow = true
+dropdown-opacity = 100
+dropdown-autohide = true
+dropdown-freeze-label = true
+
+[[bar.layout]]
+monitor = "*"
+left = ["hyprland-workspaces"]
+center = ["media"]
+right = ["systray", "network", "bluetooth", "microphone", "volume", "cpu", "ram", "battery", "clock"]
+
+[styling]
+scale = 0.85
+rounding = "md"
+theme-provider = "wayle"
+theming-monitor = ""
+
+[styling.palette]
+bg = "#181825"
+surface = "#313244"
+elevated = "#3b4261"
+fg = "#c0caf5"
+fg-muted = "#9aa5ce"
+primary = "#7aa2f7"
+red = "#f7768e"
+yellow = "#e0af68"
+green = "#9ece6a"
+blue = "#7aa2f7"
+
+[modules.hyprland-workspaces]
+min-workspace-count = 0
+monitor-specific = true
+show-special = false
+urgent-show = true
+urgent-mode = "workspace"
+display-mode = "label"
+label-use-name = true
+numbering = "absolute"
+app-icons-show = false
+active-indicator = "background"
+active-color = "accent"
+occupied-color = "fg-muted"
+empty-color = "fg-subtle"
+container-bg-color = "bg-surface"
+border-show = false
+
+[modules.media]
+icon-type = "application-mapped"
+icon-name = "ld-music-symbolic"
+format = "{{ title }}"
+icon-show = true
+icon-color = "auto"
+icon-bg-color = "green"
+label-show = false
+label-color = "green"
+label-max-length = 4
+button-bg-color = "bg-surface"
+left-click = "dropdown:media"
+
+[modules.systray]
+icon-scale = 0.9
+item-gap = 0.25
+internal-padding = 0.3
+button-bg-color = "bg-surface"
+
+[modules.network]
+label-show = false
+label-max-length = 10
+icon-show = true
+icon-color = "auto"
+icon-bg-color = "accent"
+label-color = "fg-default"
+button-bg-color = "bg-surface"
+left-click = "dropdown:network"
+
+[modules.bluetooth]
+icon-show = true
+icon-color = "auto"
+icon-bg-color = "blue"
+label-show = false
+label-color = "fg-default"
+label-max-length = 8
+button-bg-color = "bg-surface"
+left-click = "dropdown:bluetooth"
+
+[modules.microphone]
+icon-show = true
+icon-color = "auto"
+icon-bg-color = "green"
+label-show = true
+label-color = "fg-default"
+button-bg-color = "bg-surface"
+middle-click = "wayle audio input-mute"
+
+[modules.volume]
+format = "{{ percent }}%"
+icon-show = true
+icon-color = "auto"
+icon-bg-color = "accent"
+label-show = true
+label-color = "fg-default"
+button-bg-color = "bg-surface"
+middle-click = "wayle audio output-mute"
+
+[modules.cpu]
+format = "{{ percent }}%"
+icon-show = true
+icon-color = "auto"
+icon-bg-color = "blue"
+label-show = true
+label-color = "fg-default"
+button-bg-color = "bg-surface"
+
+[modules.ram]
+format = "{{ percent }}%"
+icon-show = true
+icon-color = "auto"
+icon-bg-color = "green"
+label-show = true
+label-color = "fg-default"
+button-bg-color = "bg-surface"
+
+[modules.battery]
+format = "{{ percent }}%"
+icon-show = true
+icon-color = "auto"
+icon-bg-color = "green"
+label-show = true
+label-color = "fg-default"
+button-bg-color = "bg-surface"
+
+[modules.clock]
+format = "%H:%M"
+icon-show = true
+icon-color = "auto"
+icon-bg-color = "accent"
+label-show = true
+label-color = "fg-default"
+button-bg-color = "bg-surface"
+left-click = "dropdown:calendar"
+right-click = "dropdown:weather"

@@ -38,6 +38,8 @@ nvim/
 | `<S-k>` | Normal | 向上翻半页 |
 | `<Leader> w` | Normal | 保存文件 |
 | `<Leader> q` | Normal | 关闭当前窗口 |
+| `<Leader> ya` | Normal | 复制整个文件到系统剪贴板 |
+| `<Leader> y` | Visual | 复制选中内容到系统剪贴板 |
 | `<Leader> dd` | Normal | 打开 Dashboard |
 | `<Leader> bd` | Normal | 删除当前缓冲区 |
 | `<Leader> un` | Normal | 关闭通知 |
@@ -47,6 +49,7 @@ nvim/
 
 | 快捷键 | 功能 |
 |--------|------|
+| `gh` | LSP 语法帮助（hover） |
 | `gd` | 跳转到定义 |
 | `gi` | 跳转到实现 |
 | `gr` | 查找引用 |
@@ -252,4 +255,37 @@ map("n", "<C-l>", "<C-w>l", { desc = "右窗口" })
 
 ---
 
-*最后更新: 2026-06-13*
+## Hyprland 快捷键列表
+
+快捷键列表通过 `keybinds.sh` 脚本自动生成，用 fuzzel 展示。调用方式：`SUPER + H`
+
+### 注释约定
+
+`keybind.lua` 中，在 `hl.bind()` 上方紧邻的 `--` 注释行被脚本提取作为快捷键说明：
+
+```lua
+-- 打开终端
+hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
+-- 关闭窗口
+hl.bind(mainMod .. " + C", hl.dsp.window.close())
+```
+
+规则：
+- 注释必须紧贴在 `hl.bind()` 上方，中间不能有空行
+- 注释以 `-- ` 开头，之后的内容直接作为说明文本
+- 没有注释的行会尝试从 API 调用自动生成说明
+- 鼠标、多媒体键（XF86）、F 功能键和 Print 键被过滤不显示
+- `for` 循环自动展开，只需在循环体外的单条 `hl.bind()`（如 `SUPER + 0`）上方写注释即可
+
+### 添加新快捷键
+
+```lua
+-- 你的说明文字
+hl.bind("SUPER + K", hl.dsp.exec_cmd("your-command"))
+```
+
+添加后按 `SUPER + H` 即可看到新快捷键出现在列表中。
+
+---
+
+*最后更新: 2026-07-27*

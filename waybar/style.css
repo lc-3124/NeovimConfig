@@ -90,6 +90,7 @@ window#waybar {
 #tray,
 #network,
 #pulseaudio,
+#pulseaudio.mic,
 #temperature,
 #cpu,
 #memory,
@@ -104,6 +105,14 @@ window#waybar {
   transition: all 0.2s ease;
 }
 
+#pulseaudio.mic {
+  color: @green;
+}
+
+#pulseaudio.mic.source-muted {
+  color: @red;
+}
+
 #tray {
   background: transparent;
   border: none;
@@ -112,6 +121,7 @@ window#waybar {
 
 #network:hover,
 #pulseaudio:hover,
+#pulseaudio.mic:hover,
 #temperature:hover,
 #cpu:hover,
 #memory:hover,

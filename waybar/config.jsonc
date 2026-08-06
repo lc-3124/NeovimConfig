@@ -8,12 +8,11 @@
 
   "modules-left": ["hyprland/workspaces"],
   "modules-center": ["mpris"],
-  "modules-right": ["tray", "network", "pulseaudio", "temperature", "cpu", "memory", "battery", "clock"],
+  "modules-right": ["tray", "network", "pulseaudio#mic", "pulseaudio", "temperature", "cpu", "memory", "battery", "clock"],
 
   "hyprland/workspaces": {
     "disable-scroll": true,
-    "format": "{icon}",
-    "on-click": "hyprctl dispatch 'hl.dsp.focus({workspace=\"{}\"})'",
+    "format": "{name}",
     "tooltip": true
   },
 
@@ -71,6 +70,7 @@
 
   "battery": {
     "bat": "BAT0",
+    "adapter": "ADP0",
     "interval": 30,
     "states": {
       "good": 80,
@@ -79,6 +79,7 @@
     },
     "format": "{icon} {capacity}%",
     "format-charging": " {capacity}%",
+    "format-plugged": " {capacity}%",
     "format-icons": ["", "", "", "", ""],
     "on-click": "kitty -e powertop",
     "tooltip": true
@@ -102,6 +103,17 @@
     "on-click": "pavucontrol",
     "on-scroll-up": "pactl set-sink-volume @DEFAULT_SINK@ +5%",
     "on-scroll-down": "pactl set-sink-volume @DEFAULT_SINK@ -5%",
+    "tooltip": false
+  },
+
+  "pulseaudio#mic": {
+    "format": "{format_source}",
+    "format-source": "󰍬 {volume}%",
+    "format-source-muted": "󰍭 Muted",
+    "target": "source",
+    "on-click": "pactl set-source-mute @DEFAULT_SOURCE@ toggle",
+    "on-scroll-up": "pactl set-source-volume @DEFAULT_SOURCE@ +5%",
+    "on-scroll-down": "pactl set-source-volume @DEFAULT_SOURCE@ -5%",
     "tooltip": false
   }
 }

@@ -33,8 +33,9 @@ return {
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
         callback = function(ev)
           local opts = { buffer = ev.buf }
+          vim.keymap.set("n", "gh", vim.lsp.buf.hover, { buffer = ev.buf, desc = "语法帮助" })
           vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-
+ 
           vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
           vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
           vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)

@@ -1,6 +1,7 @@
 # API 密钥（用户私有，不提交）
 zsh/secrets.zsh
 fcitx5/conf/anytalk.conf
+fcitx5/conf/*.bak
 **/secrets.zsh
 **/*.env
 **/*.secret

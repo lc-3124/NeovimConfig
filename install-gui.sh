@@ -5,7 +5,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG_DIR="$HOME/.config"
 BACKUP_SUFFIX=".BAK.$(date +%s)"
 
-echo "== GUI Software Installer (hypr, waybar, dunst, fcitx5, kitty, gtk) =="
+echo "== GUI Software Installer (hypr, waybar, wayle, dunst, fcitx5, kitty, gtk) =="
 echo
 echo "⚠️  本脚本不恢复 Wine/Winetricks，参见 docs/winetricks-list.txt"
 echo
@@ -61,6 +61,12 @@ link_config hypr
 
 # GUI: Waybar
 link_config waybar
+
+# GUI: Wayle (Wayland shell / 状态栏，替代 waybar 由 hypr 启动)
+echo "[*] Deploying wayle"
+mkdir -p "$CONFIG_DIR/wayle"
+link_file "$SCRIPT_DIR/wayle/config.toml" "$CONFIG_DIR/wayle/config.toml"
+echo
 
 # GUI: Dunst (notification daemon)
 link_config dunst
@@ -152,6 +158,7 @@ echo "Post-install:"
 echo "  hypr:   hyprctl reload"
 echo "  dunst:  killall dunst; dunst &"
 echo "  waybar: killall waybar && waybar &"
+echo "  wayle:  wayle panel start（hypr 已自启动，手动重启用 panel restart）"
 echo "  fcitx5: fcitx5 -r"
 echo "  wireplumber: systemctl --user restart wireplumber"
 echo "  screenshot: Print (region), Shift+Print (full), Ctrl+Print (focused)"

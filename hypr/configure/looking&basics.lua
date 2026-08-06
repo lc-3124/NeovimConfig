@@ -7,8 +7,8 @@
 hl.config({
   -- 通用设置 ----------------------------------------------------------------
   general = {
-    gaps_in = 2,
-    gaps_out = 3,
+    gaps_in = 10,
+    gaps_out = 12,
     border_size = 1,
     col = {
       active_border = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
@@ -50,7 +50,9 @@ hl.config({
     follow_mouse = 1,
     sensitivity = 0,
     touchpad = {
+      disable_while_typing = false,
       natural_scroll = false,
+      tap_to_click = true,
     },
   },
 
@@ -70,6 +72,7 @@ hl.config({
     focus_on_activate = true,
     disable_hyprland_logo = true,
     force_default_wallpaper = -1,
+    font_family = "Ubuntu Nerd Font",
   },
 
   -- XWayland 设置 -----------------------------------------------------------
