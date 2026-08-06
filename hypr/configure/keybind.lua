@@ -85,8 +85,8 @@ hl.bind(mainMod .. " + mouse_down",           hl.dsp.focus({ workspace = "+1" })
 -- 下一个工作区
 hl.bind(mainMod .. " + mouse_up",             hl.dsp.focus({ workspace = "-1" }))
 
--- 关闭当前通知
-hl.bind(mainMod .. " + CTRL + R", hl.dsp.exec_cmd("dunstctl close"))
+-- 关闭所有通知
+hl.bind(mainMod .. " + CTRL + R", hl.dsp.exec_cmd("wayle notify dismiss-all"))
 
 -- 切换分割方向
 hl.bind(mainMod .. " + W", hl.dsp.layout("togglesplit"))

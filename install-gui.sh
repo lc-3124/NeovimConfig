@@ -156,7 +156,7 @@ echo "== GUI install complete =="
 echo
 echo "Post-install:"
 echo "  hypr:   hyprctl reload"
-echo "  dunst:  killall dunst; dunst &"
+echo "  dunst:  已停用（通知由 wayle 通知中心提供）；如需恢复：systemctl --user unmask dunst.service"
 echo "  waybar: killall waybar && waybar &"
 echo "  wayle:  wayle panel start（hypr 已自启动，手动重启用 panel restart）"
 echo "  fcitx5: fcitx5 -r"

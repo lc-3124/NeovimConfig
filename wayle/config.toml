@@ -8,12 +8,12 @@ font-sans = "Ubuntu Nerd Font"
 font-mono = "JetBrains Mono"
 
 [bar]
-scale = 0.8
+scale = 0.85
 inset-edge = 0.25
-inset-ends = 0.3
-padding = 0.12
-padding-ends = 0.3
-module-gap = 0.2
+inset-ends = 0.5
+padding = 0.09
+padding-ends = 0.5
+module-gap = 0.5
 location = "right"
 exclusive = true
 layer = "top"
@@ -27,8 +27,8 @@ shadow = "none"
 button-variant = "block-prefix"
 button-opacity = 100
 button-bg-opacity = 50
-button-icon-size = 0.9
-button-icon-padding = 0.7
+button-icon-size = 0.8
+button-icon-padding = 0.8
 button-label-size = 0.95
 button-label-weight = "normal"
 button-label-padding = 0.75
@@ -50,11 +50,12 @@ dropdown-opacity = 100
 dropdown-autohide = true
 dropdown-freeze-label = true
 
+# 布局：顶部(启动器/wifi/蓝牙/托盘后台应用) / 中间(媒体/工作区) / 底部(内存/cpu/麦克风/音量/电量/时间)
 [[bar.layout]]
 monitor = "*"
-left = ["hyprland-workspaces"]
-center = ["media"]
-right = ["systray", "network", "bluetooth", "microphone", "volume", "cpu", "ram", "battery", "clock"]
+left = ["dashboard", "network", "bluetooth", "notifications", "systray"]
+center = ["media", "hyprland-workspaces"]
+right = ["ram", "microphone", "volume", "battery", "clock"]
 
 [styling]
 scale = 0.85
@@ -80,8 +81,8 @@ monitor-specific = true
 show-special = false
 urgent-show = true
 urgent-mode = "workspace"
-display-mode = "label"
-label-use-name = true
+display-mode = "icon"
+label-use-name = false
 numbering = "absolute"
 app-icons-show = false
 active-indicator = "background"
@@ -90,6 +91,18 @@ occupied-color = "fg-muted"
 empty-color = "fg-subtle"
 container-bg-color = "bg-surface"
 border-show = false
+
+[modules.hyprland-workspaces.workspace-map]
+1 = { icon = "ld-globe-symbolic" }
+2 = { icon = "ld-mail-symbolic" }
+3 = { icon = "ld-message-circle-symbolic" }
+4 = { icon = "ld-gamepad-2-symbolic" }
+5 = { icon = "ld-folder-symbolic" }
+6 = { icon = "ld-film-symbolic" }
+7 = { icon = "ld-minus-symbolic" }
+8 = { icon = "ld-hard-drive-symbolic" }
+9 = { icon = "ld-music-symbolic" }
+10 = { icon = "ld-lock-symbolic" }
 
 [modules.media]
 icon-type = "application-mapped"
@@ -104,11 +117,53 @@ label-max-length = 4
 button-bg-color = "bg-surface"
 left-click = "dropdown:media"
 
+[modules.dashboard]
+icon-override = ""
+border-show = false
+border-color = "yellow"
+icon-color = "auto"
+icon-bg-color = "accent"
+label-show = false
+button-bg-color = "bg-surface"
+left-click = "dropdown:dashboard"
+dropdown-lock-command = "loginctl lock-session"
+dropdown-logout-command = "loginctl terminate-session $XDG_SESSION_ID"
+dropdown-reboot-command = "systemctl reboot"
+dropdown-poweroff-command = "systemctl poweroff"
+
 [modules.systray]
-icon-scale = 0.9
+icon-scale = 0.8
 item-gap = 0.25
 internal-padding = 0.3
 button-bg-color = "bg-surface"
+
+[modules.notifications]
+icon-name = "ld-bell-symbolic"
+icon-unread = "ld-bell-dot-symbolic"
+icon-dnd = "ld-bell-off-symbolic"
+border-show = false
+border-color = "green"
+icon-show = true
+icon-color = "auto"
+icon-bg-color = "green"
+label-show = false
+label-color = "green"
+button-bg-color = "bg-surface"
+left-click = "dropdown:notification"
+right-click = "wayle notify dnd"
+popup-position = "top-right"
+popup-max-visible = 5
+popup-stacking-order = "newest-first"
+popup-duration = 60000
+popup-hover-pause = true
+popup-margin-x = 0.4
+popup-margin-y = 0.4
+popup-gap = 8
+popup-monitor = "primary"
+popup-layer = "overlay"
+popup-close-behavior = "dismiss"
+popup-shadow = true
+popup-urgency-bar = "low"
 
 [modules.network]
 label-show = false
@@ -139,6 +194,15 @@ label-color = "fg-default"
 button-bg-color = "bg-surface"
 middle-click = "wayle audio input-mute"
 
+[modules.ram]
+format = "{{ percent }}%"
+icon-show = true
+icon-color = "auto"
+icon-bg-color = "green"
+label-show = true
+label-color = "fg-default"
+button-bg-color = "bg-surface"
+
 [modules.volume]
 format = "{{ percent }}%"
 icon-show = true
@@ -148,24 +212,6 @@ label-show = true
 label-color = "fg-default"
 button-bg-color = "bg-surface"
 middle-click = "wayle audio output-mute"
-
-[modules.cpu]
-format = "{{ percent }}%"
-icon-show = true
-icon-color = "auto"
-icon-bg-color = "blue"
-label-show = true
-label-color = "fg-default"
-button-bg-color = "bg-surface"
-
-[modules.ram]
-format = "{{ percent }}%"
-icon-show = true
-icon-color = "auto"
-icon-bg-color = "green"
-label-show = true
-label-color = "fg-default"
-button-bg-color = "bg-surface"
 
 [modules.battery]
 format = "{{ percent }}%"
