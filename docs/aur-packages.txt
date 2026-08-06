@@ -1,6 +1,7 @@
 adw-gtk-theme-git
 aml-flash-tool
 android-sdk-platform-tools
+animeko-appimage
 bibata-cursor-theme
 catppuccin-sddm-theme-frappe
 cbonsai
@@ -8,9 +9,12 @@ classin-bin
 dxvk-bin
 fcitx5-anytalk
 fcitx5-voice-input-git
+hyprkeys
+input-remapper-bin
 jhentai-bin
 libsoup
 linuxqq-nt
+listen1-desktop-appimage
 luckybackup
 mainstream-audio
 mainstream-backlight
@@ -28,9 +32,10 @@ neofetch
 opencode-desktop-bin
 oss-browser2
 ossutil
-peazip
 pipes.sh
+tokyonight-gtk-theme-git
 ttf-material-symbols-variable-git
+wayle-bin
 wechat-appimage
 xdg-desktop-portal-termfilechooser-hunkyburrito-git
 xtop-git

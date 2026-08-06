@@ -3,4 +3,6 @@ dinput
 fakechinese
 fakejapanese
 fakekorean
+fontsmooth=rgb
 sourcehansans
+wenquanyi
