@@ -22,7 +22,6 @@ davfs2
 deadbeef
 dosfstools
 duf
-dunst
 dust
 egl-wayland
 eog
@@ -202,7 +201,6 @@ vlc
 vulkan-radeon
 vulkan-tools
 w3m
-waybar-git
 wev
 wine-mono
 wine-staging

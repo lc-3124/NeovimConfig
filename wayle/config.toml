@@ -1,5 +1,4 @@
-# Wayle 配置 —— 严格复刻本机 waybar（TokyoNight Storm 主题）
-# 参考 waybar config.jsonc + style.css：
+# Wayle 配置 —— TokyoNight Storm 主题
 #   尺寸 16px/字号12px、背景 #181825@80%、边框 1px #7aa2f7@15%、圆角 12px
 #   布局：左 workspaces / 中 mpris / 右 系统托盘+网络+麦克风+音量+CPU+内存+电池+时钟
 

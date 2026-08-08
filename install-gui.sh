@@ -5,7 +5,7 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 CONFIG_DIR="$HOME/.config"
 BACKUP_SUFFIX=".BAK.$(date +%s)"
 
-echo "== GUI Software Installer (hypr, waybar, wayle, dunst, fcitx5, kitty, gtk) =="
+echo "== GUI Software Installer (hypr, wayle, fcitx5, kitty, gtk) =="
 echo
 echo "⚠️  本脚本不恢复 Wine/Winetricks，参见 docs/winetricks-list.txt"
 echo
@@ -59,17 +59,11 @@ mkdir -p "$CONFIG_DIR"
 # GUI: Hyprland
 link_config hypr
 
-# GUI: Waybar
-link_config waybar
-
-# GUI: Wayle (Wayland shell / 状态栏，替代 waybar 由 hypr 启动)
+# GUI: Wayle (Wayland shell / 状态栏，由 hypr 启动)
 echo "[*] Deploying wayle"
 mkdir -p "$CONFIG_DIR/wayle"
 link_file "$SCRIPT_DIR/wayle/config.toml" "$CONFIG_DIR/wayle/config.toml"
 echo
-
-# GUI: Dunst (notification daemon)
-link_config dunst
 
 # GUI: Fuzzel (application launcher)
 link_config fuzzel
@@ -155,12 +149,20 @@ if [ -f "$WP_SOURCE" ]; then
 fi
 echo
 
+# GUI: Polkit 默认允许规则（磁盘/udisks2 操作免密，供 QDiskInfo 等）
+echo "[*] Deploying polkit default-allow rule"
+if command -v sudo >/dev/null 2>&1; then
+    sudo install -m 644 "$SCRIPT_DIR/polkit/10-default-allow.rules" /etc/polkit-1/rules.d/10-default-allow.rules \
+        && echo "    ✓ 已部署到 /etc/polkit-1/rules.d/"
+else
+    echo "    [!] 无 sudo，请手动: sudo install -m 644 polkit/10-default-allow.rules /etc/polkit-1/rules.d/"
+fi
+echo
+
 echo "== GUI install complete =="
 echo
 echo "Post-install:"
 echo "  hypr:   hyprctl reload"
-echo "  dunst:  已停用（通知由 wayle 通知中心提供）；如需恢复：systemctl --user unmask dunst.service"
-echo "  waybar: killall waybar && waybar &"
 echo "  wayle:  wayle panel start（hypr 已自启动，手动重启用 panel restart）"
 echo "  fcitx5: fcitx5 -r"
 echo "  wireplumber: systemctl --user restart wireplumber"

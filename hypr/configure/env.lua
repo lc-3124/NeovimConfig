@@ -10,10 +10,10 @@ hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Classic")
 hl.env("HYPRCURSOR_SIZE", "24")
 
--- 权限系统：Hyprland 从 0.45+ 引入的生态权限
+-- 权限系统：关闭强制（截图/剪贴板等不再弹授权窗口，默认全部允许）
 hl.config({
   ecosystem = {
-    enforce_permissions = true,
+    enforce_permissions = false,
   },
 })
 

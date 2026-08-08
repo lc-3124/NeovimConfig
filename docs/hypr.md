@@ -176,7 +176,7 @@ Waybar 设置为浮动层（已 dock 化，适用于特殊布局）。
 | `systemctl --user start xdg-desktop-portal-hyprland` | 屏幕共享/远程桌面 |
 | `fcitx5 -d` | 输入法 |
 | `systemctl --user start hyprpolkitagent` | polkit 认证代理 |
-| `waybar` | 状态栏 |
+| `wayle` | 状态栏 |
 | `awww-daemon` | 壁纸守护进程 |
 | `awww img ...` | 设置初始壁纸 |
 
@@ -248,7 +248,7 @@ Waybar 设置为浮动层（已 dock 化，适用于特殊布局）。
 
 - `hyprland` — 窗口管理器
 - `kitty` — 终端
-- `waybar` — 状态栏
+- `wayle` — 状态栏
 - `fuzzel` — 应用启动器
 - `awww` — 静态壁纸
 - `mpvpaper` — 视频壁纸

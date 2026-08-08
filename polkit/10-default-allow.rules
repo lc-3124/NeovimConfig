@@ -1,0 +1,12 @@
+// ============================================================================
+// 默认允许 polkit 鉴权：单用户桌面，磁盘/系统工具不再弹密码框
+// 适用：QDiskInfo 等通过 udisks2 读取 S.M.A.R.T./挂载的工具
+// 部署: sudo install -m 644 polkit/10-default-allow.rules /etc/polkit-1/rules.d/
+// 注意: 规则按顺序执行，命中即返回；如需收紧，在编号更大的文件里覆盖
+// ============================================================================
+polkit.addRule(function(action, subject) {
+  // 磁盘管理相关操作免密（挂载/卸载/SMART/复位等）
+  if (action.id.indexOf("org.freedesktop.udisks2.") === 0) {
+    return polkit.Result.YES;
+  }
+});
