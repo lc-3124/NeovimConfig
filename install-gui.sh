@@ -71,6 +71,9 @@ echo
 # GUI: Dunst (notification daemon)
 link_config dunst
 
+# GUI: Fuzzel (application launcher)
+link_config fuzzel
+
 # GUI: Kitty (terminal emulator)
 link_config kitty
 

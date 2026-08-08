@@ -55,7 +55,7 @@ dropdown-freeze-label = true
 monitor = "*"
 left = ["dashboard", "network", "bluetooth", "notifications", "systray"]
 center = ["media", "hyprland-workspaces"]
-right = ["ram", "microphone", "volume", "battery", "clock"]
+right = ["brightness", "ram", "microphone", "volume", "battery", "clock"]
 
 [styling]
 scale = 0.85
@@ -97,7 +97,7 @@ border-show = false
 2 = { icon = "ld-mail-symbolic" }
 3 = { icon = "ld-message-circle-symbolic" }
 4 = { icon = "ld-gamepad-2-symbolic" }
-5 = { icon = "ld-folder-symbolic" }
+5 = { icon = "ld-code-symbolic" }
 6 = { icon = "ld-film-symbolic" }
 7 = { icon = "ld-minus-symbolic" }
 8 = { icon = "ld-hard-drive-symbolic" }
@@ -193,6 +193,8 @@ label-show = true
 label-color = "fg-default"
 button-bg-color = "bg-surface"
 middle-click = "wayle audio input-mute"
+scroll-up = "wayle audio input-volume +5"
+scroll-down = "wayle audio input-volume -5"
 
 [modules.ram]
 format = "{{ percent }}%"
@@ -212,6 +214,8 @@ label-show = true
 label-color = "fg-default"
 button-bg-color = "bg-surface"
 middle-click = "wayle audio output-mute"
+scroll-up = "wayle audio output-volume +5"
+scroll-down = "wayle audio output-volume -5"
 
 [modules.battery]
 format = "{{ percent }}%"
@@ -232,3 +236,23 @@ label-color = "fg-default"
 button-bg-color = "bg-surface"
 left-click = "dropdown:calendar"
 right-click = "dropdown:weather"
+
+[modules.brightness]
+level-icons = [
+    "ld-sun-dim-symbolic",
+    "ld-sun-medium-symbolic",
+    "ld-sun-symbolic",
+]
+border-show = false
+border-color = "yellow"
+icon-show = true
+icon-color = "auto"
+icon-bg-color = "yellow"
+label-show = false
+label-color = "yellow"
+format = "{{ percent }}%"
+label-max-length = 0
+button-bg-color = "bg-surface"
+left-click = "dropdown:brightness"
+scroll-up = "brightnessctl set +5%"
+scroll-down = "brightnessctl set -5%"

@@ -23,6 +23,8 @@ hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + F4", hl.dsp.window.kill())
 -- 退出 Hyprland
 hl.bind(mainMod .. " + M", hl.dsp.exit())
+-- 锁定屏幕（Meta + L，背景跟随当前壁纸）
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("~/.config/hypr/scripts/lock.sh"), { description = "lock screen" })
 -- 文件管理器
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 -- 切换窗口浮动
@@ -52,10 +54,6 @@ hl.bind(mainMod .. " + SHIFT + up",    hl.dsp.window.move({ direction = "up" }))
 -- 窗口向下移
 hl.bind(mainMod .. " + SHIFT + down",  hl.dsp.window.move({ direction = "down" }))
 
--- 窗口向左缩
-hl.bind(mainMod .. " + CTRL + left",  hl.dsp.window.resize({ x = -50, y = 0, relative = true }))
--- 窗口向右扩
-hl.bind(mainMod .. " + CTRL + right", hl.dsp.window.resize({ x = 50, y = 0, relative = true }))
 -- 窗口向上缩
 hl.bind(mainMod .. " + CTRL + up",    hl.dsp.window.resize({ x = 0, y = -50, relative = true }))
 -- 窗口向下扩
@@ -84,6 +82,13 @@ hl.bind(mainMod .. " + SHIFT + S",            hl.dsp.window.move({ workspace = "
 hl.bind(mainMod .. " + mouse_down",           hl.dsp.focus({ workspace = "+1" }))
 -- 下一个工作区
 hl.bind(mainMod .. " + mouse_up",             hl.dsp.focus({ workspace = "-1" }))
+
+-- 快速切换相邻工作区
+hl.bind(mainMod .. " + CTRL + left",          hl.dsp.focus({ workspace = "-1" }))
+hl.bind(mainMod .. " + CTRL + right",         hl.dsp.focus({ workspace = "+1" }))
+-- 携带窗口移动到侧边工作区
+hl.bind(mainMod .. " + CTRL + SHIFT + left",  hl.dsp.window.move({ workspace = "-1" }))
+hl.bind(mainMod .. " + CTRL + SHIFT + right", hl.dsp.window.move({ workspace = "+1" }))
 
 -- 关闭所有通知
 hl.bind(mainMod .. " + CTRL + R", hl.dsp.exec_cmd("wayle notify dismiss-all"))
