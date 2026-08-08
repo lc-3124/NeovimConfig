@@ -149,16 +149,6 @@ if [ -f "$WP_SOURCE" ]; then
 fi
 echo
 
-# GUI: Polkit 默认允许规则（磁盘/udisks2 操作免密，供 QDiskInfo 等）
-echo "[*] Deploying polkit default-allow rule"
-if command -v sudo >/dev/null 2>&1; then
-    sudo install -m 644 "$SCRIPT_DIR/polkit/10-default-allow.rules" /etc/polkit-1/rules.d/10-default-allow.rules \
-        && echo "    ✓ 已部署到 /etc/polkit-1/rules.d/"
-else
-    echo "    [!] 无 sudo，请手动: sudo install -m 644 polkit/10-default-allow.rules /etc/polkit-1/rules.d/"
-fi
-echo
-
 echo "== GUI install complete =="
 echo
 echo "Post-install:"
