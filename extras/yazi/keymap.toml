@@ -1,0 +1,4 @@
+[[mgr.prepend_keymap]]
+on   = "A"
+run  = "plugin compress"
+desc = "批量归档选中文件"

@@ -1,0 +1,27 @@
+[opener]
+extract = [
+    { run = 'bsdtar -xf "%s1" -C "%d1"', block = true, desc = "解压到当前目录" },
+]
+extract_rar = [
+    { run = '7z x -y "%s1" -o"%d1"', block = true, desc = "解压到当前目录" },
+]
+
+[open]
+prepend_rules = [
+    { url = "*.zip",   use = "extract" },
+    { url = "*.7z",    use = "extract" },
+    { url = "*.tar",   use = "extract" },
+    { url = "*.tar.gz", use = "extract" },
+    { url = "*.tgz",   use = "extract" },
+    { url = "*.tar.xz", use = "extract" },
+    { url = "*.txz",   use = "extract" },
+    { url = "*.tar.bz2", use = "extract" },
+    { url = "*.tbz2",  use = "extract" },
+    { url = "*.tar.zst", use = "extract" },
+    { url = "*.gz",    use = "extract" },
+    { url = "*.xz",    use = "extract" },
+    { url = "*.bz2",   use = "extract" },
+    { url = "*.zst",   use = "extract" },
+    { url = "*.lz4",   use = "extract" },
+    { url = "*.rar",   use = "extract_rar" },
+]

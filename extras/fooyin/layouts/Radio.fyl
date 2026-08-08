@@ -1,0 +1,131 @@
+{
+    "Name": "Radio",
+    "Options": {
+        "ApplyWindowSize": true
+    },
+    "Version": 1,
+    "Widgets": [
+        {
+            "SplitterVertical": {
+                "State": "AAAA/wAAAAEAAAACAAAFFgAAABYA/////wEAAAACAA==",
+                "Widgets": [
+                    {
+                        "SplitterHorizontal": {
+                            "State": "AAAA/wAAAAEAAAACAAAA1gAABRoA/////wEAAAABAA==",
+                            "Widgets": [
+                                {
+                                    "SplitterVertical": {
+                                        "State": "AAAA/wAAAAEAAAAFAAABugAAANUAAABWAAAAHgAAAB4A/////wEAAAACAA==",
+                                        "Widgets": [
+                                            {
+                                                "RadioGuide": {
+                                                    "CollapsedSections": [
+                                                        "年代",
+                                                        "更多流派",
+                                                        "流派",
+                                                        "谈话"
+                                                    ],
+                                                    "ShowScrollbar": true
+                                                }
+                                            },
+                                            {
+                                                "ArtworkPanel": {
+                                                    "CoverAlignment": 132,
+                                                    "CoverType": 0,
+                                                    "FadeCoverChanges": false,
+                                                    "FadeDurationMs": 1000,
+                                                    "KeepAspectRatio": true
+                                                }
+                                            },
+                                            {
+                                                "ScriptDisplay": {
+                                                    "BackgroundColour": "",
+                                                    "Font": "",
+                                                    "ForegroundColour": "",
+                                                    "HorizontalAlignment": 4,
+                                                    "LinkColour": "",
+                                                    "Script": "$if(%isstopped%,\n<b>播放已停止</b>,\n<sized=1><b>$if2(%station%,$if(%streamtitle%,,%title%))</b></size>\n$crlf()\n$if2(%streamtitle%,[$join( - ,%artist%,%title%)])\n)",
+                                                    "ShowScrollbar": true,
+                                                    "VerticalAlignment": 128
+                                                }
+                                            },
+                                            {
+                                                "PlayerControls": {
+                                                    "ShowNext": false,
+                                                    "ShowPlayPause": true,
+                                                    "ShowPrevious": false,
+                                                    "ShowStop": true
+                                                }
+                                            },
+                                            {
+                                                "VolumeControls": {
+                                                    "Mode": 3
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "SplitterVertical": {
+                                        "State": "AAAA/wAAAAEAAAACAAAAJAAABOIA/////wEAAAACAA==",
+                                        "Widgets": [
+                                            {
+                                                "RadioSearch": {
+                                                    "BitrateFilterPinned": false,
+                                                    "CodecFilterPinned": false,
+                                                    "CountryFilterPinned": false,
+                                                    "GenreFilterPinned": false,
+                                                    "LanguageFilterPinned": false,
+                                                    "ShowFilterText": true,
+                                                    "TagFilterPinned": false
+                                                }
+                                            },
+                                            {
+                                                "RadioBrowser": {
+                                                    "AlternatingRows": true,
+                                                    "Captions": 2,
+                                                    "Display": 0,
+                                                    "DoubleClickAction": 5,
+                                                    "HideBroken": true,
+                                                    "ID": "453ef65f3fa641bc81a209a305f6696b",
+                                                    "IconHorizontalGap": -1,
+                                                    "IconItemBorder": 2,
+                                                    "IconSize": 36,
+                                                    "IconVerticalGap": 8,
+                                                    "MiddleClickAction": 0,
+                                                    "PlaybackOnSend": true,
+                                                    "RowHeight": 0,
+                                                    "SavedCaptions": 2,
+                                                    "SavedDisplay": 0,
+                                                    "SavedState": "",
+                                                    "SeparateSavedView": false,
+                                                    "ShowFilterBar": true,
+                                                    "ShowHeader": true,
+                                                    "ShowIcons": true,
+                                                    "ShowSavedIcons": true,
+                                                    "ShowScrollbar": true,
+                                                    "ShowToolTips": true,
+                                                    "State": "AAAAlXjaY2Bg4GBgYFrIwMAoyoAAm4B4HhKfA0ozAjETEDMDMQsQswIxGxCzg9TYP9jLfWEv90X70xN3Sk/cKWO/b0fg61a5HfZHYsVdL5bE2h8ECUtPtN/f+EMeiOzXK80wj/ykYb9hclj/8hm3GaEWsAEAQCAh4A==",
+                                                    "UniformIcons": true,
+                                                    "UseIconGapsForSideCaptions": true
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "StatusBar": {
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "WindowSize": {
+        "Height": 874,
+        "Width": 1528
+    }
+}

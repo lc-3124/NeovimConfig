@@ -1,0 +1,9 @@
+# extras 里的软件配置：排除敏感/运行时数据
+**/*cookie*
+**/*token*
+**/*secret*
+**/*.log
+**/secrets*
+**/.last*
+**/bt_backup/*
+**/cache/*

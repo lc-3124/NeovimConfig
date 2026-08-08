@@ -1,0 +1,87 @@
+{
+    "Name": "Browser",
+    "Options": {
+        "ApplyWindowSize": true
+    },
+    "Version": 1,
+    "Widgets": [
+        {
+            "SplitterVertical": {
+                "State": "AAAA/wAAAAEAAAADAAAAHgAAA6YAAAAWAP////8BAAAAAgA=",
+                "Widgets": [
+                    {
+                        "SplitterHorizontal": {
+                            "State": "AAAA/wAAAAEAAAAEAAAAeAAABRoAAAA8AAAAaQD/////AQAAAAEA",
+                            "Widgets": [
+                                {
+                                    "PlayerControls": {
+                                        "ShowNext": true,
+                                        "ShowPlayPause": true,
+                                        "ShowPrevious": true,
+                                        "ShowStop": true
+                                    }
+                                },
+                                {
+                                    "SeekBar": {
+                                        "ShowLabels": true,
+                                        "ShowRemainingTime": false
+                                    }
+                                },
+                                {
+                                    "PlaylistControls": {
+                                    }
+                                },
+                                {
+                                    "VolumeControls": {
+                                        "Mode": 3
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "SplitterHorizontal": {
+                            "State": "AAAA/wAAAAEAAAACAAACeAAAAnoA/////wEAAAABAA==",
+                            "Widgets": [
+                                {
+                                    "DirectoryBrowser": {
+                                        "DoubleClickAction": 5,
+                                        "ID": "f336cc3347eb4c0dbff21ed1b6c6054a",
+                                        "IndentList": true,
+                                        "MiddleClickAction": 0,
+                                        "Mode": 1,
+                                        "RootPath": "/home/lc3124",
+                                        "SendPlayback": true,
+                                        "ShowControls": true,
+                                        "ShowHidden": false,
+                                        "ShowHorizontalScrollbar": true,
+                                        "ShowIcons": true,
+                                        "ShowLocation": true,
+                                        "ShowSymLinks": false
+                                    }
+                                },
+                                {
+                                    "ArtworkPanel": {
+                                        "CoverAlignment": 132,
+                                        "CoverType": 0,
+                                        "FadeCoverChanges": false,
+                                        "FadeDurationMs": 1000,
+                                        "KeepAspectRatio": true
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "StatusBar": {
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "WindowSize": {
+        "Height": 874,
+        "Width": 1528
+    }
+}

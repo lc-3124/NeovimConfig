@@ -1,0 +1,124 @@
+{
+    "Name": "Simple",
+    "Options": {
+        "ApplyWindowSize": true
+    },
+    "Version": 1,
+    "Widgets": [
+        {
+            "SplitterVertical": {
+                "State": "AAAA/wAAAAEAAAADAAAAHgAAAn0AAAAXAP////8BAAAAAgA=",
+                "Widgets": [
+                    {
+                        "SplitterHorizontal": {
+                            "State": "AAAA/wAAAAEAAAAEAAAAggAABqEAAAA+AAAAaQD/////AQAAAAEA",
+                            "Widgets": [
+                                {
+                                    "PlayerControls": {
+                                        "ShowNext": true,
+                                        "ShowPlayPause": true,
+                                        "ShowPrevious": true,
+                                        "ShowStop": true
+                                    }
+                                },
+                                {
+                                    "SeekBar": {
+                                        "ShowLabels": true,
+                                        "ShowRemainingTime": false
+                                    }
+                                },
+                                {
+                                    "PlaylistControls": {
+                                    }
+                                },
+                                {
+                                    "VolumeControls": {
+                                        "Mode": 3
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "SplitterHorizontal": {
+                            "State": "AAAA/wAAAAEAAAACAAAA9QAABAoA/////wEAAAABAA==",
+                            "Widgets": [
+                                {
+                                    "SplitterVertical": {
+                                        "State": "AAAA/wAAAAEAAAACAAABfQAAAPEA/////wEAAAACAA==",
+                                        "Widgets": [
+                                            {
+                                                "LibraryTree": {
+                                                    "AlternatingRows": false,
+                                                    "Animated": true,
+                                                    "AutoExpandSearchResultLimit": 10,
+                                                    "AutoSwitch": true,
+                                                    "DoubleClickAction": 0,
+                                                    "ExpandOnSingleClick": false,
+                                                    "Grouping": 0,
+                                                    "ID": "87128d2c0ab94cb88d550a2e422670b9",
+                                                    "IconHeight": 36,
+                                                    "IconWidth": 36,
+                                                    "KeepAlive": false,
+                                                    "MiddleClickAction": 0,
+                                                    "PlaylistEnabled": false,
+                                                    "PlaylistName": "媒体库选项",
+                                                    "RestoreState": true,
+                                                    "RowHeight": 0,
+                                                    "SendPlayback": true,
+                                                    "ShowHeader": true,
+                                                    "ShowScrollbar": true,
+                                                    "ShowSummaryNode": true,
+                                                    "State": "AAAABHja+////38ACfoD/Q==",
+                                                    "SummaryNodeTitle": "所有音乐 (%trackcount%)"
+                                                }
+                                            },
+                                            {
+                                                "ArtworkPanel": {
+                                                    "CoverAlignment": 132,
+                                                    "CoverType": 0,
+                                                    "FadeCoverChanges": false,
+                                                    "FadeDurationMs": 1000,
+                                                    "KeepAspectRatio": true
+                                                }
+                                            }
+                                        ]
+                                    }
+                                },
+                                {
+                                    "PlaylistTabs": {
+                                        "CloseOnMiddleClick": false,
+                                        "ExpandTabs": false,
+                                        "ShowAddButton": false,
+                                        "ShowClearButton": false,
+                                        "ShowCloseButton": false,
+                                        "TabPosition": 0,
+                                        "Widgets": [
+                                            {
+                                                "Playlist": {
+                                                    "Columns": "8:132|3|0:2|1|7:2",
+                                                    "HeaderState": "AAAAZXjaY2BgYGVgYPBgYGA8A6QToHQlA0QcBBiBmAmImYGYBSRuv25H4OtWuR32N8BUkP2Wqofu60Sq4fydM0FgFkgjw38gAABWBxtv",
+                                                    "ID": "01fb715bc0d44e64bb22975de3ed8181",
+                                                    "Preset": 3,
+                                                    "SingleMode": false
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "StatusBar": {
+                        }
+                    }
+                ]
+            }
+        }
+    ],
+    "WindowSize": {
+        "Height": 874,
+        "Width": 1528
+    }
+}

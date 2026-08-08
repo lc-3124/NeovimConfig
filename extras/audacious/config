@@ -1,0 +1,6 @@
+
+[qtui]
+column_widths=25,25,275,167,50,175,175,25,100,25,75,275,275,275,75,275,175,75,25,190
+player_height=410
+player_width=1073
+show_remaining_time=TRUE
