@@ -128,6 +128,7 @@ rclone
 scrcpy
 sddm
 sof-firmware
+soundconverter
 speedtest-cli
 sqlcipher
 sshpass

@@ -12,6 +12,7 @@ fcitx5-voice-input-git
 hyprkeys
 input-remapper-bin
 jhentai-bin
+kuake-cli
 libsoup
 linuxqq-nt
 listen1-desktop-appimage
