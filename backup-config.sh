@@ -14,10 +14,10 @@ EXTRAS_DIR="$NC_DIR/extras"
 
 # 需要备份的软件配置（小体积、纯配置、无账号数据）
 APPS=(
-  audacious btop cava cmus deadbeef dconf eog fcitx fooyin gsmartcontrol
+  audacious btop cava dconf eog fcitx fooyin gsmartcontrol
   ibus input-remapper-2 kdiskmark libreoffice menus mpv ncmpcpp neofetch
-  obs-studio peazip procps qBittorrent qt5ct qt6ct songrec strawberry
-  termusic Thunar vlc xfce4 yarn yay
+  obs-studio peazip procps qBittorrent qt5ct qt6ct strawberry
+  termusic Thunar xfce4 yarn
 )
 
 echo "== [1/3] 同步软件配置 → extras/ =="
