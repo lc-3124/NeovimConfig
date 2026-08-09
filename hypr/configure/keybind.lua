@@ -25,8 +25,8 @@ hl.bind(mainMod .. " + F4", hl.dsp.window.kill())
 hl.bind(mainMod .. " + M", hl.dsp.exit())
 -- 锁定屏幕（Meta + L，背景跟随当前壁纸）
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("~/.config/hypr/scripts/lock.sh"), { description = "lock screen" })
--- 锁屏并挂起（Ctrl + Alt + L）
-hl.bind("CTRL + ALT + L", hl.dsp.exec_cmd("~/.config/hypr/scripts/lock-suspend.sh"), { description = "lock and suspend" })
+-- 锁屏并挂起（Ctrl + Alt + L；locked=true 使锁屏状态下仍可用）
+hl.bind("CTRL + ALT + L", hl.dsp.exec_cmd("~/.config/hypr/scripts/lock-suspend.sh"), { locked = true, description = "lock and suspend" })
 -- 文件管理器
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 -- 切换窗口浮动
