@@ -17,7 +17,7 @@ APPS=(
   audacious btop cava cmus deadbeef dconf eog fcitx fooyin gsmartcontrol
   ibus input-remapper-2 kdiskmark libreoffice menus mpv ncmpcpp neofetch
   obs-studio peazip procps qBittorrent qt5ct qt6ct songrec strawberry
-  termusic Thunar vlc xfce4 yarn yay yazi
+  termusic Thunar vlc xfce4 yarn yay
 )
 
 echo "== [1/3] 同步软件配置 → extras/ =="
