@@ -38,7 +38,9 @@ gdu
 gimp
 git
 hmcl
+hypridle
 hyprland
+hyprlock
 hyprpaper
 kexec-tools
 keyd
