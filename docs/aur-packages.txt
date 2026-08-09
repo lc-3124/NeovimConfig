@@ -7,7 +7,6 @@ cbonsai
 classin-bin
 dxvk-bin
 fcitx5-anytalk
-hyprkeys
 input-remapper-bin
 jhentai-bin
 libsoup
@@ -23,7 +22,6 @@ mainstream-portal
 mainstream-python
 mainstream-screencapture
 mainstream-toolkit
-mainstream-widgets
 mmtui
 mpvpaper
 neofetch

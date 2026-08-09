@@ -185,7 +185,6 @@ usbutils
 vim
 vulkan-radeon
 vulkan-tools
-wev
 wine-mono
 wine-staging
 winetricks
