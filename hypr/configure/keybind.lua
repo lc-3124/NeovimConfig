@@ -25,8 +25,8 @@ hl.bind(mainMod .. " + F4", hl.dsp.window.kill())
 hl.bind(mainMod .. " + M", hl.dsp.exit())
 -- 锁定屏幕（Meta + L，背景跟随当前壁纸）
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("~/.config/hypr/scripts/lock.sh"), { description = "lock screen" })
--- 锁屏并挂起（Meta + Shift + L）
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd("~/.config/hypr/scripts/lock-suspend.sh"), { description = "lock and suspend" })
+-- 锁屏并挂起（Ctrl + Alt + L）
+hl.bind("CTRL + ALT + L", hl.dsp.exec_cmd("~/.config/hypr/scripts/lock-suspend.sh"), { description = "lock and suspend" })
 -- 文件管理器
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 -- 切换窗口浮动
@@ -146,7 +146,7 @@ hl.bind(mainMod .. " + SHIFT + Q",    hl.dsp.exec_cmd("busctl --user call org.fc
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd([[NEW_VAL=$(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.1'); hyprctl eval "hl.config({cursor={zoom_factor=$NEW_VAL}})"]]))
 
 -- 光标缩小
-hl.bind(mainMod .. " + SHIFT + K", hl.dsp.exec_cmd([[NEW_VAL=$(hyprctl getoption cursor:zoom_factor -j | jq '.float * 0.9 | if . < 1 then 1 else . end'); hyprctl eval "hl.config({cursor={zoom_factor=$NEW_VAL}})"]]) )
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd([[NEW_VAL=$(hyprctl getoption cursor:zoom_factor -j | jq '.float * 0.9 | if . < 1 then 1 else . end'); hyprctl eval "hl.config({cursor={zoom_factor=$NEW_VAL}})"]]) )
 
 -- 缩放增大
 hl.bind(mainMod .. " + CTRL + P", hl.dsp.exec_cmd("~/.config/hypr/scripts/scale.sh +"))
