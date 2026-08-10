@@ -1,24 +1,50 @@
-vim.opt.number = true
-vim.opt.cursorline = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.expandtab = true
-vim.opt.tabstop = 2
-vim.opt.shiftwidth = 2
-vim.opt.softtabstop = -1
-vim.opt.autoindent = true
-vim.opt.scrolloff = 5
-vim.opt.signcolumn = "yes"
-vim.opt.wrap = false
-vim.opt.updatetime = 300
-vim.opt.termguicolors = true
-vim.opt.mouse = "a"
-vim.opt.clipboard = "unnamedplus"
-vim.opt.laststatus = 3
-vim.opt.splitbelow = true
-vim.opt.splitright = true
-vim.opt.list = true
+-- ============================================================================
+-- 基础选项模块（options）
+-- 集中配置 Neovim 的编辑器行为选项。
+-- 每项右侧是选项值，注释里说明了作用与常见取值。
+-- ============================================================================
+
+-- ----------------------------------------------------------------------------
+-- 显示相关
+-- ----------------------------------------------------------------------------
+vim.opt.number = true            -- 显示行号
+vim.opt.cursorline = true        -- 高亮当前行（便于定位）
+vim.opt.signcolumn = "yes"       -- 始终显示侧边符号列（LSP 诊断/git 标记用，避免跳动）
+vim.opt.laststatus = 3           -- 状态栏显示策略：3=全局状态栏（lualine 用）
+vim.opt.list = true              -- 显示不可见字符（如行尾空格）
+-- 不可见字符的具体样式：tab 显示为"» "、行尾空格为"·"、不间断空格为"␣"
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }
-vim.opt.pumheight = 10
-vim.opt.completeopt = "menu,menuone,noselect"
-vim.opt.conceallevel = 2
+vim.opt.wrap = false             -- 关闭自动换行（长行横向滚动）
+
+-- ----------------------------------------------------------------------------
+-- 搜索相关
+-- ----------------------------------------------------------------------------
+vim.opt.ignorecase = true        -- 搜索时忽略大小写
+vim.opt.smartcase = true         -- 但输入包含大写字母时，自动切换为区分大小写
+
+-- ----------------------------------------------------------------------------
+-- 缩进与排版
+-- ----------------------------------------------------------------------------
+vim.opt.expandtab = true         -- 用空格代替 Tab 字符
+vim.opt.tabstop = 2              -- Tab 显示宽度 = 2 列
+vim.opt.shiftwidth = 2           -- 缩进（>> / << / =）每次 2 个空格
+vim.opt.softtabstop = -1         -- 编辑时 Tab 的宽度，-1 = 跟随 tabstop
+vim.opt.autoindent = true        -- 换行自动沿用上一行缩进
+
+-- ----------------------------------------------------------------------------
+-- 光标行为
+-- ----------------------------------------------------------------------------
+vim.opt.scrolloff = 5            -- 光标距屏幕上下边缘至少保留 5 行（滚动时始终有上下文）
+vim.opt.mouse = "a"              -- 全部模式下启用鼠标支持
+
+-- ----------------------------------------------------------------------------
+-- 编辑器/补全
+-- ----------------------------------------------------------------------------
+vim.opt.termguicolors = true     -- 启用真彩色（24 位色），主题渲染必需
+vim.opt.clipboard = "unnamedplus" -- 与系统剪贴板共享（y/p 直接走系统剪贴板）
+vim.opt.splitbelow = true        -- 水平分屏时新窗口在下方
+vim.opt.splitright = true        -- 垂直分屏时新窗口在右侧
+vim.opt.updatetime = 300         -- 触发落盘/自动命令的延迟（毫秒），小值让 git 标记更跟手
+vim.opt.pumheight = 10           -- 补全弹窗最多显示 10 行
+vim.opt.completeopt = "menu,menuone,noselect" -- 补全弹窗行为：显示菜单、单候选也弹、默认不选中
+vim.opt.conceallevel = 2         -- 允许隐藏文本（配合 markdown 等渲染）

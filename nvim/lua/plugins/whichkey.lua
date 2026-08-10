@@ -1,10 +1,15 @@
+-- ============================================================================
+-- 插件：which-key.nvim（快捷键提示）
+-- 作用：按下 <leader> 或某前缀键后，自动弹出所有可用快捷键的提示浮窗，
+-- 帮助记忆快捷键；也提供手动查看当前 buffer 快捷键的功能。
+-- ============================================================================
 return {
   "folke/which-key.nvim",
-  event = "VeryLazy",
-  opts = {},
+  event = "VeryLazy",  -- 启动后期加载
+  opts = {},           -- 使用默认配置
   keys = {
     {
-      "<leader>?",
+      "<leader>?",  -- \? 查看当前 buffer 的局部快捷键
       function() require("which-key").show({ global = false }) end,
       desc = "Buffer Local Keymaps (which-key)",
     },
