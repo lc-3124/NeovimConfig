@@ -13,6 +13,7 @@ nvim/
     │   └── treesitter.lua    # 内置 treesitter + :TSInstall 命令
     └── plugins/              # 插件配置（lazy.nvim 自动加载）
         ├── colorscheme.lua   # tokyonight 主题配置
+        ├── commentary.lua    # 快速逐行注释（gc/gcc）
         ├── lsp.lua           # LSP 配置 + Mason 安装器
         ├── cmp.lua           # 自动补全 + 代码片段 + 自动括号
         ├── telescope.lua     # 模糊搜索
@@ -44,6 +45,16 @@ nvim/
 | `<Leader> bd` | Normal | 删除当前缓冲区 |
 | `<Leader> un` | Normal | 关闭通知 |
 | `<Leader> n` | Normal | 通知历史 |
+
+### 快速逐行注释（vim-commentary）
+
+| 快捷键 | 模式 | 功能 |
+|--------|------|------|
+| `gc` | Visual | **选择多行后按 `gc`，逐行注释 / 取消注释** |
+| `gcc` | Normal | 注释 / 取消注释当前行 |
+| `gc` + 移动 | Normal | 如 `gc2j` 注释光标起下面两行 |
+
+再次执行相同操作会取消注释（切换式）。
 
 ### LSP（文件打开后自动启用）
 
