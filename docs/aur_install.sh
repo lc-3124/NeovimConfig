@@ -1,5 +1,5 @@
 #!/bin/bash
-# 自动生成于 2026-08-10 21:30，勿手改；来源: docs/aur-packages.txt
+# 自动生成于 2026-08-10 21:43，勿手改；来源: docs/aur-packages.txt
 # 用法: ./docs/aur_install.sh   # 安装全部 AUR 包（--needed 已装则跳过）
 
 paru -S adw-gtk-theme-git --needed --noconfirm ;

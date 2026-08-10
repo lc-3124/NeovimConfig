@@ -10,7 +10,6 @@ awww
 base
 base-devel
 bat
-bluetui
 bluez-utils
 btop
 cmatrix
