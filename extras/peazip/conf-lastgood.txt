@@ -84,7 +84,7 @@ default.txt
 
 [save history of recent archives]
 1
-/home/lc3124/Downloads/xwcmlc.7z.001
+/home/lc3124/Downloads/th10-Mountain of Faith (v1.00a).zip
 
 
 
@@ -409,8 +409,8 @@ PeaZip
 0
 
 [save history of recent directories]
-/home/lc3124/Downloads/xwcmlc.7z.001
 /home/lc3124/Downloads/
+
 
 
 

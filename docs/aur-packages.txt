@@ -33,4 +33,3 @@ tokyonight-gtk-theme-git
 ttf-material-symbols-variable-git
 wayle-bin
 wechat-appimage
-xtop-git

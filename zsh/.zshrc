@@ -28,9 +28,11 @@ prompt_short_path() {
     echo "$result"
 }
 
+# ===== 提示符 =====
 PROMPT='%F{cyan}$(prompt_short_path)%f%F{yellow}>%f '
 RPROMPT='%(?.%F{green}✓%f.%F{red}✗ %?%f)'
 
+# ===== ? =====
 CASE_SENSITIVE="true"
 HYPHEN_INSENSITIVE="true"
 zstyle ':omz:update' mode auto

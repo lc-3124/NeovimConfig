@@ -84,7 +84,7 @@ default.txt
 
 [save history of recent archives]
 1
-/home/lc3124/Downloads/xwcmlc.7z.001
+
 
 
 
