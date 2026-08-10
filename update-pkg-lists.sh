@@ -27,5 +27,19 @@ else
   > "$DOCS_DIR/winetricks-list.txt"
 fi
 
+echo "[*] AUR 安装脚本 → docs/aur_install.sh"
+{
+  echo "#!/bin/bash"
+  echo "# 自动生成于 $(date '+%Y-%m-%d %H:%M')，勿手改；来源: docs/aur-packages.txt"
+  echo "# 用法: ./docs/aur_install.sh   # 安装全部 AUR 包（--needed 已装则跳过）"
+  echo
+  # 逐包生成 paru 安装命令，一个失败不影响后续
+  while IFS= read -r pkg; do
+    [ -n "$pkg" ] && echo "paru -S $pkg --needed --noconfirm ;"
+  done < "$DOCS_DIR/aur-packages.txt"
+} > "$DOCS_DIR/aur_install.sh"
+chmod +x "$DOCS_DIR/aur_install.sh"
+echo "    $(wc -l < "$DOCS_DIR/aur-packages.txt") packages"
+
 echo
 echo "== 完成 =="
