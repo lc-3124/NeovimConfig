@@ -44,7 +44,7 @@ usage() {
     echo "Usage: $0 [tui|gui|all]"
     echo
     echo "  tui  仅安装 TUI 软件配置 (nvim, tmux, zsh)"
-    echo "  gui  仅安装 GUI 软件配置 (hypr, wayle, fuzzel, kitty, fcitx5, gtk, systemd, wireplumber)"
+    echo "  gui  仅安装 GUI 软件配置 (hypr, wayle, fuzzel, kitty, fcitx5, gtk, systemd, wireplumber, qq)"
     echo "  all  安装全部 (默认)"
     echo
     exit 0
@@ -199,11 +199,12 @@ install_tui() {
 #   kitty   → ~/.config/kitty（终端模拟器）
 #   fcitx5  → ~/.config/fcitx5 + 主题 + anytalk 密钥
 #   gtk     → ~/.gtkrc-2.0 + ~/.config/gtk-* + Kvantum + mimeapps
+#   qq      → ~/.config/qq-flags.conf（QQ Electron 启动参数，Wayland 输入法修复）
 #   systemd → ~/.config/systemd/user/*.conf（用户级服务覆盖项）
 #   wireplumber → 蓝牙音频 buffer 配置
 # ------------------------------------------------------------
 install_gui() {
-    echo "== GUI Software Installer (hypr, wayle, fuzzel, kitty, fcitx5, gtk, systemd, wireplumber) =="
+    echo "== GUI Software Installer (hypr, wayle, fuzzel, kitty, fcitx5, gtk, systemd, wireplumber, qq) =="
     echo
 
     # GUI: Hyprland —— 窗口管理器，配置较多，整目录链接
@@ -270,6 +271,13 @@ install_gui() {
     link_file "$SCRIPT_DIR/gtk/gtk-4.0/settings.ini" "$CONFIG_DIR/gtk-4.0/settings.ini"
     link_file "$SCRIPT_DIR/gtk/Kvantum/kvantum.kvconfig" "$CONFIG_DIR/Kvantum/kvantum.kvconfig"
     link_file "$SCRIPT_DIR/gtk/mimeapps.list" "$CONFIG_DIR/mimeapps.list"
+    echo
+
+    # GUI: QQ —— linuxqq 脚本读取 ~/.config/qq-flags.conf 作为 Electron 启动参数。
+    # 当前用途是 --ozone-platform=wayland，让 QQ 走原生 Wayland（而非 XWayland），
+    # 从而用 fcitx5 的 text-input-v3 原生输入法协议，规避 XIM 在快速打字时的丢键问题
+    echo "[*] Deploying QQ flags"
+    link_file "$SCRIPT_DIR/qq/qq-flags.conf" "$CONFIG_DIR/qq-flags.conf"
     echo
 
     # GUI: systemd 用户级覆盖项 —— 复制（非链接），

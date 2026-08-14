@@ -4,7 +4,12 @@
 
 -- 环境变量 ------------------------------------------------
 -- hl.env("KEY", "VALUE") 设置环境变量
-hl.env("QT_QPA_PLATFORMTHEME", "qt5ct")
+-- 注：kdeconnect/qbittorrent 等主流应用是 Qt6，须用 qt6ct；
+--     Qt5 应用（如需要）可由其自身启动脚本指定 QT_QPA_PLATFORMTHEME=qt5ct 覆盖
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+-- Electron/Chromium 应用（QQ、VS Code 等）自动优先走原生 Wayland，
+-- 规避 XWayland 下 XIM 输入法丢键等问题；支持 Wayland 的才启用，否则回退 X11
+hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
 hl.env("XCURSOR_THEME", "Bibata-Modern-Classic")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Classic")

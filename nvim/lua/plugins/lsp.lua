@@ -52,22 +52,22 @@ return {
       vim.api.nvim_create_autocmd("LspAttach", {
         group = vim.api.nvim_create_augroup("UserLspConfig", {}),
         callback = function(ev)
-          local opts = { buffer = ev.buf }
           vim.keymap.set("n", "gh", vim.lsp.buf.hover, { buffer = ev.buf, desc = "语法帮助" }) -- 悬浮文档
-          vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)          -- 跳转定义
-          vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)      -- 跳转实现
-          vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)          -- 查找引用
-          vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)      -- 重命名
-          vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts) -- 代码操作
+          vim.keymap.set("n", "gd", vim.lsp.buf.definition, { buffer = ev.buf, desc = "跳转定义" }) -- 跳转定义（Gramma Definition）
+          vim.keymap.set("n", "gf", "<C-o>", { buffer = ev.buf, desc = "返回上一个位置" }) -- 返回上一个跳转位置（Gramma Fallback）
+          vim.keymap.set("n", "gi", vim.lsp.buf.implementation, { buffer = ev.buf, desc = "跳转实现" }) -- 跳转实现
+          vim.keymap.set("n", "gr", vim.lsp.buf.references, { buffer = ev.buf, desc = "查找引用" }) -- 查找引用
+          vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, { buffer = ev.buf, desc = "重命名符号" }) -- 重命名
+          vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, { buffer = ev.buf, desc = "代码操作" }) -- 代码操作
           vim.keymap.set("n", "<leader>f", function()                      -- 格式化
             vim.lsp.buf.format({ async = true })
-          end, opts)
-          vim.keymap.set("n", "gl", vim.diagnostic.open_float, opts)       -- 悬浮诊断
-          vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, opts)        -- 上一个诊断
-          vim.keymap.set("n", "]d", vim.diagnostic.goto_next, opts)        -- 下一个诊断
+          end, { buffer = ev.buf, desc = "格式化代码" })
+          vim.keymap.set("n", "gl", vim.diagnostic.open_float, { buffer = ev.buf, desc = "悬浮诊断" }) -- 悬浮诊断
+          vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { buffer = ev.buf, desc = "上一个诊断" }) -- 上一个诊断
+          vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { buffer = ev.buf, desc = "下一个诊断" }) -- 下一个诊断
           vim.keymap.set("n", "<leader>lh", function()                     -- 切换 inlay hint（内联类型提示）
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = ev.buf }), { bufnr = ev.buf })
-          end, opts)
+          end, { buffer = ev.buf, desc = "切换内联类型提示" })
         end,
       })
 

@@ -131,6 +131,10 @@ hl.bind("Print",          hl.dsp.exec_cmd("screenshot region"))
 hl.bind("SHIFT + Print",  hl.dsp.exec_cmd("screenshot full"))
 -- 截取当前窗口
 hl.bind("CTRL + Print",   hl.dsp.exec_cmd("screenshot focused"))
+-- Meta + Ctrl + S：选择截图（slurp 交互框选区域）
+hl.bind(mainMod .. " + CTRL + S",         hl.dsp.exec_cmd("screenshot region"))
+-- Meta + Ctrl + Shift + S：直接全屏截图
+hl.bind(mainMod .. " + CTRL + SHIFT + S", hl.dsp.exec_cmd("screenshot full"))
 
 -- 下一张壁纸
 hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd("~/.config/hypr/scripts/cycle-wallpaper.sh next"))

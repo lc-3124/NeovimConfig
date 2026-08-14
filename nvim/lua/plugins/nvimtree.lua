@@ -6,15 +6,20 @@
 return {
   "nvim-tree/nvim-tree.lua",
   dependencies = { "nvim-tree/nvim-web-devicons" },
+  -- 通过命令懒加载：执行这些命令时才加载插件，
+  -- 保证启动脚本里 vim.cmd("NvimTreeOpen") 能正确触发插件加载
+  cmd = { "NvimTreeToggle", "NvimTreeOpen", "NvimTreeClose" },
   keys = {
     -- F3 键开关文件树
-    { "<F3>", ":NvimTreeToggle<CR>", desc = "Toggle file tree" },
+    { "<F3>", ":NvimTreeToggle<CR>", desc = "开关文件树" }, -- F3 显示/隐藏左侧文件树
   },
-  config = function()
-    -- 禁用内置文件浏览（netrw），避免与 nvim-tree 冲突
+  -- init：lazy.setup 解析 spec 时立即执行（早于 config、早于打开文件）
+  -- 这里提前禁用内置 netrw 文件浏览，否则 nvim . 打开目录时会先用 netrw
+  init = function()
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1
-
+  end,
+  config = function()
     require("nvim-tree").setup({
       sort = { sorter = "case_sensitive" },  -- 按大小写敏感排序
       view = { width = 30, side = "left" },  -- 宽度 30，位于左侧

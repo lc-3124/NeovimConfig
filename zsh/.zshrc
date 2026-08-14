@@ -51,6 +51,8 @@ export NO_PROXY="$no_proxy"
 
 # ===== 输入法 =====
 export XMODIFIERS=@im=fcitx
+export QT_IM_MODULE=fcitx
+export GTK_IM_MODULE=fcitx
 
 # ===== 终端 =====
 export TERM=xterm-256color

@@ -11,7 +11,7 @@ return {
     {
       "<leader>?",  -- \? 查看当前 buffer 的局部快捷键
       function() require("which-key").show({ global = false }) end,
-      desc = "Buffer Local Keymaps (which-key)",
+      desc = "查看当前缓冲区快捷键",
     },
   },
 }

@@ -40,7 +40,6 @@ yay -S --needed - < docs/aur-packages.txt
 | Neovim | tokyonight (storm) |
 | Tmux | tokyo-night-tmux |
 | Hyprland | Catppuccin Frappe |
-| Waybar | Catppuccin Frappe |
 | Wayle | TokyoNight Storm（竖排，右侧） |
 | GTK | adw-gtk3-dark |
 | Qt | Kvantum MaterialAdw |

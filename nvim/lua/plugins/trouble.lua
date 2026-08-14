@@ -37,7 +37,7 @@ return {
     { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", desc = "当前文件诊断" },  -- 仅当前文件
     { "<leader>cs", "<cmd>Trouble symbols toggle focus=false<cr>", desc = "文档符号" },           -- 符号大纲
     { "<leader>cl", "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", desc = "LSP 引用/定义" },
-    { "<leader>xL", "<cmd>Trouble loclist toggle<cr>", desc = "Location List" },                  -- location 列表
-    { "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix List" },                   -- quickfix 列表
+    { "<leader>xL", "<cmd>Trouble loclist toggle<cr>", desc = "Location 列表" },                  -- location 列表
+    { "<leader>xQ", "<cmd>Trouble qflist toggle<cr>", desc = "Quickfix 列表" },                   -- quickfix 列表
   },
 }
