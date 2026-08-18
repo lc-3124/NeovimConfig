@@ -200,11 +200,13 @@ install_tui() {
 #   fcitx5  → ~/.config/fcitx5 + 主题 + anytalk 密钥
 #   gtk     → ~/.gtkrc-2.0 + ~/.config/gtk-* + Kvantum + mimeapps
 #   qq      → ~/.config/qq-flags.conf（QQ Electron 启动参数，Wayland 输入法修复）
+#   xdg-desktop-portal → ~/.config/xdg-desktop-portal/portals.conf（portal 后端路由）
+#   xdg-desktop-portal-termfilechooser → ~/.config/xdg-desktop-portal-termfilechooser/config（终端文件选择器）
 #   systemd → ~/.config/systemd/user/*.conf（用户级服务覆盖项）
 #   wireplumber → 蓝牙音频 buffer 配置
 # ------------------------------------------------------------
 install_gui() {
-    echo "== GUI Software Installer (hypr, wayle, fuzzel, kitty, fcitx5, gtk, systemd, wireplumber, qq) =="
+    echo "== GUI Software Installer (hypr, wayle, fuzzel, kitty, fcitx5, gtk, systemd, wireplumber, qq, portal) =="
     echo
 
     # GUI: Hyprland —— 窗口管理器，配置较多，整目录链接
@@ -278,6 +280,23 @@ install_gui() {
     # 从而用 fcitx5 的 text-input-v3 原生输入法协议，规避 XIM 在快速打字时的丢键问题
     echo "[*] Deploying QQ flags"
     link_file "$SCRIPT_DIR/qq/qq-flags.conf" "$CONFIG_DIR/qq-flags.conf"
+    echo
+
+    # GUI: XDG Desktop Portal —— portals.conf 决定各 portal 接口走哪个后端。
+    # 当前路由：ScreenCast/Screenshot/GlobalShortcuts→hyprland，
+    # RemoteDesktop→hypr-kdeconnect（KDE Connect 远程输入桥接），
+    # FileChooser→termfilechooser（终端文件选择器，yazi 替代 GTK 对话框）
+    echo "[*] Deploying XDG Desktop Portal config"
+    mkdir -p "$CONFIG_DIR/xdg-desktop-portal"
+    link_file "$SCRIPT_DIR/xdg-desktop-portal/portals.conf" "$CONFIG_DIR/xdg-desktop-portal/portals.conf"
+    echo
+
+    # GUI: xdg-desktop-portal-termfilechooser —— 让应用的文件选择对话框
+    # 改用终端文件管理器（本机 yazi）+ kitty 打开。配置文件放在
+    # ~/.config/xdg-desktop-portal-termfilechooser/（应用指定的用户配置目录）
+    echo "[*] Deploying termfilechooser config"
+    mkdir -p "$CONFIG_DIR/xdg-desktop-portal-termfilechooser"
+    link_file "$SCRIPT_DIR/xdg-desktop-portal-termfilechooser/config" "$CONFIG_DIR/xdg-desktop-portal-termfilechooser/config"
     echo
 
     # GUI: systemd 用户级覆盖项 —— 复制（非链接），
