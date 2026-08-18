@@ -291,12 +291,21 @@ install_gui() {
     link_file "$SCRIPT_DIR/xdg-desktop-portal/portals.conf" "$CONFIG_DIR/xdg-desktop-portal/portals.conf"
     echo
 
+    # GUI: 通用窗口浮动脚本 —— launch-float 让任意程序按屏幕 80% 浮动居中，
+    # 供 PeaZip wrapper 和 termfilechooser wrapper 复用
+    echo "[*] Deploying launch-float helper"
+    mkdir -p "$HOME/.local/bin"
+    link_file "$SCRIPT_DIR/scripts/launch-float" "$HOME/.local/bin/launch-float"
+    echo
+
     # GUI: xdg-desktop-portal-termfilechooser —— 让应用的文件选择对话框
-    # 改用终端文件管理器（本机 yazi）+ kitty 打开。配置文件放在
+    # 改用终端文件管理器（本机 yazi）+ kitty 打开。配置和自定义 wrapper 放在
     # ~/.config/xdg-desktop-portal-termfilechooser/（应用指定的用户配置目录）
+    # wrapper 增强：浮动 + 按屏幕逻辑尺寸 80% 动态调整 + 居中（Hyprland 下）
     echo "[*] Deploying termfilechooser config"
     mkdir -p "$CONFIG_DIR/xdg-desktop-portal-termfilechooser"
     link_file "$SCRIPT_DIR/xdg-desktop-portal-termfilechooser/config" "$CONFIG_DIR/xdg-desktop-portal-termfilechooser/config"
+    link_file "$SCRIPT_DIR/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh" "$CONFIG_DIR/xdg-desktop-portal-termfilechooser/yazi-wrapper.sh"
     echo
 
     # GUI: systemd 用户级覆盖项 —— 复制（非链接），
@@ -323,6 +332,20 @@ install_gui() {
     echo "[*] Deploying screenshot script"
     mkdir -p "$HOME/.local/bin"
     link_file "$SCRIPT_DIR/hypr/scripts/screenshot" "$HOME/.local/bin/screenshot"
+    echo
+
+    # GUI: PeaZip 启动 wrapper —— 动态按屏幕 80% 浮动居中。
+    # 通过用户级 .desktop 覆盖（Exec=peazip-float）让 PeaZip 走此 wrapper
+    echo "[*] Deploying PeaZip float wrapper"
+    mkdir -p "$HOME/.local/bin"
+    link_file "$SCRIPT_DIR/scripts/peazip-float" "$HOME/.local/bin/peazip-float"
+    echo
+
+    # GUI: 用户级 .desktop 覆盖 —— PeaZip 入口改用 wrapper（浮动 80%）
+    echo "[*] Deploying PeaZip desktop override"
+    mkdir -p "$HOME/.local/share/applications"
+    link_file "$SCRIPT_DIR/desktop-apps/peazip.desktop" "$HOME/.local/share/applications/peazip.desktop"
+    update-desktop-database "$HOME/.local/share/applications" 2>/dev/null || true
     echo
 
     # GUI: WirePlumber 蓝牙音频 —— 解决蓝牙播放卡顿的 buffer 配置

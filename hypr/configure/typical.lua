@@ -50,6 +50,24 @@ hl.window_rule({
   match = { class = "^(kitty)$" },
 })
 
+-- termfilechooser 悬浮文件选择器 ---------------------------------------------
+-- 由 xdg-desktop-portal-termfilechooser 启动的 yazi 选择窗口（kitty，title=termfilechooser）
+-- 强制浮动且 0.9 透明度（与普通 kitty 的 0.85 区分），尺寸由 yazi-wrapper.sh 动态按屏幕 80% 调整并居中
+hl.window_rule({
+  name = "termfilechooser-float",
+  match = { title = ".*termfilechooser.*" },
+  float = true,
+  opacity = "0.9",
+})
+
+-- PeaZip 悬浮压缩管理 ---------------------------------------------------------
+-- 启动时强制浮动，尺寸由 ~/.local/bin/peazip-float wrapper 动态按屏幕 80% 调整并居中
+hl.window_rule({
+  name = "peazip-float",
+  match = { class = ".*[Pp]ea[Zz]ip.*" },
+  float = true,
+})
+
 -- 测试/示例窗口浮动 -------------------------------------------------------
 -- 标题含有 "_demo_or_test" 的窗口自动浮动
 hl.window_rule({

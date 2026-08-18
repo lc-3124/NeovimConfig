@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# PeaZip 启动入口：通过通用 launch-float 按屏幕 80% 浮动居中
+# 用法：peazip-float [args...]  （替代 /usr/bin/peazip 启动）
+exec launch-float '.class | test("(?i)peazip")' /usr/bin/peazip "$@"

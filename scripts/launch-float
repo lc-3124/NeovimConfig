@@ -1,0 +1,64 @@
+#!/usr/bin/env bash
+# ============================================================================
+# launch-float —— 通用「启动程序 + 按屏幕逻辑尺寸 80% 浮动居中」
+#
+# 用法：
+#   launch-float <匹配表达式> <命令> [参数...]
+#
+#   <匹配表达式>  一段 jq 表达式，用于从 hyprctl clients 中识别目标窗口。
+#                 例如：
+#                   '.class | test("(?i)peazip")'        按窗口类名匹配
+#                   '.title | contains("termfilechooser")' 按标题匹配
+#
+# 行为：
+#   1. 后台启动 <命令>
+#   2. 若在 Hyprland 会话下：读取主显示器逻辑分辨率（物理/scale），
+#      轮询等待窗口出现后，用 LuaHyprland 语法精确设置为屏幕 80% 大小并居中
+#   3. 非 Hyprland 会话：仅以默认方式启动，不做窗口调整
+#
+# 依赖：hyprctl、jq（仅在需要调整窗口时）
+# ============================================================================
+
+set -euo pipefail
+
+if [ $# -lt 2 ]; then
+    echo "用法: $0 <匹配表达式> <命令> [参数...]" >&2
+    echo "例:   $0 '.class | test(\"(?i)peazip\")' peazip" >&2
+    echo "      $0 '.title | contains(\"termfilechooser\")' kitty --title termfilechooser yazi" >&2
+    exit 1
+fi
+
+match_jq="$1"
+shift
+# 剩余参数：命令及其参数
+cmd="$1"
+shift
+
+# 后台启动目标命令
+"$cmd" "$@" &
+pid=$!
+
+# 若在 Hyprland 会话下，动态调整窗口为屏幕逻辑尺寸的 80% 并居中
+if [ -n "${HYPRLAND_INSTANCE_SIGNATURE:-}" ] && command -v hyprctl >/dev/null 2>&1 && command -v jq >/dev/null 2>&1; then
+    mon=$(hyprctl monitors -j 2>/dev/null | jq '.[0] // empty')
+    if [ -n "$mon" ]; then
+        w=$(printf '%s' "$mon" | jq '((.width / .scale) * 0.8 | floor)')
+        h=$(printf '%s' "$mon" | jq '((.height / .scale) * 0.8 | floor)')
+        # 轮询等待窗口出现（最多 4 秒）
+        i=0
+        while [ $i -lt 40 ]; do
+            if hyprctl clients -j 2>/dev/null | jq -e ".[] | select($match_jq)" >/dev/null 2>&1; then
+                break
+            fi
+            i=$((i + 1))
+            sleep 0.1
+        done
+        # LuaHyprland：精确设置大小并居中（作用于活动窗口）
+        hyprctl eval "hl.dispatch(hl.dsp.window.resize({ x = $w, y = $h }))" >/dev/null 2>&1 || true
+        hyprctl eval "hl.dispatch(hl.dsp.window.center())" >/dev/null 2>&1 || true
+    fi
+fi
+
+# 等待目标命令结束，透传退出码
+wait "$pid"
+exit $?
