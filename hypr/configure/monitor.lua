@@ -9,7 +9,7 @@ hl.monitor({
   output = "eDP-1",
   mode = "preferred",
   position = "auto",
-  scale = 1.20,
+  scale = 1.10,
   transform = 0
 })
 

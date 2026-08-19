@@ -1,145 +1,155 @@
-# Wayle 配置 —— TokyoNight Storm 主题
-#   尺寸 16px/字号12px、背景 #181825@80%、边框 1px #7aa2f7@15%、圆角 12px
-#   布局：左 workspaces / 中 mpris / 右 系统托盘+网络+麦克风+音量+CPU+内存+电池+时钟
+# ============================================================================
+# Wayle 状态栏配置 —— TokyoNight Storm 主题
+# ============================================================================
+# 尺寸 16px/字号 12px、背景 #181825@80%、边框 1px #7aa2f7@15%、圆角 12px
+# 布局：左 workspaces / 中 mpris / 右 系统托盘+网络+麦克风+音量+CPU+内存+电池+时钟
+# 依赖：wayle（Hyprland 下的 Wayland 状态栏，随 hyprland.start 启动）
+# ============================================================================
 
 [general]
-font-sans = "Ubuntu Nerd Font"
-font-mono = "JetBrains Mono"
+font-sans = "Ubuntu Nerd Font"   # 无衬线字体（含图标字形）
+font-mono = "JetBrains Mono"     # 等宽字体（数字/时间等）
 
 [bar]
-scale = 0.85
-inset-edge = 0.25
-inset-ends = 0.5
-padding = 0.09
-padding-ends = 0.5
-module-gap = 0.5
-location = "right"
-exclusive = true
-layer = "top"
-bg = "bg-base"
-background-opacity = 80
-border-location = "all"
-border-width = 1
-border-color = "#7aa2f726"
-rounding = "lg"
-shadow = "none"
-button-variant = "block-prefix"
-button-opacity = 100
-button-bg-opacity = 50
-button-icon-size = 0.8
-button-icon-padding = 0.8
-button-label-size = 0.95
-button-label-weight = "normal"
-button-label-padding = 0.75
-button-rounding = "md"
-button-gap = 0.6
-button-icon-position = "start"
-button-border-location = "none"
-button-border-width = 1
-button-group-border-location = "none"
-button-group-border-width = 1
-button-group-padding = 0.0
-button-group-module-gap = 0.25
-button-group-background = "bg-elevated"
-button-group-opacity = 100
-button-group-border-color = "border-accent"
-button-group-rounding = "sm"
-dropdown-shadow = true
-dropdown-opacity = 100
-dropdown-autohide = true
-dropdown-freeze-label = true
+scale = 0.85                      # 全局缩放比例（小屏适配）
+inset-edge = 0.25                 # 栏与屏幕边缘的内缩
+inset-ends = 0.5                  # 栏两端的内缩
+padding = 0.09                    # 栏内部整体内边距
+padding-ends = 0.5                # 栏两端内部内边距
+module-gap = 0.5                  # 模块之间的间距
+location = "right"                # 栏位置：right（右侧垂直栏）
+exclusive = true                  # 独占边缘空间（应用避开状态栏区域）
+layer = "top"                     # Wayland 层：top（悬浮在窗口之上）
+bg = "bg-base"                    # 背景色引用 palette 的 bg
+background-opacity = 80           # 背景不透明度 0-100
+border-location = "all"           # 边框位置：all（四周）
+border-width = 1                  # 边框宽度 px
+border-color = "#7aa2f726"         # 边框颜色（ARGB 8 位，26≈15% 透明度）
+rounding = "lg"                   # 圆角：lg（大圆角）
+shadow = "none"                   # 阴影：关闭
+button-variant = "block-prefix"   # 按钮样式：块状前缀（高亮当前项）
+button-opacity = 100              # 按钮不透明度
+button-bg-opacity = 50            # 按钮背景不透明度
+button-icon-size = 0.8            # 按钮图标尺寸（相对基准）
+button-icon-padding = 0.8         # 按钮图标内边距
+button-label-size = 0.95          # 按钮文字尺寸
+button-label-weight = "normal"    # 按钮字重
+button-label-padding = 0.75       # 按钮文字内边距
+button-rounding = "md"            # 按钮圆角：md
+button-gap = 0.6                  # 按钮间距
+button-icon-position = "start"    # 图标位置：start（文字前）
+button-border-location = "none"   # 按钮边框：无
+button-border-width = 1           # 按钮边框宽度
+button-group-border-location = "none"   # 按钮组边框：无
+button-group-border-width = 1           # 按钮组边框宽度
+button-group-padding = 0.0              # 按钮组内边距
+button-group-module-gap = 0.25          # 按钮组内模块间距
+button-group-background = "bg-elevated" # 按钮组背景（抬升色）
+button-group-opacity = 100              # 按钮组不透明度
+button-group-border-color = "border-accent" # 按钮组边框（强调色）
+button-group-rounding = "sm"            # 按钮组圆角：sm（小）
+dropdown-shadow = true             # 下拉面板阴影
+dropdown-opacity = 100             # 下拉面板不透明度
+dropdown-autohide = true           # 点击外部自动隐藏下拉
+dropdown-freeze-label = true       # 下拉展开时冻结按钮标签
 
-# 布局：顶部(启动器/wifi/蓝牙/托盘后台应用) / 中间(媒体/工作区) / 底部(内存/cpu/麦克风/音量/电量/时间)
+# 布局：左(启动器/wifi/蓝牙/通知/托盘) 中(媒体/工作区) 右(亮度/内存/麦克风/音量/电池/时钟)
 [[bar.layout]]
-monitor = "*"
+monitor = "*"                                     # 应用到所有显示器
 left = ["dashboard", "network", "bluetooth", "notifications", "systray"]
 center = ["media", "hyprland-workspaces"]
 right = ["brightness", "ram", "microphone", "volume", "battery", "clock"]
 
 [styling]
-scale = 0.85
-rounding = "md"
-theme-provider = "wayle"
-theming-monitor = ""
+scale = 0.85                       # 样式缩放
+rounding = "md"                    # 默认圆角
+theme-provider = "wayle"           # 主题来源：wayle 内置
+theming-monitor = ""               # 主题监视器（空=全部）
 
-[styling.palette]
-bg = "#181825"
-surface = "#313244"
-elevated = "#3b4261"
-fg = "#c0caf5"
-fg-muted = "#9aa5ce"
-primary = "#7aa2f7"
-red = "#f7768e"
-yellow = "#e0af68"
-green = "#9ece6a"
-blue = "#7aa2f7"
+[styling.palette]                  # 配色板（TokyoNight Storm）
+bg = "#181825"                     # 背景（深蓝黑）
+surface = "#313244"                # 表面色（卡片/面板）
+elevated = "#3b4261"               # 抬升色（悬浮层）
+fg = "#c0caf5"                     # 前景文字（浅蓝白）
+fg-muted = "#9aa5ce"               # 弱化文字
+primary = "#7aa2f7"                # 主强调色（蓝）
+red = "#f7768e"                    # 红色（警告/危险）
+yellow = "#e0af68"                 # 黄色（注意/亮度）
+green = "#9ece6a"                  # 绿色（正常/麦克风）
+blue = "#7aa2f7"                   # 蓝色（蓝牙等）
 
+# ---- 工作区模块：Hyprland workspace 指示 ----
 [modules.hyprland-workspaces]
-min-workspace-count = 0
-monitor-specific = true
-show-special = false
-urgent-show = true
-urgent-mode = "workspace"
-display-mode = "icon"
-label-use-name = false
-numbering = "absolute"
-app-icons-show = false
-active-indicator = "background"
-active-color = "accent"
-occupied-color = "fg-muted"
-empty-color = "fg-subtle"
-container-bg-color = "bg-surface"
-border-show = false
+min-workspace-count = 0            # 最小工作区数（0=不强制显示空工作区）
+monitor-specific = true           # 只显示当前显示器的工作区
+show-special = false              # 不显示特殊工作区（草稿箱）
+urgent-show = true                # 显示紧急请求的工作区
+urgent-mode = "workspace"         # 紧急模式：按工作区高亮
+display-mode = "icon"             # 显示模式：icon（图标而非数字）
+label-use-name = false            # 不使用工作区名称做标签
+numbering = "absolute"            # 编号方式：绝对编号
+app-icons-show = false            # 不显示应用图标
+active-indicator = "background"   # 激活指示：背景高亮
+active-color = "accent"           # 激活工作区颜色（强调色）
+occupied-color = "fg-muted"       # 有窗口工作区颜色（弱化）
+empty-color = "fg-subtle"         # 空工作区颜色（更弱）
+container-bg-color = "bg-surface" # 容器背景
+border-show = false               # 不显示边框
 
+# 各工作区的图标映射
 [modules.hyprland-workspaces.workspace-map]
-1 = { icon = "ld-globe-symbolic" }
-2 = { icon = "ld-mail-symbolic" }
-3 = { icon = "ld-message-circle-symbolic" }
-4 = { icon = "ld-gamepad-2-symbolic" }
-5 = { icon = "ld-code-symbolic" }
-6 = { icon = "ld-film-symbolic" }
-7 = { icon = "ld-minus-symbolic" }
-8 = { icon = "ld-hard-drive-symbolic" }
-9 = { icon = "ld-music-symbolic" }
-10 = { icon = "ld-lock-symbolic" }
+1 = { icon = "ld-globe-symbolic" }         # 浏览器/网页
+2 = { icon = "ld-mail-symbolic" }          # 邮件
+3 = { icon = "ld-message-circle-symbolic" }# 聊天/QQ
+4 = { icon = "ld-gamepad-2-symbolic" }     # 游戏
+5 = { icon = "ld-code-symbolic" }          # 代码/编程
+6 = { icon = "ld-film-symbolic" }          # 视频
+7 = { icon = "ld-minus-symbolic" }         # 杂项
+8 = { icon = "ld-hard-drive-symbolic" }    # 文件/磁盘
+9 = { icon = "ld-music-symbolic" }         # 音乐
+10 = { icon = "ld-lock-symbolic" }         # 特殊/锁定
 
+# ---- 媒体模块：显示当前播放（MPRIS）----
 [modules.media]
-icon-type = "application-mapped"
-icon-name = "ld-music-symbolic"
-format = "{{ title }}"
-icon-show = true
-icon-color = "auto"
-icon-bg-color = "green"
-label-show = false
+icon-type = "application-mapped"  # 图标来源：按应用映射
+icon-name = "ld-music-symbolic"   # 默认图标（无播放时）
+format = "{{ title }}"            # 显示格式：曲目标题
+icon-show = true                  # 显示图标
+icon-color = "auto"               # 图标颜色：自动
+icon-bg-color = "green"           # 图标背景：绿
+label-show = false                # 不显示文字标签
 label-color = "green"
-label-max-length = 4
-button-bg-color = "bg-surface"
-left-click = "dropdown:media"
+label-max-length = 4              # 标签最大长度
+button-bg-color = "bg-surface"    # 按钮背景
+left-click = "dropdown:media"     # 左键：打开媒体下拉面板
 
+# ---- 启动器/电源模块：下拉菜单（锁屏/注销/重启/关机）----
 [modules.dashboard]
-icon-override = ""
+icon-override = ""                # 图标覆盖（空=默认）
 border-show = false
 border-color = "yellow"
 icon-color = "auto"
 icon-bg-color = "accent"
 label-show = false
 button-bg-color = "bg-surface"
-left-click = "dropdown:dashboard"
-dropdown-lock-command = "loginctl lock-session"
-dropdown-logout-command = "loginctl terminate-session $XDG_SESSION_ID"
-dropdown-reboot-command = "systemctl reboot"
-dropdown-poweroff-command = "systemctl poweroff"
+left-click = "dropdown:dashboard"     # 左键：打开电源下拉面板
+dropdown-lock-command = "loginctl lock-session"                 # 锁定
+dropdown-logout-command = "loginctl terminate-session $XDG_SESSION_ID" # 注销
+dropdown-reboot-command = "systemctl reboot"                    # 重启
+dropdown-poweroff-command = "systemctl poweroff"                # 关机
 
+# ---- 系统托盘模块 ----
 [modules.systray]
-icon-scale = 0.8
-item-gap = 0.25
-internal-padding = 0.3
+icon-scale = 0.8                  # 托盘图标缩放
+item-gap = 0.25                   # 图标间距
+internal-padding = 0.3            # 内部内边距
 button-bg-color = "bg-surface"
 
+# ---- 通知模块 ----
 [modules.notifications]
-icon-name = "ld-bell-symbolic"
-icon-unread = "ld-bell-dot-symbolic"
-icon-dnd = "ld-bell-off-symbolic"
+icon-name = "ld-bell-symbolic"        # 无通知图标
+icon-unread = "ld-bell-dot-symbolic"  # 有未读通知图标
+icon-dnd = "ld-bell-off-symbolic"     # 免打扰图标
 border-show = false
 border-color = "green"
 icon-show = true
@@ -148,22 +158,23 @@ icon-bg-color = "green"
 label-show = false
 label-color = "green"
 button-bg-color = "bg-surface"
-left-click = "dropdown:notification"
-right-click = "wayle notify dnd"
-popup-position = "top-right"
-popup-max-visible = 5
-popup-stacking-order = "newest-first"
-popup-duration = 60000
-popup-hover-pause = true
-popup-margin-x = 0.4
-popup-margin-y = 0.4
-popup-gap = 8
-popup-monitor = "primary"
-popup-layer = "overlay"
-popup-close-behavior = "dismiss"
-popup-shadow = true
-popup-urgency-bar = "low"
+left-click = "dropdown:notification" # 左键：通知面板
+right-click = "wayle notify dnd"     # 右键：切换免打扰
+popup-position = "top-right"         # 弹窗位置
+popup-max-visible = 5                # 最大可见通知数
+popup-stacking-order = "newest-first"# 新通知在前
+popup-duration = 60000               # 通知停留 ms
+popup-hover-pause = true             # 悬停暂停计时
+popup-margin-x = 0.4                 # 弹窗横向边距
+popup-margin-y = 0.4                 # 弹窗纵向边距
+popup-gap = 8                        # 弹窗间距 px
+popup-monitor = "primary"            # 主显示器弹窗
+popup-layer = "overlay"              # 悬浮层
+popup-close-behavior = "dismiss"     # 关闭行为：消除
+popup-shadow = true                  # 弹窗阴影
+popup-urgency-bar = "low"            # 紧急度条：低
 
+# ---- 网络模块 ----
 [modules.network]
 label-show = false
 label-max-length = 10
@@ -172,18 +183,20 @@ icon-color = "auto"
 icon-bg-color = "accent"
 label-color = "fg-default"
 button-bg-color = "bg-surface"
-left-click = "dropdown:network"
+left-click = "dropdown:network"    # 左键：网络下拉面板
 
+# ---- 蓝牙模块 ----
 [modules.bluetooth]
 icon-show = true
 icon-color = "auto"
-icon-bg-color = "blue"
+icon-bg-color = "blue"             # 蓝色图标背景
 label-show = false
 label-color = "fg-default"
 label-max-length = 8
 button-bg-color = "bg-surface"
-left-click = "dropdown:bluetooth"
+left-click = "dropdown:bluetooth"  # 左键：蓝牙面板
 
+# ---- 麦克风模块 ----
 [modules.microphone]
 icon-show = true
 icon-color = "auto"
@@ -191,12 +204,13 @@ icon-bg-color = "green"
 label-show = true
 label-color = "fg-default"
 button-bg-color = "bg-surface"
-middle-click = "wayle audio input-mute"
-scroll-up = "wayle audio input-volume +5"
-scroll-down = "wayle audio input-volume -5"
+middle-click = "wayle audio input-mute"     # 中键：静音/取消静音
+scroll-up = "wayle audio input-volume +5"   # 滚轮上：音量+5
+scroll-down = "wayle audio input-volume -5" # 滚轮下：音量-5
 
+# ---- 内存模块 ----
 [modules.ram]
-format = "{{ percent }}%"
+format = "{{ percent }}%"          # 显示内存使用百分比
 icon-show = true
 icon-color = "auto"
 icon-bg-color = "green"
@@ -204,6 +218,7 @@ label-show = true
 label-color = "fg-default"
 button-bg-color = "bg-surface"
 
+# ---- 音量模块 ----
 [modules.volume]
 format = "{{ percent }}%"
 icon-show = true
@@ -212,12 +227,13 @@ icon-bg-color = "accent"
 label-show = true
 label-color = "fg-default"
 button-bg-color = "bg-surface"
-middle-click = "wayle audio output-mute"
-scroll-up = "wayle audio output-volume +5"
-scroll-down = "wayle audio output-volume -5"
+middle-click = "wayle audio output-mute"     # 中键：静音
+scroll-up = "wayle audio output-volume +5"   # 滚轮上：音量+5
+scroll-down = "wayle audio output-volume -5" # 滚轮下：音量-5
 
+# ---- 电池模块 ----
 [modules.battery]
-format = "{{ percent }}%"
+format = "{{ percent }}%"          # 显示电量百分比
 icon-show = true
 icon-color = "auto"
 icon-bg-color = "green"
@@ -225,33 +241,35 @@ label-show = true
 label-color = "fg-default"
 button-bg-color = "bg-surface"
 
+# ---- 时钟模块 ----
 [modules.clock]
-format = "%H:%M"
+format = "%H:%M"                   # 24 小时制时分
 icon-show = true
 icon-color = "auto"
 icon-bg-color = "accent"
 label-show = true
 label-color = "fg-default"
 button-bg-color = "bg-surface"
-left-click = "dropdown:calendar"
-right-click = "dropdown:weather"
+left-click = "dropdown:calendar"   # 左键：日历面板
+right-click = "dropdown:weather"   # 右键：天气面板
 
+# ---- 亮度模块 ----
 [modules.brightness]
-level-icons = [
-    "ld-sun-dim-symbolic",
-    "ld-sun-medium-symbolic",
-    "ld-sun-symbolic",
+level-icons = [                    # 按亮度分档的图标
+    "ld-sun-dim-symbolic",         #   低亮度（暗太阳）
+    "ld-sun-medium-symbolic",      #   中亮度（中太阳）
+    "ld-sun-symbolic",             #   高亮度（亮太阳）
 ]
 border-show = false
 border-color = "yellow"
 icon-show = true
 icon-color = "auto"
-icon-bg-color = "yellow"
+icon-bg-color = "yellow"           # 黄色图标背景
 label-show = false
 label-color = "yellow"
-format = "{{ percent }}%"
+format = "{{ percent }}%"          # 显示亮度百分比
 label-max-length = 0
 button-bg-color = "bg-surface"
-left-click = "dropdown:brightness"
-scroll-up = "brightnessctl set +5%"
-scroll-down = "brightnessctl set -5%"
+left-click = "dropdown:brightness"     # 左键：亮度面板
+scroll-up = "brightnessctl set +5%"    # 滚轮上：亮度+5%
+scroll-down = "brightnessctl set -5%"  # 滚轮下：亮度-5%

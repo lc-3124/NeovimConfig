@@ -26,12 +26,14 @@ for app in "${APPS[@]}"; do
   src="$CONFIG_DIR/$app"
   if [ -d "$src" ] || [ -e "$src" ]; then
     if command -v rsync >/dev/null; then
+      # rsync 同步（保留权限，排除敏感/日志/缓存）
       rsync -a --delete \
         --exclude="*cookie*" --exclude="*token*" --exclude="*secret*" \
         --exclude="*.log" --exclude="*cache*" --exclude="bt_backup" \
         "$src/" "$EXTRAS_DIR/$app/" 2>/dev/null \
         || cp -a "$src" "$EXTRAS_DIR/$app"
     else
+      # 无 rsync 时整目录复制
       rm -rf "$EXTRAS_DIR/$app"
       cp -a "$src" "$EXTRAS_DIR/$app"
     fi

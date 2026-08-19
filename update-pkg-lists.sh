@@ -1,4 +1,13 @@
 #!/bin/bash
+# ============================================================================
+# 软件包清单更新脚本
+# 功能: 生成当前系统已装软件包清单到 docs/ 目录：
+#   - pacman-native.txt  官方仓库包（pacman -Qqen）
+#   - aur-packages.txt   AUR 包（pacman -Qqem）
+#   - winetricks-list.txt  Wine 组件清单（winetricks.log）
+#   - aur_install.sh     自动生成的 AUR 重装脚本（含全部 AUR 包）
+# 用法: ~/NeovimConfig/update-pkg-lists.sh（backup-config.sh 会自动调用）
+# ============================================================================
 set -e
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

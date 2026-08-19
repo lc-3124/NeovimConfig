@@ -52,20 +52,44 @@ hl.window_rule({
 
 -- termfilechooser 悬浮文件选择器 ---------------------------------------------
 -- 由 xdg-desktop-portal-termfilechooser 启动的 yazi 选择窗口（kitty，title=termfilechooser）
--- 强制浮动且 0.9 透明度（与普通 kitty 的 0.85 区分），尺寸由 yazi-wrapper.sh 动态按屏幕 80% 调整并居中
+-- 强制浮动 + 0.9 透明度 + 屏幕 80% 居中
 hl.window_rule({
   name = "termfilechooser-float",
   match = { title = ".*termfilechooser.*" },
   float = true,
+  size = "monitor_w*0.8 monitor_h*0.8",
+  center = true,
   opacity = "0.9",
 })
 
 -- PeaZip 悬浮压缩管理 ---------------------------------------------------------
--- 启动时强制浮动，尺寸由 ~/.local/bin/peazip-float wrapper 动态按屏幕 80% 调整并居中
+-- 启动时强制浮动 + 屏幕 80% 居中（纯配置方案）
 hl.window_rule({
   name = "peazip-float",
   match = { class = ".*[Pp]ea[Zz]ip.*" },
   float = true,
+  size = "monitor_w*0.8 monitor_h*0.8",
+  center = true,
+})
+
+-- mpv 悬浮播放器 ---------------------------------------------------------------
+-- 强制浮动，占屏幕逻辑尺寸 80%，居中。纯配置方案（无 wrapper）
+hl.window_rule({
+  name = "mpv-float",
+  match = { class = "^mpv$" },
+  float = true,
+  size = "monitor_w*0.8 monitor_h*0.8",
+  center = true,
+})
+
+-- eog 悬浮图像查看器 -----------------------------------------------------------
+-- 强制浮动 + 屏幕 80% 居中（纯配置方案）
+hl.window_rule({
+  name = "eog-float",
+  match = { class = "^(eog|org\\.gnome\\.eog)$" },
+  float = true,
+  size = "monitor_w*0.8 monitor_h*0.8",
+  center = true,
 })
 
 -- 测试/示例窗口浮动 -------------------------------------------------------

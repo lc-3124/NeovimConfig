@@ -7,8 +7,7 @@
 --   opts      : { locked, release, repeating, click, ... }
 -- hl.define_submap(name, reset?, fn) — 定义子映射
 -- ============================================================================
--- 注：本配置项目会用脚本解析这个文件夹来获取快捷键列表进而交给fuzzel显示，
--- 添加绑定时要按照约定的格式。
+-- 注：本配置会被脚本解析生成 fuzzel 快捷键列表，添加绑定时需按约定格式
 -- ============================================================================
 
 local terminal = "kitty"
@@ -25,8 +24,14 @@ hl.bind(mainMod .. " + F4", hl.dsp.window.kill())
 hl.bind(mainMod .. " + M", hl.dsp.exit())
 -- 锁定屏幕（Meta + L，背景跟随当前壁纸）
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("~/.config/hypr/scripts/lock.sh"), { description = "lock screen" })
--- 锁屏并挂起（Ctrl + Alt + L；locked=true 使锁屏状态下仍可用）
+-- 锁屏并挂起（Meta+Alt+L / Ctrl+Alt+L；挂起后锁屏仍在，唤醒需输密码）
+hl.bind("META + ALT + L", hl.dsp.exec_cmd("~/.config/hypr/scripts/lock-suspend.sh"), { locked = true, description = "lock and suspend" })
+-- 锁屏并挂起（Meta+Alt+L / Ctrl+Alt+L；挂起后锁屏仍在，唤醒需输密码）
 hl.bind("CTRL + ALT + L", hl.dsp.exec_cmd("~/.config/hypr/scripts/lock-suspend.sh"), { locked = true, description = "lock and suspend" })
+-- 熄屏/恢复（Meta+Alt+K / Ctrl+Alt+K；关闭显示器，系统继续运行，再按一次恢复）
+hl.bind("META + ALT + K", hl.dsp.exec_cmd("~/.config/hypr/scripts/toggle-screen.sh"), { locked = true, description = "toggle screen off/on" })
+-- 熄屏/恢复（Meta+Alt+K / Ctrl+Alt+K；关闭显示器，系统继续运行，再按一次恢复）
+hl.bind("CTRL + ALT + K", hl.dsp.exec_cmd("~/.config/hypr/scripts/toggle-screen.sh"), { locked = true, description = "toggle screen off/on" })
 -- 文件管理器
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 -- 切换窗口浮动
@@ -169,7 +174,7 @@ hl.bind(mainMod .. " + CTRL + L", hl.dsp.exec_cmd("~/.config/hypr/scripts/scale.
 --   多媒体: XF86AudioNext  XF86AudioPlay  XF86MonBrightnessUp ...
 --   打印:   Print
 --   功能键: F1 F2 ... F12
---   组合示例: "SUPER + SHIFT + Q"  "CTRL + ALT + left"
+--   组合示例: "SUPER + SHIFT + Q"  "META + ALT + left"
 --
 -- dispatcher ─ hl.dsp.* 动作闭包
 --   程序执行:     hl.dsp.exec_cmd("命令")

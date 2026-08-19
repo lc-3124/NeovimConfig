@@ -1,4 +1,11 @@
 #!/bin/bash
+# ============================================================================
+# 显示器缩放调节脚本（Hyprland）
+# 用法: scale.sh [+|-]    默认 +（+0.1）；- 为 -0.1
+# 功能: 调整当前聚焦显示器的 scale（monitor.lua 中对应项），reload 生效
+# 绑定: Meta+Ctrl+P（增大）/ Meta+Ctrl+L（减小）
+# 范围: 0.5 ~ 3.0，步进 0.1
+# ============================================================================
 SIGN="${1:-+}"
 MONITOR_FILE="$HOME/.config/hypr/configure/monitor.lua"
 [[ ! -f "$MONITOR_FILE" ]] && notify-send "错误" "找不到 monitor.lua" && exit 1

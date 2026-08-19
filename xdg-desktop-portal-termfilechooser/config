@@ -1,11 +1,16 @@
-[filechooser]
-cmd=yazi-wrapper.sh
-default_dir=$HOME
-; Uncomment to skip creating destination save files with instructions in them
-; create_help_file=0
-; Uncomment and edit the line below to change the terminal emulator command
-; env=TERMCMD=foot
+# ============================================================================
+# xdg-desktop-portal-termfilechooser 配置
+# ============================================================================
+# 让应用的文件选择对话框改用终端文件管理器（yazi + kitty）打开，
+# 替代 GTK 图形对话框。由 xdg-desktop-portal-termfilechooser 服务读取。
+# ============================================================================
 
-; Mode must be one of 'suggested', 'default', or 'last'.
-open_mode=suggested
-save_mode=suggested
+[filechooser]
+cmd=yazi-wrapper.sh       # 调用的 wrapper 脚本（搜索顺序：用户目录 > 系统目录 > PATH）
+default_dir=$HOME         # 应用未指定路径时打开 ~ 目录
+# create_help_file=0      # 取消注释可跳过生成带说明的保存文件
+# env=TERMCMD=foot        # 取消注释可覆盖终端命令（默认 kitty）
+
+# 起始路径模式：suggested=用应用建议路径 / default=用 default_dir / last=记忆上次
+open_mode=suggested       # 打开文件时的起始路径
+save_mode=suggested       # 保存文件时的起始路径

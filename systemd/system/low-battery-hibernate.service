@@ -1,0 +1,16 @@
+# ============================================================================
+# 低电量自动深度休眠 —— 服务单元
+# ============================================================================
+# 由 low-battery-hibernate.timer 每分钟触发一次，
+# 执行脚本检查电量，低于 10% 且非充电时执行 hibernate。
+# 部署：install.sh 复制到 /etc/systemd/system/ 并启用 timer
+# ============================================================================
+
+[Unit]
+Description=Low battery hibernate (battery <10%)
+# 无电池设备（台式机）跳过
+ConditionPathExists=/sys/class/power_supply/BAT0
+
+[Service]
+Type=oneshot                            # 一次性任务
+ExecStart=/usr/local/bin/low-battery-hibernate.sh  # 电量检查脚本

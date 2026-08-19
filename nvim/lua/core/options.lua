@@ -11,6 +11,7 @@ vim.opt.number = true            -- 显示行号
 vim.opt.cursorline = true        -- 高亮当前行（便于定位）
 vim.opt.signcolumn = "yes"       -- 始终显示侧边符号列（LSP 诊断/git 标记用，避免跳动）
 vim.opt.laststatus = 3           -- 状态栏显示策略：3=全局状态栏（lualine 用）
+vim.opt.cmdheight = 0            -- 命令栏高度：0=平时隐藏，按 : 输入命令时弹出
 vim.opt.list = true              -- 显示不可见字符（如行尾空格）
 -- 不可见字符的具体样式：tab 显示为"» "、行尾空格为"·"、不间断空格为"␣"
 vim.opt.listchars = { tab = "» ", trail = "·", nbsp = "␣" }

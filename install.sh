@@ -291,17 +291,9 @@ install_gui() {
     link_file "$SCRIPT_DIR/xdg-desktop-portal/portals.conf" "$CONFIG_DIR/xdg-desktop-portal/portals.conf"
     echo
 
-    # GUI: 通用窗口浮动脚本 —— launch-float 让任意程序按屏幕 80% 浮动居中，
-    # 供 PeaZip wrapper 和 termfilechooser wrapper 复用
-    echo "[*] Deploying launch-float helper"
-    mkdir -p "$HOME/.local/bin"
-    link_file "$SCRIPT_DIR/scripts/launch-float" "$HOME/.local/bin/launch-float"
-    echo
-
     # GUI: xdg-desktop-portal-termfilechooser —— 让应用的文件选择对话框
     # 改用终端文件管理器（本机 yazi）+ kitty 打开。配置和自定义 wrapper 放在
     # ~/.config/xdg-desktop-portal-termfilechooser/（应用指定的用户配置目录）
-    # wrapper 增强：浮动 + 按屏幕逻辑尺寸 80% 动态调整 + 居中（Hyprland 下）
     echo "[*] Deploying termfilechooser config"
     mkdir -p "$CONFIG_DIR/xdg-desktop-portal-termfilechooser"
     link_file "$SCRIPT_DIR/xdg-desktop-portal-termfilechooser/config" "$CONFIG_DIR/xdg-desktop-portal-termfilechooser/config"
@@ -328,6 +320,25 @@ install_gui() {
     fi
     echo
 
+    # GUI: 系统级 systemd 服务 —— 低电量自动深度休眠（需 root）。
+    # 仓库 systemd/system/ 下文件复制到 /etc/systemd/system/ 并启用 timer，
+    # 电量 <10% 时每分钟检查并执行 hibernate
+    echo "[*] Deploying systemd system services (low battery hibernate)"
+    SYSTEM_DIR="/etc/systemd/system"
+    SYSTEM_SOURCE="$SCRIPT_DIR/systemd/system"
+    if [ -d "$SYSTEM_SOURCE" ] && [ "$(id -u)" = "0" ]; then
+        cp "$SYSTEM_SOURCE/low-battery-hibernate.sh" "/usr/local/bin/low-battery-hibernate.sh"
+        chmod +x "/usr/local/bin/low-battery-hibernate.sh"
+        cp "$SYSTEM_SOURCE/low-battery-hibernate.service" "$SYSTEM_DIR/"
+        cp "$SYSTEM_SOURCE/low-battery-hibernate.timer" "$SYSTEM_DIR/"
+        systemctl daemon-reload
+        systemctl enable --now low-battery-hibernate.timer 2>/dev/null || true
+        echo "    Installed low-battery-hibernate"
+    elif [ -d "$SYSTEM_SOURCE" ]; then
+        echo "    [!] 需要 root 权限，请用 sudo 运行 install.sh 部署系统服务"
+    fi
+    echo
+
     # GUI: 截图脚本 —— 链接到 ~/.local/bin，方便 PATH 直接调用
     echo "[*] Deploying screenshot script"
     mkdir -p "$HOME/.local/bin"
@@ -335,19 +346,6 @@ install_gui() {
     echo
 
     # GUI: PeaZip 启动 wrapper —— 动态按屏幕 80% 浮动居中。
-    # 通过用户级 .desktop 覆盖（Exec=peazip-float）让 PeaZip 走此 wrapper
-    echo "[*] Deploying PeaZip float wrapper"
-    mkdir -p "$HOME/.local/bin"
-    link_file "$SCRIPT_DIR/scripts/peazip-float" "$HOME/.local/bin/peazip-float"
-    echo
-
-    # GUI: 用户级 .desktop 覆盖 —— PeaZip 入口改用 wrapper（浮动 80%）
-    echo "[*] Deploying PeaZip desktop override"
-    mkdir -p "$HOME/.local/share/applications"
-    link_file "$SCRIPT_DIR/desktop-apps/peazip.desktop" "$HOME/.local/share/applications/peazip.desktop"
-    update-desktop-database "$HOME/.local/share/applications" 2>/dev/null || true
-    echo
-
     # GUI: WirePlumber 蓝牙音频 —— 解决蓝牙播放卡顿的 buffer 配置
     echo "[*] Deploying WirePlumber bluetooth config"
     WP_DIR="$HOME/.config/wireplumber/wireplumber.conf.d"

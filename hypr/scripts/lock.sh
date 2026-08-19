@@ -6,6 +6,11 @@
 # 视频壁纸：hyprlock 不支持视频，退化为静态壁纸
 # ============================================================================
 
+# 锁屏前先确保屏幕是亮的：防止在熄屏状态下锁屏导致锁屏界面不可见
+# （本脚本同时被 META+L 锁屏 和 META+ALT+L 挂起 复用，一处修复覆盖两个入口）
+wlopm --on '*' 2>/dev/null
+sleep 0.2
+
 IMAGE_DIR="$HOME/.config/hypr/resource/images"
 CFG="$HOME/.config/hypr/hyprlock.conf"
 LIVE="/tmp/hyprlock-live.conf"

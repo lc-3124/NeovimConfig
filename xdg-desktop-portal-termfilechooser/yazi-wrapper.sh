@@ -2,10 +2,6 @@
 # This wrapper script is invoked by xdg-desktop-portal-termfilechooser.
 #
 # For more information about input/output arguments read `xdg-desktop-portal-termfilechooser(5)`
-#
-# 自定义增强：启动 kitty + yazi 后，通过 hyprctl 动态读取当前主显示器
-# 逻辑分辨率（物理/scale），把窗口调整为屏幕 80% 大小并居中。
-# 若不在 Hyprland 会话下运行则跳过调整，仅以默认方式启动。
 
 multiple="$1"
 directory="$2"
@@ -45,13 +41,7 @@ for arg in "$@"; do
     command="$command \"$escaped\""
 done
 
-# 通过通用 launch-float 启动文件选择器（kitty + yazi），
-# 自动按屏幕逻辑尺寸 80% 浮动居中（Hyprland 下）
-if command -v launch-float >/dev/null 2>&1; then
-    launch-float '.title | contains("termfilechooser")' sh -c "$command"
-else
-    sh -c "$command"
-fi
+sh -c "$command"
 
 if [ "$directory" = "1" ]; then
     if [ ! -s "$out" ] && [ -s "$out"".1" ]; then
