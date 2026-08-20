@@ -175,7 +175,7 @@ LZMA2
 10
 
 [default zip compression level]
-3
+4
 
 [default zip compression method]
 Deflate
@@ -236,13 +236,13 @@ PeaZip
 0
 13
 1
-0
-0
-0
-0
-0
-0
-0
+360
+108
+108
+108
+216
+72
+150
 1
 
 [extract to new folder]
@@ -409,8 +409,8 @@ PeaZip
 0
 
 [save history of recent directories]
-<none>
 /home/lc3124/Downloads/
+
 
 
 
@@ -542,9 +542,9 @@ PeaZip
 
 [advanced 7z / p7zip compression settings]
 0
-4
-0
-12
+6
+2
+13
 
 [auto close PeaZip when task completes]
 0
@@ -675,7 +675,7 @@ PeaZip
 0
 0
 1
-180
+216
 
 [preferred checksum and hash algorithms]
 CRC32 CRC64 MD5 RIPEMD160 SHA1 BLAKE2S SHA256 SHA3_256
@@ -779,7 +779,7 @@ CRC32 CRC64 MD5 RIPEMD160 SHA1 BLAKE2S SHA256 SHA3_256
 
 [extended columns, comments]
 0
-125
+150
 
 [manually set RAR binary]
 0

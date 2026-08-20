@@ -1,14 +1,21 @@
+activate-linux
 adw-gtk-theme-git
 android-sdk-platform-tools
 animeko-appimage
+baidunetdisk-bin
 bibata-cursor-theme
 catppuccin-sddm-theme-frappe
 cbonsai
 classin-bin
+com.qq.weixin.work.deepin
 dxvk-bin
 fcitx5-anytalk
+hypr-kdeconnect-fix-git
+hyprland-qt-support-debug
 input-remapper-bin
 jhentai-bin
+kvantum-theme-catppuccin-git
+lib32-giflib
 libsoup
 linuxqq-nt
 listen1-desktop-appimage
@@ -33,3 +40,5 @@ tokyonight-gtk-theme-git
 ttf-material-symbols-variable-git
 wayle-bin
 wechat-appimage
+wemeet-bin
+xdg-desktop-portal-termfilechooser-hunkyburrito-git

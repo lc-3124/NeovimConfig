@@ -1,0 +1,1516 @@
+22:52:38.552: Platform: Wayland
+22:52:38.552: CPU Name: AMD Ryzen 7 4800U with Radeon Graphics
+22:52:38.552: CPU Speed: 4266.714MHz
+22:52:38.553: Physical Cores: 8, Logical Cores: 16
+22:52:38.554: Physical Memory: 15339MB Total, 1920MB Free
+22:52:38.554: Kernel Version: Linux 7.1.5-arch1-2
+22:52:38.554: Distribution: "Arch Linux" Unknown
+22:52:38.554: Desktop Environment: Hyprland
+22:52:38.554: Session Type: wayland
+22:52:38.555: Current Date/Time: 2026-08-13, 22时52分38秒
+22:52:38.555: Browser Hardware Acceleration: true
+22:52:38.555: Qt Version: 6.11.1 (runtime), 6.11.1 (compiled)
+22:52:38.555: Portable mode: false
+22:52:38.647: OBS 32.2.1 (linux)
+22:52:38.647: ---------------------------------
+22:52:38.649: ---------------------------------
+22:52:38.650: audio settings reset:
+22:52:38.650: 	samples per sec: 48000
+22:52:38.650: 	speakers:        2
+22:52:38.650: 	max buffering:   960 milliseconds
+22:52:38.650: 	buffering type:  dynamically increasing
+22:52:38.652: ---------------------------------
+22:52:38.652: Initializing OpenGL...
+22:52:38.652: Using EGL/Wayland
+22:52:38.720: Initialized EGL 1.5
+22:52:38.738: Loading up OpenGL on adapter AMD AMD Radeon Graphics (radeonsi, renoir, ACO, DRM 3.64, 7.1.5-arch1-2)
+22:52:38.738: OpenGL loaded successfully, version 4.6 (Core Profile) Mesa 26.1.6-arch1.1, shading language 4.60
+22:52:38.788: ---------------------------------
+22:52:38.788: video settings reset:
+22:52:38.788: 	base resolution:   1920x1080
+22:52:38.788: 	output resolution: 1280x720
+22:52:38.788: 	downscale filter:  Bicubic
+22:52:38.788: 	fps:               60/1
+22:52:38.788: 	format:            NV12
+22:52:38.788: 	YUV mode:          Rec. 709/Partial
+22:52:38.788: NV12 texture support enabled
+22:52:38.788: P010 texture support not available
+22:52:38.799: Audio monitoring device:
+22:52:38.799: 	name: Default
+22:52:38.799: 	id: default
+22:52:38.801: ---------------------------------
+22:52:38.805: Failed to load 'en-US' text for module: 'decklink-captions.so'
+22:52:38.807: Failed to load 'en-US' text for module: 'decklink-output-ui.so'
+22:52:38.811: A DeckLink iterator could not be created.  The DeckLink drivers may not be installed
+22:52:38.811: Failed to initialize module 'decklink.so'
+22:52:38.978: [pipewire] Available capture sources:
+22:52:38.978: [pipewire]     - Monitor source
+22:52:38.978: [pipewire]     - Window source
+22:52:38.994: v4l2loopback not installed, virtual camera not registered
+22:52:39.052: VAAPI: API version 1.24
+22:52:39.053: FFmpeg VAAPI H264 encoding supported
+22:52:39.058: FFmpeg VAAPI AV1 encoding not supported
+22:52:39.064: FFmpeg VAAPI HEVC encoding supported
+22:52:39.075: os_dlopen(libnvidia-encode.so.1->libnvidia-encode.so.1): libnvidia-encode.so.1: 无法打开共享目标文件: 没有那个文件或目录
+22:52:39.075: 
+22:52:39.075: NVENC not supported
+22:52:39.075: Failed to initialize module 'obs-nvenc.so'
+22:52:39.121: [obs-websocket] [obs_module_load] you can haz websockets (Version: 5.7.4 | RPC Version: 1)
+22:52:39.121: [obs-websocket] [obs_module_load] Qt version (compile-time): 6.11.1 | Qt version (run-time): 6.11.1
+22:52:39.121: [obs-websocket] [obs_module_load] Linked ASIO Version: 103802
+22:52:39.131: [obs-websocket] [obs_module_load] Module loaded.
+22:52:39.140: ---------------------------------
+22:52:39.140:   Loaded Modules:
+22:52:39.140:     text-freetype2.so
+22:52:39.140:     rtmp-services.so
+22:52:39.140:     obs-x264.so
+22:52:39.140:     obs-websocket.so
+22:52:39.140:     obs-webrtc.so
+22:52:39.140:     obs-vst.so
+22:52:39.140:     obs-transitions.so
+22:52:39.140:     obs-qsv11.so
+22:52:39.140:     obs-outputs.so
+22:52:39.140:     obs-libfdk.so
+22:52:39.140:     obs-filters.so
+22:52:39.140:     obs-ffmpeg.so
+22:52:39.140:     linux-v4l2.so
+22:52:39.140:     linux-pulseaudio.so
+22:52:39.140:     linux-pipewire.so
+22:52:39.140:     linux-jack.so
+22:52:39.140:     linux-capture.so
+22:52:39.140:     linux-alsa.so
+22:52:39.140:     image-source.so
+22:52:39.140:     frontend-tools.so
+22:52:39.140:     decklink-output-ui.so
+22:52:39.140:     decklink-captions.so
+22:52:39.140: ---------------------------------
+22:52:39.141: ---------------------------------
+22:52:39.141: Available Encoders:
+22:52:39.141:   Video Encoders:
+22:52:39.141: 	- ffmpeg_svt_av1 (SVT-AV1)
+22:52:39.141: 	- ffmpeg_aom_av1 (AOM AV1)
+22:52:39.141: 	- ffmpeg_vaapi_tex (FFmpeg VAAPI H.264)
+22:52:39.141: 	- hevc_ffmpeg_vaapi_tex (FFmpeg VAAPI HEVC)
+22:52:39.141: 	- obs_x264 (x264)
+22:52:39.141:   Audio Encoders:
+22:52:39.141: 	- ffmpeg_aac (FFmpeg AAC)
+22:52:39.141: 	- ffmpeg_opus (FFmpeg Opus)
+22:52:39.141: 	- ffmpeg_pcm_s16le (FFmpeg PCM (16位))
+22:52:39.141: 	- ffmpeg_pcm_s24le (FFmpeg PCM (24位))
+22:52:39.141: 	- ffmpeg_pcm_f32le (FFmpeg PCM (32位浮点))
+22:52:39.141: 	- ffmpeg_alac (FFmpeg ALAC (24位))
+22:52:39.141: 	- ffmpeg_flac (FFmpeg FLAC (16位))
+22:52:39.141: 	- libfdk_aac (libfdk AAC)
+22:52:39.141: ==== Startup complete ===============================================
+22:52:39.184: Failed to register with host portal QDBusError("org.freedesktop.portal.Error.Failed", "Could not register app ID: Connection already associated with an application ID")
+22:52:39.185: All scene data cleared
+22:52:39.185: ------------------------------------------------
+22:52:39.202: Device for 'Audio Output Capture' source Desktop Audio is also used for audio monitoring.
+22:52:39.202: Deduplication logic is being applied to all monitored sources.
+22:52:39.203: pulse-input: Server name: 'PulseAudio (on PipeWire 1.6.8) 15.0.0'
+22:52:39.203: pulse-input: Audio format: s16le, 48000 Hz, 2 channels
+22:52:39.203: pulse-input: Started recording from 'bluez_output.24_B2_31_DD_A9_A6.1.monitor' (default)
+22:52:39.203: [Loaded global audio device]: 'Desktop Audio'
+22:52:39.204: pulse-input: Server name: 'PulseAudio (on PipeWire 1.6.8) 15.0.0'
+22:52:39.204: pulse-input: Audio format: s32le, 48000 Hz, 2 channels
+22:52:39.204: pulse-input: Started recording from 'alsa_input.pci-0000_03_00.6.analog-stereo' (default)
+22:52:39.204: [Loaded global audio device]: 'Mic/Aux'
+22:52:39.204: PipeWire initialized
+22:52:39.204: obs-data.c: [obs_data_create_from_json] Failed reading json string (1): '[' or '{' expected near end of file
+22:52:39.205: v4l2-input: Start capture from /dev/video0
+22:52:39.232: Device for 'Audio Output Capture' source Desktop Audio is also used for audio monitoring.
+22:52:39.232: Deduplication logic is being applied to all monitored sources.
+22:52:39.299: v4l2-input: Input: 0
+22:52:39.304: v4l2-input: Resolution: 1280x720
+22:52:39.304: v4l2-input: Pixelformat: MJPG
+22:52:39.304: v4l2-input: Linesize: 0 Bytes
+22:52:39.304: v4l2-input: Framerate: 30.00 fps
+22:52:39.306: v4l2-input: /dev/video0: select timeout set to 166666 (5x frame periods)
+22:52:39.307: Switched to scene 'Scene'
+22:52:39.307: ------------------------------------------------
+22:52:39.307: Loaded scenes:
+22:52:39.307: - scene 'Scene':
+22:52:39.307:     - source: 'Screen Capture (PipeWire)' (pipewire-screen-capture-source)
+22:52:39.307:     - source: 'Video Capture Device (PipeWire) (BETA)' (pipewire-camera-source)
+22:52:39.308:     - source: 'Video Capture Device (V4L2)' (v4l2_input)
+22:52:39.308: ------------------------------------------------
+22:52:39.417: [camera-portal] Successfully accessed cameras
+22:52:39.417: [pipewire] Screencast session created
+22:52:39.615: [pipewire] Server version: 1.6.8
+22:52:39.615: [pipewire] Library version: 1.6.8
+22:52:39.615: [pipewire] Header version: 1.6.8
+22:52:39.615: [pipewire] Created registry 0x5594f939ff30
+22:52:39.616: [camera-portal] Found device Dummy-Driver
+22:52:39.616: [camera-portal] Found device Freewheel-Driver
+22:52:39.616: [camera-portal] Found device Midi-Bridge
+22:52:39.616: [camera-portal] Found device bluez_midi.server
+22:52:39.616: [camera-portal] Found device alsa_output.pci-0000_03_00.6.analog-stereo
+22:52:39.616: [camera-portal] Found device alsa_input.pci-0000_03_00.6.analog-stereo
+22:52:39.616: [camera-portal] Found device v4l2_input.pci-0000_03_00.3-usb-0_3_1.0
+22:52:39.616: [camera-portal] Found device anytalk
+22:52:39.616: [camera-portal] Found device cava
+22:52:39.616: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.616: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device alsa_playback.fooyin
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device bluez_output.24_B2_31_DD_A9_A6.1
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device PulseAudio 音量控制
+22:52:39.617: [camera-portal] Found device OBS
+22:52:39.617: [camera-portal] Found device OBS
+22:52:39.760: adding 21 milliseconds of audio buffering, total audio buffering is now 21 milliseconds (source: Desktop Audio)
+22:52:39.760: 
+22:52:41.072: [pipewire] Asking for monitor and window
+22:52:41.082: [camera-portal] Found device xdg-desktop-portal-hyprland
+22:52:41.082: [pipewire] source selected, setting up screencast
+22:52:41.091: [pipewire] Server version: 1.6.8
+22:52:41.091: [pipewire] Library version: 1.6.8
+22:52:41.091: [pipewire] Header version: 1.6.8
+22:52:41.091: [pipewire] Created stream 0x5594f95a78f0
+22:52:41.092: [pipewire] Stream 0x5594f95a78f0 state: "connecting" (error: none)
+22:52:41.094: [pipewire] Playing stream 0x5594f95a78f0
+22:52:41.096: [pipewire] Stream 0x5594f95a78f0 state: "paused" (error: none)
+22:52:41.096: [camera-portal] Found device obs
+22:52:41.097: [pipewire] Error id:42 seq:186 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:52:41.216: [pipewire] Negotiated format:
+22:52:41.216: [pipewire]     Format: 12 (Spa:Enum:VideoFormat:BGRA)
+22:52:41.216: [pipewire]     Modifier: 0x0
+22:52:41.216: [pipewire]     Size: 1920x1080
+22:52:41.216: [pipewire]     Framerate: 0/1
+22:52:41.223: [pipewire] Negotiated format:
+22:52:41.223: [pipewire]     Format: 12 (Spa:Enum:VideoFormat:BGRA)
+22:52:41.223: [pipewire]     Modifier: 0x20000044051ba01
+22:52:41.223: [pipewire]     Size: 1920x1080
+22:52:41.223: [pipewire]     Framerate: 0/1
+22:52:41.227: [pipewire] Stream 0x5594f95a78f0 state: "streaming" (error: none)
+22:52:42.838: Cannot create EGLImage: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+22:52:42.838: [pipewire] Renegotiating stream
+22:52:42.839: [pipewire] Stream 0x5594f95a78f0 state: "paused" (error: none)
+22:52:42.839: [pipewire] Negotiated format:
+22:52:42.839: [pipewire]     Format: 12 (Spa:Enum:VideoFormat:BGRA)
+22:52:42.839: [pipewire]     Modifier: 0x20000044051ba01
+22:52:42.839: [pipewire]     Size: 1920x1080
+22:52:42.839: [pipewire]     Framerate: 0/1
+22:52:42.843: [pipewire] Negotiated format:
+22:52:42.843: [pipewire]     Format: 12 (Spa:Enum:VideoFormat:BGRA)
+22:52:42.843: [pipewire]     Modifier: 0x20000044051b901
+22:52:42.843: [pipewire]     Size: 1920x1080
+22:52:42.843: [pipewire]     Framerate: 0/1
+22:52:42.846: [pipewire] Stream 0x5594f95a78f0 state: "streaming" (error: none)
+22:52:42.857: Cannot create EGLImage: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+22:52:42.857: [pipewire] Renegotiating stream
+22:52:42.858: [pipewire] Stream 0x5594f95a78f0 state: "paused" (error: none)
+22:52:42.858: [pipewire] Negotiated format:
+22:52:42.858: [pipewire]     Format: 12 (Spa:Enum:VideoFormat:BGRA)
+22:52:42.858: [pipewire]     Modifier: 0x20000044051b901
+22:52:42.858: [pipewire]     Size: 1920x1080
+22:52:42.858: [pipewire]     Framerate: 0/1
+22:52:42.859: [pipewire] Negotiated format:
+22:52:42.859: [pipewire]     Format: 12 (Spa:Enum:VideoFormat:BGRA)
+22:52:42.859: [pipewire]     Size: 1920x1080
+22:52:42.859: [pipewire]     Framerate: 0/1
+22:52:42.872: [pipewire] Stream 0x5594f95a78f0 state: "streaming" (error: none)
+22:52:57.832: ---------------------------------
+22:52:57.832: [x264 encoder: 'simple_video_recording'] preset: veryfast
+22:52:57.832: [x264 encoder: 'simple_video_recording'] profile: high
+22:52:57.833: [x264 encoder: 'simple_video_recording'] settings:
+22:52:57.833: 	rate_control: CRF
+22:52:57.833: 	bitrate:      0
+22:52:57.833: 	buffer size:  0
+22:52:57.833: 	crf:          21
+22:52:57.833: 	fps_num:      60
+22:52:57.833: 	fps_den:      1
+22:52:57.833: 	width:        1280
+22:52:57.833: 	height:       720
+22:52:57.833: 	keyint:       250
+22:52:57.833: 
+22:52:57.852: libfdk_aac encoder created
+22:52:57.852: libfdk_aac bitrate: 192, channels: 2
+22:52:57.871: ==== Recording Start ===============================================
+22:52:57.871: [mp4 output: 'simple_file_output'] Writing Hybrid MP4/MOV file '/home/lc3124/2026-08-13 22-52-57.mp4'...
+22:53:18.095: [mp4 muxer: 'simple_file_output'] Flushing final fragment...
+22:53:18.096: [mp4 muxer: 'simple_file_output'] Number of fragments: 5
+22:53:18.097: [mp4 muxer: 'simple_file_output'] Full moov size: 18 KiB
+22:53:18.097: [mp4 muxer: 'simple_file_output'] Final mdat size: 1038 KiB
+22:53:18.097: Output 'simple_file_output': stopping
+22:53:18.097: Output 'simple_file_output': Total frames output: 1178
+22:53:18.097: Output 'simple_file_output': Total drawn frames: 1213
+22:53:18.097: [mp4 output: 'simple_file_output'] Waiting for file writer to finish...
+22:53:18.098: [mp4 output: 'simple_file_output'] File output complete. Finalization took 2 ms.
+22:53:18.098: ==== Recording Stop ================================================
+22:53:18.144: libfdk_aac encoder destroyed
+08:10:55.532: [pipewire-camera] Removed device bluez_output.24_B2_31_DD_A9_A6.1
+08:10:55.828: [pipewire-camera] Removed device PulseAudio 音量控制
+08:10:55.828: [camera-portal] Found device PulseAudio 音量控制
+08:10:55.829: [pipewire] Error id:43 seq:279 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:11:02.569: [camera-portal] Found device bluez_output.24_B2_31_DD_A9_A6.1
+08:11:02.569: [pipewire] Error id:41 seq:300 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:11:02.569: [pipewire] Error id:41 seq:301 res:-2 (没有那个文件或目录): enum params id:17 (Spa:Enum:ParamId:Tag) failed
+08:11:02.634: [camera-portal] Found device PulseAudio 音量控制
+08:11:02.634: [pipewire] Error id:40 seq:315 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:11:02.968: [camera-portal] Found device PulseAudio 音量控制
+08:11:05.015: [camera-portal] Found device Chromium
+08:11:05.059: [camera-portal] Found device PulseAudio 音量控制
+08:11:10.574: [pipewire-camera] Removed device Chromium
+08:11:10.578: [pipewire-camera] Removed device PulseAudio 音量控制
+08:12:00.190: [camera-portal] Found device Firefox
+08:12:00.229: [camera-portal] Found device PulseAudio 音量控制
+08:12:00.230: [pipewire] Error id:40 seq:481 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:12:00.234: [pipewire-camera] Removed device Firefox
+08:16:40.334: [camera-portal] Found device Firefox
+08:16:40.373: [camera-portal] Found device PulseAudio 音量控制
+08:16:40.374: [pipewire] Error id:43 seq:546 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:16:43.734: [pipewire-camera] Removed device Firefox
+08:16:43.741: [pipewire-camera] Removed device PulseAudio 音量控制
+08:16:44.144: [camera-portal] Found device Firefox
+08:16:44.185: [camera-portal] Found device PulseAudio 音量控制
+08:16:45.825: [pipewire-camera] Removed device Firefox
+08:16:45.834: [pipewire-camera] Removed device PulseAudio 音量控制
+08:16:45.884: [camera-portal] Found device Firefox
+08:16:46.049: [camera-portal] Found device PulseAudio 音量控制
+08:16:46.050: [pipewire] Error id:43 seq:674 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:16:47.307: [pipewire-camera] Removed device Firefox
+08:16:47.315: [pipewire-camera] Removed device PulseAudio 音量控制
+08:16:47.445: [camera-portal] Found device Firefox
+08:16:47.567: [camera-portal] Found device PulseAudio 音量控制
+08:16:47.567: [pipewire] Error id:39 seq:737 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:16:48.557: [pipewire-camera] Removed device Firefox
+08:16:48.565: [pipewire-camera] Removed device PulseAudio 音量控制
+08:16:48.803: [camera-portal] Found device Firefox
+08:16:48.845: [camera-portal] Found device PulseAudio 音量控制
+08:16:48.845: [pipewire] Error id:43 seq:800 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:16:49.759: [pipewire-camera] Removed device Firefox
+08:16:49.768: [pipewire-camera] Removed device PulseAudio 音量控制
+08:16:49.917: [camera-portal] Found device Firefox
+08:16:49.941: [camera-portal] Found device PulseAudio 音量控制
+08:16:49.942: [pipewire] Error id:39 seq:863 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:16:52.152: [pipewire-camera] Removed device Firefox
+08:16:52.161: [pipewire-camera] Removed device PulseAudio 音量控制
+08:16:52.514: [camera-portal] Found device Firefox
+08:16:52.541: [camera-portal] Found device PulseAudio 音量控制
+08:16:52.542: [pipewire] Error id:43 seq:926 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:16:56.727: [pipewire-camera] Removed device Firefox
+08:16:56.733: [pipewire-camera] Removed device PulseAudio 音量控制
+08:17:10.702: [camera-portal] Found device Firefox
+08:17:10.744: [camera-portal] Found device PulseAudio 音量控制
+08:19:42.196: [pipewire-camera] Removed device Firefox
+08:19:42.203: [pipewire-camera] Removed device PulseAudio 音量控制
+08:24:28.819: [camera-portal] Found device Firefox
+08:24:28.819: [pipewire] Error id:39 seq:1042 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:24:28.854: [camera-portal] Found device PulseAudio 音量控制
+08:24:31.594: [pipewire-camera] Removed device Firefox
+08:24:31.602: [pipewire-camera] Removed device PulseAudio 音量控制
+08:25:07.728: [camera-portal] Found device Firefox
+08:25:07.756: [camera-portal] Found device PulseAudio 音量控制
+08:25:07.756: [pipewire] Error id:39 seq:1134 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:25:13.695: [camera-portal] Found device Firefox
+08:25:13.726: [camera-portal] Found device PulseAudio 音量控制
+08:25:13.726: [pipewire] Error id:43 seq:1192 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:25:36.533: [pipewire-camera] Removed device Firefox
+08:25:36.540: [pipewire-camera] Removed device PulseAudio 音量控制
+08:25:37.416: [camera-portal] Found device Firefox
+08:25:37.416: [pipewire] Error id:43 seq:1224 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:25:37.442: [camera-portal] Found device PulseAudio 音量控制
+08:25:38.479: [pipewire-camera] Removed device Firefox
+08:25:38.488: [pipewire-camera] Removed device PulseAudio 音量控制
+08:25:39.416: [camera-portal] Found device Firefox
+08:25:39.447: [camera-portal] Found device PulseAudio 音量控制
+08:25:39.447: [pipewire] Error id:43 seq:1314 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:25:40.907: [pipewire-camera] Removed device Firefox
+08:25:40.916: [pipewire-camera] Removed device PulseAudio 音量控制
+08:25:41.091: [camera-portal] Found device Firefox
+08:25:41.120: [camera-portal] Found device PulseAudio 音量控制
+08:25:41.831: [pipewire-camera] Removed device Firefox
+08:25:41.839: [pipewire-camera] Removed device PulseAudio 音量控制
+08:25:41.898: [camera-portal] Found device Firefox
+08:25:41.977: [camera-portal] Found device PulseAudio 音量控制
+08:25:41.977: [pipewire] Error id:43 seq:1436 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:25:42.693: [pipewire-camera] Removed device Firefox
+08:25:42.701: [pipewire-camera] Removed device PulseAudio 音量控制
+08:25:42.781: [camera-portal] Found device Firefox
+08:25:42.934: [camera-portal] Found device PulseAudio 音量控制
+08:25:47.759: [pipewire-camera] Removed device Firefox
+08:25:47.766: [pipewire-camera] Removed device PulseAudio 音量控制
+08:25:48.165: [camera-portal] Found device Firefox
+08:25:48.190: [camera-portal] Found device PulseAudio 音量控制
+08:25:48.191: [pipewire] Error id:43 seq:1558 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:25:49.791: [pipewire-camera] Removed device Firefox
+08:25:49.799: [pipewire-camera] Removed device PulseAudio 音量控制
+08:25:49.838: [camera-portal] Found device Firefox
+08:25:50.015: [camera-portal] Found device PulseAudio 音量控制
+08:25:50.016: [pipewire] Error id:40 seq:1619 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:25:50.694: [pipewire-camera] Removed device Firefox
+08:25:50.703: [pipewire-camera] Removed device PulseAudio 音量控制
+08:25:50.836: [camera-portal] Found device Firefox
+08:25:50.863: [camera-portal] Found device PulseAudio 音量控制
+08:25:52.011: [pipewire-camera] Removed device Firefox
+08:25:52.020: [pipewire-camera] Removed device PulseAudio 音量控制
+08:25:52.098: [camera-portal] Found device Firefox
+08:25:52.099: [pipewire] Error id:43 seq:1712 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:25:52.163: [camera-portal] Found device PulseAudio 音量控制
+08:25:52.163: [pipewire] Error id:40 seq:1741 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:25:53.129: [pipewire-camera] Removed device Firefox
+08:25:53.137: [pipewire-camera] Removed device PulseAudio 音量控制
+08:25:53.331: [camera-portal] Found device Firefox
+08:25:53.359: [camera-portal] Found device PulseAudio 音量控制
+08:25:54.474: [pipewire-camera] Removed device Firefox
+08:25:54.481: [pipewire-camera] Removed device PulseAudio 音量控制
+08:25:54.682: [camera-portal] Found device Firefox
+08:25:54.719: [camera-portal] Found device PulseAudio 音量控制
+08:25:54.720: [pipewire] Error id:40 seq:1863 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:25:55.043: [pipewire-camera] Removed device Firefox
+08:25:55.052: [pipewire-camera] Removed device PulseAudio 音��
+08:25:55.221: [camera-portal] Found device Firefox
+08:25:55.310: [camera-portal] Found device PulseAudio 音量控制
+08:26:26.224: [pipewire-camera] Removed device Firefox
+08:26:26.230: [pipewire-camera] Removed device PulseAudio 音量控制
+08:26:26.542: [camera-portal] Found device Firefox
+08:26:26.571: [camera-portal] Found device PulseAudio 音量控制
+08:26:26.572: [pipewire] Error id:40 seq:1985 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:26:28.366: [pipewire-camera] Removed device Firefox
+08:26:28.374: [pipewire-camera] Removed device PulseAudio 音�@
+08:26:28.443: [camera-portal] Found device Firefox
+08:26:28.510: [camera-portal] Found device PulseAudio 音量控制
+08:26:59.515: [pipewire-camera] Removed device Firefox
+08:26:59.522: [pipewire-camera] Removed device PulseAudio 音量控制
+08:26:59.657: [camera-portal] Found device Firefox
+08:26:59.691: [camera-portal] Found device PulseAudio 音量控制
+08:26:59.692: [pipewire] Error id:40 seq:2117 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:27:00.364: [pipewire-camera] Removed device Firefox
+08:27:00.372: [pipewire-camera] Removed device PulseAudio 音��
+08:27:00.457: [camera-portal] Found device Firefox
+08:27:00.522: [camera-portal] Found device PulseAudio 音量控制
+08:27:00.523: [pipewire] Error id:43 seq:2178 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:27:01.888: [pipewire-camera] Removed device Firefox
+08:27:01.894: [pipewire-camera] Removed device PulseAudio 音量控制
+08:27:02.055: [camera-portal] Found device Firefox
+08:27:02.112: [camera-portal] Found device PulseAudio 音量控制
+08:27:02.398: [pipewire-camera] Removed device Firefox
+08:27:02.407: [pipewire-camera] Removed device PulseAudio 音釠
+08:27:02.611: [camera-portal] Found device Firefox
+08:27:02.642: [camera-portal] Found device PulseAudio 音量控制
+08:27:03.621: [pipewire-camera] Removed device Firefox
+08:27:03.627: [pipewire-camera] Removed device PulseAudio 音��
+08:27:03.780: [camera-portal] Found device Firefox
+08:27:03.865: [camera-portal] Found device PulseAudio 音量控制
+08:27:03.865: [pipewire] Error id:40 seq:2361 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:27:09.373: [pipewire-camera] Removed device Firefox
+08:27:09.380: [pipewire-camera] Removed device PulseAudio 音量控制
+08:27:09.524: [camera-portal] Found device Firefox
+08:27:09.524: [pipewire] Error id:40 seq:2393 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:27:09.551: [camera-portal] Found device PulseAudio 音量控制
+08:27:09.552: [pipewire] Error id:43 seq:2422 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:27:10.303: [pipewire-camera] Removed device Firefox
+08:27:10.309: [pipewire-camera] Removed device PulseAudio 音量控制
+08:27:10.414: [camera-portal] Found device Firefox
+08:27:10.414: [pipewire] Error id:43 seq:2454 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:27:10.525: [camera-portal] Found device PulseAudio 音量控制
+08:27:10.525: [pipewire] Error id:40 seq:2483 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:27:11.756: [pipewire-camera] Removed device Firefox
+08:27:11.763: [pipewire-camera] Removed device PulseAudio 音量控制
+08:27:11.947: [camera-portal] Found device Firefox
+08:27:11.973: [camera-portal] Found device PulseAudio 音量控制
+08:27:11.974: [pipewire] Error id:43 seq:2544 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:27:12.581: [pipewire-camera] Removed device Firefox
+08:27:12.588: [pipewire-camera] Removed device PulseAudio 音量控制
+08:27:12.779: [camera-portal] Found device Firefox
+08:27:12.805: [camera-portal] Found device PulseAudio 音量控制
+08:27:12.805: [pipewire] Error id:40 seq:2605 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:27:25.608: [pipewire-camera] Removed device Firefox
+08:27:25.621: [pipewire-camera] Removed device PulseAudio 音��
+08:27:28.164: [camera-portal] Found device Firefox
+08:27:28.195: [camera-portal] Found device PulseAudio 音量控制
+08:27:28.196: [pipewire] Error id:43 seq:2668 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:28:01.357: [pipewire-camera] Removed device Firefox
+08:28:01.365: [pipewire-camera] Removed device PulseAudio 音��
+08:28:01.970: [camera-portal] Found device Firefox
+08:28:01.997: [camera-portal] Found device PulseAudio 音量控制
+08:28:03.546: [pipewire-camera] Removed device Firefox
+08:28:03.553: [pipewire-camera] Removed device PulseAudio 音量控制
+08:28:03.628: [camera-portal] Found device Firefox
+08:28:03.761: [camera-portal] Found device PulseAudio 音量控制
+08:28:04.552: [pipewire-camera] Removed device Firefox
+08:28:04.558: [pipewire-camera] Removed device PulseAudio 音�@
+08:28:04.885: [camera-portal] Found device Firefox
+08:28:04.920: [camera-portal] Found device PulseAudio 音量控制
+08:28:04.920: [pipewire] Error id:40 seq:2851 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:28:05.562: [pipewire-camera] Removed device Firefox
+08:28:05.569: [pipewire-camera] Removed device PulseAudio 音量控制
+08:28:05.993: [camera-portal] Found device Firefox
+08:28:06.024: [camera-portal] Found device PulseAudio 音量控制
+08:28:06.934: [pipewire-camera] Removed device Firefox
+08:28:06.944: [pipewire-camera] Removed device PulseAudio 音��
+08:28:07.026: [camera-portal] Found device Firefox
+08:28:07.202: [camera-portal] Found device PulseAudio 音量控制
+08:28:07.769: [pipewire-camera] Removed device Firefox
+08:28:07.776: [pipewire-camera] Removed device PulseAudio 音量控制
+08:28:07.811: [camera-portal] Found device Firefox
+08:28:07.907: [camera-portal] Found device PulseAudio 音量控制
+08:28:07.908: [pipewire] Error id:43 seq:3034 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:28:09.326: [pipewire-camera] Removed device Firefox
+08:28:09.336: [pipewire-camera] Removed device PulseAudio 音量控制
+08:28:16.482: [camera-portal] Found device Firefox
+08:28:16.514: [camera-portal] Found device PulseAudio 音量控制
+08:28:16.515: [pipewire] Error id:40 seq:3097 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:28:22.403: [camera-portal] Found device Firefox
+08:28:22.433: [camera-portal] Found device PulseAudio 音量控制
+08:28:26.097: [pipewire-camera] Removed device Firefox
+08:28:26.102: [pipewire-camera] Removed device PulseAudio 音量控制
+08:28:26.176: [camera-portal] Found device Firefox
+08:28:26.246: [camera-portal] Found device PulseAudio 音量控制
+08:28:26.902: [pipewire-camera] Removed device Firefox
+08:28:26.909: [pipewire-camera] Removed device PulseAudio 音量控制
+08:28:26.993: [camera-portal] Found device Firefox
+08:28:27.149: [camera-portal] Found device PulseAudio 音量控制
+08:28:27.149: [pipewire] Error id:43 seq:3275 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:28:27.556: [pipewire-camera] Removed device Firefox
+08:28:27.564: [pipewire-camera] Removed device PulseAudio 音量控制
+08:28:27.580: [camera-portal] Found device Firefox
+08:28:27.805: [camera-portal] Found device PulseAudio 音量控制
+08:28:28.302: [pipewire-camera] Removed device Firefox
+08:28:28.309: [pipewire-camera] Removed device PulseAudio 音量控制
+08:28:28.348: [camera-portal] Found device Firefox
+08:28:28.575: [camera-portal] Found device PulseAudio 音量控制
+08:28:28.576: [pipewire] Error id:43 seq:3397 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:28:29.035: [pipewire-camera] Removed device Firefox
+08:28:29.042: [pipewire-camera] Removed device PulseAudio 音量控制
+08:28:29.158: [camera-portal] Found device Firefox
+08:28:29.190: [camera-portal] Found device PulseAudio 音量控制
+08:28:35.737: [pipewire-camera] Removed device Firefox
+08:28:35.746: [pipewire-camera] Removed device PulseAudio 音量控制
+08:28:40.571: [camera-portal] Found device Firefox
+08:28:40.606: [camera-portal] Found device PulseAudio 音量控制
+08:28:44.281: [pipewire-camera] Removed device Firefox
+08:28:44.288: [pipewire-camera] Removed device PulseAudio 音量控制
+08:28:46.331: [camera-portal] Found device Firefox
+08:28:46.356: [camera-portal] Found device PulseAudio 音量控制
+08:28:52.827: [pipewire-camera] Removed device Firefox
+08:28:52.839: [pipewire-camera] Removed device PulseAudio 音量控制
+08:33:02.766: [camera-portal] Found device Firefox
+08:33:02.816: [camera-portal] Found device PulseAudio 音量控制
+08:33:02.817: [pipewire] Error id:43 seq:3643 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:33:10.164: [pipewire-camera] Removed device Firefox
+08:33:10.169: [pipewire-camera] Removed device PulseAudio 音量控制
+08:33:16.822: [camera-portal] Found device Firefox
+08:33:16.848: [camera-portal] Found device PulseAudio 音量控制
+08:33:16.848: [pipewire] Error id:39 seq:3704 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:33:20.851: [camera-portal] Found device Firefox
+08:33:20.893: [camera-portal] Found device PulseAudio 音量控制
+08:33:20.907: [camera-portal] Found device Firefox
+08:33:20.907: [pipewire] Error id:39 seq:3772 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:33:21.069: [camera-portal] Found device PulseAudio 音量控制
+08:33:21.070: [pipewire] Error id:40 seq:3816 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:33:21.091: [pipewire-camera] Removed device Firefox
+08:33:23.866: [camera-portal] Found device Firefox
+08:33:23.895: [camera-portal] Found device PulseAudio 音量控制
+08:33:23.895: [pipewire] Error id:43 seq:3877 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:33:23.898: [pipewire-camera] Removed device Firefox
+08:33:24.119: [camera-portal] Found device Firefox
+08:33:24.207: [camera-portal] Found device PulseAudio 音量控制
+08:33:24.208: [pipewire] Error id:40 seq:3936 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:33:24.209: [pipewire-camera] Removed device Firefox
+08:33:27.058: [camera-portal] Found device Firefox
+08:33:27.084: [camera-portal] Found device PulseAudio 音量控制
+08:33:28.092: [pipewire-camera] Removed device Firefox
+08:33:28.100: [pipewire-camera] Removed device PulseAudio 音量控制
+08:33:28.388: [camera-portal] Found device Firefox
+08:33:28.388: [pipewire] Error id:43 seq:4031 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:33:28.417: [camera-portal] Found device PulseAudio 音量控制
+08:33:28.418: [pipewire] Error id:39 seq:4060 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:33:28.982: [camera-portal] Found device Firefox
+08:33:29.016: [camera-portal] Found device PulseAudio 音量控制
+08:33:29.016: [pipewire] Error id:43 seq:4118 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:33:29.029: [pipewire-camera] Removed device Firefox
+08:33:29.224: [camera-portal] Found device Firefox
+08:33:29.278: [pipewire-camera] Removed device Firefox
+08:33:29.278: [camera-portal] Found device PulseAudio 音量控制
+08:33:29.279: [pipewire] Error id:40 seq:4177 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:33:30.565: [camera-portal] Found device Firefox
+08:33:30.681: [camera-portal] Found device PulseAudio 音量控制
+08:33:30.682: [pipewire] Error id:39 seq:4240 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:33:31.931: [camera-portal] Found device Firefox
+08:33:31.955: [pipewire-camera] Removed device Firefox
+08:33:31.956: [camera-portal] Found device PulseAudio 音量控制
+08:33:31.956: [pipewire] Error id:40 seq:4298 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:33:31.982: [camera-portal] Found device Firefox
+08:33:31.983: [pipewire] Error id:39 seq:4309 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:33:32.204: [camera-portal] Found device PulseAudio 音量控制
+08:33:32.204: [pipewire] Error id:43 seq:4357 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:33:32.215: [pipewire-camera] Removed device Firefox
+08:33:34.691: [camera-portal] Found device Firefox
+08:33:34.717: [camera-portal] Found device PulseAudio 音量控制
+08:33:34.721: [pipewire-camera] Removed device Firefox
+08:33:34.934: [camera-portal] Found device Firefox
+08:33:35.020: [camera-portal] Found device PulseAudio 音量控制
+08:33:35.027: [pipewire-camera] Removed device Firefox
+08:33:35.258: [camera-portal] Found device Firefox
+08:33:35.368: [camera-portal] Found device PulseAudio 音量控制
+08:33:35.369: [pipewire] Error id:40 seq:4536 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:33:36.436: [pipewire-camera] Removed device Firefox
+08:33:36.449: [pipewire-camera] Removed device PulseAudio 音��
+08:33:36.773: [camera-portal] Found device Firefox
+08:33:36.774: [pipewire] Error id:40 seq:4568 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:33:36.800: [camera-portal] Found device PulseAudio 音量控制
+08:33:36.800: [pipewire] Error id:39 seq:4597 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:33:37.870: [pipewire-camera] Removed device Firefox
+08:33:37.883: [pipewire-camera] Removed device PulseAudio 音量控制
+08:33:38.199: [camera-portal] Found device Firefox
+08:33:38.229: [camera-portal] Found device PulseAudio 音量控制
+08:33:38.230: [pipewire] Error id:40 seq:4658 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:33:42.337: [pipewire-camera] Removed device Firefox
+08:33:42.352: [pipewire-camera] Removed device PulseAudio 音量控制
+08:33:42.504: [camera-portal] Found device Firefox
+08:33:42.677: [camera-portal] Found device PulseAudio 音量控制
+08:33:44.082: [pipewire-camera] Removed device Firefox
+08:33:44.096: [pipewire-camera] Removed device PulseAudio 音量控制
+08:33:44.403: [camera-portal] Found device Firefox
+08:33:44.435: [camera-portal] Found device PulseAudio 音量控制
+08:33:44.437: [pipewire] Error id:40 seq:4780 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:33:45.444: [pipewire-camera] Removed device Firefox
+08:33:45.458: [pipewire-camera] Removed device PulseAudio 音��
+08:33:45.642: [camera-portal] Found device Firefox
+08:33:45.793: [camera-portal] Found device PulseAudio 音量控制
+08:33:45.793: [pipewire] Error id:39 seq:4841 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:33:59.187: [pipewire-camera] Removed device Firefox
+08:33:59.200: [pipewire-camera] Removed device PulseAudio 音量控制
+08:33:59.681: [camera-portal] Found device Firefox
+08:33:59.713: [camera-portal] Found device PulseAudio 音量控制
+08:34:00.550: [pipewire-camera] Removed device Firefox
+08:34:00.565: [pipewire-camera] Removed device PulseAudio 音量控制
+08:34:00.668: [camera-portal] Found device Firefox
+08:34:00.814: [camera-portal] Found device PulseAudio 音量控制
+08:34:02.043: [pipewire-camera] Removed device Firefox
+08:34:02.055: [pipewire-camera] Removed device PulseAudio 音量控制
+08:34:02.084: [camera-portal] Found device Firefox
+08:34:02.318: [camera-portal] Found device PulseAudio 音量控制
+08:34:02.319: [pipewire] Error id:40 seq:5024 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:34:02.592: [pipewire-camera] Removed device Firefox
+08:34:02.600: [pipewire-camera] Removed device PulseAudio 音量控制
+08:34:02.672: [camera-portal] Found device Firefox
+08:34:02.866: [camera-portal] Found device PulseAudio 音量控制
+08:34:03.818: [pipewire-camera] Removed device Firefox
+08:34:03.828: [pipewire-camera] Removed device PulseAudio 音量控制
+08:34:03.986: [camera-portal] Found device Firefox
+08:34:04.016: [camera-portal] Found device PulseAudio 音量控制
+08:34:04.016: [pipewire] Error id:40 seq:5146 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:34:21.634: [pipewire-camera] Removed device Firefox
+08:34:21.648: [pipewire-camera] Removed device PulseAudio 音��
+08:34:21.959: [camera-portal] Found device Firefox
+08:34:21.988: [camera-portal] Found device PulseAudio 音量控制
+08:34:21.989: [pipewire] Error id:39 seq:5207 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:34:22.745: [pipewire-camera] Removed device Firefox
+08:34:22.753: [pipewire-camera] Removed device PulseAudio 音��
+08:34:22.989: [camera-portal] Found device Firefox
+08:34:22.990: [pipewire] Error id:39 seq:5239 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:34:23.027: [camera-portal] Found device PulseAudio 音量控制
+08:34:23.028: [pipewire] Error id:40 seq:5268 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:34:23.449: [pipewire-camera] Removed device Firefox
+08:34:23.461: [pipewire-camera] Removed device PulseAudio 音��
+08:34:23.784: [camera-portal] Found device Firefox
+08:34:23.817: [camera-portal] Found device PulseAudio 音量控制
+08:34:24.280: [pipewire-camera] Removed device Firefox
+08:34:24.292: [pipewire-camera] Removed device PulseAudio 音量控制
+08:34:24.458: [camera-portal] Found device Firefox
+08:34:24.459: [pipewire] Error id:39 seq:5361 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:34:24.560: [camera-portal] Found device PulseAudio 音量控制
+08:34:24.560: [pipewire] Error id:40 seq:5390 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:34:26.047: [pipewire-camera] Removed device Firefox
+08:34:26.062: [pipewire-camera] Removed device PulseAudio 音�@
+08:34:26.309: [camera-portal] Found device Firefox
+08:34:26.335: [camera-portal] Found device PulseAudio 音量控制
+08:34:26.336: [pipewire] Error id:39 seq:5451 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:34:27.806: [pipewire-camera] Removed device Firefox
+08:34:27.817: [pipewire-camera] Removed device PulseAudio 音量控制
+08:34:27.949: [camera-portal] Found device Firefox
+08:34:28.097: [camera-portal] Found device PulseAudio 音量控制
+08:34:28.097: [pipewire] Error id:40 seq:5512 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:34:39.271: [pipewire-camera] Removed device Firefox
+08:34:39.286: [pipewire-camera] Removed device PulseAudio 音量控制
+08:34:39.553: [camera-portal] Found device Firefox
+08:34:39.657: [camera-portal] Found device PulseAudio 音量控制
+08:34:39.657: [pipewire] Error id:39 seq:5573 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:34:41.079: [pipewire-camera] Removed device Firefox
+08:34:41.096: [pipewire-camera] Removed device PulseAudio 音量控制
+08:34:41.423: [camera-portal] Found device Firefox
+08:34:41.479: [camera-portal] Found device PulseAudio 音量控制
+08:34:42.780: [pipewire-camera] Removed device Firefox
+08:34:42.790: [pipewire-camera] Removed device PulseAudio 音量控制
+08:34:43.052: [camera-portal] Found device Firefox
+08:34:43.120: [camera-portal] Found device PulseAudio 音量控制
+08:34:43.937: [pipewire-camera] Removed device Firefox
+08:34:43.946: [pipewire-camera] Removed device PulseAudio 音量控制
+08:34:44.099: [camera-portal] Found device Firefox
+08:34:44.240: [camera-portal] Found device PulseAudio 音量控制
+08:34:44.729: [pipewire-camera] Removed device Firefox
+08:34:44.745: [pipewire-camera] Removed device PulseAudio 音量控制
+08:34:44.916: [camera-portal] Found device Firefox
+08:34:45.090: [camera-portal] Found device PulseAudio 音量控制
+08:34:45.763: [pipewire-camera] Removed device Firefox
+08:34:45.779: [pipewire-camera] Removed device PulseAudio 音量控制
+08:34:46.109: [camera-portal] Found device Firefox
+08:34:46.218: [camera-portal] Found device PulseAudio 音量控制
+08:34:46.219: [pipewire] Error id:40 seq:5878 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:35:27.748: [pipewire-camera] Removed device Firefox
+08:35:27.760: [pipewire-camera] Removed device PulseAudio 音量控制
+08:35:27.928: [camera-portal] Found device Firefox
+08:35:27.929: [pipewire] Error id:40 seq:5910 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:35:28.044: [camera-portal] Found device PulseAudio 音量控制
+08:35:28.479: [pipewire-camera] Removed device Firefox
+08:35:28.489: [pipewire-camera] Removed device PulseAudio 音量控制
+08:35:28.611: [camera-portal] Found device Firefox
+08:35:28.779: [camera-portal] Found device PulseAudio 音量控制
+08:35:28.780: [pipewire] Error id:40 seq:6000 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:35:29.164: [pipewire-camera] Removed device Firefox
+08:35:29.177: [pipewire-camera] Removed device PulseAudio 音��
+08:35:29.230: [camera-portal] Found device Firefox
+08:35:29.418: [camera-portal] Found device PulseAudio 音量控制
+08:35:30.011: [pipewire-camera] Removed device Firefox
+08:35:30.022: [pipewire-camera] Removed device PulseAudio 音量控制
+08:35:30.261: [camera-portal] Found device Firefox
+08:35:30.328: [camera-portal] Found device PulseAudio 音量控制
+08:35:32.827: [pipewire-camera] Removed device Firefox
+08:35:32.836: [pipewire-camera] Removed device PulseAudio 音量控制
+08:35:32.901: [camera-portal] Found device Firefox
+08:35:33.101: [camera-portal] Found device PulseAudio 音量控制
+08:35:33.101: [pipewire] Error id:39 seq:6183 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:35:33.408: [pipewire-camera] Removed device Firefox
+08:35:33.417: [pipewire-camera] Removed device PulseAudio 音量控制
+08:35:33.577: [camera-portal] Found device Firefox
+08:35:33.609: [camera-portal] Found device PulseAudio 音量控制
+08:35:33.610: [pipewire] Error id:40 seq:6244 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:35:34.079: [pipewire-camera] Removed device Firefox
+08:35:34.090: [pipewire-camera] Removed device PulseAudio 音量控制
+08:35:34.206: [camera-portal] Found device Firefox
+08:35:34.206: [pipewire] Error id:40 seq:6276 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:35:34.400: [camera-portal] Found device PulseAudio 音量控制
+08:35:34.400: [pipewire] Error id:39 seq:6305 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:35:34.677: [pipewire-camera] Removed device Firefox
+08:35:34.688: [pipewire-camera] Removed device PulseAudio 音量控制
+08:35:34.744: [camera-portal] Found device Firefox
+08:35:34.841: [camera-portal] Found device PulseAudio 音量控制
+08:35:34.844: [pipewire] Error id:40 seq:6366 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:35:39.769: [pipewire-camera] Removed device Firefox
+08:35:39.781: [pipewire-camera] Removed device PulseAudio 音量控制
+08:35:39.971: [camera-portal] Found device Firefox
+08:35:40.052: [camera-portal] Found device PulseAudio 音量控制
+08:35:40.053: [pipewire] Error id:39 seq:6429 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:35:41.346: [pipewire-camera] Removed device Firefox
+08:35:41.353: [pipewire-camera] Removed device PulseAudio 音量控制
+08:35:41.649: [camera-portal] Found device Firefox
+08:35:41.679: [camera-portal] Found device PulseAudio 音量控制
+08:35:41.680: [pipewire] Error id:40 seq:6488 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:35:42.662: [pipewire-camera] Removed device Firefox
+08:35:42.672: [pipewire-camera] Removed device PulseAudio 音��
+08:35:42.822: [camera-portal] Found device Firefox
+08:35:42.941: [camera-portal] Found device PulseAudio 音量控制
+08:35:42.941: [pipewire] Error id:39 seq:6549 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:35:44.190: [pipewire-camera] Removed device Firefox
+08:35:44.200: [pipewire-camera] Removed device PulseAudio 音量控制
+08:35:44.354: [camera-portal] Found device Firefox
+08:35:44.466: [camera-portal] Found device PulseAudio 音量控制
+08:35:44.466: [pipewire] Error id:40 seq:6610 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:35:45.386: [pipewire-camera] Removed device Firefox
+08:35:45.399: [pipewire-camera] Removed device PulseAudio 音量控制
+08:35:45.574: [camera-portal] Found device Firefox
+08:35:45.645: [camera-portal] Found device PulseAudio 音量控制
+08:35:58.533: [pipewire-camera] Removed device Firefox
+08:35:58.544: [pipewire-camera] Removed device PulseAudio 音��
+08:35:58.749: [camera-portal] Found device Firefox
+08:35:58.782: [camera-portal] Found device PulseAudio 音量控制
+08:35:58.783: [pipewire] Error id:40 seq:6732 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:35:59.454: [pipewire-camera] Removed device Firefox
+08:35:59.464: [pipewire-camera] Removed device PulseAudio 音量控制
+08:35:59.797: [camera-portal] Found device Firefox
+08:35:59.834: [camera-portal] Found device PulseAudio 音量控制
+08:35:59.835: [pipewire] Error id:39 seq:6793 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:36:00.760: [pipewire-camera] Removed device Firefox
+08:36:00.772: [pipewire-camera] Removed device PulseAudio 音量控制
+08:36:01.088: [camera-portal] Found device Firefox
+08:36:01.089: [pipewire] Error id:39 seq:6825 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:36:01.278: [camera-portal] Found device PulseAudio 音量控制
+08:36:01.278: [pipewire] Error id:40 seq:6854 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:36:01.707: [pipewire-camera] Removed device Firefox
+08:36:01.718: [pipewire-camera] Removed device PulseAudio 音量控制
+08:36:01.965: [camera-portal] Found device Firefox
+08:36:01.966: [pipewire] Error id:40 seq:6886 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:36:02.069: [camera-portal] Found device PulseAudio 音量控制
+08:36:02.070: [pipewire] Error id:39 seq:6915 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:36:02.571: [pipewire-camera] Removed device Firefox
+08:36:02.584: [pipewire-camera] Removed device PulseAudio 音量控制
+08:36:02.760: [camera-portal] Found device Firefox
+08:36:02.803: [camera-portal] Found device PulseAudio 音量控制
+08:36:04.013: [pipewire-camera] Removed device Firefox
+08:36:04.026: [pipewire-camera] Removed device PulseAudio 音量控制
+08:36:04.478: [camera-portal] Found device Firefox
+08:36:04.511: [camera-portal] Found device PulseAudio 音量控制
+08:36:04.512: [pipewire] Error id:39 seq:7037 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:36:05.295: [pipewire-camera] Removed device Firefox
+08:36:05.306: [pipewire-camera] Removed device PulseAudio 音量控制
+08:36:05.632: [camera-portal] Found device Firefox
+08:36:05.665: [camera-portal] Found device PulseAudio 音量控制
+08:36:06.276: [pipewire-camera] Removed device Firefox
+08:36:06.286: [pipewire-camera] Removed device PulseAudio 音��
+08:36:06.559: [camera-portal] Found device Firefox
+08:36:06.587: [camera-portal] Found device PulseAudio 音量控制
+08:36:06.587: [pipewire] Error id:39 seq:7159 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:36:11.141: [pipewire-camera] Removed device Firefox
+08:36:11.160: [pipewire-camera] Removed device PulseAudio 音量控制
+08:36:11.404: [camera-portal] Found device Firefox
+08:36:11.405: [pipewire] Error id:39 seq:7191 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:36:11.434: [camera-portal] Found device PulseAudio 音量控制
+08:36:11.434: [pipewire] Error id:40 seq:7220 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:36:12.473: [pipewire-camera] Removed device Firefox
+08:36:12.483: [pipewire-camera] Removed device PulseAudio 音量控制
+08:36:12.840: [camera-portal] Found device Firefox
+08:36:12.873: [camera-portal] Found device PulseAudio 音量控制
+08:36:12.874: [pipewire] Error id:39 seq:7281 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:36:24.974: [pipewire-camera] Removed device Firefox
+08:36:24.983: [pipewire-camera] Removed device PulseAudio 音量控制
+08:36:25.269: [camera-portal] Found device Firefox
+08:36:25.316: [camera-portal] Found device PulseAudio 音量控制
+08:36:25.317: [pipewire] Error id:40 seq:7344 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:36:27.501: [pipewire-camera] Removed device Firefox
+08:36:27.513: [pipewire-camera] Removed device PulseAudio 音量控制
+08:36:29.033: [camera-portal] Found device Firefox
+08:36:29.072: [camera-portal] Found device PulseAudio 音量控制
+08:36:29.073: [pipewire] Error id:39 seq:7405 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:38:03.283: [pipewire-camera] Removed device Firefox
+08:38:03.295: [pipewire-camera] Removed device PulseAudio 音量控制
+08:38:04.329: [camera-portal] Found device Firefox
+08:38:04.362: [camera-portal] Found device PulseAudio 音量控制
+08:38:04.714: [pipewire-camera] Removed device Firefox
+08:38:04.728: [pipewire-camera] Removed device PulseAudio 音量控制
+08:38:06.381: [camera-portal] Found device Firefox
+08:38:06.420: [camera-portal] Found device PulseAudio 音量控制
+08:38:06.422: [pipewire] Error id:39 seq:7525 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:40:11.170: [camera-portal] Found device Firefox
+08:40:11.171: [pipewire] Error id:43 seq:7555 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:40:11.217: [camera-portal] Found device PulseAudio 音量控制
+08:40:11.218: [pipewire] Error id:40 seq:7587 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:40:31.600: [pipewire-camera] Removed device Firefox
+08:40:31.614: [pipewire-camera] Removed device PulseAudio 音量控制
+08:40:31.799: [camera-portal] Found device Firefox
+08:40:31.930: [camera-portal] Found device PulseAudio 音量控制
+08:40:32.163: [pipewire-camera] Removed device Firefox
+08:40:32.177: [pipewire-camera] Removed device PulseAudio 音量控制
+08:40:32.366: [camera-portal] Found device Firefox
+08:40:32.486: [camera-portal] Found device PulseAudio 音量控制
+08:40:32.793: [pipewire-camera] Removed device Firefox
+08:40:32.808: [pipewire-camera] Removed device PulseAudio 音��
+08:40:33.095: [camera-portal] Found device Firefox
+08:40:33.129: [camera-portal] Found device PulseAudio 音量控制
+08:40:33.460: [pipewire-camera] Removed device Firefox
+08:40:33.477: [pipewire-camera] Removed device PulseAudio 音釠
+08:40:33.704: [camera-portal] Found device Firefox
+08:40:33.798: [camera-portal] Found device PulseAudio 音量控制
+08:40:33.799: [pipewire] Error id:40 seq:7829 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:40:34.770: [pipewire-camera] Removed device Firefox
+08:40:34.786: [pipewire-camera] Removed device PulseAudio 音��
+08:40:34.984: [camera-portal] Found device Firefox
+08:40:35.144: [camera-portal] Found device PulseAudio 音量控制
+08:40:35.438: [pipewire-camera] Removed device Firefox
+08:40:35.452: [pipewire-camera] Removed device PulseAudio 音量控制
+08:40:35.639: [camera-portal] Found device Firefox
+08:40:35.694: [camera-portal] Found device PulseAudio 音量控制
+08:40:35.694: [pipewire] Error id:40 seq:7951 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:40:36.376: [pipewire-camera] Removed device Firefox
+08:40:36.393: [pipewire-camera] Removed device PulseAudio 音量控制
+08:40:36.587: [camera-portal] Found device Firefox
+08:40:36.702: [camera-portal] Found device PulseAudio 音量控制
+08:40:36.703: [pipewire] Error id:43 seq:8012 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:40:50.426: [pipewire-camera] Removed device Firefox
+08:40:50.442: [pipewire-camera] Removed device PulseAudio 音��
+08:40:50.559: [camera-portal] Found device Firefox
+08:40:50.732: [camera-portal] Found device PulseAudio 音量控制
+08:40:51.132: [pipewire-camera] Removed device Firefox
+08:40:51.145: [pipewire-camera] Removed device PulseAudio 音量控制
+08:40:51.463: [camera-portal] Found device Firefox
+08:40:51.494: [camera-portal] Found device PulseAudio 音量控制
+08:40:51.494: [pipewire] Error id:43 seq:8136 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:40:52.397: [pipewire-camera] Removed device Firefox
+08:40:52.409: [pipewire-camera] Removed device PulseAudio 音量控制
+08:40:52.573: [camera-portal] Found device Firefox
+08:40:52.573: [pipewire] Error id:43 seq:8166 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:40:52.611: [camera-portal] Found device PulseAudio 音量控制
+08:40:52.611: [pipewire] Error id:40 seq:8195 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:40:53.401: [pipewire-camera] Removed device Firefox
+08:40:53.415: [pipewire-camera] Removed device PulseAudio 音量控制
+08:40:53.555: [camera-portal] Found device Firefox
+08:40:53.709: [camera-portal] Found device PulseAudio 音量控制
+08:40:53.710: [pipewire] Error id:43 seq:8256 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:40:59.370: [pipewire-camera] Removed device Firefox
+08:40:59.386: [pipewire-camera] Removed device PulseAudio 音量控制
+08:40:59.824: [camera-portal] Found device Firefox
+08:40:59.863: [camera-portal] Found device PulseAudio 音量控制
+08:40:59.864: [pipewire] Error id:40 seq:8317 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:41:00.226: [pipewire-camera] Removed device Firefox
+08:41:00.240: [pipewire-camera] Removed device PulseAudio 音量控制
+08:41:00.437: [camera-portal] Found device Firefox
+08:41:00.569: [camera-portal] Found device PulseAudio 音量控制
+08:41:00.930: [pipewire-camera] Removed device Firefox
+08:41:00.945: [pipewire-camera] Removed device PulseAudio 音量控制
+08:41:01.224: [camera-portal] Found device Firefox
+08:41:01.310: [camera-portal] Found device PulseAudio 音量控制
+08:41:01.311: [pipewire] Error id:40 seq:8439 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:41:01.864: [pipewire-camera] Removed device Firefox
+08:41:01.880: [pipewire-camera] Removed device PulseAudio 音量控制
+08:41:02.216: [camera-portal] Found device Firefox
+08:41:02.306: [camera-portal] Found device PulseAudio 音量控制
+08:41:02.307: [pipewire] Error id:43 seq:8500 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:41:03.088: [pipewire-camera] Removed device Firefox
+08:41:03.101: [pipewire-camera] Removed device PulseAudio 音量控制
+08:41:03.455: [camera-portal] Found device Firefox
+08:41:03.487: [camera-portal] Found device PulseAudio 音量控制
+08:41:04.127: [pipewire-camera] Removed device Firefox
+08:41:04.142: [pipewire-camera] Removed device PulseAudio 音量控制
+08:41:04.458: [camera-portal] Found device Firefox
+08:41:04.512: [camera-portal] Found device PulseAudio 音量控制
+08:41:06.566: [pipewire-camera] Removed device Firefox
+08:41:06.581: [pipewire-camera] Removed device PulseAudio 音釠
+08:41:07.049: [camera-portal] Found device Firefox
+08:41:07.079: [camera-portal] Found device PulseAudio 音量控制
+08:41:07.542: [pipewire-camera] Removed device Firefox
+08:41:07.558: [pipewire-camera] Removed device PulseAudio 音量控制
+08:41:07.810: [camera-portal] Found device Firefox
+08:41:07.894: [camera-portal] Found device PulseAudio 音量控制
+08:41:07.894: [pipewire] Error id:43 seq:8744 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:41:08.647: [pipewire-camera] Removed device Firefox
+08:41:08.660: [pipewire-camera] Removed device PulseAudio 音量控制
+08:41:09.052: [camera-portal] Found device Firefox
+08:41:09.083: [camera-portal] Found device PulseAudio 音量控制
+08:41:09.431: [pipewire-camera] Removed device Firefox
+08:41:09.448: [pipewire-camera] Removed device PulseAudio 音量控制
+08:41:09.838: [camera-portal] Found device Firefox
+08:41:09.865: [camera-portal] Found device PulseAudio 音量控制
+08:41:09.866: [pipewire] Error id:43 seq:8868 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:41:10.436: [pipewire-camera] Removed device Firefox
+08:41:10.448: [pipewire-camera] Removed device PulseAudio 音��
+08:41:10.710: [camera-portal] Found device Firefox
+08:41:10.710: [pipewire] Error id:43 seq:8898 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:41:10.736: [camera-portal] Found device PulseAudio 音量控制
+08:41:38.326: [pipewire-camera] Removed device Firefox
+08:41:38.339: [pipewire-camera] Removed device PulseAudio 音量控制
+08:41:38.603: [camera-portal] Found device Firefox
+08:41:38.701: [camera-portal] Found device PulseAudio 音量控制
+08:41:38.702: [pipewire] Error id:43 seq:8988 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:41:39.030: [pipewire-camera] Removed device Firefox
+08:41:39.045: [pipewire-camera] Removed device PulseAudio 音量控制
+08:41:39.252: [camera-portal] Found device Firefox
+08:41:39.392: [camera-portal] Found device PulseAudio 音量控制
+08:41:39.392: [pipewire] Error id:40 seq:9049 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:41:41.027: [pipewire-camera] Removed device Firefox
+08:41:41.047: [pipewire-camera] Removed device PulseAudio 音量控制
+08:41:41.717: [camera-portal] Found device Firefox
+08:41:41.717: [pipewire] Error id:40 seq:9081 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:41:41.745: [camera-portal] Found device PulseAudio 音量控制
+08:41:41.746: [pipewire] Error id:43 seq:9110 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:41:42.250: [pipewire-camera] Removed device Firefox
+08:41:42.263: [pipewire-camera] Removed device PulseAudio 音量控制
+08:41:42.742: [camera-portal] Found device Firefox
+08:41:42.775: [camera-portal] Found device PulseAudio 音量控制
+08:41:42.775: [pipewire] Error id:40 seq:9171 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:41:43.467: [pipewire-camera] Removed device Firefox
+08:41:43.477: [pipewire-camera] Removed device PulseAudio 音量控制
+08:41:44.056: [camera-portal] Found device Firefox
+08:41:44.078: [camera-portal] Found device PulseAudio 音量控制
+08:41:44.078: [pipewire] Error id:43 seq:9232 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:41:44.491: [pipewire-camera] Removed device Firefox
+08:41:44.502: [pipewire-camera] Removed device PulseAudio 音量控制
+08:41:45.269: [camera-portal] Found device Firefox
+08:41:45.295: [camera-portal] Found device PulseAudio 音量控制
+08:41:45.297: [pipewire] Error id:40 seq:9293 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:41:46.930: [pipewire-camera] Removed device Firefox
+08:41:46.944: [pipewire-camera] Removed device PulseAudio 音量控制
+08:41:47.578: [camera-portal] Found device Firefox
+08:41:47.606: [camera-portal] Found device PulseAudio 音量控制
+08:41:47.606: [pipewire] Error id:43 seq:9354 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:41:49.996: [pipewire-camera] Removed device Firefox
+08:41:50.009: [pipewire-camera] Removed device PulseAudio 音量控制
+08:41:50.686: [camera-portal] Found device Firefox
+08:41:50.718: [camera-portal] Found device PulseAudio 音量控制
+08:41:52.401: [pipewire-camera] Removed device Firefox
+08:41:52.411: [pipewire-camera] Removed device PulseAudio 音量控制
+08:41:52.673: [camera-portal] Found device Firefox
+08:41:52.809: [camera-portal] Found device PulseAudio 音量控制
+08:41:52.810: [pipewire] Error id:43 seq:9476 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:41:53.508: [pipewire-camera] Removed device Firefox
+08:41:53.523: [pipewire-camera] Removed device PulseAudio 音量控制
+08:41:54.580: [camera-portal] Found device Firefox
+08:41:54.580: [pipewire] Error id:43 seq:9508 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:41:54.610: [camera-portal] Found device PulseAudio 音量控制
+08:41:54.610: [pipewire] Error id:40 seq:9537 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:41:55.087: [pipewire-camera] Removed device Firefox
+08:41:55.099: [pipewire-camera] Removed device PulseAudio 音量控制
+08:41:55.729: [camera-portal] Found device Firefox
+08:41:55.729: [pipewire] Error id:40 seq:9569 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:41:55.757: [camera-portal] Found device PulseAudio 音量控制
+08:41:56.262: [pipewire-camera] Removed device Firefox
+08:41:56.276: [pipewire-camera] Removed device PulseAudio 音量控制
+08:41:57.088: [camera-portal] Found device Firefox
+08:41:57.111: [camera-portal] Found device PulseAudio 音量控制
+08:41:57.963: [pipewire-camera] Removed device Firefox
+08:41:57.974: [pipewire-camera] Removed device PulseAudio 音量控制
+08:41:58.725: [camera-portal] Found device Firefox
+08:41:58.755: [camera-portal] Found device PulseAudio 音量控制
+08:41:59.650: [pipewire-camera] Removed device Firefox
+08:41:59.661: [pipewire-camera] Removed device PulseAudio 音量控制
+08:42:00.360: [camera-portal] Found device Firefox
+08:42:00.395: [camera-portal] Found device PulseAudio 音量控制
+08:42:00.396: [pipewire] Error id:40 seq:9781 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:42:03.833: [pipewire-camera] Removed device Firefox
+08:42:03.846: [pipewire-camera] Removed device PulseAudio 音量控制
+08:42:04.076: [camera-portal] Found device Firefox
+08:42:04.201: [camera-portal] Found device PulseAudio 音量控制
+08:42:05.693: [pipewire-camera] Removed device Firefox
+08:42:05.706: [pipewire-camera] Removed device PulseAudio 音量控制
+08:42:06.479: [camera-portal] Found device Firefox
+08:42:06.507: [camera-portal] Found device PulseAudio 音量控制
+08:42:06.507: [pipewire] Error id:40 seq:9903 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:42:50.751: [pipewire-camera] Removed device Firefox
+08:42:50.761: [pipewire-camera] Removed device PulseAudio 音��
+08:44:12.918: [camera-portal] Found device Firefox
+08:44:12.967: [camera-portal] Found device PulseAudio 音量控制
+08:46:32.457: [pipewire-camera] Removed device Firefox
+08:46:32.479: [pipewire-camera] Removed device PulseAudio 音釠
+08:46:41.593: [camera-portal] Found device Firefox
+08:46:41.594: [pipewire] Error id:43 seq:10018 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:46:41.630: [camera-portal] Found device PulseAudio 音量控制
+08:46:41.631: [pipewire] Error id:40 seq:10049 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:47:27.080: [pipewire] Stream 0x5594f95a78f0 state: "paused" (error: none)
+08:47:27.080: [pipewire] Error id:44 seq:10086 res:-2 (没有那个文件或目录): enum params id:15 (Spa:Enum:ParamId:Latency) failed
+08:47:27.089: [pipewire] Error id:42 seq:10095 res:-2 (没有那个文件或目录): enum params id:15 (Spa:Enum:ParamId:Latency) failed
+08:47:27.095: [pipewire] Error id:43 seq:10101 res:-2 (没有那个文件或目录): enum params id:17 (Spa:Enum:ParamId:Tag) failed
+08:47:27.249: [pipewire-camera] Removed device Midi-Bridge
+08:47:27.249: [pipewire-camera] Removed device bluez_midi.server
+08:47:27.249: [pipewire-camera] Removed device alsa_output.pci-0000_03_00.6.analog-stereo
+08:47:27.250: [pipewire-camera] Removed device alsa_input.pci-0000_03_00.6.analog-stereo
+08:47:27.250: [pipewire-camera] Removed device v4l2_input.pci-0000_03_00.3-usb-0_3_1.0
+08:47:27.250: [pipewire-camera] Removed device bluez_output.24_B2_31_DD_A9_A6.1 
+08:47:27.264: [camera-portal] Found device auto_null
+08:47:27.292: [camera-portal] Found device PulseAudio 音量控制
+08:47:27.293: [pipewire] Error id:9 seq:10132 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:47:27.527: [camera-portal] Found device Midi-Bridge
+08:47:27.565: [camera-portal] Found device bluez_midi.server
+08:47:27.607: [camera-portal] Found device alsa_output.pci-0000_03_00.6.analog-stereo
+08:47:27.608: [camera-portal] Found device alsa_input.pci-0000_03_00.6.analog-stereo
+08:47:27.609: [pipewire-camera] Removed device auto_null
+08:47:27.637: [camera-portal] Found device PulseAudio 音量控制
+08:47:27.645: [camera-portal] Found device PulseAudio 音量控制
+08:47:27.645: [pipewire] Error id:9 seq:10194 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:47:27.876: [camera-portal] Found device PulseAudio 音量控制
+08:47:28.311: [camera-portal] Found device PulseAudio 音量控制
+08:47:28.311: [pipewire] Error id:9 seq:10337 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:47:28.468: [pipewire] Negotiated format:
+08:47:28.468: [pipewire]     Format: 12 (Spa:Enum:VideoFormat:BGRA)
+08:47:28.468: [pipewire]     Size: 1920x1080
+08:47:28.468: [pipewire]     Framerate: 0/1
+08:47:28.480: [pipewire] Stream 0x5594f95a78f0 state: "streaming" (error: none)
+08:47:28.660: [camera-portal] Found device v4l2_input.pci-0000_03_00.3-usb-0_3_1.0
+08:47:29.184: [pipewire] Stream 0x5594f95a78f0 state: "paused" (error: none)
+08:47:29.295: [pipewire] Stream 0x5594f95a78f0 state: "error" (error: no more input formats)
+08:47:29.295: [pipewire] Error id:2 seq:110 res:-32 (断开的管道): no more input formats
+08:47:41.104: [camera-portal] Found device bluez_output.24_B2_31_DD_A9_A6.1
+08:47:41.108: [pipewire] Error id:5 seq:10404 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:47:41.109: [pipewire] Error id:5 seq:10405 res:-2 (没有那个文件或目录): enum params id:17 (Spa:Enum:ParamId:Tag) failed
+08:47:41.150: [camera-portal] Found device PulseAudio 音量控制
+08:47:41.151: [pipewire] Error id:39 seq:10419 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:47:41.376: [camera-portal] Found device PulseAudio 音量控制
+08:47:41.644: [camera-portal] Found device PulseAudio 音量控制
+08:47:41.645: [pipewire] Error id:39 seq:10496 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:47:58.351: [pipewire-camera] Removed device bluez_output.24_B2_31_DD_A9_A6.1
+08:47:58.492: [camera-portal] Found device PulseAudio 音量控制
+08:47:58.584: [camera-portal] Found device PulseAudio 音量控制
+08:47:58.585: [pipewire] Error id:39 seq:10551 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:47:58.899: [camera-portal] Found device bluez_output.24_B2_31_DD_A9_A6.1
+08:47:58.899: [pipewire] Error id:5 seq:10572 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:47:58.899: [pipewire] Error id:5 seq:10573 res:-2 (没有那个文件或目录): enum params id:17 (Spa:Enum:ParamId:Tag) failed
+08:47:58.935: [camera-portal] Found device PulseAudio 音量控制
+08:47:58.935: [pipewire] Error id:9 seq:10587 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:47:59.180: [camera-portal] Found device PulseAudio 音量控制
+08:47:59.280: [camera-portal] Found device PulseAudio 音量控制
+08:47:59.280: [pipewire] Error id:9 seq:10673 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:48:07.447: [pipewire-camera] Removed device Firefox
+08:48:07.665: [camera-portal] Found device Firefox
+08:48:07.789: [camera-portal] Found device PulseAudio 音量控制
+08:48:07.790: [pipewire] Error id:39 seq:10729 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:52:00.992: [pipewire-camera] Removed device Firefox
+08:52:01.001: [pipewire-camera] Removed device PulseAudio 音量控制
+08:52:04.546: [camera-portal] Found device Firefox
+08:52:04.574: [camera-portal] Found device PulseAudio 音量控制
+08:52:04.574: [pipewire] Error id:43 seq:10790 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:52:16.487: [pipewire-camera] Removed device Firefox
+08:52:16.496: [pipewire-camera] Removed device PulseAudio 音量控制
+08:52:27.392: [camera-portal] Found device Firefox
+08:52:27.435: [camera-portal] Found device PulseAudio 音量控制
+08:52:27.436: [pipewire] Error id:39 seq:10861 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:52:29.023: [pipewire-camera] Removed device Firefox
+08:52:29.030: [pipewire-camera] Removed device PulseAudio 音�@
+08:52:33.860: [camera-portal] Found device Firefox
+08:52:33.928: [camera-portal] Found device PulseAudio 音量控制
+08:54:21.155: [pipewire-camera] Removed device Firefox
+08:54:21.164: [pipewire-camera] Removed device PulseAudio 音��
+08:55:14.361: [camera-portal] Found device Firefox
+08:55:14.397: [camera-portal] Found device PulseAudio 音量控制
+08:55:14.398: [pipewire] Error id:39 seq:10987 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:56:37.576: [pipewire-camera] Removed device Firefox
+08:56:37.586: [pipewire-camera] Removed device PulseAudio 音量控制
+08:56:38.055: [camera-portal] Found device Firefox
+08:56:38.092: [camera-portal] Found device PulseAudio 音量控制
+08:56:38.093: [pipewire] Error id:43 seq:11050 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:56:54.038: [pipewire-camera] Removed device Firefox
+08:56:54.046: [pipewire-camera] Removed device PulseAudio 音量控制
+08:56:54.890: [camera-portal] Found device Firefox
+08:56:54.922: [camera-portal] Found device PulseAudio 音量控制
+08:56:54.922: [pipewire] Error id:39 seq:11119 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:57:43.469: [pipewire-camera] Removed device Firefox
+08:57:43.478: [pipewire-camera] Removed device PulseAudio 音量控制
+08:57:44.194: [camera-portal] Found device Firefox
+08:57:44.222: [camera-portal] Found device PulseAudio 音量控制
+08:57:44.222: [pipewire] Error id:43 seq:11188 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:58:02.435: [pipewire-camera] Removed device Firefox
+08:58:02.446: [pipewire-camera] Removed device PulseAudio 音量控制
+08:58:05.844: [camera-portal] Found device Firefox
+08:58:05.873: [camera-portal] Found device PulseAudio 音量控制
+08:58:27.475: [pipewire-camera] Removed device Firefox
+08:58:27.488: [pipewire-camera] Removed device PulseAudio 音釠
+08:58:28.114: [camera-portal] Found device Firefox
+08:58:28.115: [pipewire] Error id:39 seq:11295 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:58:28.144: [camera-portal] Found device PulseAudio 音量控制
+08:58:28.145: [pipewire] Error id:43 seq:11326 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:59:08.835: [pipewire-camera] Removed device Firefox
+08:59:08.843: [pipewire-camera] Removed device PulseAudio 音��
+08:59:09.435: [camera-portal] Found device Firefox
+08:59:09.469: [camera-portal] Found device PulseAudio 音量控制
+08:59:09.470: [pipewire] Error id:39 seq:11395 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:59:30.804: [pipewire-camera] Removed device Firefox
+08:59:30.813: [pipewire-camera] Removed device PulseAudio 音量控制
+08:59:31.606: [camera-portal] Found device Firefox
+08:59:31.634: [camera-portal] Found device PulseAudio 音量控制
+08:59:31.634: [pipewire] Error id:43 seq:11464 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:59:42.612: [pipewire-camera] Removed device Firefox
+08:59:42.621: [pipewire-camera] Removed device PulseAudio 音釠
+08:59:43.685: [camera-portal] Found device Firefox
+08:59:43.718: [camera-portal] Found device PulseAudio 音量控制
+08:59:52.614: [pipewire-camera] Removed device Firefox
+08:59:52.622: [pipewire-camera] Removed device PulseAudio 音量控制
+08:59:53.208: [camera-portal] Found device Firefox
+08:59:53.208: [pipewire] Error id:39 seq:11571 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+08:59:53.235: [camera-portal] Found device PulseAudio 音量控制
+08:59:53.236: [pipewire] Error id:43 seq:11602 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:00:08.228: [pipewire-camera] Removed device Firefox
+09:00:08.238: [pipewire-camera] Removed device PulseAudio 音釠
+09:00:08.238: [camera-portal] Found device Firefox
+09:00:08.239: [pipewire] Error id:43 seq:11640 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:00:08.505: [camera-portal] Found device PulseAudio 音量控制
+09:00:08.505: [pipewire] Error id:39 seq:11671 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:00:08.713: [pipewire-camera] Removed device Firefox
+09:00:08.721: [pipewire-camera] Removed device PulseAudio 音量控制
+09:00:10.767: [camera-portal] Found device Firefox
+09:00:10.800: [camera-portal] Found device PulseAudio 音量控制
+09:00:10.801: [pipewire] Error id:43 seq:11734 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:00:25.549: [pipewire-camera] Removed device Firefox
+09:00:25.561: [pipewire-camera] Removed device PulseAudio 音量控制
+09:00:26.239: [camera-portal] Found device Firefox
+09:00:26.271: [camera-portal] Found device PulseAudio 音量控制
+09:00:26.272: [pipewire] Error id:39 seq:11803 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:00:55.091: [pipewire-camera] Removed device Firefox
+09:00:55.100: [pipewire-camera] Removed device PulseAudio 音量控制
+09:00:55.860: [camera-portal] Found device Firefox
+09:00:55.898: [camera-portal] Found device PulseAudio 音量控制
+09:00:59.639: [pipewire-camera] Removed device Firefox
+09:00:59.649: [pipewire-camera] Removed device PulseAudio 音量控制
+09:01:00.320: [camera-portal] Found device Firefox
+09:01:00.349: [camera-portal] Found device PulseAudio 音量控制
+09:01:00.349: [pipewire] Error id:39 seq:11941 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:01:10.737: [pipewire-camera] Removed device Firefox
+09:01:10.749: [pipewire-camera] Removed device PulseAudio 音量控制
+09:01:11.380: [camera-portal] Found device Firefox
+09:01:11.413: [camera-portal] Found device PulseAudio 音量控制
+09:01:11.414: [pipewire] Error id:43 seq:12008 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:01:20.086: [pipewire-camera] Removed device Firefox
+09:01:20.097: [pipewire-camera] Removed device PulseAudio 音釠
+09:01:20.673: [camera-portal] Found device Firefox
+09:01:20.703: [camera-portal] Found device PulseAudio 音量控制
+09:01:20.704: [pipewire] Error id:39 seq:12077 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:01:53.198: [pipewire-camera] Removed device Firefox
+09:01:53.206: [pipewire-camera] Removed device PulseAudio 音量控制
+09:01:54.767: [camera-portal] Found device Firefox
+09:01:54.800: [camera-portal] Found device PulseAudio 音量控制
+09:01:59.589: [pipewire-camera] Removed device Firefox
+09:01:59.600: [pipewire-camera] Removed device PulseAudio 音量控制
+09:02:11.973: [camera-portal] Found device Firefox
+09:02:12.011: [camera-portal] Found device PulseAudio 音量控制
+09:02:12.012: [pipewire] Error id:39 seq:12217 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:02:14.835: [pipewire-camera] Removed device Firefox
+09:02:14.847: [pipewire-camera] Removed device PulseAudio 音量控制
+09:02:15.305: [camera-portal] Found device Firefox
+09:02:15.305: [pipewire] Error id:39 seq:12255 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:02:15.338: [camera-portal] Found device PulseAudio 音量控制
+09:02:15.339: [pipewire] Error id:43 seq:12284 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:02:31.284: [pipewire-camera] Removed device Firefox
+09:02:31.295: [pipewire-camera] Removed device PulseAudio 音釠
+09:02:31.902: [camera-portal] Found device Firefox
+09:02:31.932: [camera-portal] Found device PulseAudio 音量控制
+09:02:31.933: [pipewire] Error id:39 seq:12355 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:03:14.785: [pipewire-camera] Removed device Firefox
+09:03:14.797: [pipewire-camera] Removed device PulseAudio 音��
+09:03:15.745: [camera-portal] Found device Firefox
+09:03:15.774: [camera-portal] Found device PulseAudio 音量控制
+09:03:15.775: [pipewire] Error id:43 seq:12424 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:03:34.910: [pipewire-camera] Removed device Firefox
+09:03:34.920: [pipewire-camera] Removed device PulseAudio 音釠
+09:03:35.410: [camera-portal] Found device Firefox
+09:03:35.444: [camera-portal] Found device PulseAudio 音量控制
+09:03:35.444: [pipewire] Error id:39 seq:12491 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:04:16.223: [pipewire-camera] Removed device Firefox
+09:04:16.237: [pipewire-camera] Removed device PulseAudio 音��
+09:04:17.334: [camera-portal] Found device Firefox
+09:04:17.359: [camera-portal] Found device PulseAudio 音量控制
+09:04:17.360: [pipewire] Error id:43 seq:12562 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:04:35.818: [pipewire-camera] Removed device Firefox
+09:04:35.829: [pipewire-camera] Removed device PulseAudio 音釠
+09:04:36.712: [camera-portal] Found device Firefox
+09:04:36.742: [camera-portal] Found device PulseAudio 音量控制
+09:04:36.743: [pipewire] Error id:39 seq:12631 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:04:40.361: [pipewire-camera] Removed device Firefox
+09:04:40.369: [pipewire-camera] Removed device PulseAudio 音��
+09:04:40.950: [camera-portal] Found device Firefox
+09:04:40.986: [camera-portal] Found device PulseAudio 音量控制
+09:04:40.987: [pipewire] Error id:43 seq:12700 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:04:56.261: [pipewire-camera] Removed device Firefox
+09:04:56.274: [pipewire-camera] Removed device PulseAudio 音量控制
+09:04:57.325: [camera-portal] Found device Firefox
+09:04:57.326: [pipewire] Error id:43 seq:12738 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:04:57.363: [camera-portal] Found device PulseAudio 音量控制
+09:05:20.232: [pipewire-camera] Removed device Firefox
+09:05:20.242: [pipewire-camera] Removed device PulseAudio 音釠
+09:05:21.685: [camera-portal] Found device Firefox
+09:05:21.712: [camera-portal] Found device PulseAudio 音量控制
+09:05:21.712: [pipewire] Error id:43 seq:12838 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:05:53.582: [pipewire-camera] Removed device Firefox
+09:05:53.591: [pipewire-camera] Removed device PulseAudio 音量控制
+09:05:57.892: [camera-portal] Found device Firefox
+09:05:57.920: [camera-portal] Found device PulseAudio 音量控制
+09:05:57.921: [pipewire] Error id:39 seq:12907 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:06:17.360: [pipewire-camera] Removed device Firefox
+09:06:17.369: [pipewire-camera] Removed device PulseAudio 音量控制
+09:06:17.777: [camera-portal] Found device Firefox
+09:06:17.809: [camera-portal] Found device PulseAudio 音量控制
+09:06:17.809: [pipewire] Error id:43 seq:12976 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:06:32.741: [pipewire-camera] Removed device Firefox
+09:06:32.749: [pipewire-camera] Removed device PulseAudio 音量控制
+09:06:52.532: [camera-portal] Found device Firefox
+09:06:52.576: [camera-portal] Found device PulseAudio 音量控制
+09:09:13.413: [pipewire-camera] Removed device Firefox
+09:09:13.424: [pipewire-camera] Removed device PulseAudio 音量控制
+09:09:15.076: [camera-portal] Found device Firefox
+09:09:15.107: [camera-portal] Found device PulseAudio 音量控制
+09:09:15.107: [pipewire] Error id:43 seq:13106 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:09:20.926: [pipewire-camera] Removed device Firefox
+09:09:20.938: [pipewire-camera] Removed device PulseAudio 音釠
+09:09:21.430: [camera-portal] Found device Firefox
+09:09:21.465: [camera-portal] Found device PulseAudio 音量控制
+09:09:56.538: [pipewire-camera] Removed device Firefox
+09:09:56.545: [pipewire-camera] Removed device PulseAudio 音量控制
+09:09:56.924: [camera-portal] Found device Firefox
+09:09:56.954: [camera-portal] Found device PulseAudio 音量控制
+09:09:56.954: [pipewire] Error id:43 seq:13246 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:09:58.582: [pipewire-camera] Removed device Firefox
+09:09:58.592: [pipewire-camera] Removed device PulseAudio 音釠
+09:09:58.910: [camera-portal] Found device Firefox
+09:09:58.948: [camera-portal] Found device PulseAudio 音量控制
+09:09:58.948: [pipewire] Error id:39 seq:13309 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:09:59.604: [pipewire-camera] Removed device Firefox
+09:09:59.610: [pipewire-camera] Removed device PulseAudio 音量控制
+09:10:00.145: [camera-portal] Found device Firefox
+09:10:00.181: [camera-portal] Found device PulseAudio 音量控制
+09:10:00.181: [pipewire] Error id:43 seq:13372 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:10:01.890: [pipewire-camera] Removed device Firefox
+09:10:01.898: [pipewire-camera] Removed device PulseAudio 音量控制
+09:10:02.358: [camera-portal] Found device Firefox
+09:10:02.390: [camera-portal] Found device PulseAudio 音量控制
+09:10:02.390: [pipewire] Error id:39 seq:13431 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:10:07.062: [pipewire-camera] Removed device Firefox
+09:10:07.073: [pipewire-camera] Removed device PulseAudio 音��
+09:10:07.794: [camera-portal] Found device Firefox
+09:10:07.826: [camera-portal] Found device PulseAudio 音量控制
+09:10:07.826: [pipewire] Error id:43 seq:13504 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:10:16.396: [pipewire-camera] Removed device Firefox
+09:10:16.407: [pipewire-camera] Removed device PulseAudio 音量控制
+09:10:33.791: [camera-portal] Found device Firefox
+09:10:33.834: [camera-portal] Found device PulseAudio 音量控制
+09:10:33.834: [pipewire] Error id:39 seq:13571 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:10:35.522: adding 21 milliseconds of audio buffering, total audio buffering is now 42 milliseconds (source: Mic/Aux)
+09:10:35.522: 
+09:10:51.826: [pipewire-camera] Removed device Firefox
+09:10:51.835: [pipewire-camera] Removed device PulseAudio 音��
+09:11:10.178: [camera-portal] Found device Firefox
+09:11:10.222: [camera-portal] Found device PulseAudio 音量控制
+09:11:10.222: [pipewire] Error id:43 seq:13636 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:11:46.126: [pipewire-camera] Removed device Firefox
+09:11:46.137: [pipewire-camera] Removed device PulseAudio 音��
+09:11:46.586: [camera-portal] Found device Firefox
+09:11:46.586: [pipewire] Error id:43 seq:13668 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:11:46.646: [camera-portal] Found device PulseAudio 音量控制
+09:11:46.646: [pipewire] Error id:39 seq:13699 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:11:47.016: [pipewire-camera] Removed device Firefox
+09:11:47.022: [pipewire-camera] Removed device PulseAudio 音釠
+09:11:47.434: [camera-portal] Found device Firefox
+09:11:47.434: [pipewire] Error id:39 seq:13731 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:11:47.458: [camera-portal] Found device PulseAudio 音量控制
+09:11:47.459: [pipewire] Error id:43 seq:13762 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:12:00.610: [camera-portal] Found device Firefox
+09:12:00.610: [pipewire] Error id:9 seq:13790 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:12:00.638: [camera-portal] Found device PulseAudio 音量控制
+09:12:00.639: [pipewire] Error id:39 seq:13822 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:12:00.647: [pipewire-camera] Removed device Firefox
+09:12:11.591: [camera-portal] Found device Firefox
+09:12:11.622: [camera-portal] Found device PulseAudio 音量控制
+09:12:11.622: [pipewire] Error id:43 seq:13887 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:12:51.635: [pipewire-camera] Removed device Firefox
+09:12:51.644: [pipewire-camera] Removed device PulseAudio 音量控制
+09:13:19.291: [camera-portal] Found device Firefox
+09:13:19.316: [camera-portal] Found device PulseAudio 音量控制
+09:13:19.316: [pipewire] Error id:9 seq:13956 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:13:23.805: [pipewire-camera] Removed device Firefox
+09:13:23.813: [pipewire-camera] Removed device PulseAudio 音量控制
+09:16:05.824: [camera-portal] Found device Chromium
+09:16:05.851: [camera-portal] Found device PulseAudio 音量控制
+09:16:11.372: [pipewire-camera] Removed device Chromium
+09:16:11.377: [pipewire-camera] Removed device PulseAudio 音��
+09:16:58.245: [camera-portal] Found device Chromium
+09:16:58.245: [pipewire] Error id:43 seq:14041 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:16:58.266: [camera-portal] Found device PulseAudio 音量控制
+09:17:03.786: [pipewire-camera] Removed device Chromium
+09:17:03.791: [pipewire-camera] Removed device PulseAudio 音量控制
+09:17:57.923: [camera-portal] Found device Chromium
+09:17:57.952: [camera-portal] Found device PulseAudio 音量控制
+09:17:57.952: [pipewire] Error id:43 seq:14127 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:18:03.467: [pipewire-camera] Removed device Chromium
+09:18:03.474: [pipewire-camera] Removed device PulseAudio 音量控制
+09:18:37.565: [camera-portal] Found device Firefox
+09:18:37.598: [camera-portal] Found device PulseAudio 音量控制
+09:18:37.599: [pipewire] Error id:9 seq:14186 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:19:34.472: [pipewire-camera] Removed device Firefox
+09:19:34.481: [pipewire-camera] Removed device PulseAudio 音釠
+09:19:35.287: [camera-portal] Found device Firefox
+09:19:35.320: [camera-portal] Found device PulseAudio 音量控制
+09:19:35.321: [pipewire] Error id:43 seq:14249 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:19:44.386: [pipewire-camera] Removed device Firefox
+09:19:44.393: [pipewire-camera] Removed device PulseAudio 音量控制
+09:22:25.692: [camera-portal] Found device Firefox
+09:22:25.731: [camera-portal] Found device PulseAudio 音量控制
+09:22:25.731: [pipewire] Error id:9 seq:14318 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:23:13.346: [pipewire-camera] Removed device Firefox
+09:23:13.352: [pipewire-camera] Removed device PulseAudio 音量控制
+09:23:41.248: [camera-portal] Found device Firefox
+09:23:41.248: [pipewire] Error id:9 seq:14350 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:23:41.299: [camera-portal] Found device PulseAudio 音量控制
+09:23:41.299: [pipewire] Error id:43 seq:14381 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:24:30.860: [pipewire-camera] Removed device Firefox
+09:24:30.867: [pipewire-camera] Removed device PulseAudio 音�@
+09:24:43.197: [camera-portal] Found device Firefox
+09:24:43.231: [camera-portal] Found device PulseAudio 音量控制
+09:24:43.231: [pipewire] Error id:9 seq:14442 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:24:43.244: [pipewire-camera] Removed device Firefox
+09:25:00.025: [camera-portal] Found device Firefox
+09:25:00.076: [camera-portal] Found device PulseAudio 音量控制
+09:25:00.076: [pipewire] Error id:39 seq:14505 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:26:57.718: [pipewire-camera] Removed device Firefox
+09:26:57.725: [pipewire-camera] Removed device PulseAudio 音量控制
+09:27:41.146: [camera-portal] Found device Firefox
+09:27:41.195: [camera-portal] Found device PulseAudio 音量控制
+09:27:41.195: [pipewire] Error id:43 seq:14568 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:27:45.297: [pipewire-camera] Removed device Firefox
+09:27:45.307: [pipewire-camera] Removed device PulseAudio 音�@
+09:27:45.837: [camera-portal] Found device Firefox
+09:27:45.877: [camera-portal] Found device PulseAudio 音量控制
+09:27:45.878: [pipewire] Error id:39 seq:14631 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:28:25.092: [pipewire-camera] Removed device Firefox
+09:28:25.101: [pipewire-camera] Removed device PulseAudio 音量控制
+09:28:28.440: [camera-portal] Found device Firefox
+09:28:28.440: [pipewire] Error id:39 seq:14669 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:28:28.471: [camera-portal] Found device PulseAudio 音量控制
+09:28:28.471: [pipewire] Error id:43 seq:14700 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:29:04.914: [pipewire-camera] Removed device Firefox
+09:29:04.922: [pipewire-camera] Removed device PulseAudio 音��
+09:29:09.464: [camera-portal] Found device Firefox
+09:29:09.491: [camera-portal] Found device PulseAudio 音量控制
+09:29:59.928: [pipewire-camera] Removed device Firefox
+09:29:59.939: [pipewire-camera] Removed device PulseAudio 音量控制
+09:30:00.472: [camera-portal] Found device Firefox
+09:30:00.507: [camera-portal] Found device PulseAudio 音量控制
+09:30:00.508: [pipewire] Error id:43 seq:14838 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:30:37.649: [pipewire-camera] Removed device Firefox
+09:30:37.662: [pipewire-camera] Removed device PulseAudio 音量控制
+09:30:51.418: [camera-portal] Found device Firefox
+09:30:51.418: [pipewire] Error id:43 seq:14870 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:30:51.471: [camera-portal] Found device PulseAudio 音量控制
+09:30:51.471: [pipewire] Error id:39 seq:14903 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:32:17.563: [pipewire-camera] Removed device Firefox
+09:32:17.571: [pipewire-camera] Removed device PulseAudio 音量控制
+09:33:02.583: [camera-portal] Found device Firefox
+09:33:02.623: [camera-portal] Found device PulseAudio 音量控制
+09:33:57.405: [pipewire-camera] Removed device Firefox
+09:33:57.414: [pipewire-camera] Removed device PulseAudio 音釠
+09:34:05.993: [camera-portal] Found device Firefox
+09:34:06.039: [camera-portal] Found device PulseAudio 音量控制
+09:34:06.040: [pipewire] Error id:39 seq:15027 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:34:32.321: [pipewire-camera] Removed device Firefox
+09:34:32.327: [pipewire-camera] Removed device PulseAudio 音量控制
+09:34:35.562: [camera-portal] Found device Firefox
+09:34:35.611: [camera-portal] Found device PulseAudio 音量控制
+09:34:35.612: [pipewire] Error id:43 seq:15090 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:34:37.628: [pipewire-camera] Removed device Firefox
+09:34:37.637: [pipewire-camera] Removed device PulseAudio 音量控制
+09:34:37.914: [camera-portal] Found device Firefox
+09:34:37.941: [camera-portal] Found device PulseAudio 音量控制
+09:34:37.942: [pipewire] Error id:39 seq:15153 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:35:27.259: [pipewire-camera] Removed device Firefox
+09:35:27.265: [pipewire-camera] Removed device PulseAudio 音��
+09:35:27.862: [camera-portal] Found device Firefox
+09:35:27.892: [camera-portal] Found device PulseAudio 音量控制
+09:35:27.892: [pipewire] Error id:43 seq:15216 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:35:32.762: [pipewire-camera] Removed device Firefox
+09:35:33.713: [camera-portal] Found device Firefox
+09:35:33.750: [camera-portal] Found device PulseAudio 音量控制
+09:35:42.133: [pipewire-camera] Removed device Firefox
+09:35:42.143: [pipewire-camera] Removed device PulseAudio 音量控制
+09:35:42.657: [camera-portal] Found device Firefox
+09:35:42.689: [camera-portal] Found device PulseAudio 音量控制
+09:37:23.571: [pipewire-camera] Removed device Firefox
+09:37:23.582: [pipewire-camera] Removed device PulseAudio 音釠
+09:37:28.821: [camera-portal] Found device Firefox
+09:37:28.853: [camera-portal] Found device PulseAudio 音量控制
+09:37:28.854: [pipewire] Error id:9 seq:15414 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+09:39:14.201: [pipewire-camera] Removed device Firefox
+09:39:14.210: [pipewire-camera] Removed device PulseAudio 音量控制
+14:09:20.463: [pipewire-camera] Removed device bluez_output.24_B2_31_DD_A9_A6.1
+14:09:20.659: [camera-portal] Found device PulseAudio 音量控制
+14:09:55.660: [pipewire-camera] Removed device PulseAudio 音量控制
+14:13:32.863: [camera-portal] Found device Chromium
+14:13:32.896: [camera-portal] Found device PulseAudio 音量控制
+14:13:32.897: [pipewire] Error id:9 seq:15518 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+14:13:38.416: [pipewire-camera] Removed device Chromium
+14:13:38.427: [pipewire-camera] Removed device PulseAudio 音量控制
+14:21:18.080: ==== Shutting down ==================================================
+14:21:18.098: pulse-input: Stopped recording from 'bluez_output.24_B2_31_DD_A9_A6.1.monitor'
+14:21:18.098: pulse-input: Got 275403 packets with 330483600 frames
+14:21:18.098: Deduplication logic stopped.
+14:21:18.099: pulse-input: Stopped recording from 'alsa_input.pci-0000_03_00.6.analog-stereo'
+14:21:18.099: pulse-input: Got 275437 packets with 330524400 frames
+14:21:18.099: [pipewire] Stream 0x5594f95a78f0 state: "unconnected" (error: none)
+14:21:18.104: [pipewire-camera] Removed device OBS
+14:21:18.115: [pipewire-camera] Removed device xdg-desktop-portal-hyprland
+14:21:18.116: [pipewire-camera] Removed device obs
+14:21:18.122: v4l2-input: /dev/video0: Stopped capture after 197529 frames
+14:21:18.162: All scene data cleared
+14:21:18.163: ------------------------------------------------
+14:21:18.176: Tried to call obs_frontend_remove_event_callback with no callbacks!
+14:21:18.227: [obs-websocket] [obs_module_unload] Shutting down...
+14:21:18.228: Tried to call obs_frontend_remove_event_callback with no callbacks!
+14:21:18.228: [obs-websocket] [obs_module_unload] Finished shutting down.
+14:21:18.231: [pipewire] Error id:0 seq:15544 res:-2 (没有那个文件或目录): unknown resource 11 op:7
+14:21:18.277: [Scripting] Total detached callbacks: 0
+14:21:18.278: Freeing OBS context data
+14:21:18.336: == Profiler Results =============================
+14:21:18.336: run_program_init: 1042.13 ms
+14:21:18.336:  ┣OBSApp::AppInit: 33.609 ms
+14:21:18.336:  ┃ ┗OBSApp::InitLocale: 7.827 ms
+14:21:18.336:  ┗OBSApp::OBSInit: 854.522 ms
+14:21:18.336:    ┣obs_startup: 2.923 ms
+14:21:18.336:    ┗OBSBasic::OBSInit: 758.779 ms
+14:21:18.336:      ┣OBSBasic::InitBasicConfig: 1.489 ms
+14:21:18.336:      ┣OBSBasic::ResetAudio: 0.264 ms
+14:21:18.336:      ┣OBSBasic::ResetVideo: 148.961 ms
+14:21:18.336:      ┃ ┗obs_init_graphics: 138.217 ms
+14:21:18.336:      ┃   ┗shader compilation: 48.464 ms
+14:21:18.336:      ┣OBSBasic::InitOBSCallbacks: 0.012 ms
+14:21:18.336:      ┣OBSBasic::InitHotkeys: 0.069 ms
+14:21:18.336:      ┣obs_load_all_modules2: 338.512 ms
+14:21:18.336:      ┃ ┣obs_init_module(decklink-captions.so): 0.001 ms
+14:21:18.336:      ┃ ┣obs_init_module(decklink-output-ui.so): 0.001 ms
+14:21:18.336:      ┃ ┣obs_init_module(decklink.so): 0.475 ms
+14:21:18.336:      ┃ ┣obs_init_module(frontend-tools.so): 119.896 ms
+14:21:18.336:      ┃ ┣obs_init_module(image-source.so): 0.007 ms
+14:21:18.336:      ┃ ┣obs_init_module(linux-alsa.so): 0.009 ms
+14:21:18.336:      ┃ ┣obs_init_module(linux-capture.so): 0.001 ms
+14:21:18.336:      ┃ ┣obs_init_module(linux-jack.so): 0.004 ms
+14:21:18.336:      ┃ ┣obs_init_module(linux-pipewire.so): 18.382 ms
+14:21:18.336:      ┃ ┣obs_init_module(linux-pulseaudio.so): 0.004 ms
+14:21:18.336:      ┃ ┣obs_init_module(linux-v4l2.so): 8.822 ms
+14:21:18.336:      ┃ ┣obs_init_module(obs-ffmpeg.so): 16.58 ms
+14:21:18.336:      ┃ ┣obs_init_module(obs-filters.so): 0.016 ms
+14:21:18.336:      ┃ ┣obs_init_module(obs-libfdk.so): 0.002 ms
+14:21:18.336:      ┃ ┣obs_init_module(obs-nvenc.so): 0.169 ms
+14:21:18.337:      ┃ ┃ ┗nvenc_check: 0.154 ms
+14:21:18.337:      ┃ ┣obs_init_module(obs-outputs.so): 0.005 ms
+14:21:18.337:      ┃ ┣obs_init_module(obs-qsv11.so): 9.944 ms
+14:21:18.337:      ┃ ┣obs_init_module(obs-transitions.so): 0.009 ms
+14:21:18.337:      ┃ ┣obs_init_module(obs-vst.so): 0.005 ms
+14:21:18.337:      ┃ ┣obs_init_module(obs-webrtc.so): 0.004 ms
+14:21:18.337:      ┃ ┣obs_init_module(obs-websocket.so): 9.735 ms
+14:21:18.337:      ┃ ┣obs_init_module(obs-x264.so): 0.002 ms
+14:21:18.337:      ┃ ┣obs_init_module(rtmp-services.so): 1.022 ms
+14:21:18.337:      ┃ ┗obs_init_module(text-freetype2.so): 0.104 ms
+14:21:18.337:      ┣OBSBasic::InitService: 3.637 ms
+14:21:18.337:      ┣OBSBasic::ResetOutputs: 0.362 ms
+14:21:18.337:      ┣OBSBasic::CreateHotkeys: 0.038 ms
+14:21:18.337:      ┣OBSBasic::InitPrimitives: 0.103 ms
+14:21:18.337:      ┗OBSBasic::Load: 166.27 ms
+14:21:18.337: obs_hotkey_thread(25 ms): min=0 ms, median=0.001 ms, max=0.76 ms, 99th percentile=0.004 ms, 100% below 25 ms
+14:21:18.337: audio_thread(Audio): min=0.012 ms, median=0.094 ms, max=32.71 ms, 99th percentile=0.63 ms
+14:21:18.337:  ┗receive_audio: min=0.007 ms, median=0.146 ms, max=2.323 ms, 99th percentile=0.504 ms, 0.00294306 calls per parent call
+14:21:18.337:    ┣buffer_audio: min=0.001 ms, median=0.003 ms, max=0.184 ms, 99th percentile=0.013 ms
+14:21:18.337:    ┗do_encode: min=0.07 ms, median=0.136 ms, max=2.31 ms, 99th percentile=0.461 ms
+14:21:18.337:      ┣encode(simple_aac_recording0): min=0.059 ms, median=0.118 ms, max=0.623 ms, 99th percentile=0.42 ms
+14:21:18.337:      ┗send_packet: min=0.002 ms, median=0.011 ms, max=2.18 ms, 99th percentile=0.06 ms
+14:21:18.337: obs_graphics_thread(16.6667 ms): min=0.152 ms, median=0.644 ms, max=258.215 ms, 99th percentile=3.159 ms, 99.9927% below 16.667 ms
+14:21:18.337:  ┣tick_sources: min=0.001 ms, median=0.015 ms, max=18.245 ms, 99th percentile=0.053 ms
+14:21:18.337:  ┣output_frame: min=0.126 ms, median=0.354 ms, max=24.375 ms, 99th percentile=1.171 ms
+14:21:18.337:  ┃ ┣gs_context(video->graphics): min=0.124 ms, median=0.351 ms, max=24.074 ms, 99th percentile=1.152 ms
+14:21:18.337:  ┃ ┃ ┣render_video: min=0.027 ms, median=0.115 ms, max=5.132 ms, 99th percentile=0.412 ms
+14:21:18.337:  ┃ ┃ ┃ ┣render_main_texture: min=0.02 ms, median=0.106 ms, max=3.541 ms, 99th percentile=0.386 ms
+14:21:18.337:  ┃ ┃ ┃ ┣render_output_texture: min=0.016 ms, median=0.033 ms, max=1.844 ms, 99th percentile=0.138 ms, 0.00293767 calls per parent call
+14:21:18.337:  ┃ ┃ ┃ ┣render_convert_texture: min=0.022 ms, median=0.041 ms, max=2.864 ms, 99th percentile=0.144 ms, 0.00293767 calls per parent call
+14:21:18.337:  ┃ ┃ ┃ ┗stage_output_texture: min=0.019 ms, median=0.03 ms, max=0.329 ms, 99th percentile=0.104 ms, 0.00293767 calls per parent call
+14:21:18.337:  ┃ ┃ ┣gs_flush: min=0.001 ms, median=0.007 ms, max=4.738 ms, 99th percentile=0.026 ms
+14:21:18.337:  ┃ ┃ ┗download_frame: min=0.001 ms, median=0.103 ms, max=1.985 ms, 99th percentile=0.379 ms, 0.00293767 calls per parent call
+14:21:18.337:  ┃ ┗output_video_data: min=0.19 ms, median=0.34 ms, max=3.78 ms, 99th percentile=2.202 ms, 0.00293526 calls per parent call
+14:21:18.337:  ┗render_displays: min=0.003 ms, median=0.222 ms, max=233.74 ms, 99th percentile=0.891 ms
+14:21:18.337: video_thread(video): min=0.825 ms, median=1.297 ms, max=49.89 ms, 99th percentile=7.318 ms
+14:21:18.337:  ┗receive_video: min=0.814 ms, median=1.291 ms, max=49.884 ms, 99th percentile=7.311 ms
+14:21:18.337:    ┗do_encode: min=0.808 ms, median=1.287 ms, max=49.879 ms, 99th percentile=7.307 ms
+14:21:18.337:      ┣encode(simple_video_recording): min=0.784 ms, median=1.251 ms, max=49.871 ms, 99th percentile=7.261 ms
+14:21:18.337:      ┗send_packet: min=0.005 ms, median=0.016 ms, max=0.712 ms, 99th percentile=0.094 ms
+14:21:18.337: =================================================
+14:21:18.337: == Profiler Time Between Calls ==================
+14:21:18.337: obs_hotkey_thread(25 ms): min=25.015 ms, median=25.034 ms, max=2787.48 ms, 99.9229% within ±2% of 25 ms (0% lower, 0.0770685% higher)
+14:21:18.337: obs_graphics_thread(16.6667 ms): min=3.909 ms, median=16.667 ms, max=2777.03 ms, 99.8042% within ±2% of 16.667 ms (0.0963095% lower, 0.0994553% higher)
+14:21:18.337: =================================================
+14:21:18.364: Number of memory leaks: 0

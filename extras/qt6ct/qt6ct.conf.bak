@@ -1,13 +1,13 @@
 [Appearance]
-color_scheme_path=/home/lc3124/.config/qt5ct/colors/catppuccin-mocha.conf
+color_scheme_path=/usr/share/qt6ct/colors/darker.conf
 custom_palette=true
 icon_theme=breeze-dark
 standard_dialogs=gtk3
-style=kvantum-dark
+style=kvantum
 
 [Fonts]
-fixed="Noto Sans CJK SC,12,-1,5,50,0,0,0,0,0"
-general="Noto Sans CJK SC,12,-1,5,50,0,0,0,0,0"
+fixed="Noto Sans,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,,0,0"
+general="Noto Sans,12,-1,5,400,0,0,0,0,0,0,0,0,0,0,1,,0,0"
 
 [Interface]
 activate_item_on_single_click=1
@@ -25,7 +25,7 @@ underline_shortcut=1
 wheel_scroll_lines=3
 
 [SettingsWindow]
-geometry=@ByteArray(\x1\xd9\xd0\xcb\0\x3\0\0\0\0\0\0\0\0\0\0\0\0\x2\xef\0\0\x3i\0\0\0\0\0\0\0\0\0\0\x2\xfb\0\0\x3k\0\0\0\0\x2\0\0\0\x6@\0\0\0\0\0\0\0\0\0\0\x2\xef\0\0\x3i)
+geometry=@ByteArray(\x1\xd9\xd0\xcb\0\x3\0\0\0\0\0\0\0\0\0\0\0\0\x5\xf6\0\0\x3i\0\0\0\0\0\0\0\0\0\0\x5\xf6\0\0\x3i\0\0\0\0\x2\0\0\0\x6@\0\0\0\0\0\0\0\0\0\0\x5\xf6\0\0\x3i)
 
 [Troubleshooting]
 force_raster_widgets=1

@@ -41,13 +41,14 @@ hypridle
 hyprland
 hyprlock
 hyprpaper
+kdeconnect
 kexec-tools
 keyd
 kitty
 kvantum
+kvantum-qt5
 lib32-fontconfig
 lib32-freetype2
-lib32-giflib
 lib32-libpng
 lib32-libpulse
 lib32-libxcomposite
@@ -118,6 +119,7 @@ sddm
 sof-firmware
 soundconverter
 speedtest-cli
+sshfs
 sshpass
 termusic
 tesseract-data-chi_sim
@@ -189,8 +191,10 @@ vulkan-tools
 wine-mono
 wine-staging
 winetricks
+wlopm
 wqy-microhei
 wqy-zenhei
+xdotool
 xfce4-settings
 yazi
 zbar

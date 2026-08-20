@@ -1,7 +1,7 @@
 {
     "name": "Untitled",
     "DesktopAudioDevice1": {
-        "prev_ver": 537001985,
+        "prev_ver": 537001986,
         "name": "Desktop Audio",
         "uuid": "da4693ce-335c-4395-a9f3-1ca50cba09e5",
         "id": "pulse_output_capture",
@@ -32,7 +32,7 @@
         "private_settings": {}
     },
     "AuxAudioDevice1": {
-        "prev_ver": 537001985,
+        "prev_ver": 537001986,
         "name": "Mic/Aux",
         "uuid": "f4fd3d5e-4637-45ec-8681-36095e3f5e76",
         "id": "pulse_input_capture",
@@ -64,7 +64,7 @@
     },
     "sources": [
         {
-            "prev_ver": 537001985,
+            "prev_ver": 537001986,
             "name": "Screen Capture (PipeWire)",
             "uuid": "ba6483c4-56af-471b-9c76-990551405360",
             "id": "pipewire-screen-capture-source",
@@ -90,7 +90,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 537001985,
+            "prev_ver": 537001986,
             "name": "Video Capture Device (PipeWire) (BETA)",
             "uuid": "80b4db44-8df7-48fb-a6b4-525a37a39348",
             "id": "pipewire-camera-source",
@@ -114,7 +114,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 537001985,
+            "prev_ver": 537001986,
             "name": "Video Capture Device (V4L2)",
             "uuid": "53243cab-fa8b-444b-9151-4eac0d0b6245",
             "id": "v4l2_input",
@@ -142,7 +142,7 @@
             "private_settings": {}
         },
         {
-            "prev_ver": 537001985,
+            "prev_ver": 537001986,
             "name": "Scene",
             "uuid": "5a8c931d-3def-4b13-a439-053032414c4e",
             "id": "scene",
@@ -362,8 +362,8 @@
     "preview_locked": false,
     "scaling_enabled": true,
     "scaling_level": -11,
-    "scaling_off_x": 0.0,
-    "scaling_off_y": 0.0,
+    "scaling_off_x": -220.0,
+    "scaling_off_y": 41.0,
     "modules": {
         "scripts-tool": [],
         "output-timer": {

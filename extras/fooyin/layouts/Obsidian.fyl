@@ -15,11 +15,11 @@
                     },
                     {
                         "SplitterHorizontal": {
-                            "State": "AAAA/wAAAAEAAAADAAACBwAAA9YAAAGhAP////8BAAAAAQA=",
+                            "State": "AAAA/wAAAAEAAAADAAABCQAAAlUAAADvAP////8BAAAAAQA=",
                             "Widgets": [
                                 {
                                     "SplitterVertical": {
-                                        "State": "AAAA/wAAAAEAAAACAAAAIgAAA6AA/////wEAAAACAA==",
+                                        "State": "AAAA/wAAAAEAAAACAAAAIgAAAsYA/////wEAAAACAA==",
                                         "Widgets": [
                                             {
                                                 "SearchBar": {
@@ -60,7 +60,7 @@
                                             {
                                                 "Playlist": {
                                                     "Columns": "8:132|3|0:2|1|7:2",
-                                                    "HeaderState": "AAAAZXjaY2BgYGVgYNAG4nVA7MHAwFgApNMZIOIgwAjETEDMDMQsIHH7teYqj7Jjb9ufhdI7yk/ULgg8Z3/vs/n9Ox/Z7Q9G7H2Wv38XSCPDfyAAACOOHBc=",
+                                                    "HeaderState": "AAAAZXjaY2BgYGVgYFAE4nYgtmBgYJQH0gEMEHEQYARiJiBmBmIWkLj9WnOVR9mxt+3PQukd5SdqFwSes7/32fz+nY/s9gcj9j7L378LpJHhPxAAAOvJG24=",
                                                     "ID": "e1c9cc08045045fcabc5b3edd59529d7",
                                                     "Preset": 3,
                                                     "SingleMode": false
@@ -89,7 +89,7 @@
                                                     "ShowHeader": true,
                                                     "ShowHorizontalScrollbar": false,
                                                     "ShowVerticalScrollbar": true,
-                                                    "State": "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAaYAAAACAAAAAAAAAAAAAAAAAAAAAGT/////AAAAhAAAAAAAAAACAAAAZAAAAAEAAAAAAAABQgAAAAEAAAACAAAD6AAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=="
+                                                    "State": "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO0AAAACAAAAAAAAAAAAAAAAAAAAAGT/////AAAAhAAAAAAAAAACAAAAZAAAAAEAAAAAAAAAiQAAAAEAAAACAAAD6AAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=="
                                                 }
                                             }
                                         ]
@@ -107,6 +107,7 @@
                                         "ShowNext": true,
                                         "ShowPlayPause": true,
                                         "ShowPrevious": true,
+                                        "ShowRandomTrack": false,
                                         "ShowStop": true
                                     }
                                 },
@@ -134,6 +135,6 @@
     ],
     "WindowSize": {
         "Height": 874,
-        "Width": 1528
+        "Width": 1123
     }
 }
