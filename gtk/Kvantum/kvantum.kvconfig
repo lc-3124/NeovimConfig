@@ -1,8 +1,2 @@
-# ============================================================================
-# Kvantum 主题配置（Qt 应用的 SVG 主题引擎）
-# 软链: ~/.config/Kvantum/kvantum.kvconfig
-# 主题: catppuccin-mocha-mauve（Catppuccin Mocha 紫，与 qt6ct 配合）
-# ============================================================================
-
 [General]
-theme=catppuccin-mocha-mauve   # 当前使用的 Kvantum 主题名
+theme=catppuccin-mocha-mauve

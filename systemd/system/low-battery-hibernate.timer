@@ -3,14 +3,18 @@
 # ============================================================================
 # 开机 1 分钟后开始检查，之后每隔 1 分钟触发一次 low-battery-hibernate.service。
 # 启用后随系统启动自动运行（timers.target）。
+# 注意：systemd unit 不支持行内注释，注释必须独占一行
 # ============================================================================
 
 [Unit]
 Description=Check battery level every minute
 
 [Timer]
-OnBootSec=1min              # 开机后 1 分钟首次检查
-OnUnitActiveSec=1min        # 上次触发后每 1 分钟再触发
+# 开机后 1 分钟首次检查
+OnBootSec=1min
+# 上次触发后每 1 分钟再触发
+OnUnitActiveSec=1min
 
 [Install]
-WantedBy=timers.target      # 随系统启动
+# 随系统启动
+WantedBy=timers.target

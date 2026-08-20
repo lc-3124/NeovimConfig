@@ -17,3 +17,5 @@ capacity=$(cat "$battery/capacity" 2>/dev/null)
 [ -z "$capacity" ] && exit 0
 
 [ "$capacity" -lt 10 ] && systemctl hibernate
+
+exit 0

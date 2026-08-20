@@ -3,14 +3,19 @@
 # ============================================================================
 # 让应用的文件选择对话框改用终端文件管理器（yazi + kitty）打开，
 # 替代 GTK 图形对话框。由 xdg-desktop-portal-termfilechooser 服务读取。
+# 注意：注释必须独占一行（不支持行内注释）
 # ============================================================================
 
 [filechooser]
-cmd=yazi-wrapper.sh       # 调用的 wrapper 脚本（搜索顺序：用户目录 > 系统目录 > PATH）
-default_dir=$HOME         # 应用未指定路径时打开 ~ 目录
+# 调用的 wrapper 脚本（搜索顺序：用户目录 > 系统目录 > PATH）
+cmd=yazi-wrapper.sh
+# 应用未指定路径时打开 ~ 目录
+default_dir=$HOME
 # create_help_file=0      # 取消注释可跳过生成带说明的保存文件
 # env=TERMCMD=foot        # 取消注释可覆盖终端命令（默认 kitty）
 
 # 起始路径模式：suggested=用应用建议路径 / default=用 default_dir / last=记忆上次
-open_mode=suggested       # 打开文件时的起始路径
-save_mode=suggested       # 保存文件时的起始路径
+# 打开文件时的起始路径
+open_mode=suggested
+# 保存文件时的起始路径
+save_mode=suggested

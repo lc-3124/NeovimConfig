@@ -12,5 +12,7 @@ Description=Low battery hibernate (battery <10%)
 ConditionPathExists=/sys/class/power_supply/BAT0
 
 [Service]
-Type=oneshot                            # 一次性任务
-ExecStart=/usr/local/bin/low-battery-hibernate.sh  # 电量检查脚本
+# 一次性任务
+Type=oneshot
+# 电量检查脚本（低电量时执行 hibernate）
+ExecStart=/usr/local/bin/low-battery-hibernate.sh
