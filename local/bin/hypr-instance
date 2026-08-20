@@ -1,0 +1,44 @@
+#!/usr/bin/env zsh
+# ============================================================
+# hypr-instance — 将 HYPRLAND_INSTANCE_SIGNATURE 刷新为当前存活的 Hyprland 实例
+#
+# 用法:
+#   source ~/.local/bin/hypr-instance   刷新当前 shell 环境（推荐）
+#   ~/.local/bin/hypr-instance          仅检测并打印，不修改环境
+#
+# 背景: tmux 等持久 shell 继承的实例签名可能指向已退出实例（残留
+# socket 目录），导致 hyprctl/hyprflow 连接失败。本脚本自动切换到
+# 仍存活并能响应的实例。
+# ============================================================
+
+_hi_new=""
+if [[ -n "$HYPRLAND_INSTANCE_SIGNATURE" ]]; then
+  if command hyprctl monitors >/dev/null 2>&1; then
+    _hi_new="$HYPRLAND_INSTANCE_SIGNATURE"
+  fi
+fi
+
+if [[ -z "$_hi_new" ]]; then
+  for _hd in /run/user/$UID/hypr/*(N); do
+    [[ -d "$_hd" && -S "$_hd/.socket.sock" ]] || continue
+    _sig="${_hd:t}"
+    if HYPRLAND_INSTANCE_SIGNATURE="$_sig" command hyprctl monitors >/dev/null 2>&1; then
+      _hi_new="$_sig"
+      break
+    fi
+  done
+  unset _hd _sig
+fi
+
+if [[ -z "$_hi_new" ]]; then
+  echo "未找到存活的 Hyprland 实例" >&2
+  return 1 2>/dev/null || exit 1
+fi
+
+if [[ "$_hi_new" != "$HYPRLAND_INSTANCE_SIGNATURE" ]]; then
+  export HYPRLAND_INSTANCE_SIGNATURE="$_hi_new"
+  echo "已刷新实例签名 → $_hi_new"
+else
+  echo "实例签名已是最新 ($_hi_new)"
+fi
+unset _hi_new

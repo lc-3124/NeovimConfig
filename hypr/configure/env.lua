@@ -14,6 +14,9 @@ hl.env("XCURSOR_THEME", "Bibata-Modern-Classic")
 hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_THEME", "Bibata-Modern-Classic")
 hl.env("HYPRCURSOR_SIZE", "24")
+-- GTK 应用的文件/颜色/字体等对话框强制走 xdg-desktop-portal，
+-- 由 portals.conf 路由到 termfilechooser（yazi+kitty 终端文件选择器）
+hl.env("GTK_USE_PORTAL", "1")
 
 -- 权限系统：Hyprland 从 0.45+ 引入的生态权限
 hl.config({
@@ -27,7 +30,8 @@ hl.config({
 hl.on("hyprland.start", function()
   hl.exec_cmd("systemctl --user start xdg-desktop-portal-hyprland")
   hl.exec_cmd("fcitx5 -d")
-  hl.exec_cmd("systemctl --user start hyprpolkitagent")
+  -- 权限认证服务：先清除失败计数（避免 start-limit 锁死），再重启
+  hl.exec_cmd("systemctl --user reset-failed hyprpolkitagent; systemctl --user restart hyprpolkitagent")
   hl.exec_cmd("wayle panel start")
   hl.exec_cmd("awww-daemon")
   hl.exec_cmd("sleep 1 && awww img ~/.config/hypr/resource/images/Bamboo_clear.png -o eDP-1 --transition-type grow --transition-pos bottom-right --transition-duration 0.8 --transition-fps 24")
