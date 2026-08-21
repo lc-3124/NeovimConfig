@@ -1,0 +1,15 @@
+// Custom Wayle styles. Anything here overrides the built-in styling.
+// Use @import "name" to bring in _name.scss from this folder.
+
+// ============================================================
+// 贴边造型：左缘直角无缝，右端满圆角收成半胶囊
+// （逆时针旋转 90° 的梯形观感）
+// ============================================================
+.bar,
+.wayle-bar,
+.shell-bar {
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+  border-top-right-radius: var(--radius-full) !important;
+  border-bottom-right-radius: var(--radius-full) !important;
+}
