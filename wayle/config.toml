@@ -12,8 +12,8 @@ font-mono = "JetBrains Mono"     # 等宽字体（数字/时间等）
 
 [bar]
 scale = 0.85                      # 全局缩放比例（小屏适配）
-inset-edge = 0.25                 # 栏与屏幕边缘的内缩
-inset-ends = 0.5                  # 栏两端的内缩
+inset-edge = 0                     # 栏与屏幕边缘的内缩（0=紧贴右侧屏幕边）
+inset-ends = 0.5                  # 栏两端的内缩（对应 Hyprland gaps_out 观感）
 padding = 0.09                    # 栏内部整体内边距
 padding-ends = 0.5                # 栏两端内部内边距
 module-gap = 0.5                  # 模块之间的间距
@@ -21,7 +21,7 @@ location = "right"                # 栏位置：right（右侧垂直栏）
 exclusive = true                  # 独占边缘空间（应用避开状态栏区域）
 layer = "top"                     # Wayland 层：top（悬浮在窗口之上）
 bg = "bg-base"                    # 背景色引用 palette 的 bg
-background-opacity = 80           # 背景不透明度 0-100
+background-opacity = 72           # 背景不透明度 0-100
 border-location = "all"           # 边框位置：all（四周）
 border-width = 1                  # 边框宽度 px
 border-color = "#7aa2f726"         # 边框颜色（ARGB 8 位，26≈15% 透明度）
@@ -44,7 +44,7 @@ button-group-border-location = "none"   # 按钮组边框：无
 button-group-border-width = 1           # 按钮组边框宽度
 button-group-padding = 0.0              # 按钮组内边距
 button-group-module-gap = 0.25          # 按钮组内模块间距
-button-group-background = "bg-elevated" # 按钮组背景（抬升色）
+button-group-background = "#3b426155"   # 按钮组背景（抬升色 @33% 半透明）
 button-group-opacity = 100              # 按钮组不透明度
 button-group-border-color = "border-accent" # 按钮组边框（强调色）
 button-group-rounding = "sm"            # 按钮组圆角：sm（小）
@@ -53,12 +53,12 @@ dropdown-opacity = 100             # 下拉面板不透明度
 dropdown-autohide = true           # 点击外部自动隐藏下拉
 dropdown-freeze-label = true       # 下拉展开时冻结按钮标签
 
-# 布局：左(启动器/wifi/蓝牙/通知/托盘) 中(媒体/工作区) 右(亮度/内存/麦克风/音量/电池/时钟)
+# 布局：上(启动器/wifi/蓝牙/通知/托盘) 中(媒体/工作区/亮度) 下(内存/麦克风/音量/电池/时钟)
 [[bar.layout]]
 monitor = "*"                                     # 应用到所有显示器
 left = ["dashboard", "network", "bluetooth", "notifications", "systray"]
-center = ["media", "hyprland-workspaces"]
-right = ["brightness", "ram", "microphone", "volume", "battery", "clock"]
+center = ["media", { module = "hyprland-workspaces", class = "wsmod" }, "brightness"]
+right = ["ram", "microphone", "volume", "battery", "clock"]
 
 [styling]
 scale = 0.85                       # 样式缩放
@@ -90,7 +90,7 @@ label-use-name = false            # 不使用工作区名称做标签
 numbering = "absolute"            # 编号方式：绝对编号
 app-icons-show = false            # 不显示应用图标
 active-indicator = "background"   # 激活指示：背景高亮
-active-color = "accent"           # 激活工作区颜色（强调色）
+active-color = "#414855"          # 激活工作区：Storm 主题官方低调灰
 occupied-color = "fg-muted"       # 有窗口工作区颜色（弱化）
 empty-color = "fg-subtle"         # 空工作区颜色（更弱）
 container-bg-color = "bg-surface" # 容器背景
@@ -116,11 +116,11 @@ icon-name = "ld-music-symbolic"   # 默认图标（无播放时）
 format = "{{ title }}"            # 显示格式：曲目标题
 icon-show = true                  # 显示图标
 icon-color = "auto"               # 图标颜色：自动
-icon-bg-color = "green"           # 图标背景：绿
+icon-bg-color = "#9ece6aaa"        # 图标底座：纵向渐变 @67%
 label-show = false                # 不显示文字标签
-label-color = "green"
+label-color = "fg-default"
 label-max-length = 4              # 标签最大长度
-button-bg-color = "bg-surface"    # 按钮背景
+button-bg-color = "#313244cc"     # 按钮背景：surface 色 @80%
 left-click = "dropdown:media"     # 左键：打开媒体下拉面板
 
 # ---- 启动器/电源模块：下拉菜单（锁屏/注销/重启/关机）----
@@ -129,9 +129,9 @@ icon-override = ""                # 图标覆盖（空=默认）
 border-show = false
 border-color = "yellow"
 icon-color = "auto"
-icon-bg-color = "accent"
+icon-bg-color = "#7aa2f7aa"        # 图标底座：纵向渐变 @67%
 label-show = false
-button-bg-color = "bg-surface"
+button-bg-color = "#313244cc"     # 按钮背景：surface 色 @80%
 left-click = "dropdown:dashboard"     # 左键：打开电源下拉面板
 dropdown-lock-command = "loginctl lock-session"                 # 锁定
 dropdown-logout-command = "loginctl terminate-session $XDG_SESSION_ID" # 注销
@@ -143,7 +143,7 @@ dropdown-poweroff-command = "systemctl poweroff"                # 关机
 icon-scale = 0.8                  # 托盘图标缩放
 item-gap = 0.25                   # 图标间距
 internal-padding = 0.3            # 内部内边距
-button-bg-color = "bg-surface"
+button-bg-color = "#313244cc"     # 按钮背景：surface 色 @80%
 
 # ---- 通知模块 ----
 [modules.notifications]
@@ -154,10 +154,10 @@ border-show = false
 border-color = "green"
 icon-show = true
 icon-color = "auto"
-icon-bg-color = "green"
+icon-bg-color = "#8dceb4aa"        # 图标底座：纵向渐变 @67%
 label-show = false
-label-color = "green"
-button-bg-color = "bg-surface"
+label-color = "fg-default"
+button-bg-color = "#313244cc"     # 按钮背景：surface 色 @80%
 left-click = "dropdown:notification" # 左键：通知面板
 right-click = "wayle notify dnd"     # 右键：切换免打扰
 popup-position = "top-right"         # 弹窗位置
@@ -180,30 +180,30 @@ label-show = false
 label-max-length = 10
 icon-show = true
 icon-color = "auto"
-icon-bg-color = "accent"
+icon-bg-color = "#7bb8fbaa"        # 图标底座：纵向渐变 @67%
 label-color = "fg-default"
-button-bg-color = "bg-surface"
+button-bg-color = "#313244cc"     # 按钮背景：surface 色 @80%
 left-click = "dropdown:network"    # 左键：网络下拉面板
 
 # ---- 蓝牙模块 ----
 [modules.bluetooth]
 icon-show = true
 icon-color = "auto"
-icon-bg-color = "blue"             # 蓝色图标背景
+icon-bg-color = "#7dcfffaa"        # 图标底座：纵向渐变 @67%
 label-show = false
 label-color = "fg-default"
 label-max-length = 8
-button-bg-color = "bg-surface"
+button-bg-color = "#313244cc"     # 按钮背景：surface 色 @80%
 left-click = "dropdown:bluetooth"  # 左键：蓝牙面板
 
 # ---- 麦克风模块 ----
 [modules.microphone]
 icon-show = true
 icon-color = "auto"
-icon-bg-color = "green"
+icon-bg-color = "#efa666aa"        # 图标底座：纵向渐变 @67%
 label-show = true
 label-color = "fg-default"
-button-bg-color = "bg-surface"
+button-bg-color = "#313244cc"     # 按钮背景：surface 色 @80%
 middle-click = "wayle audio input-mute"     # 中键：静音/取消静音
 scroll-up = "wayle audio input-volume +5"   # 滚轮上：音量+5
 scroll-down = "wayle audio input-volume -5" # 滚轮下：音量-5
@@ -213,20 +213,20 @@ scroll-down = "wayle audio input-volume -5" # 滚轮下：音量-5
 format = "{{ percent }}%"          # 显示内存使用百分比
 icon-show = true
 icon-color = "auto"
-icon-bg-color = "green"
+icon-bg-color = "#e0af68aa"        # 图标底座：纵向渐变 @67%
 label-show = true
 label-color = "fg-default"
-button-bg-color = "bg-surface"
+button-bg-color = "#313244cc"     # 按钮背景：surface 色 @80%
 
 # ---- 音量模块 ----
 [modules.volume]
 format = "{{ percent }}%"
 icon-show = true
 icon-color = "auto"
-icon-bg-color = "accent"
+icon-bg-color = "#ff9e64aa"        # 图标底座：纵向渐变 @67%
 label-show = true
 label-color = "fg-default"
-button-bg-color = "bg-surface"
+button-bg-color = "#313244cc"     # 按钮背景：surface 色 @80%
 middle-click = "wayle audio output-mute"     # 中键：静音
 scroll-up = "wayle audio output-volume +5"   # 滚轮上：音量+5
 scroll-down = "wayle audio output-volume -5" # 滚轮下：音量-5
@@ -236,20 +236,20 @@ scroll-down = "wayle audio output-volume -5" # 滚轮下：音量-5
 format = "{{ percent }}%"          # 显示电量百分比
 icon-show = true
 icon-color = "auto"
-icon-bg-color = "green"
+icon-bg-color = "#fb8a79aa"        # 图标底座：纵向渐变 @67%
 label-show = true
 label-color = "fg-default"
-button-bg-color = "bg-surface"
+button-bg-color = "#313244cc"     # 按钮背景：surface 色 @80%
 
 # ---- 时钟模块 ----
 [modules.clock]
 format = "%H:%M"                   # 24 小时制时分
 icon-show = true
 icon-color = "auto"
-icon-bg-color = "accent"
+icon-bg-color = "#f7768eaa"        # 图标底座：纵向渐变 @67%
 label-show = true
 label-color = "fg-default"
-button-bg-color = "bg-surface"
+button-bg-color = "#313244cc"     # 按钮背景：surface 色 @80%
 left-click = "dropdown:calendar"   # 左键：日历面板
 right-click = "dropdown:weather"   # 右键：天气面板
 
@@ -264,12 +264,12 @@ border-show = false
 border-color = "yellow"
 icon-show = true
 icon-color = "auto"
-icon-bg-color = "yellow"           # 黄色图标背景
+icon-bg-color = "#bfbe69aa"        # 图标底座：纵向渐变 @67%
 label-show = false
-label-color = "yellow"
+label-color = "fg-default"
 format = "{{ percent }}%"          # 显示亮度百分比
 label-max-length = 0
-button-bg-color = "bg-surface"
+button-bg-color = "#313244cc"     # 按钮背景：surface 色 @80%
 left-click = "dropdown:brightness"     # 左键：亮度面板
 scroll-up = "brightnessctl set +5%"    # 滚轮上：亮度+5%
 scroll-down = "brightnessctl set -5%"  # 滚轮下：亮度-5%
