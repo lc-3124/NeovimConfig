@@ -17,7 +17,7 @@ local mainMod = "SUPER"
 -- 打开终端
 hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
 -- 剪贴板历史：fuzzel 选条目 → decode 回填剪贴板（文本/图片均可）
-hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"), { description = "clipboard history" })
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"), { description = "clipboard history" })
 -- 关闭窗口
 hl.bind(mainMod .. " + C", hl.dsp.window.close())
 -- 强制结束进程
