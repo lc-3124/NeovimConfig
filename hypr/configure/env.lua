@@ -29,6 +29,8 @@ hl.config({
 -- hl.on("hyprland.start") 替代旧版 exec-once
 hl.on("hyprland.start", function()
   hl.exec_cmd("systemctl --user start xdg-desktop-portal-hyprland")
+  -- 剪贴板历史：wl-paste 监听剪贴板变化，交给 cliphist 存档（文本与图片通吃）
+  hl.exec_cmd("wl-paste --watch cliphist store")
   hl.exec_cmd("fcitx5 -d")
   -- 权限认证服务：先清除失败计数（避免 start-limit 锁死），再重启
   hl.exec_cmd("systemctl --user reset-failed hyprpolkitagent; systemctl --user restart hyprpolkitagent")

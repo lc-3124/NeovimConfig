@@ -92,6 +92,16 @@ hl.window_rule({
   center = true,
 })
 
+-- mkvextract 悬浮mkv提取器 -----------------------------------------------------------
+-- 强制浮动 + 屏幕 80% 居中（纯配置方案）
+hl.window_rule({
+  name = "mkvextract-float",
+  match = { class = "mkvextract-gtk" },
+  float = true,
+  size = "monitor_w*0.8 monitor_h*0.8",
+  center = true,
+})
+
 -- 测试/示例窗口浮动 -------------------------------------------------------
 -- 标题含有 "_demo_or_test" 的窗口自动浮动
 hl.window_rule({
