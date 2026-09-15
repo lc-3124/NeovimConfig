@@ -30,7 +30,7 @@ is_line_type() {
 check_saved_session_exists() {
 	local resurrect_file="$(last_resurrect_file)"
 	if [ ! -f $resurrect_file ]; then
-		display_message "Tmux resurrect file not found!"
+		display_message "没有找到tmux现存恢复文件"
 		return 1
 	fi
 }
@@ -381,7 +381,7 @@ main() {
 		cleanup_restored_pane_contents
 		execute_hook "post-restore-all"
 		stop_spinner
-		display_message "Tmux restore complete!"
+		display_message "布局恢复完成！"
 	fi
 }
 main

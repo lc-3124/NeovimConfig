@@ -7,9 +7,9 @@
 hl.config({
   -- 通用设置 ----------------------------------------------------------------
   general = {
-    gaps_in = 10,
-    gaps_out = 12,
-    border_size = 1,
+    gaps_in = 8,
+    gaps_out = 8,
+    border_size = 2,
     col = {
       active_border = { colors = { "rgba(33ccffee)", "rgba(00ff99ee)" }, angle = 45 },
       inactive_border = "rgba(595959aa)",
@@ -33,8 +33,8 @@ hl.config({
     },
     blur = {
       enabled = true,
-      size = 3,
-      passes = 3,
+      size = 2,
+      passes = 2,
       vibrancy = 0.1696,
     },
   },
@@ -48,8 +48,8 @@ hl.config({
   input = {
     kb_layout = "us",
     follow_mouse = 1,
-    -- sensitivity = -0.58,
-    sensitivity = 0,
+    sensitivity = -0.58,
+    -- sensitivity = 0,
     touchpad = {
       disable_while_typing = false,
       natural_scroll = false,

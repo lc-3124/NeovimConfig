@@ -32,8 +32,3 @@ hl.permission({ binary = "/usr/bin/hyprlock", type = "screencopy", mode = "allow
 hl.permission({ binary = "/usr/bin/hypr-kdeconnect-portal", type = "cursorpos", mode = "allow" })
 hl.permission({ binary = "/usr/bin/hypr-kdeconnect-portal", type = "keyboard",  mode = "allow" })
 hl.permission({ binary = "/usr/bin/hypr-kdeconnect-portal", type = "input-capture", mode = "allow" })
-
--- 键盘注入 / 光标控制相关自动化工具（按需）
--- hl.permission({ binary = "/usr/bin/ydotool",       type = "keyboard",  mode = "allow" })
--- hl.permission({ binary = "/usr/bin/ydotool",       type = "cursorpos", mode = "allow" })
--- hl.permission({ binary = "/usr/bin/wtype",         type = "keyboard",  mode = "allow" })

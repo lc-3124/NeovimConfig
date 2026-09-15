@@ -145,23 +145,23 @@ hl.bind(mainMod .. " + CTRL + SHIFT + S", hl.dsp.exec_cmd("screenshot full"))
 
 -- 下一张壁纸
 hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd("~/.config/hypr/scripts/cycle-wallpaper.sh next"))
--- 切换壁纸效果
+-- 动态壁纸开关
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("~/.config/hypr/scripts/cycle-wallpaper.sh toggle"))
 
 -- 语音输入
 hl.bind("F2",                         hl.dsp.exec_cmd("busctl --user call org.fcitx.Fcitx5.AnyTalk.Overlay /overlay org.fcitx.Fcitx5.AnyTalk.Overlay ToggleRecording"))
 -- 语音输入
-hl.bind(mainMod .. " + SHIFT + Q",    hl.dsp.exec_cmd("busctl --user call org.fcitx.Fcitx5.AnyTalk.Overlay /overlay org.fcitx.Fcitx5.AnyTalk.Overlay ToggleRecording"))
+-- hl.bind(mainMod .. " + SHIFT + Q",    hl.dsp.exec_cmd("busctl --user call org.fcitx.Fcitx5.AnyTalk.Overlay /overlay org.fcitx.Fcitx5.AnyTalk.Overlay ToggleRecording"))
 
--- 光标放大
+-- 放大镜放大
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd([[NEW_VAL=$(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.1'); hyprctl eval "hl.config({cursor={zoom_factor=$NEW_VAL}})"]]))
 
--- 光标缩小
+-- 放大镜缩小
 hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd([[NEW_VAL=$(hyprctl getoption cursor:zoom_factor -j | jq '.float * 0.9 | if . < 1 then 1 else . end'); hyprctl eval "hl.config({cursor={zoom_factor=$NEW_VAL}})"]]) )
 
--- 缩放增大
+-- 屏幕缩放增大
 hl.bind(mainMod .. " + CTRL + P", hl.dsp.exec_cmd("~/.config/hypr/scripts/scale.sh +"))
--- 缩放减小
+-- 屏幕缩放减小
 hl.bind(mainMod .. " + CTRL + L", hl.dsp.exec_cmd("~/.config/hypr/scripts/scale.sh -"))
 
 -- ============================================================================

@@ -266,12 +266,12 @@ show_output() {
 main() {
 	if supported_tmux_version_ok; then
 		if show_output; then
-			start_spinner "Saving..." "Tmux environment saved!"
+			start_spinner "Saving..." "tmux环境保存成功！"
 		fi
 		save_all
 		if show_output; then
 			stop_spinner
-			display_message "Tmux environment saved!"
+			display_message "tmux环境保存成功！"
 		fi
 	fi
 }
