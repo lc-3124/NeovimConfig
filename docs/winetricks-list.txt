@@ -1,8 +1,5 @@
-devenum
-dinput
+dxvk
 fakechinese
-fakejapanese
-fakekorean
+fontsmooth=gray
 fontsmooth=rgb
 sourcehansans
-wenquanyi

@@ -1,6 +1,7 @@
 7zip
 acpi
 adobe-source-han-sans-cn-fonts
+adobe-source-han-serif-cn-fonts
 alsa-utils
 amd-ucode
 archlinuxcn-keyring
@@ -12,8 +13,10 @@ base-devel
 bat
 bluez-utils
 btop
+cef
 cmatrix
 davfs2
+directx-shader-compiler
 dosfstools
 duf
 dust
@@ -70,6 +73,7 @@ linux-firmware
 linux-lts
 linux-zen
 linux-zen-headers
+localsend
 lolcat
 lua-language-server
 mesa
@@ -79,9 +83,11 @@ neovide
 neovim
 networkmanager
 nmap
+nodejs
 nordic-theme-git
 noto-fonts-cjk
 npm
+nvm
 nwg-look
 nyancat
 obs-studio
@@ -100,13 +106,17 @@ otf-hermit-nerd
 otf-monaspace-nerd
 otf-opendyslexic-nerd
 otf-overpass-nerd
+pacman-contrib
 paru
 pavucontrol
 peazip
 pipewire
 pipewire-alsa
+plasma-sdk
+pnpm
 polkit
 progress
+proxychains-ng
 python-pip
 qbittorrent
 qdiskinfo
@@ -121,6 +131,8 @@ soundconverter
 speedtest-cli
 sshfs
 sshpass
+steam
+stress
 termusic
 tesseract-data-chi_sim
 thunar
@@ -184,6 +196,7 @@ ttf-ubuntu-mono-nerd
 ttf-ubuntu-nerd
 ttf-victor-mono-nerd
 ttf-zed-mono-nerd
+unixodbc
 usbutils
 vim
 vulkan-radeon
@@ -198,6 +211,8 @@ xdotool
 xfce4-settings
 yazi
 zbar
+zen-browser
+zen-browser-i18n-zh-cn
 zip
 zram-generator
 zsh

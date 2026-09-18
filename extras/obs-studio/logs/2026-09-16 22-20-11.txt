@@ -1,0 +1,526 @@
+22:20:11.093: Platform: Wayland
+22:20:11.093: CPU Name: AMD Ryzen 7 4800U with Radeon Graphics
+22:20:11.093: CPU Speed: 2677.476MHz
+22:20:11.093: Physical Cores: 8, Logical Cores: 16
+22:20:11.093: Physical Memory: 15339MB Total, 622MB Free
+22:20:11.093: Kernel Version: Linux 7.2.4-arch1-2
+22:20:11.093: Distribution: "Arch Linux" Unknown
+22:20:11.094: Desktop Environment: Hyprland
+22:20:11.094: Session Type: wayland
+22:20:11.095: Current Date/Time: 2026-09-16, 22时20分11秒
+22:20:11.095: Browser Hardware Acceleration: true
+22:20:11.095: Qt Version: 6.11.2 (runtime), 6.11.1 (compiled)
+22:20:11.095: Portable mode: false
+22:20:11.173: OBS 32.2.2 (linux)
+22:20:11.173: ---------------------------------
+22:20:11.175: ---------------------------------
+22:20:11.175: audio settings reset:
+22:20:11.175: 	samples per sec: 48000
+22:20:11.175: 	speakers:        2
+22:20:11.175: 	max buffering:   960 milliseconds
+22:20:11.175: 	buffering type:  dynamically increasing
+22:20:11.177: ---------------------------------
+22:20:11.177: Initializing OpenGL...
+22:20:11.177: Using EGL/Wayland
+22:20:11.224: Initialized EGL 1.5
+22:20:11.242: Loading up OpenGL on adapter AMD AMD Radeon Graphics (radeonsi, renoir, ACO, DRM 3.64, 7.2.4-arch1-2)
+22:20:11.242: OpenGL loaded successfully, version 4.6 (Core Profile) Mesa 26.2.2-arch1.1, shading language 4.60
+22:20:11.356: ---------------------------------
+22:20:11.356: video settings reset:
+22:20:11.356: 	base resolution:   1920x1080
+22:20:11.356: 	output resolution: 1280x720
+22:20:11.356: 	downscale filter:  Bicubic
+22:20:11.356: 	fps:               60/1
+22:20:11.356: 	format:            NV12
+22:20:11.356: 	YUV mode:          Rec. 709/Partial
+22:20:11.356: NV12 texture support enabled
+22:20:11.356: P010 texture support not available
+22:20:11.362: Audio monitoring device:
+22:20:11.362: 	name: Default
+22:20:11.362: 	id: default
+22:20:11.365: ---------------------------------
+22:20:11.367: Failed to load 'en-US' text for module: 'decklink-captions.so'
+22:20:11.369: Failed to load 'en-US' text for module: 'decklink-output-ui.so'
+22:20:11.370: A DeckLink iterator could not be created.  The DeckLink drivers may not be installed
+22:20:11.370: Failed to initialize module 'decklink.so'
+22:20:11.509: [pipewire] Available capture sources:
+22:20:11.509: [pipewire]     - Monitor source
+22:20:11.509: [pipewire]     - Window source
+22:20:11.525: v4l2loopback not installed, virtual camera not registered
+22:20:11.554: VAAPI: API version 1.24
+22:20:11.555: FFmpeg VAAPI H264 encoding supported
+22:20:11.560: FFmpeg VAAPI AV1 encoding not supported
+22:20:11.565: FFmpeg VAAPI HEVC encoding supported
+22:20:11.572: os_dlopen(libnvidia-encode.so.1->libnvidia-encode.so.1): libnvidia-encode.so.1: 无法打开共享目标文件: 没有那个文件或目录
+22:20:11.572: 
+22:20:11.572: NVENC not supported
+22:20:11.572: Failed to initialize module 'obs-nvenc.so'
+22:20:11.609: [obs-websocket] [obs_module_load] you can haz websockets (Version: 5.7.4 | RPC Version: 1)
+22:20:11.609: [obs-websocket] [obs_module_load] Qt version (compile-time): 6.11.1 | Qt version (run-time): 6.11.2
+22:20:11.609: [obs-websocket] [obs_module_load] Linked ASIO Version: 103802
+22:20:11.616: [obs-websocket] [obs_module_load] Module loaded.
+22:20:11.623: ---------------------------------
+22:20:11.623:   Loaded Modules:
+22:20:11.623:     text-freetype2.so
+22:20:11.623:     rtmp-services.so
+22:20:11.623:     obs-x264.so
+22:20:11.623:     obs-websocket.so
+22:20:11.623:     obs-webrtc.so
+22:20:11.623:     obs-vst.so
+22:20:11.623:     obs-transitions.so
+22:20:11.623:     obs-qsv11.so
+22:20:11.623:     obs-outputs.so
+22:20:11.623:     obs-libfdk.so
+22:20:11.623:     obs-filters.so
+22:20:11.623:     obs-ffmpeg.so
+22:20:11.623:     linux-v4l2.so
+22:20:11.623:     linux-pulseaudio.so
+22:20:11.623:     linux-pipewire.so
+22:20:11.623:     linux-jack.so
+22:20:11.623:     linux-capture.so
+22:20:11.623:     linux-alsa.so
+22:20:11.623:     image-source.so
+22:20:11.623:     frontend-tools.so
+22:20:11.623:     decklink-output-ui.so
+22:20:11.623:     decklink-captions.so
+22:20:11.623: ---------------------------------
+22:20:11.624: ---------------------------------
+22:20:11.624: Available Encoders:
+22:20:11.624:   Video Encoders:
+22:20:11.624: 	- ffmpeg_svt_av1 (SVT-AV1)
+22:20:11.624: 	- ffmpeg_aom_av1 (AOM AV1)
+22:20:11.624: 	- ffmpeg_vaapi_tex (FFmpeg VAAPI H.264)
+22:20:11.624: 	- hevc_ffmpeg_vaapi_tex (FFmpeg VAAPI HEVC)
+22:20:11.624: 	- obs_x264 (x264)
+22:20:11.624:   Audio Encoders:
+22:20:11.624: 	- ffmpeg_aac (FFmpeg AAC)
+22:20:11.624: 	- ffmpeg_opus (FFmpeg Opus)
+22:20:11.624: 	- ffmpeg_pcm_s16le (FFmpeg PCM (16位))
+22:20:11.624: 	- ffmpeg_pcm_s24le (FFmpeg PCM (24位))
+22:20:11.624: 	- ffmpeg_pcm_f32le (FFmpeg PCM (32位浮点))
+22:20:11.624: 	- ffmpeg_alac (FFmpeg ALAC (24位))
+22:20:11.624: 	- ffmpeg_flac (FFmpeg FLAC (16位))
+22:20:11.624: 	- libfdk_aac (libfdk AAC)
+22:20:11.624: ==== Startup complete ===============================================
+22:20:11.668: Failed to register with host portal QDBusError("org.freedesktop.portal.Error.Failed", "Could not register app ID: Connection already associated with an application ID")
+22:20:11.668: All scene data cleared
+22:20:11.668: ------------------------------------------------
+22:20:11.680: Device for 'Audio Output Capture' source Desktop Audio is also used for audio monitoring.
+22:20:11.680: Deduplication logic is being applied to all monitored sources.
+22:20:11.680: pulse-input: Server name: 'PulseAudio (on PipeWire 1.6.8) 15.0.0'
+22:20:11.680: pulse-input: Audio format: s16le, 48000 Hz, 2 channels
+22:20:11.680: pulse-input: Started recording from 'bluez_output.24_B2_31_DD_A9_A6.1.monitor' (default)
+22:20:11.680: [Loaded global audio device]: 'Desktop Audio'
+22:20:11.681: pulse-input: Server name: 'PulseAudio (on PipeWire 1.6.8) 15.0.0'
+22:20:11.681: pulse-input: Audio format: float32le, 48000 Hz, 1 channels
+22:20:11.681: pulse-input: Started recording from 'bluez_input.24:B2:31:DD:A9:A6' (default)
+22:20:11.681: [Loaded global audio device]: 'Mic/Aux'
+22:20:11.681: PipeWire initialized
+22:20:11.682: obs-data.c: [obs_data_create_from_json] Failed reading json string (1): '[' or '{' expected near end of file
+22:20:11.684: v4l2-input: Start capture from /dev/video0
+22:20:11.699: Device for 'Audio Output Capture' source Desktop Audio is also used for audio monitoring.
+22:20:11.699: Deduplication logic is being applied to all monitored sources.
+22:20:11.780: v4l2-input: Input: 0
+22:20:11.785: v4l2-input: Resolution: 1280x720
+22:20:11.785: v4l2-input: Pixelformat: MJPG
+22:20:11.785: v4l2-input: Linesize: 0 Bytes
+22:20:11.785: v4l2-input: Framerate: 30.00 fps
+22:20:11.788: v4l2-input: /dev/video0: select timeout set to 166666 (5x frame periods)
+22:20:11.789: Switched to scene 'Scene'
+22:20:11.789: ------------------------------------------------
+22:20:11.789: Loaded scenes:
+22:20:11.789: - scene 'Scene':
+22:20:11.789:     - source: 'Screen Capture (PipeWire)' (pipewire-screen-capture-source)
+22:20:11.789:     - source: 'Video Capture Device (PipeWire) (BETA)' (pipewire-camera-source)
+22:20:11.789:     - source: 'Video Capture Device (V4L2)' (v4l2_input)
+22:20:11.789: ------------------------------------------------
+22:20:11.859: [pipewire] Screencast session created
+22:20:11.860: [camera-portal] Successfully accessed cameras
+22:20:11.929: [pipewire] Server version: 1.6.8
+22:20:11.929: [pipewire] Library version: 1.6.8
+22:20:11.929: [pipewire] Header version: 1.6.8
+22:20:11.929: [pipewire] Created registry 0x55d2c171f4e0
+22:20:11.930: [camera-portal] Found device Dummy-Driver
+22:20:11.930: [camera-portal] Found device Freewheel-Driver
+22:20:11.930: [camera-portal] Found device Midi-Bridge
+22:20:11.930: [camera-portal] Found device bluez_midi.server
+22:20:11.930: [camera-portal] Found device alsa_output.pci-0000_03_00.6.analog-stereo
+22:20:11.930: [camera-portal] Found device alsa_input.pci-0000_03_00.6.analog-stereo
+22:20:11.930: [camera-portal] Found device anytalk
+22:20:11.930: [camera-portal] Found device bluez_input.24:B2:31:DD:A9:A6
+22:20:11.930: [camera-portal] Found device bluez_capture_internal.24:B2:31:DD:A9:A6
+22:20:11.930: [camera-portal] Found device bluez_output.24_B2_31_DD_A9_A6.1
+22:20:11.930: [camera-portal] Found device v4l2_input.pci-0000_03_00.3-usb-0_3_1.0
+22:20:11.930: [camera-portal] Found device alsa_playback.fooyin
+22:20:11.930: [camera-portal] Found device OBS
+22:20:11.930: [camera-portal] Found device OBS
+22:20:12.242: adding 21 milliseconds of audio buffering, total audio buffering is now 21 milliseconds (source: Desktop Audio)
+22:20:12.242: 
+22:20:12.256: [pipewire] Error id:12 seq:114 res:-14 (错误的地址): Received error event
+22:20:12.259: [pipewire-camera] Removed device bluez_output.24_B2_31_DD_A9_A6.1
+22:20:12.295: [camera-portal] Found device bluez_input.24_B2_31_DD_A9_A6.0
+22:20:12.295: [pipewire] Error id:12 seq:131 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:20:12.295: [pipewire] Error id:12 seq:132 res:-2 (没有那个文件或目录): enum params id:17 (Spa:Enum:ParamId:Tag) failed
+22:20:12.303: [camera-portal] Found device bluez_output.24_B2_31_DD_A9_A6.1
+22:20:12.763: [rtmp-services plugin] Successfully updated file 'services.json' (version 288)
+22:20:12.763: [rtmp-services plugin] Successfully updated package (version 288)
+22:20:13.280: [pipewire] Asking for monitor and window
+22:20:13.286: [camera-portal] Found device xdg-desktop-portal-hyprland
+22:20:13.286: [pipewire] source selected, setting up screencast
+22:20:13.303: [pipewire] Server version: 1.6.8
+22:20:13.303: [pipewire] Library version: 1.6.8
+22:20:13.303: [pipewire] Header version: 1.6.8
+22:20:13.304: [pipewire] Created stream 0x55d2c1475a50
+22:20:13.304: [pipewire] Stream 0x55d2c1475a50 state: "connecting" (error: none)
+22:20:13.304: [pipewire] Playing stream 0x55d2c1475a50
+22:20:13.305: [pipewire] Stream 0x55d2c1475a50 state: "paused" (error: none)
+22:20:13.305: [camera-portal] Found device obs
+22:20:13.335: [pipewire] Negotiated format:
+22:20:13.335: [pipewire]     Format: 12 (Spa:Enum:VideoFormat:BGRA)
+22:20:13.335: [pipewire]     Modifier: 0x0
+22:20:13.335: [pipewire]     Size: 1920x1080
+22:20:13.335: [pipewire]     Framerate: 0/1
+22:20:13.339: [pipewire] Negotiated format:
+22:20:13.339: [pipewire]     Format: 12 (Spa:Enum:VideoFormat:BGRA)
+22:20:13.339: [pipewire]     Modifier: 0x20000044051ba01
+22:20:13.339: [pipewire]     Size: 1920x1080
+22:20:13.339: [pipewire]     Framerate: 0/1
+22:20:13.342: [pipewire] Stream 0x55d2c1475a50 state: "streaming" (error: none)
+22:20:13.360: Cannot create EGLImage: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+22:20:13.361: [pipewire] Renegotiating stream
+22:20:13.361: [pipewire] Stream 0x55d2c1475a50 state: "paused" (error: none)
+22:20:13.364: [pipewire] Negotiated format:
+22:20:13.365: [pipewire]     Format: 12 (Spa:Enum:VideoFormat:BGRA)
+22:20:13.365: [pipewire]     Modifier: 0x20000044051ba01
+22:20:13.365: [pipewire]     Size: 1920x1080
+22:20:13.365: [pipewire]     Framerate: 0/1
+22:20:13.365: [pipewire] Negotiated format:
+22:20:13.365: [pipewire]     Format: 12 (Spa:Enum:VideoFormat:BGRA)
+22:20:13.365: [pipewire]     Modifier: 0x20000044051b901
+22:20:13.365: [pipewire]     Size: 1920x1080
+22:20:13.365: [pipewire]     Framerate: 0/1
+22:20:13.368: [pipewire] Stream 0x55d2c1475a50 state: "streaming" (error: none)
+22:20:13.376: Cannot create EGLImage: Arguments are inconsistent (for example, a valid context requires buffers not supplied by a valid surface).
+22:20:13.376: [pipewire] Renegotiating stream
+22:20:13.377: [pipewire] Stream 0x55d2c1475a50 state: "paused" (error: none)
+22:20:13.377: [pipewire] Negotiated format:
+22:20:13.377: [pipewire]     Format: 12 (Spa:Enum:VideoFormat:BGRA)
+22:20:13.377: [pipewire]     Modifier: 0x20000044051b901
+22:20:13.377: [pipewire]     Size: 1920x1080
+22:20:13.377: [pipewire]     Framerate: 0/1
+22:20:13.379: [pipewire] Negotiated format:
+22:20:13.379: [pipewire]     Format: 12 (Spa:Enum:VideoFormat:BGRA)
+22:20:13.379: [pipewire]     Size: 1920x1080
+22:20:13.379: [pipewire]     Framerate: 0/1
+22:20:13.387: [pipewire] Stream 0x55d2c1475a50 state: "streaming" (error: none)
+22:20:28.681: ---------------------------------
+22:20:28.681: [x264 encoder: 'simple_video_recording'] preset: veryfast
+22:20:28.681: [x264 encoder: 'simple_video_recording'] profile: high
+22:20:28.687: [x264 encoder: 'simple_video_recording'] settings:
+22:20:28.687: 	rate_control: CRF
+22:20:28.687: 	bitrate:      0
+22:20:28.687: 	buffer size:  0
+22:20:28.687: 	crf:          21
+22:20:28.687: 	fps_num:      60
+22:20:28.687: 	fps_den:      1
+22:20:28.687: 	width:        1280
+22:20:28.687: 	height:       720
+22:20:28.687: 	keyint:       250
+22:20:28.687: 
+22:20:28.701: libfdk_aac encoder created
+22:20:28.701: libfdk_aac bitrate: 192, channels: 2
+22:20:28.743: ==== Recording Start ===============================================
+22:20:28.743: [mp4 output: 'simple_file_output'] Writing Hybrid MP4/MOV file '/home/lc3124/2026-09-16 22-20-28.mp4'...
+22:20:58.685: [mp4 muxer: 'simple_file_output'] Flushing final fragment...
+22:20:58.686: [mp4 muxer: 'simple_file_output'] Number of fragments: 10
+22:20:58.686: [mp4 muxer: 'simple_file_output'] Full moov size: 26 KiB
+22:20:58.687: [mp4 muxer: 'simple_file_output'] Final mdat size: 5642 KiB
+22:20:58.687: Output 'simple_file_output': stopping
+22:20:58.687: Output 'simple_file_output': Total frames output: 1763
+22:20:58.687: Output 'simple_file_output': Total drawn frames: 1797
+22:20:58.687: [mp4 output: 'simple_file_output'] Waiting for file writer to finish...
+22:20:58.687: [mp4 output: 'simple_file_output'] File output complete. Finalization took 1 ms.
+22:20:58.688: ==== Recording Stop ================================================
+22:20:58.699: libfdk_aac encoder destroyed
+22:20:59.538: ---------------------------------
+22:20:59.538: [x264 encoder: 'simple_video_recording'] preset: veryfast
+22:20:59.538: [x264 encoder: 'simple_video_recording'] profile: high
+22:20:59.538: [x264 encoder: 'simple_video_recording'] settings:
+22:20:59.538: 	rate_control: CRF
+22:20:59.538: 	bitrate:      0
+22:20:59.538: 	buffer size:  0
+22:20:59.538: 	crf:          21
+22:20:59.538: 	fps_num:      60
+22:20:59.538: 	fps_den:      1
+22:20:59.538: 	width:        1280
+22:20:59.538: 	height:       720
+22:20:59.538: 	keyint:       250
+22:20:59.538: 
+22:20:59.549: libfdk_aac encoder created
+22:20:59.549: libfdk_aac bitrate: 192, channels: 2
+22:20:59.552: ==== Recording Start ===============================================
+22:20:59.552: [mp4 output: 'simple_file_output'] Writing Hybrid MP4/MOV file '/home/lc3124/2026-09-16 22-20-59.mp4'...
+22:21:54.058: [camera-portal] Found device Chromium
+22:21:59.570: [mp4 muxer: 'simple_file_output'] Flushing final fragment...
+22:21:59.571: [mp4 muxer: 'simple_file_output'] Number of fragments: 18
+22:21:59.572: [mp4 muxer: 'simple_file_output'] Full moov size: 53 KiB
+22:21:59.572: [mp4 muxer: 'simple_file_output'] Final mdat size: 6425 KiB
+22:21:59.572: Output 'simple_file_output': stopping
+22:21:59.572: Output 'simple_file_output': Total frames output: 3564
+22:21:59.572: Output 'simple_file_output': Total drawn frames: 3601
+22:21:59.572: [mp4 output: 'simple_file_output'] Waiting for file writer to finish...
+22:21:59.573: [mp4 output: 'simple_file_output'] File output complete. Finalization took 2 ms.
+22:21:59.574: ==== Recording Stop ================================================
+22:21:59.607: libfdk_aac encoder destroyed
+22:22:09.784: [pipewire-camera] Removed device Chromium
+22:22:17.455: [camera-portal] Found device mpv
+22:23:20.837: [pipewire-camera] Removed device mpv
+22:23:39.025: [camera-portal] Found device Chromium
+22:23:54.686: [pipewire-camera] Removed device Chromium
+22:24:36.149: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:36.177: [pipewire-camera] Removed device KoishiNavigationDesktopYoukai.exe
+22:24:36.180: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:36.231: [pipewire-camera] Removed device KoishiNavigationDesktopYoukai.exe
+22:24:36.233: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:36.233: [pipewire] Error id:19 seq:432 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:36.273: [pipewire-camera] Removed device KoishiNavigationDesktopYoukai.exe
+22:24:36.274: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:36.316: [pipewire-camera] Removed device KoishiNavigationDesktopYoukai.exe
+22:24:36.317: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:36.362: [pipewire-camera] Removed device KoishiNavigationDesktopYoukai.exe
+22:24:36.363: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:36.364: [pipewire] Error id:19 seq:505 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:36.408: [pipewire-camera] Removed device KoishiNavigationDesktopYoukai.exe
+22:24:36.410: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:36.461: [pipewire-camera] Removed device KoishiNavigationDesktopYoukai.exe
+22:24:36.462: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:36.462: [pipewire] Error id:19 seq:579 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:36.502: [pipewire-camera] Removed device KoishiNavigationDesktopYoukai.exe
+22:24:36.808: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:36.907: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:36.908: [pipewire] Error id:20 seq:632 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:37.000: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:37.090: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:37.189: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:37.289: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:37.290: [pipewire] Error id:20 seq:752 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:37.370: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:37.370: [pipewire] Error id:19 seq:782 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:37.463: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:37.570: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:37.571: [pipewire] Error id:19 seq:842 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:37.665: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:37.665: [pipewire] Error id:20 seq:872 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:37.759: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:37.849: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:37.965: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:38.066: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:38.172: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:38.275: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:38.388: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:38.475: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:38.576: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:38.577: [pipewire] Error id:19 seq:1142 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:38.681: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:38.804: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:38.804: [pipewire] Error id:19 seq:1202 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:38.914: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:38.914: [pipewire] Error id:20 seq:1232 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:39.016: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:39.017: [pipewire] Error id:19 seq:1262 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:39.101: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:39.185: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:39.185: [pipewire] Error id:19 seq:1322 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:39.266: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:39.267: [pipewire] Error id:20 seq:1352 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:39.368: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:39.368: [pipewire] Error id:19 seq:1382 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:39.525: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:39.528: [pipewire] Error id:20 seq:1412 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:39.624: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:39.722: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:39.723: [pipewire] Error id:20 seq:1472 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:39.841: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:39.841: [pipewire] Error id:19 seq:1502 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:39.943: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:40.069: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:40.170: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:40.296: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:40.399: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:40.502: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:40.503: [pipewire] Error id:19 seq:1682 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:40.619: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:40.763: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:40.764: [pipewire] Error id:19 seq:1742 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:40.869: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:40.870: [pipewire] Error id:20 seq:1772 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:40.991: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:41.114: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:41.278: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:41.401: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:41.557: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:41.701: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:41.702: [pipewire] Error id:20 seq:1952 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:41.844: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:41.975: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:42.155: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:42.155: [pipewire] Error id:19 seq:2042 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:42.325: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:42.489: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:42.644: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:42.835: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:43.013: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:43.238: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:43.238: [pipewire] Error id:19 seq:2222 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:43.435: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:43.435: [pipewire] Error id:20 seq:2252 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:43.616: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:43.827: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:43.828: [pipewire] Error id:20 seq:2312 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:44.042: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:44.217: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:44.436: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:44.436: [pipewire] Error id:19 seq:2402 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:44.609: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:44.610: [pipewire] Error id:20 seq:2432 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:44.805: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:44.805: [pipewire] Error id:19 seq:2462 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:45.015: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:45.015: [pipewire] Error id:20 seq:2492 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:45.244: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:45.244: [pipewire] Error id:19 seq:2522 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:45.465: [camera-portal] Found device KoishiNavigationDesktopYoukai.exe
+22:24:45.466: [pipewire] Error id:20 seq:2552 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:24:45.630: [pipewire-camera] Removed device KoishiNavigationDesktopYoukai.exe
+22:25:19.901: [camera-portal] Found device SeekGirl.exe
+22:25:19.923: [pipewire-camera] Removed device SeekGirl.exe
+22:25:19.923: [camera-portal] Found device SeekGirl.exe
+22:25:19.923: [pipewire] Error id:20 seq:2588 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:25:19.966: [pipewire-camera] Removed device SeekGirl.exe
+22:25:19.967: [camera-portal] Found device SeekGirl.exe
+22:25:19.967: [pipewire] Error id:20 seq:2617 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:25:20.008: [pipewire-camera] Removed device SeekGirl.exe
+22:25:20.009: [camera-portal] Found device SeekGirl.exe
+22:25:20.009: [pipewire] Error id:20 seq:2642 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:25:20.056: [pipewire-camera] Removed device SeekGirl.exe
+22:25:20.056: [camera-portal] Found device SeekGirl.exe
+22:25:20.057: [pipewire] Error id:20 seq:2669 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:25:20.099: [pipewire-camera] Removed device SeekGirl.exe
+22:25:20.099: [camera-portal] Found device SeekGirl.exe
+22:25:20.099: [pipewire] Error id:20 seq:2692 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:25:20.150: [pipewire-camera] Removed device SeekGirl.exe
+22:25:20.150: [camera-portal] Found device SeekGirl.exe
+22:25:20.150: [pipewire] Error id:20 seq:2721 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:25:20.198: [pipewire-camera] Removed device SeekGirl.exe
+22:25:20.198: [camera-portal] Found device SeekGirl.exe
+22:25:20.198: [pipewire] Error id:20 seq:2746 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:25:20.241: [pipewire-camera] Removed device SeekGirl.exe
+22:25:20.299: [camera-portal] Found device SeekGirl.exe
+22:25:40.950: [camera-portal] Found device Chromium
+22:25:40.951: [pipewire] Error id:19 seq:2798 res:-2 (没有那个文件或目录): enum params id:16 (Spa:Enum:ParamId:ProcessLatency) failed
+22:26:15.609: [pipewire-camera] Removed device SeekGirl.exe
+22:26:16.164: [pipewire-camera] Removed device Chromium
+22:26:19.316: [camera-portal] Found device Chromium
+22:26:44.428: [camera-portal] Found device Firefox
+22:26:44.458: [pipewire-camera] Removed device Firefox
+22:26:48.063: [camera-portal] Found device mpv
+22:27:00.495: [pipewire-camera] Removed device Chromium
+22:27:44.727: [pipewire-camera] Removed device mpv
+22:30:15.360: ==== Shutting down ==================================================
+22:30:15.373: pulse-input: Stopped recording from 'bluez_output.24_B2_31_DD_A9_A6.1.monitor'
+22:30:15.373: pulse-input: Got 24141 packets with 28969200 frames
+22:30:15.373: Deduplication logic stopped.
+22:30:15.374: pulse-input: Stopped recording from 'bluez_input.24:B2:31:DD:A9:A6'
+22:30:15.374: pulse-input: Got 24146 packets with 28975200 frames
+22:30:15.375: [pipewire] Stream 0x55d2c1475a50 state: "paused" (error: none)
+22:30:15.377: [pipewire] Stream 0x55d2c1475a50 state: "unconnected" (error: none)
+22:30:15.379: [pipewire-camera] Removed device OBS
+22:30:15.383: [pipewire-camera] Removed device xdg-desktop-portal-hyprland
+22:30:15.390: [pipewire-camera] Removed device obs
+22:30:15.442: v4l2-input: /dev/video0: Stopped capture after 11210 frames
+22:30:15.507: All scene data cleared
+22:30:15.507: ------------------------------------------------
+22:30:15.519: Tried to call obs_frontend_remove_event_callback with no callbacks!
+22:30:15.573: [obs-websocket] [obs_module_unload] Shutting down...
+22:30:15.574: Tried to call obs_frontend_remove_event_callback with no callbacks!
+22:30:15.574: [obs-websocket] [obs_module_unload] Finished shutting down.
+22:30:15.575: [pipewire] Error id:0 seq:2908 res:-2 (没有那个文件或目录): unknown resource 4 op:7
+22:30:15.591: [Scripting] Total detached callbacks: 0
+22:30:15.592: Freeing OBS context data
+22:30:15.615: == Profiler Results =============================
+22:30:15.616: run_program_init: 903.524 ms
+22:30:15.616:  ┣OBSApp::AppInit: 35.526 ms
+22:30:15.616:  ┃ ┗OBSApp::InitLocale: 8.872 ms
+22:30:15.616:  ┗OBSApp::OBSInit: 761.971 ms
+22:30:15.616:    ┣obs_startup: 2.476 ms
+22:30:15.616:    ┗OBSBasic::OBSInit: 680.697 ms
+22:30:15.616:      ┣OBSBasic::InitBasicConfig: 1.231 ms
+22:30:15.616:      ┣OBSBasic::ResetAudio: 0.302 ms
+22:30:15.616:      ┣OBSBasic::ResetVideo: 186.414 ms
+22:30:15.616:      ┃ ┗obs_init_graphics: 180.227 ms
+22:30:15.616:      ┃   ┗shader compilation: 112.82 ms
+22:30:15.616:      ┣OBSBasic::InitOBSCallbacks: 0.005 ms
+22:30:15.616:      ┣OBSBasic::InitHotkeys: 0.034 ms
+22:30:15.616:      ┣obs_load_all_modules2: 258.314 ms
+22:30:15.616:      ┃ ┣obs_init_module(decklink-captions.so): 0.001 ms
+22:30:15.616:      ┃ ┣obs_init_module(decklink-output-ui.so): 0.001 ms
+22:30:15.616:      ┃ ┣obs_init_module(decklink.so): 0.065 ms
+22:30:15.616:      ┃ ┣obs_init_module(frontend-tools.so): 104.293 ms
+22:30:15.616:      ┃ ┣obs_init_module(image-source.so): 0.007 ms
+22:30:15.616:      ┃ ┣obs_init_module(linux-alsa.so): 0.002 ms
+22:30:15.616:      ┃ ┣obs_init_module(linux-capture.so): 0.001 ms
+22:30:15.616:      ┃ ┣obs_init_module(linux-jack.so): 0.003 ms
+22:30:15.616:      ┃ ┣obs_init_module(linux-pipewire.so): 15.688 ms
+22:30:15.616:      ┃ ┣obs_init_module(linux-pulseaudio.so): 0.004 ms
+22:30:15.616:      ┃ ┣obs_init_module(linux-v4l2.so): 9.567 ms
+22:30:15.616:      ┃ ┣obs_init_module(obs-ffmpeg.so): 15.573 ms
+22:30:15.616:      ┃ ┣obs_init_module(obs-filters.so): 0.015 ms
+22:30:15.616:      ┃ ┣obs_init_module(obs-libfdk.so): 0.002 ms
+22:30:15.616:      ┃ ┣obs_init_module(obs-nvenc.so): 0.107 ms
+22:30:15.616:      ┃ ┃ ┗nvenc_check: 0.092 ms
+22:30:15.616:      ┃ ┣obs_init_module(obs-outputs.so): 0.005 ms
+22:30:15.616:      ┃ ┣obs_init_module(obs-qsv11.so): 9.199 ms
+22:30:15.616:      ┃ ┣obs_init_module(obs-transitions.so): 0.008 ms
+22:30:15.616:      ┃ ┣obs_init_module(obs-vst.so): 0.003 ms
+22:30:15.616:      ┃ ┣obs_init_module(obs-webrtc.so): 0.006 ms
+22:30:15.616:      ┃ ┣obs_init_module(obs-websocket.so): 7.478 ms
+22:30:15.616:      ┃ ┣obs_init_module(obs-x264.so): 0.002 ms
+22:30:15.616:      ┃ ┣obs_init_module(rtmp-services.so): 1.201 ms
+22:30:15.616:      ┃ ┗obs_init_module(text-freetype2.so): 0.012 ms
+22:30:15.616:      ┣OBSBasic::InitService: 1.557 ms
+22:30:15.616:      ┣OBSBasic::ResetOutputs: 0.401 ms
+22:30:15.616:      ┣OBSBasic::CreateHotkeys: 0.025 ms
+22:30:15.616:      ┣OBSBasic::InitPrimitives: 0.078 ms
+22:30:15.616:      ┗OBSBasic::Load: 165.561 ms
+22:30:15.616: obs_hotkey_thread(25 ms): min=0 ms, median=0.002 ms, max=0.068 ms, 99th percentile=0.005 ms, 100% below 25 ms
+22:30:15.616: audio_thread(Audio): min=0.02 ms, median=0.143 ms, max=6.209 ms, 99th percentile=0.947 ms
+22:30:15.616:  ┗receive_audio: min=0.007 ms, median=0.205 ms, max=2.375 ms, 99th percentile=0.699 ms, 0.148989 calls per parent call
+22:30:15.616:    ┣buffer_audio: min=0.001 ms, median=0.004 ms, max=0.024 ms, 99th percentile=0.012 ms
+22:30:15.616:    ┗do_encode: min=0.071 ms, median=0.193 ms, max=2.364 ms, 99th percentile=0.68 ms
+22:30:15.616:      ┣encode(simple_aac_recording0): min=0.06 ms, median=0.166 ms, max=1.175 ms, 99th percentile=0.591 ms
+22:30:15.616:      ┗send_packet: min=0.002 ms, median=0.016 ms, max=2.252 ms, 99th percentile=0.103 ms
+22:30:15.616: obs_graphics_thread(16.6667 ms): min=0.195 ms, median=0.82 ms, max=27.373 ms, 99th percentile=5.091 ms, 99.9614% below 16.667 ms
+22:30:15.616:  ┣tick_sources: min=0.002 ms, median=0.016 ms, max=4.985 ms, 99th percentile=0.051 ms
+22:30:15.616:  ┣output_frame: min=0.158 ms, median=0.422 ms, max=26.353 ms, 99th percentile=1.643 ms
+22:30:15.616:  ┃ ┣gs_context(video->graphics): min=0.155 ms, median=0.415 ms, max=26.346 ms, 99th percentile=0.99 ms
+22:30:15.616:  ┃ ┃ ┣render_video: min=0.028 ms, median=0.13 ms, max=25.396 ms, 99th percentile=0.486 ms
+22:30:15.616:  ┃ ┃ ┃ ┣render_main_texture: min=0.018 ms, median=0.116 ms, max=0.781 ms, 99th percentile=0.272 ms
+22:30:15.616:  ┃ ┃ ┃ ┣render_output_texture: min=0.019 ms, median=0.047 ms, max=18.61 ms, 99th percentile=0.121 ms, 0.148957 calls per parent call
+22:30:15.616:  ┃ ┃ ┃ ┣render_convert_texture: min=0.018 ms, median=0.06 ms, max=6.169 ms, 99th percentile=0.154 ms, 0.148957 calls per parent call
+22:30:15.616:  ┃ ┃ ┃ ┗stage_output_texture: min=0.014 ms, median=0.038 ms, max=0.422 ms, 99th percentile=0.093 ms, 0.148957 calls per parent call
+22:30:15.616:  ┃ ┃ ┣gs_flush: min=0.001 ms, median=0.007 ms, max=1.769 ms, 99th percentile=0.02 ms
+22:30:15.616:  ┃ ┃ ┗download_frame: min=0.001 ms, median=0.111 ms, max=7.599 ms, 99th percentile=0.281 ms, 0.148957 calls per parent call
+22:30:15.616:  ┃ ┗output_video_data: min=0.15 ms, median=0.417 ms, max=3.636 ms, 99th percentile=1.277 ms, 0.148902 calls per parent call
+22:30:15.616:  ┗render_displays: min=0.004 ms, median=0.299 ms, max=23.344 ms, 99th percentile=1.228 ms
+22:30:15.616: OBSBasicSettings::LoadThemeList: 0.048 ms
+22:30:15.616: video_thread(video): min=0.628 ms, median=1.515 ms, max=8.877 ms, 99th percentile=3.518 ms
+22:30:15.616:  ┗receive_video: min=0.625 ms, median=1.509 ms, max=8.872 ms, 99th percentile=3.51 ms
+22:30:15.616:    ┗do_encode: min=0.622 ms, median=1.503 ms, max=8.867 ms, 99th percentile=3.503 ms
+22:30:15.616:      ┣encode(simple_video_recording): min=0.598 ms, median=1.468 ms, max=8.859 ms, 99th percentile=3.475 ms
+22:30:15.616:      ┗send_packet: min=0.004 ms, median=0.017 ms, max=0.872 ms, 99th percentile=0.064 ms
+22:30:15.616: =================================================
+22:30:15.616: == Profiler Time Between Calls ==================
+22:30:15.616: obs_hotkey_thread(25 ms): min=25.017 ms, median=25.041 ms, max=27.24 ms, 99.9213% within ±2% of 25 ms (0% lower, 0.0787402% higher)
+22:30:15.616: obs_graphics_thread(16.6667 ms): min=5.905 ms, median=16.667 ms, max=27.384 ms, 99.5283% within ±2% of 16.667 ms (0.228959% lower, 0.242752% higher)
+22:30:15.616: =================================================
+22:30:15.637: Number of memory leaks: 0

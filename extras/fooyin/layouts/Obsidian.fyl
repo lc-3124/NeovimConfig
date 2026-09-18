@@ -30,16 +30,25 @@
                                             },
                                             {
                                                 "DirectoryBrowser": {
+                                                    "ColumnAlignments": [
+                                                        1,
+                                                        2,
+                                                        1,
+                                                        1
+                                                    ],
+                                                    "ControlsPosition": 0,
                                                     "DoubleClickAction": 5,
+                                                    "HeaderState": "AAAABAAAAPAAAABAAAAAAAAAAIUAAAAEAAAAAAAAAAEAAAACAAAAAwAAAAQ/4Y+cGPnBkD/Cu1ErtRK7AAAAAAAAAAA/04MfODHzgwEAAAAAAAAAAA==",
                                                     "ID": "699b5bd414284378bc9d1316a9297b69",
                                                     "IndentList": true,
                                                     "MiddleClickAction": 0,
                                                     "Mode": 1,
+                                                    "RestoreSort": false,
                                                     "RootPath": "/home/lc3124/Documents/mp3s/TouhouProject/⚡TLMCv6⚡（切片）",
                                                     "SendPlayback": true,
                                                     "ShowControls": true,
+                                                    "ShowHeader": true,
                                                     "ShowHidden": false,
-                                                    "ShowHorizontalScrollbar": true,
                                                     "ShowIcons": true,
                                                     "ShowLocation": true,
                                                     "ShowSymLinks": false
@@ -60,7 +69,7 @@
                                             {
                                                 "Playlist": {
                                                     "Columns": "8:132|3|0:2|1|7:2",
-                                                    "HeaderState": "AAAAZXjaY2BgYGVgYFAE4nYgtmBgYJQH0gEMEHEQYARiJiBmBmIWkLj9WnOVR9mxt+3PQukd5SdqFwSes7/32fz+nY/s9gcj9j7L378LpJHhPxAAAOvJG24=",
+                                                    "HeaderState": "AAAAZXjaY2BgYGVgYLAA4kdAHMfAwPgASLcxQMRBgBGImYCYGYhZQOL2a81VHmXH3rY/C6V3lJ+oXRB4zv7eZ/P7dz6y2x+M2Pssf/8ukEaG/0AAAG9SHP0=",
                                                     "ID": "e1c9cc08045045fcabc5b3edd59529d7",
                                                     "Preset": 3,
                                                     "SingleMode": false
@@ -89,7 +98,7 @@
                                                     "ShowHeader": true,
                                                     "ShowHorizontalScrollbar": false,
                                                     "ShowVerticalScrollbar": true,
-                                                    "State": "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO0AAAACAAAAAAAAAAAAAAAAAAAAAGT/////AAAAhAAAAAAAAAACAAAAZAAAAAEAAAAAAAAAiQAAAAEAAAACAAAD6AAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=="
+                                                    "State": "AAAA/wAAAAAAAAABAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYwAAAACAAAAAAAAAAAAAAAAAAAAAGT/////AAAAhAAAAAAAAAACAAAAZAAAAAEAAAAAAAABKAAAAAEAAAACAAAD6AAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=="
                                                 }
                                             }
                                         ]
@@ -134,7 +143,7 @@
         }
     ],
     "WindowSize": {
-        "Height": 874,
-        "Width": 1123
+        "Height": 1060,
+        "Width": 1856
     }
 }

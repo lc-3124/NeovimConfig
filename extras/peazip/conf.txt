@@ -26,7 +26,7 @@ default.txt
 0
 
 [Initial dir for file/archive browser]
-/home/lc3124/Downloads/
+/home/lc3124/Downloads/[ACT]Al27f/AL/
 
 [default archiving format]
 18
@@ -84,7 +84,7 @@ default.txt
 
 [save history of recent archives]
 1
-
+/home/lc3124/Downloads/[ACT]Al27f/AL/Alice In Cradle WIN-0.27f.zip
 
 
 
@@ -175,7 +175,7 @@ LZMA2
 10
 
 [default zip compression level]
-4
+3
 
 [default zip compression method]
 Deflate
@@ -215,7 +215,7 @@ Deflate
 1
 
 [last output path]
-/home/lc3124/Downloads/
+/home/lc3124/Downloads/[ACT]Al27f/AL/
 
 [height of the navigation's splitter]
 220
@@ -236,13 +236,13 @@ PeaZip
 0
 13
 1
-360
-108
-108
-108
-216
-72
-150
+0
+0
+0
+0
+0
+0
+0
 1
 
 [extract to new folder]
@@ -315,7 +315,7 @@ PeaZip
 0
 
 [last successful extraction path]
-/home/lc3124/Downloads/
+/home/lc3124/Downloads/[ACT]Al27f/
 
 [encrypt also filenames, if the feature is supported by the format]
 0
@@ -409,10 +409,10 @@ PeaZip
 0
 
 [save history of recent directories]
+<none>
+/home/lc3124/Downloads/[ACT]Al27f/AL/
+/home/lc3124/Downloads/[ACT]Al27f/
 /home/lc3124/Downloads/
-
-
-
 
 
 
@@ -428,7 +428,7 @@ PeaZip
 1
 
 [default deletion mode for delete after extraction / archiving option: 0 recycle (if supported) 1 quick 2 zero 3 secure]
-1
+0
 
 [status of function branch in run group]
 0
@@ -542,9 +542,9 @@ PeaZip
 
 [advanced 7z / p7zip compression settings]
 0
-6
-2
-13
+4
+0
+12
 
 [auto close PeaZip when task completes]
 0
