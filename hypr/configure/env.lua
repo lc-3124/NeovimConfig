@@ -17,6 +17,15 @@ hl.env("HYPRCURSOR_SIZE", "24")
 -- GTK 应用的文件/颜色/字体等对话框强制走 xdg-desktop-portal，
 -- 由 portals.conf 路由到 termfilechooser（yazi+kitty 终端文件选择器）
 hl.env("GTK_USE_PORTAL", "1")
+-- 注意：不要在这里全局强制 XWayland 走 NVIDIA。
+-- 本机显示由 Intel 核显负责，独显(T600)会被 dgpu-switch 脚本从 PCI 总线移除；
+-- 一旦独显不可用，__GLX_VENDOR_LIBRARY_NAME=nvidia 会让所有 XWayland/GL 应用
+-- （包括 Minecraft 的 GLFW）创建 GLX 上下文失败，报 GLXBadFBConfig 而无法启动。
+-- 需要单款游戏用独显时，请在插电、独显已恢复后按应用单独指定（prime-run 或
+-- 启动命令前加环境变量），不要全局生效。
+-- hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
+-- 光标闪烁修复（nvidia-drm.modeset=1 下视驱动版本而定，保留无害）
+hl.env("WLR_NO_HARDWARE_CURSORS", "1")
 
 -- 权限系统：Hyprland 从 0.45+ 引入的生态权限
 hl.config({
@@ -35,6 +44,8 @@ hl.on("hyprland.start", function()
   -- 权限认证服务：先清除失败计数（避免 start-limit 锁死），再重启
   hl.exec_cmd("systemctl --user reset-failed hyprpolkitagent; systemctl --user restart hyprpolkitagent")
   hl.exec_cmd("wayle panel start")
+  -- 壁纸：固定使用 resource/images/background.png
+  -- 之后的壁纸切换全部交给we-gui
   hl.exec_cmd("awww-daemon")
-  hl.exec_cmd("sleep 1 && awww img ~/.config/hypr/resource/images/Bamboo_clear.png -o eDP-1 --transition-type grow --transition-pos bottom-right --transition-duration 0.8 --transition-fps 24")
+  hl.exec_cmd("sleep 1 && awww img ~/.config/hypr/resource/images/background.png -o eDP-1")
 end)

@@ -1,0 +1,74 @@
+# ============================================================================
+# Hyprlock 锁屏配置
+# 触发: Meta + L（见 configure/keybind.lua）
+# 解锁: 输入用户密码
+# 壁纸: 固定使用 resource/images/background.png
+# ============================================================================
+
+general {
+    grace = 0                # 宽限期秒数（0=立即锁定）
+    disable_loading_bar = true   # 禁用加载进度条
+    hide_cursor = false      # 不隐藏鼠标光标
+    no_fade_in = false       # 允许淡入动画
+    ignore_empty_input = true   # 忽略空输入（防误触）
+    immediate_render = true  # 立即渲染（不等加载完成）
+    # 允许在锁屏上显示音乐控制等（wm 的 locked 绑定仍生效）
+}
+
+# 背景：固定壁纸 + 高斯模糊压暗
+background {
+    monitor =                # 应用到所有显示器
+    path = /home/lc3124/.config/hypr/resource/images/background.png  # 壁纸路径
+    blur_passes = 3          # 模糊趟数（越高越模糊）
+    blur_size = 6            # 模糊半径
+    contrast = 0.9           # 对比度
+    brightness = 0.75        # 亮度（压暗背景突出前景）
+    vibrancy = 0.25          # 色彩活力
+    noise = 0.01             # 噪点强度（轻微颗粒感）
+}
+
+# 时钟（每秒更新）
+label {
+    monitor =                # 所有显示器
+    text = cmd[update:1000] echo "$(date +'%H:%M')"   # 命令生成文本，每秒刷新
+    color = rgba(ffffffff)   # 白色
+    font_size = 96           # 大字号
+    font_family = "Noto Sans CJK SC"   # 中文字体
+    position = 0, 80         # 位置（相对居中偏移）
+    halign = center          # 水平居中
+    valign = center          # 垂直居中
+}
+
+# 日期（每秒更新）
+label {
+    monitor =
+    text = cmd[update:1000] echo "$(date +'%Y年%m月%d日  %A')"  # 年月日 + 星期
+    color = rgba(ffffffee)   # 白色（略透明）
+    font_size = 22
+    font_family = "Noto Sans CJK SC"
+    position = 0, 8          # 时钟下方
+    halign = center
+    valign = center
+}
+
+# 密码输入框
+input-field {
+    monitor =
+    size = 340, 60           # 输入框宽高
+    outline_thickness = 2    # 轮廓线厚度
+    dots_size = 0.24         # 密码圆点大小
+    dots_spacing = 0.35      # 圆点间距
+    dots_center = true       # 圆点居中
+    outer_color = rgba(00000088)   # 外圈（半透明黑）
+    inner_color = rgba(00000066)   # 内部（更透明黑）
+    font_color = rgb(ffffffff)     # 文字白色
+    fade_on_empty = true     # 空输入时淡出
+    placeholder_text = <span foreground="##ffffffaa">要输入密码才准进入啦！</span>  # 占位提示
+    check_color = rgb(66cc66)      # 密码正确提示色（绿）
+    fail_color = rgb(ff4444)       # 密码错误提示色（红）
+    fail_text = <i>密码不对哦，硬闯是进不来的！</i>     # 错误提示文字（斜体）
+    capslock_color = rgb(ffcc00)   # CapsLock 开启提示色（黄）
+    position = 0, -130       # 位置（时钟下方）
+    halign = center
+    valign = center
+}

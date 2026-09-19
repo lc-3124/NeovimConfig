@@ -25,7 +25,7 @@ hl.permission({ binary = "/home/lc3124/.local/bin/screenshot", type = "cursorpos
 -- xdg-desktop-portal-hyprland：应用通过 portal 请求截屏/录屏
 hl.permission({ binary = "/usr/lib/xdg-desktop-portal-hyprland", type = "screencopy", mode = "allow" })
 
--- hyprlock：锁屏（若需要截取壁纸背景等）
+-- hyprlock：锁屏（固定壁纸背景）
 hl.permission({ binary = "/usr/bin/hyprlock", type = "screencopy", mode = "allow" })
 
 -- hypr-kdeconnect-portal：KDE Connect 远程输入（指针/键盘注入）

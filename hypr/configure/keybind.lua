@@ -1,4 +1,4 @@
--- ============================================================================
+--===========================================================================
 -- 快捷键绑定模块
 -- ============================================================================
 -- hl.bind(keys, dispatcher, opts?)
@@ -8,6 +8,7 @@
 -- hl.define_submap(name, reset?, fn) — 定义子映射
 -- ============================================================================
 -- 注：本配置会被脚本解析生成 fuzzel 快捷键列表，添加绑定时需按约定格式
+-- AGENTS: 在增添任意代码配置时，请参考本文件全局的配置格式。
 -- ============================================================================
 
 local terminal = "kitty"
@@ -24,7 +25,7 @@ hl.bind(mainMod .. " + C", hl.dsp.window.close())
 hl.bind(mainMod .. " + F4", hl.dsp.window.kill())
 -- 退出 Hyprland
 hl.bind(mainMod .. " + M", hl.dsp.exit())
--- 锁定屏幕（Meta + L，背景跟随当前壁纸）
+-- 锁定屏幕（Meta + L，使用固定壁纸背景）
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("~/.config/hypr/scripts/lock.sh"), { description = "lock screen" })
 -- 锁屏并挂起（Meta+Alt+L / Ctrl+Alt+L；挂起后锁屏仍在，唤醒需输密码）
 hl.bind("META + ALT + L", hl.dsp.exec_cmd("~/.config/hypr/scripts/lock-suspend.sh"), { locked = true, description = "lock and suspend" })
@@ -142,11 +143,6 @@ hl.bind("CTRL + Print",   hl.dsp.exec_cmd("screenshot focused"))
 hl.bind(mainMod .. " + CTRL + S",         hl.dsp.exec_cmd("screenshot region"))
 -- Meta + Ctrl + Shift + S：直接全屏截图
 hl.bind(mainMod .. " + CTRL + SHIFT + S", hl.dsp.exec_cmd("screenshot full"))
-
--- 下一张壁纸
-hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd("~/.config/hypr/scripts/cycle-wallpaper.sh next"))
--- 动态壁纸开关
-hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("~/.config/hypr/scripts/cycle-wallpaper.sh toggle"))
 
 -- 语音输入
 hl.bind("F2",                         hl.dsp.exec_cmd("busctl --user call org.fcitx.Fcitx5.AnyTalk.Overlay /overlay org.fcitx.Fcitx5.AnyTalk.Overlay ToggleRecording"))

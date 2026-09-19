@@ -72,8 +72,8 @@ hl.config({
     disable_splash_rendering = true,
     focus_on_activate = true,
     disable_hyprland_logo = true,
-    force_default_wallpaper = -1,
-    font_family = "Ubuntu Nerd Font",
+    force_default_wallpaper = 0,
+    font_family = "JBMBold",  -- 粗体：JetBrainsMono Nerd Font Bold（fontconfig 别名）
   },
 
   -- XWayland 设置 -----------------------------------------------------------
