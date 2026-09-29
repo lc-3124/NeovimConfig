@@ -25,5 +25,6 @@ return {
     vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "切换缓冲区" }) -- 在已打开的文件间切换
     vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "搜索帮助" }) -- 搜索 nvim 帮助文档
     vim.keymap.set("n", "<leader>fs", builtin.lsp_document_symbols, { desc = "文档符号" }) -- 当前文件的符号大纲
+    vim.keymap.set("n", "<leader>fx", builtin.diagnostics, { desc = "诊断列表（Telescope）" }) -- 浮动列出所有诊断，回车跳转
   end,
 }

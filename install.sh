@@ -343,6 +343,8 @@ install_gui() {
     echo "[*] Deploying screenshot script"
     mkdir -p "$HOME/.local/bin"
     link_file "$SCRIPT_DIR/hypr/scripts/screenshot" "$HOME/.local/bin/screenshot"
+    # GUI: 关闭所有通知 —— 清通知中心并关掉常驻通知卡住的弹窗（不重启 wayle）
+    link_file "$SCRIPT_DIR/hypr/scripts/wayle-dismiss-all" "$HOME/.local/bin/wayle-dismiss-all"
     echo
 
     # GUI: PeaZip 启动 wrapper —— 动态按屏幕 80% 浮动居中。

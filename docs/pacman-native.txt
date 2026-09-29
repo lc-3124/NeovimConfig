@@ -1,218 +1,201 @@
-7zip
-acpi
-adobe-source-han-sans-cn-fonts
-adobe-source-han-serif-cn-fonts
-alsa-utils
-amd-ucode
-archlinuxcn-keyring
-asciiquarium
-audacious
-awww
-base
-base-devel
-bat
-bluez-utils
-btop
-cef
-cmatrix
-davfs2
-directx-shader-compiler
-dosfstools
-duf
-dust
-egl-wayland
-eog
-evtest
-exfatprogs
-fcitx5
-fcitx5-chinese-addons
-fcitx5-configtool
-fcitx5-gtk
-fcitx5-pinyin-zhwiki
-fcitx5-qt
-fd
-firefox
-flclash
-fooyin
-fuzzel
-gamemode
-gdu
-gimp
-git
-hmcl
-hypridle
-hyprland
-hyprlock
-hyprpaper
-kdeconnect
-kexec-tools
-keyd
-kitty
-kvantum
-kvantum-qt5
-lib32-fontconfig
-lib32-freetype2
-lib32-libpng
-lib32-libpulse
-lib32-libxcomposite
-lib32-libxcursor
-lib32-libxfixes
-lib32-libxi
-lib32-libxinerama
-lib32-libxrandr
-lib32-mesa
-lib32-pipewire
-lib32-vulkan-icd-loader
-lib32-vulkan-radeon
-libinput-tools
-libreoffice-fresh
-libreoffice-fresh-zh-cn
-libva-utils
-linux
-linux-firmware
-linux-lts
-linux-zen
-linux-zen-headers
-localsend
-lolcat
-lua-language-server
-mesa
-mesa-utils
-ncdu
-neovide
-neovim
-networkmanager
-nmap
-nodejs
-nordic-theme-git
-noto-fonts-cjk
-npm
-nvm
-nwg-look
-nyancat
-obs-studio
-openbsd-netcat
-opencode
-openssh
-otf-aurulent-nerd
-otf-codenewroman-nerd
-otf-comicshanns-nerd
-otf-commit-mono-nerd
-otf-droid-nerd
-otf-firamono-nerd
-otf-geist-mono-nerd
-otf-hasklig-nerd
-otf-hermit-nerd
-otf-monaspace-nerd
-otf-opendyslexic-nerd
-otf-overpass-nerd
-pacman-contrib
-paru
-pavucontrol
-peazip
-pipewire
-pipewire-alsa
-plasma-sdk
-pnpm
-polkit
-progress
-proxychains-ng
-python-pip
-qbittorrent
-qdiskinfo
-qt5ct
-qt6ct
-rar
-rclone
-scrcpy
-sddm
-sof-firmware
-soundconverter
-speedtest-cli
-sshfs
-sshpass
-steam
-stress
-termusic
-tesseract-data-chi_sim
-thunar
-thunderbird
-tmux
-trash-cli
-tree
-ttf-0xproto-nerd
-ttf-3270-nerd
-ttf-adwaitamono-nerd
-ttf-agave-nerd
-ttf-anonymouspro-nerd
-ttf-arimo-nerd
-ttf-arphic-ukai
-ttf-arphic-uming
-ttf-bigblueterminal-nerd
-ttf-bitstream-vera-mono-nerd
-ttf-cascadia-code-nerd
-ttf-cascadia-mono-nerd
-ttf-cousine-nerd
-ttf-d2coding-nerd
-ttf-daddytime-mono-nerd
-ttf-dejavu-nerd
-ttf-envycoder-nerd
-ttf-fantasque-nerd
-ttf-firacode-nerd
-ttf-go-nerd
-ttf-gohu-nerd
-ttf-hack-nerd
-ttf-heavydata-nerd
-ttf-iawriter-nerd
-ttf-ibmplex-mono-nerd
-ttf-inconsolata-go-nerd
-ttf-inconsolata-lgc-nerd
-ttf-inconsolata-nerd
-ttf-intone-nerd
-ttf-iosevka-nerd
-ttf-iosevkaterm-nerd
-ttf-iosevkatermslab-nerd
-ttf-lekton-nerd
-ttf-liberation-mono-nerd
-ttf-lilex-nerd
-ttf-martian-mono-nerd
-ttf-meslo-nerd
-ttf-monofur-nerd
-ttf-monoid-nerd
-ttf-mononoki-nerd
-ttf-mplus-nerd
-ttf-nerd-fonts-symbols
-ttf-nerd-fonts-symbols-mono
-ttf-noto-nerd
-ttf-profont-nerd
-ttf-proggyclean-nerd
-ttf-recursive-nerd
-ttf-roboto-mono-nerd
-ttf-sharetech-mono-nerd
-ttf-sourcecodepro-nerd
-ttf-terminus-nerd
-ttf-tinos-nerd
-ttf-ubuntu-mono-nerd
-ttf-ubuntu-nerd
-ttf-victor-mono-nerd
-ttf-zed-mono-nerd
-unixodbc
-usbutils
-vim
-vulkan-radeon
-vulkan-tools
-wine-mono
-wine-staging
-winetricks
-wlopm
-wqy-microhei
-wqy-zenhei
-xdotool
-xfce4-settings
-yazi
-zbar
-zen-browser
-zen-browser-i18n-zh-cn
-zip
-zram-generator
-zsh
+sudo pacman -S 7zip --noconfirm
+sudo pacman -S acpi --noconfirm
+sudo pacman -S adobe-source-han-sans-cn-fonts --noconfirm
+sudo pacman -S adobe-source-han-serif-cn-fonts --noconfirm
+sudo pacman -S alsa-utils --noconfirm
+sudo pacman -S amd-ucode --noconfirm
+sudo pacman -S archlinuxcn-keyring --noconfirm
+sudo pacman -S asciiquarium --noconfirm
+sudo pacman -S audacious --noconfirm
+sudo pacman -S awww --noconfirm
+sudo pacman -S base --noconfirm
+sudo pacman -S base-devel --noconfirm
+sudo pacman -S bat --noconfirm
+sudo pacman -S bluez-utils --noconfirm
+sudo pacman -S btop --noconfirm
+sudo pacman -S cef --noconfirm
+sudo pacman -S cmatrix --noconfirm
+sudo pacman -S davfs2 --noconfirm
+sudo pacman -S directx-shader-compiler --noconfirm
+sudo pacman -S dosfstools --noconfirm
+sudo pacman -S duf --noconfirm
+sudo pacman -S dust --noconfirm
+sudo pacman -S egl-wayland --noconfirm
+sudo pacman -S eog --noconfirm
+sudo pacman -S evtest --noconfirm
+sudo pacman -S exfatprogs --noconfirm
+sudo pacman -S fcitx5 --noconfirm
+sudo pacman -S fcitx5-chinese-addons --noconfirm
+sudo pacman -S fcitx5-configtool --noconfirm
+sudo pacman -S fcitx5-gtk --noconfirm
+sudo pacman -S fcitx5-pinyin-zhwiki --noconfirm
+sudo pacman -S fcitx5-qt --noconfirm
+sudo pacman -S fd --noconfirm
+sudo pacman -S firefox --noconfirm
+sudo pacman -S flclash --noconfirm
+sudo pacman -S fooyin --noconfirm
+sudo pacman -S fuzzel --noconfirm
+sudo pacman -S gamemode --noconfirm
+sudo pacman -S gdu --noconfirm
+sudo pacman -S gimp --noconfirm
+sudo pacman -S git --noconfirm
+sudo pacman -S hmcl --noconfirm
+sudo pacman -S hypridle --noconfirm
+sudo pacman -S hyprland --noconfirm
+sudo pacman -S hyprlock --noconfirm
+sudo pacman -S hyprpaper --noconfirm
+sudo pacman -S kdeconnect --noconfirm
+sudo pacman -S kexec-tools --noconfirm
+sudo pacman -S keyd --noconfirm
+sudo pacman -S kitty --noconfirm
+sudo pacman -S kvantum --noconfirm
+sudo pacman -S kvantum-qt5 --noconfirm
+sudo pacman -S libinput-tools --noconfirm
+sudo pacman -S libreoffice-fresh --noconfirm
+sudo pacman -S libreoffice-fresh-zh-cn --noconfirm
+sudo pacman -S libva-utils --noconfirm
+sudo pacman -S linux --noconfirm
+sudo pacman -S linux-firmware --noconfirm
+sudo pacman -S localsend --noconfirm
+sudo pacman -S lolcat --noconfirm
+sudo pacman -S lua-language-server --noconfirm
+sudo pacman -S mesa --noconfirm
+sudo pacman -S mesa-utils --noconfirm
+sudo pacman -S ncdu --noconfirm
+sudo pacman -S neovide --noconfirm
+sudo pacman -S neovim --noconfirm
+sudo pacman -S networkmanager --noconfirm
+sudo pacman -S nmap --noconfirm
+sudo pacman -S nodejs --noconfirm
+sudo pacman -S nordic-theme-git --noconfirm
+sudo pacman -S noto-fonts-cjk --noconfirm
+sudo pacman -S npm --noconfirm
+sudo pacman -S nvm --noconfirm
+sudo pacman -S nwg-look --noconfirm
+sudo pacman -S nyancat --noconfirm
+sudo pacman -S obs-studio --noconfirm
+sudo pacman -S openbsd-netcat --noconfirm
+sudo pacman -S opencode --noconfirm
+sudo pacman -S openssh --noconfirm
+sudo pacman -S otf-aurulent-nerd --noconfirm
+sudo pacman -S otf-codenewroman-nerd --noconfirm
+sudo pacman -S otf-comicshanns-nerd --noconfirm
+sudo pacman -S otf-commit-mono-nerd --noconfirm
+sudo pacman -S otf-droid-nerd --noconfirm
+sudo pacman -S otf-firamono-nerd --noconfirm
+sudo pacman -S otf-geist-mono-nerd --noconfirm
+sudo pacman -S otf-hasklig-nerd --noconfirm
+sudo pacman -S otf-hermit-nerd --noconfirm
+sudo pacman -S otf-monaspace-nerd --noconfirm
+sudo pacman -S otf-opendyslexic-nerd --noconfirm
+sudo pacman -S otf-overpass-nerd --noconfirm
+sudo pacman -S pacman-contrib --noconfirm
+sudo pacman -S paru --noconfirm
+sudo pacman -S pavucontrol --noconfirm
+sudo pacman -S peazip --noconfirm
+sudo pacman -S pipewire --noconfirm
+sudo pacman -S pipewire-alsa --noconfirm
+sudo pacman -S plasma-sdk --noconfirm
+sudo pacman -S pnpm --noconfirm
+sudo pacman -S polkit --noconfirm
+sudo pacman -S progress --noconfirm
+sudo pacman -S proxychains-ng --noconfirm
+sudo pacman -S python-pip --noconfirm
+sudo pacman -S qbittorrent --noconfirm
+sudo pacman -S qdiskinfo --noconfirm
+sudo pacman -S qt5ct --noconfirm
+sudo pacman -S qt6ct --noconfirm
+sudo pacman -S rar --noconfirm
+sudo pacman -S rclone --noconfirm
+sudo pacman -S scrcpy --noconfirm
+sudo pacman -S sddm --noconfirm
+sudo pacman -S sof-firmware --noconfirm
+sudo pacman -S soundconverter --noconfirm
+sudo pacman -S speedtest-cli --noconfirm
+sudo pacman -S sshfs --noconfirm
+sudo pacman -S sshpass --noconfirm
+sudo pacman -S steam --noconfirm
+sudo pacman -S stress --noconfirm
+sudo pacman -S termusic --noconfirm
+sudo pacman -S tesseract-data-chi_sim --noconfirm
+sudo pacman -S thunar --noconfirm
+sudo pacman -S thunderbird --noconfirm
+sudo pacman -S tmux --noconfirm
+sudo pacman -S trash-cli --noconfirm
+sudo pacman -S tree --noconfirm
+sudo pacman -S ttf-0xproto-nerd --noconfirm
+sudo pacman -S ttf-3270-nerd --noconfirm
+sudo pacman -S ttf-adwaitamono-nerd --noconfirm
+sudo pacman -S ttf-agave-nerd --noconfirm
+sudo pacman -S ttf-anonymouspro-nerd --noconfirm
+sudo pacman -S ttf-arimo-nerd --noconfirm
+sudo pacman -S ttf-arphic-ukai --noconfirm
+sudo pacman -S ttf-arphic-uming --noconfirm
+sudo pacman -S ttf-bigblueterminal-nerd --noconfirm
+sudo pacman -S ttf-bitstream-vera-mono-nerd --noconfirm
+sudo pacman -S ttf-cascadia-code-nerd --noconfirm
+sudo pacman -S ttf-cascadia-mono-nerd --noconfirm
+sudo pacman -S ttf-cousine-nerd --noconfirm
+sudo pacman -S ttf-d2coding-nerd --noconfirm
+sudo pacman -S ttf-daddytime-mono-nerd --noconfirm
+sudo pacman -S ttf-dejavu-nerd --noconfirm
+sudo pacman -S ttf-envycoder-nerd --noconfirm
+sudo pacman -S ttf-fantasque-nerd --noconfirm
+sudo pacman -S ttf-firacode-nerd --noconfirm
+sudo pacman -S ttf-go-nerd --noconfirm
+sudo pacman -S ttf-gohu-nerd --noconfirm
+sudo pacman -S ttf-hack-nerd --noconfirm
+sudo pacman -S ttf-heavydata-nerd --noconfirm
+sudo pacman -S ttf-iawriter-nerd --noconfirm
+sudo pacman -S ttf-ibmplex-mono-nerd --noconfirm
+sudo pacman -S ttf-inconsolata-go-nerd --noconfirm
+sudo pacman -S ttf-inconsolata-lgc-nerd --noconfirm
+sudo pacman -S ttf-inconsolata-nerd --noconfirm
+sudo pacman -S ttf-intone-nerd --noconfirm
+sudo pacman -S ttf-iosevka-nerd --noconfirm
+sudo pacman -S ttf-iosevkaterm-nerd --noconfirm
+sudo pacman -S ttf-iosevkatermslab-nerd --noconfirm
+sudo pacman -S ttf-lekton-nerd --noconfirm
+sudo pacman -S ttf-liberation-mono-nerd --noconfirm
+sudo pacman -S ttf-lilex-nerd --noconfirm
+sudo pacman -S ttf-martian-mono-nerd --noconfirm
+sudo pacman -S ttf-meslo-nerd --noconfirm
+sudo pacman -S ttf-monofur-nerd --noconfirm
+sudo pacman -S ttf-monoid-nerd --noconfirm
+sudo pacman -S ttf-mononoki-nerd --noconfirm
+sudo pacman -S ttf-mplus-nerd --noconfirm
+sudo pacman -S ttf-nerd-fonts-symbols --noconfirm
+sudo pacman -S ttf-nerd-fonts-symbols-mono --noconfirm
+sudo pacman -S ttf-noto-nerd --noconfirm
+sudo pacman -S ttf-profont-nerd --noconfirm
+sudo pacman -S ttf-proggyclean-nerd --noconfirm
+sudo pacman -S ttf-recursive-nerd --noconfirm
+sudo pacman -S ttf-roboto-mono-nerd --noconfirm
+sudo pacman -S ttf-sharetech-mono-nerd --noconfirm
+sudo pacman -S ttf-sourcecodepro-nerd --noconfirm
+sudo pacman -S ttf-terminus-nerd --noconfirm
+sudo pacman -S ttf-tinos-nerd --noconfirm
+sudo pacman -S ttf-ubuntu-mono-nerd --noconfirm
+sudo pacman -S ttf-ubuntu-nerd --noconfirm
+sudo pacman -S ttf-victor-mono-nerd --noconfirm
+sudo pacman -S ttf-zed-mono-nerd --noconfirm
+sudo pacman -S unixodbc --noconfirm
+sudo pacman -S usbutils --noconfirm
+sudo pacman -S vim --noconfirm
+sudo pacman -S vulkan-radeon --noconfirm
+sudo pacman -S vulkan-tools --noconfirm
+sudo pacman -S wine-mono --noconfirm
+sudo pacman -S wine-staging --noconfirm
+sudo pacman -S winetricks --noconfirm
+sudo pacman -S wlopm --noconfirm
+sudo pacman -S wqy-microhei --noconfirm
+sudo pacman -S wqy-zenhei --noconfirm
+sudo pacman -S xdotool --noconfirm
+sudo pacman -S xfce4-settings --noconfirm
+sudo pacman -S yazi --noconfirm
+sudo pacman -S zbar --noconfirm
+sudo pacman -S zen-browser --noconfirm
+sudo pacman -S zen-browser-i18n-zh-cn --noconfirm
+sudo pacman -S zip --noconfirm
+sudo pacman -S zram-generator --noconfirm
+sudo pacman -S zsh --noconfirm

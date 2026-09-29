@@ -41,9 +41,20 @@ return {
       vim.diagnostic.config({
         virtual_text = { prefix = "●" },  -- 行内诊断前缀符号
         signs = true,                     -- 显示符号列诊断
-        update_in_insert = true,          -- 插入模式下也实时更新诊断
+        update_in_insert = false,         -- 插入模式下不刷新诊断（避免打字时满屏报错）
         severity_sort = true,             -- 按严重级别排序
         float = { border = "rounded" },   -- 诊断浮窗圆角
+      })
+
+      -- 编辑模式不报错：进入插入模式时隐藏诊断，退出插入模式后恢复显示
+      local diag_aug = vim.api.nvim_create_augroup("UserDiagnosticInsertMode", { clear = true })
+      vim.api.nvim_create_autocmd("InsertEnter", {
+        group = diag_aug,
+        callback = function() vim.diagnostic.enable(false) end,
+      })
+      vim.api.nvim_create_autocmd("InsertLeave", {
+        group = diag_aug,
+        callback = function() vim.diagnostic.enable(true) end,
       })
 
       -- ----------------------------------------------------------------------
@@ -65,6 +76,9 @@ return {
           vim.keymap.set("n", "gl", vim.diagnostic.open_float, { buffer = ev.buf, desc = "悬浮诊断" }) -- 悬浮诊断
           vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { buffer = ev.buf, desc = "上一个诊断" }) -- 上一个诊断
           vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { buffer = ev.buf, desc = "下一个诊断" }) -- 下一个诊断
+          -- 诊断列表：位置列表（本文件，底部常驻）/ 快速修复（全部文件）
+          vim.keymap.set("n", "<leader>xx", function() vim.diagnostic.setloclist({ open = true, bufnr = 0 }) end, { buffer = ev.buf, desc = "诊断列表·位置列表（本文件）" })
+          vim.keymap.set("n", "<leader>xX", function() vim.diagnostic.setqflist({ open = true }) end, { buffer = ev.buf, desc = "诊断列表·快速修复（全部）" })
           vim.keymap.set("n", "<leader>lh", function()                     -- 切换 inlay hint（内联类型提示）
             vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled({ bufnr = ev.buf }), { bufnr = ev.buf })
           end, { buffer = ev.buf, desc = "切换内联类型提示" })

@@ -7,8 +7,8 @@
 # ============================================================================
 
 [general]
-font-sans = "Ubuntu Nerd Font"   # 无衬线字体（含图标字形）
-font-mono = "JetBrains Mono"     # 等宽字体（数字/时间等）
+font-sans = "UbuntuBold"   # 非等宽粗体：Ubuntu Nerd Font Bold（含图标字形）
+font-mono = "UbuntuBold"   # 数字/时间等也用同一非等宽粗体
 
 [bar]
 scale = 0.85                      # 全局缩放比例（小屏适配）

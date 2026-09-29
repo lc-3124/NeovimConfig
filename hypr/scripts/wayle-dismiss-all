@@ -1,0 +1,80 @@
+#!/usr/bin/env python3
+# wayle-dismiss-all — 关闭所有通知（供 Hyprland SUPER+CTRL+R 调用）
+#
+# 背景：wayle 的 DismissAll / `wayle notify dismiss-all` 只会清"通知中心"，
+#       对常驻通知（org.freedesktop.Notifications 的 expire_timeout=0，
+#       例如蓝牙设备连接提示）所产生的弹窗不会关闭，会一直挂在屏幕上。
+#       实测这些弹窗无法用 dismiss-all 关闭，但**逐个调用 Dismiss(id) 可以**关掉。
+#       弹窗 id 是自增的小整数，因此直接枚举 id 逐个 Dismiss 即可清空（无需重启 wayle）。
+#
+# 注意：DismissAll 之后仍残留的弹窗就是常驻通知产生的，枚举 id 逐个关即可。
+
+import sys
+
+try:
+    from gi.repository import Gio, GLib
+except Exception:
+    sys.exit(0)
+
+BUS_W = "com.wayle.Notifications1"
+OBJ_W = "/com/wayle/Notifications"
+IFACE_W = "com.wayle.Notifications1"
+BUS_N = "org.freedesktop.Notifications"
+OBJ_N = "/org/freedesktop/Notifications"
+
+bus = Gio.bus_get_sync(Gio.BusType.SESSION, None)
+
+
+def call(name, obj, iface, method, params=None, rtype=None):
+    return bus.call_sync(name, obj, iface, method, params, rtype,
+                         Gio.DBusCallFlags.NONE, -1, None)
+
+
+def popups():
+    try:
+        v = call(BUS_W, OBJ_W, "org.freedesktop.DBus.Properties", "Get",
+                 GLib.Variant("(ss)", (IFACE_W, "PopupCount")),
+                 GLib.VariantType("(v)"))
+        return int(v.unpack()[0])
+    except Exception:
+        return 0
+
+
+# 1) 清空通知中心
+try:
+    call(BUS_W, OBJ_W, IFACE_W, "DismissAll")
+except Exception:
+    sys.exit(0)
+
+if popups() == 0:
+    sys.exit(0)
+
+# 2) 探测当前 id 上限（发一个瞬时通知拿返回值，再把它关掉）
+max_id = 256
+try:
+    params = GLib.Variant(
+        "(susssasa{sv}i)",
+        ("wayle-dismiss-all", 0, "", "", "", [],
+         {"transient": GLib.Variant("b", True)}, 1),
+    )
+    res = call(BUS_N, OBJ_N, BUS_N, "Notify", params, GLib.VariantType("(u)"))
+    max_id = max(int(res.unpack()[0]), 1)
+except Exception:
+    max_id = 256
+
+# 3) 枚举 id 逐个 Dismiss（升序，覆盖所有残留常驻弹窗）
+for i in range(1, max_id + 1):
+    try:
+        call(BUS_W, OBJ_W, IFACE_W, "Dismiss", GLib.Variant("(u)", (i,)))
+    except Exception:
+        pass
+
+# 4) 若仍有残留（id 超过探测值），再向下扫一遍兜底
+if popups() > 0:
+    for i in range(max_id, 0, -1):
+        try:
+            call(BUS_W, OBJ_W, IFACE_W, "Dismiss", GLib.Variant("(u)", (i,)))
+        except Exception:
+            pass
+        if popups() == 0:
+            break
