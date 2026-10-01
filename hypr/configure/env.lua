@@ -49,6 +49,8 @@ hl.config({
 -- 自启动 ------------------------------------------------
 -- hl.on("hyprland.start") 替代旧版 exec-once
 hl.on("hyprland.start", function()
+  -- 开机自动锁屏：每次开机只锁一次（重启 Hyprland 不重复锁）
+  hl.exec_cmd("test -e /run/user/1000/.hyprlocked || { touch /run/user/1000/.hyprlocked; hyprlock; }")
   hl.exec_cmd("systemctl --user start xdg-desktop-portal-hyprland")
   -- 剪贴板历史：wl-paste 监听剪贴板变化，交给 cliphist 存档（文本与图片通吃）
   hl.exec_cmd("wl-paste --watch cliphist store")

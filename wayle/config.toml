@@ -15,8 +15,8 @@ scale = 0.85                      # 全局缩放比例（小屏适配）
 inset-edge = 0                     # 栏与屏幕边缘的内缩（0=紧贴右侧屏幕边）
 inset-ends = 0.5                  # 栏两端的内缩（对应 Hyprland gaps_out 观感）
 padding = 0.09                    # 栏内部整体内边距
-padding-ends = 0.5                # 栏两端内部内边距
-module-gap = 0.5                  # 模块之间的间距
+padding-ends = 0.3                # 栏两端内部内边距（原 0.5 的 60%）
+module-gap = 0.3                  # 模块之间的间距（原 0.5 的 60%）
 location = "right"                # 栏位置：right（右侧垂直栏）
 exclusive = true                  # 独占边缘空间（应用避开状态栏区域）
 layer = "top"                     # Wayland 层：top（悬浮在窗口之上）
@@ -58,7 +58,7 @@ dropdown-freeze-label = true       # 下拉展开时冻结按钮标签
 monitor = "*"                                     # 应用到所有显示器
 left = ["dashboard", "network", "bluetooth", "notifications", "systray"]
 center = ["media", { module = "hyprland-workspaces", class = "wsmod" }, "brightness"]
-right = ["ram", "microphone", "volume", "battery", "clock"]
+right = ["ram", "cpu", "volume", "battery", "clock"]
 
 [styling]
 scale = 0.85                       # 样式缩放
@@ -80,8 +80,8 @@ blue = "#7aa2f7"                   # 蓝色（蓝牙等）
 
 # ---- 工作区模块：Hyprland workspace 指示 ----
 [modules.hyprland-workspaces]
-min-workspace-count = 0            # 最小工作区数（0=不强制显示空工作区）
-monitor-specific = true           # 只显示当前显示器的工作区
+min-workspace-count = 10           # 始终显示 10 个工作区（空工作区也显示跳转图标）
+monitor-specific = false          # 必须关：开着时"空工作区补位"会被跳过（wayle 现状）
 show-special = false              # 不显示特殊工作区（草稿箱）
 urgent-show = true                # 显示紧急请求的工作区
 urgent-mode = "workspace"         # 紧急模式：按工作区高亮
@@ -89,6 +89,8 @@ display-mode = "icon"             # 显示模式：icon（图标而非数字）
 label-use-name = false            # 不使用工作区名称做标签
 numbering = "absolute"            # 编号方式：绝对编号
 app-icons-show = false            # 不显示应用图标
+icon-size = 1.02                  # 工作区图标：比 0.85 再大 20%
+workspace-padding = 0.3           # 工作区按钮间距（默认 0.5，配合图标缩小）
 active-indicator = "background"   # 激活指示：背景高亮
 active-color = "#414855"          # 激活工作区：Storm 主题官方低调灰
 occupied-color = "fg-muted"       # 有窗口工作区颜色（弱化）
@@ -207,6 +209,18 @@ button-bg-color = "#313244cc"     # 按钮背景：surface 色 @80%
 middle-click = "wayle audio input-mute"     # 中键：静音/取消静音
 scroll-up = "wayle audio input-volume +5"   # 滚轮上：音量+5
 scroll-down = "wayle audio input-volume -5" # 滚轮下：音量-5
+
+# ---- CPU 温度模块（替代麦克风按钮）----
+[modules.cpu]
+format = "{{ temp_c }}°C"          # 只显示温度
+temp-sensor = "auto"               # 传感器自动选择（也可写具体标签如 "Package id 0"）
+icon-name = "ld-cpu-symbolic"      # 图标（替代原来的 thermometer）
+icon-show = true
+icon-color = "auto"
+icon-bg-color = "#ff9e64aa"        # 图标底座：暖橙
+label-show = true
+label-color = "fg-default"
+button-bg-color = "#313244cc"     # 按钮背景：surface 色 @80%
 
 # ---- 内存模块 ----
 [modules.ram]

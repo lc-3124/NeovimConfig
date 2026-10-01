@@ -9,8 +9,10 @@ hl.monitor({
   output = "eDP-1",
   mode = "preferred",
   position = "auto",
-  scale = 1.20,
-  transform = 0
+  scale = 1.2,
+  transform = 0,
+  vrr = 1,
+  bitdepth = 10,
 })
 
 -- ============================================================================

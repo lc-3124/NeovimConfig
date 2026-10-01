@@ -125,8 +125,9 @@ hl.animation({ leaf = "specialWorkspace",    enabled = true, speed = 4, spring =
 hl.animation({ leaf = "specialWorkspaceIn",  enabled = true, speed = 4, spring = "snap", style = "slidevert" })
 hl.animation({ leaf = "specialWorkspaceOut", enabled = true, speed = 3, spring = "snap", style = "slidevert" })
 
--- 旋转渐变边框（华丽；loop 会持续渲染，略耗电/影响续航）
-hl.animation({ leaf = "borderangle",   enabled = true,  speed = 8,    bezier = "linear", style = "loop" })
+-- 旋转渐变边框：已关闭（loop 会每帧重绘边框，明显耗电/影响续航）
+-- 关闭后渐变色静止在 45°，不再流动；如需恢复流动把 enabled 改回 true
+hl.animation({ leaf = "borderangle",   enabled = false, speed = 8,    bezier = "linear", style = "loop" })
 
 -- 设备级输入设置 ------------------------------------------------------------
 hl.device({
@@ -140,3 +141,12 @@ hl.gesture({
   direction = "horizontal",
   action = "workspace",
 })
+-- >>> hypr-tuner:config >>>
+hl.config({
+  decoration = {
+    blur = {
+      popups = true,
+    },
+  },
+})
+-- <<< hypr-tuner:config <<<

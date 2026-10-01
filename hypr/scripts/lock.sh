@@ -1,12 +1,19 @@
 #!/usr/bin/env bash
 # ============================================================================
-# 锁屏脚本：先确保屏幕点亮，再用固定壁纸配置启动 hyprlock
-# 壁纸路径见 hyprlock.conf 的 background.path
+# 锁屏脚本
+#   1) 点亮屏幕
+#   2) 立刻弹全屏半透明遮罩 —— 强烈提示"锁屏已触发"，同时盖住启动空档
+#   3) 抓一张清晰桌面给 hyprlock 当背景
+#   4) 锁屏；遮罩会在 lifeMs 后自行退出（那时已被 session-lock 隐藏）
+# 同时被 META+L 锁屏 和 META+ALT+L 挂起 复用
 # ============================================================================
+D="$HOME/.config/hypr/scripts"
 
-# 锁屏前先确保屏幕是亮的：防止在熄屏状态下锁屏导致锁屏界面不可见
-# （本脚本同时被 META+L 锁屏 和 META+ALT+L 挂起 复用，一处修复覆盖两个入口）
 wlopm --on '*' 2>/dev/null
-sleep 0.2
+sleep 0.05
+
+"$D/lock-veil.sh"
+
+"$D/hyprlock-bg.sh" || true
 
 exec hyprlock

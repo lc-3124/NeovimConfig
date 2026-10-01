@@ -13,8 +13,9 @@
 
 -- 全局规则：忽略最大化请求 ------------------------------------------------
 -- 所有窗口都不允许最大化，窗口行为统一由平铺管理器控制
+-- 原规则名: suppress-maximize
 hl.window_rule({
-  name = "suppress-maximize",
+  name = "全局·禁止最大化",
   match = { class = ".*" },
   suppress_event = "maximize",
 })
@@ -22,8 +23,9 @@ hl.window_rule({
 -- XWayland 拖拽/焦点修复 -------------------------------------------------
 -- XWayland 应用（如 Wine）在浮动且非全屏时可能出现拖拽或焦点异常
 -- 此规则匹配这些条件但不做任何操作，仅作标记（依赖 hyprland 内部行为）
+-- 原规则名: fix-xwayland-drag
 hl.window_rule({
-  name = "fix-xwayland-drag",
+  name = "XWayland·拖拽焦点修复",
   match = {
     xwayland = true,
     float = true,
@@ -35,8 +37,9 @@ hl.window_rule({
 -- Kitty 终端浮动模式 ------------------------------------------------------
 -- 以浮动窗口启动 Kitty，默认 1650x880 居中
 -- 适合作为临时编辑器、参考文档阅读器等场景
+-- 原规则名: kitty-float
  hl.window_rule({
-  name = "kitty-float",
+  name = "Kitty·浮动",
   match = { class = "^(kitty)$" },
  -- float = true,
  --  size = "1650 880",
@@ -45,16 +48,18 @@ hl.window_rule({
 })
 
 -- Kitty 透明度（第二个规则，可单独启用/禁用）-------------------------------
+-- 原规则名: kitty-opacity
 hl.window_rule({
-  name = "kitty-opacity",
+  name = "Kitty·透明度",
   match = { class = "^(kitty)$" },
 })
 
 -- termfilechooser 悬浮文件选择器 ---------------------------------------------
 -- 由 xdg-desktop-portal-termfilechooser 启动的 yazi 选择窗口（kitty，title=termfilechooser）
 -- 强制浮动 + 0.9 透明度 + 屏幕 80% 居中
+-- 原规则名: termfilechooser-float
 hl.window_rule({
-  name = "termfilechooser-float",
+  name = "文件选择器·浮动居中",
   match = { title = ".*termfilechooser.*" },
   float = true,
   size = "monitor_w*0.8 monitor_h*0.8",
@@ -64,8 +69,9 @@ hl.window_rule({
 
 -- PeaZip 悬浮压缩管理 ---------------------------------------------------------
 -- 启动时强制浮动 + 屏幕 80% 居中（纯配置方案）
+-- 原规则名: peazip-float
 hl.window_rule({
-  name = "peazip-float",
+  name = "PeaZip·浮动居中",
   match = { class = ".*[Pp]ea[Zz]ip.*" },
   float = true,
   size = "monitor_w*0.8 monitor_h*0.8",
@@ -74,8 +80,9 @@ hl.window_rule({
 
 -- mpv 悬浮播放器 ---------------------------------------------------------------
 -- 强制浮动，占屏幕逻辑尺寸 80%，居中。纯配置方案（无 wrapper）
+-- 原规则名: mpv-float
 hl.window_rule({
-  name = "mpv-float",
+  name = "mpv·浮动居中",
   match = { class = "^mpv$" },
   float = true,
   size = "monitor_w*0.8 monitor_h*0.8",
@@ -84,8 +91,9 @@ hl.window_rule({
 
 -- eog 悬浮图像查看器 -----------------------------------------------------------
 -- 强制浮动 + 屏幕 80% 居中（纯配置方案）
+-- 原规则名: eog-float
 hl.window_rule({
-  name = "eog-float",
+  name = "图像查看器·浮动居中",
   match = { class = "^(eog|org\\.gnome\\.eog)$" },
   float = true,
   size = "monitor_w*0.8 monitor_h*0.8",
@@ -94,8 +102,9 @@ hl.window_rule({
 
 -- mkvextract 悬浮mkv提取器 -----------------------------------------------------------
 -- 强制浮动 + 屏幕 80% 居中（纯配置方案）
+-- 原规则名: mkvextract-float
 hl.window_rule({
-  name = "mkvextract-float",
+  name = "MKV提取器·浮动居中",
   match = { class = "mkvextract-gtk" },
   float = true,
   size = "monitor_w*0.8 monitor_h*0.8",
@@ -104,15 +113,17 @@ hl.window_rule({
 
 -- 测试/示例窗口浮动 -------------------------------------------------------
 -- 标题含有 "_demo_or_test" 的窗口自动浮动
+-- 原规则名: dev-float
 hl.window_rule({
-  name = "dev-float",
+  name = "开发·测试窗口浮动",
   match = { title = ".*_demo_or_test.*" },
   float = true,
 })
 
 -- Steam 浮动居中 ----------------------------------------------------------
+-- 原规则名: steam-float
 hl.window_rule({
-  name = "steam-float",
+  name = "Steam·浮动居中",
   match = { class = ".*steam.*" },
   float = true,
   center = true,
@@ -120,8 +131,9 @@ hl.window_rule({
 
 -- AnyTalk 语音输入浮层 ----------------------------------------------------
 -- fcitx5-anytalk 的语音识别浮层：浮动、不抢占焦点、居中显示
+-- 原规则名: anytalk-float
 hl.window_rule({
-  name = "anytalk-float",
+  name = "AnyTalk·语音浮层",
   match = { class = "^(anytalk-overlay)$" },
   float = true,
   no_focus = true,
@@ -129,23 +141,71 @@ hl.window_rule({
 })
 
 -- Wine 窗口浮动 -----------------------------------------------------------
+-- 原规则名: wine-float
 hl.window_rule({
-  name = "wine-float",
+  name = "Wine·浮动",
   match = { class = "^(wine|Wine|.*\\.[Ee][Xx][Ee])$" },
   float = true,
 })
 
 -- 工作区 9/10 半透明 -------------------------------------------------------
 -- 9/10 号工作区所有窗口设 0.8 透明度
+-- 原规则名: ws9-transparent
 hl.window_rule({
-  name = "ws9-transparent",
+  name = "工作区9·半透明",
   match = { workspace = "9" },
   opacity = "0.89",
 })
+-- 原规则名: ws10-transparent
 hl.window_rule({
-  name = "ws10-transparent",
+  name = "工作区10·半透明",
   match = { workspace = "10" },
   opacity = "0.89",
+})
+
+-- QQ 悬浮窗口 ---------------------------------------------------------------
+-- 新建窗口浮动；纵向 3:4，高度为屏幕高度的 0.8（宽 = 0.8 * 3/4 = 0.6 倍屏高）
+-- 原规则名: qq-float
+hl.window_rule({
+  name = "QQ·悬浮居中窗口",
+  match = { class = "^QQ$" },
+  float = true,
+  size = "monitor_h*0.6 monitor_h*0.8",
+  center = true,
+})
+
+hl.window_rule({
+  name = "hypr-tuner:QQ·悬浮居中窗口",
+  match = {
+    class = "^QQ$",
+  },
+  float = true,
+  center = true,
+  size = "monitor_w*0.5 monitor_h*0.8",
+})
+
+hl.window_rule({
+  name = "hypr-tuner:FlClash",
+  match = {
+    title = "flclash",
+  },
+  workspace = "10",
+})
+
+hl.window_rule({
+  name = "hypr-tuner:flclash",
+  match = {
+    class = "^com.follow.clash$",
+  },
+  workspace = "10",
+})
+
+hl.window_rule({
+  name = "hypr-tuner:zen-browser",
+  match = {
+    class = "^zen\\-browser$",
+  },
+  border_size = 2,
 })
 
 -- ============================================================================
@@ -200,5 +260,24 @@ hl.window_rule({
 --   hyprctl setrule "规则名" enable
 --   hyprctl setrule "规则名" disable
 -- 例:
---   hyprctl setrule "kitty-float" disable  -- 临时取消 Kitty 浮动
+--   hyprctl setrule "Kitty·浮动" disable  -- 临时取消 Kitty 浮动
 -- ============================================================================
+
+
+-- ============================================================================
+-- 锁屏遮罩（lock-veil）：浮动 + 置顶 + 比屏幕更大 + 无任何装饰
+-- 目的：锁屏时盖一层半透明黑做强烈视觉切换，且不参与平铺、不挤压其它窗口，
+--       尺寸超出屏幕让边框/圆角落在屏幕外，肉眼看不到边缘。
+-- ============================================================================
+hl.window_rule({
+  name = "lock-veil·浮动超大无装饰",
+  match = { class = "^lock-veil$" },
+  float = true,
+  size = "2200 1300",
+  move = "-140 -110",
+  decorate = false,
+  no_shadow = true,
+  no_blur = true,
+  no_anim = true,
+  stay_focused = false,
+})
