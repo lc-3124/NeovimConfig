@@ -164,16 +164,6 @@ hl.window_rule({
 })
 
 -- QQ 悬浮窗口 ---------------------------------------------------------------
--- 新建窗口浮动；纵向 3:4，高度为屏幕高度的 0.8（宽 = 0.8 * 3/4 = 0.6 倍屏高）
--- 原规则名: qq-float
-hl.window_rule({
-  name = "QQ·悬浮居中窗口",
-  match = { class = "^QQ$" },
-  float = true,
-  size = "monitor_h*0.6 monitor_h*0.8",
-  center = true,
-})
-
 hl.window_rule({
   name = "hypr-tuner:QQ·悬浮居中窗口",
   match = {
@@ -181,7 +171,7 @@ hl.window_rule({
   },
   float = true,
   center = true,
-  size = "monitor_w*0.5 monitor_h*0.8",
+  size = "monitor_w*0.5 monitor_h*0.95",
 })
 
 hl.window_rule({
@@ -272,6 +262,7 @@ hl.window_rule({
   match = {
     class = "^wechat$",
   },
+   size = "monitor_w*0.5 monitor_h*0.95",
   float = true,
 })
 
