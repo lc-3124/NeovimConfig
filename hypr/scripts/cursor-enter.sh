@@ -6,6 +6,8 @@ printf 'fast\n' > "$RT/hypr-cursor-speed"
 m=$(hyprctl -j monitors 2>/dev/null | jq -r '.[]|select(.focused==true)|"\(.x) \(.y) \(.width) \(.height)"' | head -1)
 set -- $m
 if [ -n "${1:-}" ]; then
-  hyprctl dispatch "hl.dsp.cursor.move({ x = $(( $1 + $3/2 )), y = $(( $2 + $4/2 )) })" >/dev/null 2>&1
+  cx=$(( $1 + $3/2 )); cy=$(( $2 + $4/2 ))
+  echo "$cx $cy" > "$RT/hypr-cursor-pos"   # 交接给 hypr-cursor 守护作为初始位置
+  hyprctl dispatch "hl.dsp.cursor.move({ x = $cx, y = $cy })" >/dev/null 2>&1
 fi
 hyprctl dispatch 'hl.dsp.submap("cursor")' >/dev/null 2>&1

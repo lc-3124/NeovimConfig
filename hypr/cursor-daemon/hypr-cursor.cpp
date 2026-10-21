@@ -29,6 +29,7 @@
 #include <signal.h>
 #include <unistd.h>
 
+#include <cerrno>
 #include <cmath>
 #include <cstdio>
 #include <cstdlib>
@@ -73,9 +74,8 @@ public:
         if (cmd_fd_ < 0 || evt_fd_ < 0) { close_all(); return false; }
         fcntl(evt_fd_, F_SETFL, O_NONBLOCK);
 
-        std::string sm = command("submap");
-        while (!sm.empty() && (sm.back() == '\n' || sm.back() == '\r')) sm.pop_back();
-        in_cursor_ = false;   // 以事件 socket 的 submap 事件为准
+        // 注意：不要在这里发 "submap" 命令 —— 该 IPC 命令不存在，
+        // Hyprland 会直接关闭连接，导致 ok() 变 false → 无限重连。
         fprintf(stderr, "[hypr-cursor] connected (%s)\n", dir.c_str());
         return true;
     }
@@ -94,7 +94,8 @@ public:
         char buf[512];
         ssize_t n = read(cmd_fd_, buf, sizeof(buf) - 1);
         if (n <= 0) {
-            close_all();
+            // 超时（EAGAIN）只说明这次没及时回复，不能当作断线
+            if (n == 0 || (errno != EAGAIN && errno != EWOULDBLOCK)) close_all();
             return "";
         }
         return std::string(buf, n);
@@ -125,10 +126,13 @@ public:
     }
 
     bool cursor_pos(int& x, int& y) {
-        std::string r = command("cursorpos");   // 形如 "123, 456"
+        // 这个版本的 Hyprland 没有 "cursorpos" IPC 命令（返回 unknown request），
+        // 也没有 hl.cursorpos()；位置要用 repl 执行 Lua：hl.get_cursor_pos()
+        std::string r = command(
+            "repl local p=hl.get_cursor_pos() return math.floor(p.x)..\",\"..math.floor(p.y)");
         if (r.empty()) return false;
         int a = 0, b = 0;
-        if (sscanf(r.c_str(), "%d, %d", &a, &b) != 2) return false;
+        if (sscanf(r.c_str(), "%d,%d", &a, &b) != 2) return false;
         x = a; y = b;
         return true;
     }
@@ -166,6 +170,11 @@ private:
         if (path.size() >= sizeof(addr.sun_path)) { close(fd); return -1; }
         strncpy(addr.sun_path, path.c_str(), sizeof(addr.sun_path) - 1);
         if (connect(fd, reinterpret_cast<sockaddr*>(&addr), sizeof(addr)) != 0) { close(fd); return -1; }
+        // 防止 Hyprland 无响应时把守护进程卡死
+        timeval tv{};
+        tv.tv_sec = 1;
+        setsockopt(fd, SOL_SOCKET, SO_RCVTIMEO, &tv, sizeof(tv));
+        setsockopt(fd, SOL_SOCKET, SO_SNDTIMEO, &tv, sizeof(tv));
         return fd;
     }
 
@@ -250,13 +259,16 @@ struct Keyboard {
     std::string path;
 };
 
+// 判断是否是"主键盘"接口：要求具备字母键与空格（排除多媒体/系统控制接口，
+// 它们也会带 kbd handler，但只暴露音量/电源等少量键）。
 bool is_keyboard(int fd) {
     unsigned long bits[KEY_CNT / (8 * sizeof(unsigned long)) + 1] = {0};
     if (ioctl(fd, EVIOCGBIT(EV_KEY, sizeof(bits)), bits) < 0) return false;
     auto has = [&](int code) {
         return (bits[code / (8 * sizeof(unsigned long))] >> (code % (8 * sizeof(unsigned long)))) & 1UL;
     };
-    return has(KEY_A) && has(KEY_W) && has(KEY_D) && has(KEY_SPACE);
+    // 任意布局的实体键盘都会有这些物理键
+    return has(KEY_A) && has(KEY_W) && has(KEY_S) && has(KEY_D) && has(KEY_SPACE) && has(KEY_ENTER);
 }
 
 // 增量扫描 /dev/input，把新出现的键盘加入 out（支持热插拔）
@@ -293,6 +305,22 @@ struct State {
     double wheel_acc = 0.0;
 };
 
+// 光标位置由 cursor-enter.sh 写入（"x y"）。
+// 不用 repl 查询 hl.get_cursor_pos()：实测 repl 会偶发超时（阻塞 1s），
+// 放在移动路径上会导致卡顿。
+constexpr const char* kPosFile = "/run/user/1000/hypr-cursor-pos";
+
+bool read_pos_file(int& x, int& y) {
+    FILE* f = fopen(kPosFile, "r");
+    if (!f) return false;
+    int a = 0, b = 0;
+    int n = fscanf(f, "%d %d", &a, &b);
+    fclose(f);
+    if (n != 2) return false;
+    x = a; y = b;
+    return true;
+}
+
 }  // namespace
 
 int main() {
@@ -319,6 +347,11 @@ int main() {
     State st;
     bool was_cursor = false;
     double next_tick = now_ms() + kTickMs;
+    // 本地跟踪的光标位置：每帧累加后 dispatch 设置绝对值。
+    // 初始值来自 cursor-enter.sh 写的文件；之后若文件被更新（重新居中 / 网格选点）就重新同步。
+    int px = 0, py = 0;
+    bool pos_valid = false;
+    time_t pos_mtime = 0;
 
     while (g_run) {
         // 构建 poll 集合：键盘 + Hyprland 事件 socket
@@ -332,8 +365,12 @@ int main() {
 
         int rc = poll(pfds.data(), pfds.size(), timeout);
 
-        // IPC 断开（Hyprland 重启）→ 重连
+        // IPC 断开（Hyprland 重启）→ 重连（带节流，避免忙等/刷屏）
         if (!hypr.ok()) {
+            static double next_try = 0;
+            double tn = now_ms();
+            if (tn < next_try) { usleep(50 * 1000); continue; }
+            next_try = tn + 500;
             if (!hypr.connect_once()) { usleep(500 * 1000); continue; }
             continue;
         }
@@ -379,6 +416,11 @@ int main() {
         bool act = cursor_active();
         if (act != was_cursor) {
             fprintf(stderr, "[hypr-cursor] %s\n", act ? "cursor mode ON" : "cursor mode OFF");
+            if (act) {
+                struct stat stt{};
+                pos_mtime = (stat(kPosFile, &stt) == 0) ? stt.st_mtime : 0;
+                pos_valid = read_pos_file(px, py) || hypr.cursor_pos(px, py);
+            }
             was_cursor = act;
         }
         if (!act && st.drag) { vm.button(BTN_LEFT, false); }
@@ -394,7 +436,18 @@ int main() {
 
         if (!cursor_active()) continue;
 
-        // ---- 移动：读真实位置 + 设置绝对位置 ----
+        // 位置文件被更新（重新居中 / 网格选点）→ 重新同步
+        static double next_poschk = 0;
+        if (t >= next_poschk) {
+            struct stat stt{};
+            if (stat(kPosFile, &stt) == 0 && stt.st_mtime != pos_mtime) {
+                pos_mtime = stt.st_mtime;
+                if (read_pos_file(px, py)) pos_valid = true;
+            }
+            next_poschk = t + 200;
+        }
+
+        // ---- 移动：累加本地坐标 → 设置绝对位置 ----
         int dx = (st.right ? 1 : 0) - (st.left ? 1 : 0);
         int dy = (st.down ? 1 : 0) - (st.up ? 1 : 0);
         if (dx != 0 || dy != 0) {
@@ -404,10 +457,11 @@ int main() {
                 const double inv = 1.0 / std::sqrt(2.0);
                 vx *= inv; vy *= inv;
             }
-            int px, py;
-            if (hypr.cursor_pos(px, py)) {
-                hypr.move_cursor(px + static_cast<int>(std::lround(vx * speed)),
-                                 py + static_cast<int>(std::lround(vy * speed)));
+            if (!pos_valid) pos_valid = read_pos_file(px, py) || hypr.cursor_pos(px, py);
+            if (pos_valid) {
+                px += static_cast<int>(std::lround(vx * speed));
+                py += static_cast<int>(std::lround(vy * speed));
+                hypr.move_cursor(px, py);
             }
         }
 
