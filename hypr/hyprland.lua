@@ -10,26 +10,8 @@ require("configure.permissions")
 require("configure.keybind")
 require("configure.typical")
 
--- ============================================================================
--- HyprVim：只用来做 WhichKey（按键提示浮层）；不启用它的 Vim 模式。
---   activate 指向一个几乎不会按到的键（PAUSE），彻底避免误入 NORMAL/INSERT。
---   SUPER+SPACE  → 显示「根（全局）快捷键」提示；再按一次或 ESC 关闭。
---   进入子图（如 screen / screen-move）时也会自动弹出对应提示。
--- ============================================================================
-local HV = require("lua.plugins.hyprvim").setup({
-  keys = { leader = "SUPER", activate = "PAUSE", exit = "ESCAPE" },
-  which_key = {
-    enabled = true,
-    frontend = "quickshell",
-    delay_ms = 0,
-    position = "center",
-    auto_show = { disabled = { "cursor" } },   -- cursor 子图不弹 WhichKey HUD
-  },
-})
-
-hl.bind("SUPER + SPACE", function()
-  HV.whichkey.toggle()
-end, { description = "快捷键提示" })
+-- HyprVim（WhichKey 提示浮层）：全部实现放在 configure/hyprvim.lua
+local HK = require("configure.hyprvim")
 
 -- 浮层显示期间截获 ESC：关闭浮层且不传给应用；
 -- 浮层未显示时，正常把 ESC 转发给当前窗口（等价于原生行为）。
@@ -96,11 +78,8 @@ hl.bind("ESCAPE", function()
   end
 
   -- 2) whichkey 浮层可见：关闭浮层且不传给应用
-  local vis = require("hyprvim.config").state_dir .. "/whichkey-visible"
-  local f = io.open(vis, "r")
-  if f then
-    f:close()
-    HV.whichkey.close()
+  if HK.visible() then
+    HK.close()
   else
     -- 3) 其它情况：把 ESC 转发给当前窗口（等价原生行为）
     hl.dispatch(hl.dsp.send_shortcut({ mods = "", key = "Escape", window = "activewindow" }))
@@ -135,12 +114,3 @@ hl.define_submap("cursor", function()
     MV .. " stop; echo \"buttonup left\" | dotoolc; hyprctl eval 'hl.config({ cursor = { inactive_timeout = 3, hide_on_key_press = true }})'; hyprctl dispatch 'hl.dsp.submap(\"reset\")'; hyprctl dismissnotify; ~/.config/hypr/scripts/hyprwarp-once.sh"), { repeating = true })
   hl.bind("escape", hl.dsp.exec_cmd("~/.config/hypr/scripts/cursor-exit.sh"))
 end)
-
--- WhichKey HUD 毛玻璃：半透明背景 + 背景模糊
-hl.layer_rule({
-  name = "hyprvim-whichkey",
-  match = { namespace = "hyprvim-whichkey" },
-  blur = true,
-  ignore_alpha = 0.3,
-  no_anim = true,
-})
