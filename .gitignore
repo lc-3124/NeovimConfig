@@ -11,3 +11,6 @@ fcitx5/conf/*.bak
 NeovimConfig-repo/
 **/__pycache__/
 *.pyc
+
+# 编译产物
+hypr/cursor-daemon/hypr-cursor

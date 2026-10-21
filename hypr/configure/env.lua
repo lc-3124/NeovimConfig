@@ -84,5 +84,6 @@ hl.on("hyprland.start", function()
   -- dotool 常驻服务端（hyprwarp 的点击/移动回调经 dotoolc 发给它）
   hl.exec_cmd("pgrep -x dotoold >/dev/null || dotoold")
   -- 平滑光标/滚动守护（hyprwarp 光标模式用）
-  hl.exec_cmd("~/.config/hypr/scripts/cursor-mover.sh")
+  -- 光标移动改由常驻守护 hypr-cursor（systemd，直接读 evdev）负责
+  -- hl.exec_cmd("~/.config/hypr/scripts/cursor-mover.sh")
 end)

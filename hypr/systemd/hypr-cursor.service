@@ -1,0 +1,12 @@
+[Unit]
+Description=HyprCursor - keyboard-driven pointer daemon (evdev + Hyprland IPC)
+After=multi-user.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/hypr-cursor
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
