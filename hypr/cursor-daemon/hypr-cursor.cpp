@@ -42,11 +42,16 @@ namespace {
 
 constexpr const char* kRuntime = "/run/user/1000";
 constexpr const char* kHyprDir = "/run/user/1000/hypr";
+// 光标模式标志：由 cursor-enter.sh 创建、cursor-exit.sh 删除。
+// 不用 Hyprland 事件 socket 的 submap 事件 —— 实测连接会在每次 submap
+// 变化后被关闭，重连时状态丢失，导致按键无响应。
+constexpr const char* kActiveFile = "/run/user/1000/hypr-cursor-active";
 constexpr int kTickMs = 16;
 constexpr double kFastPx = 18.0;   // 每帧像素（≈1125 px/s）
 constexpr double kSlowPx = 3.0;    // 每帧像素（≈187 px/s）
 
 bool g_run = true;
+bool cursor_active() { return access(kActiveFile, F_OK) == 0; }
 void on_signal(int) { g_run = false; }
 
 double now_ms() {
@@ -354,11 +359,11 @@ int main() {
                         case KEY_A: st.left = down; break;
                         case KEY_D: st.right = down; break;
                         case KEY_I: st.slow = down; break;
-                        case KEY_J: if (down && hypr.in_cursor()) vm.click(BTN_LEFT); break;
-                        case KEY_O: if (down && hypr.in_cursor()) vm.click(BTN_RIGHT); break;
-                        case KEY_SPACE: if (down && hypr.in_cursor()) vm.click(BTN_MIDDLE); break;
+                        case KEY_J: if (down && cursor_active()) vm.click(BTN_LEFT); break;
+                        case KEY_O: if (down && cursor_active()) vm.click(BTN_RIGHT); break;
+                        case KEY_SPACE: if (down && cursor_active()) vm.click(BTN_MIDDLE); break;
                         case KEY_V:
-                            if (hypr.in_cursor()) { st.drag = down; vm.button(BTN_LEFT, down); }
+                            if (cursor_active()) { st.drag = down; vm.button(BTN_LEFT, down); }
                             break;
                         case KEY_Q: if (down) st.wheel_acc = -1; else if (st.wheel_acc < 0) st.wheel_acc = 0; break;
                         case KEY_E: if (down) st.wheel_acc = 1; else if (st.wheel_acc > 0) st.wheel_acc = 0; break;
@@ -371,11 +376,13 @@ int main() {
         }
 
         // 模式切换：离开光标模式时释放按键并清空状态
-        if (was_cursor && !hypr.in_cursor()) {
-            if (st.drag) vm.button(BTN_LEFT, false);
-            st = State{};
+        bool act = cursor_active();
+        if (act != was_cursor) {
+            fprintf(stderr, "[hypr-cursor] %s\n", act ? "cursor mode ON" : "cursor mode OFF");
+            was_cursor = act;
         }
-        was_cursor = hypr.in_cursor();
+        if (!act && st.drag) { vm.button(BTN_LEFT, false); }
+        if (!act) st = State{};
 
         double t = now_ms();
         if (t < next_tick) continue;
@@ -385,7 +392,7 @@ int main() {
         static double next_scan = 0;
         if (t >= next_scan) { scan_keyboards(kbs); next_scan = t + 1000; }
 
-        if (!hypr.in_cursor()) continue;
+        if (!cursor_active()) continue;
 
         // ---- 移动：读真实位置 + 设置绝对位置 ----
         int dx = (st.right ? 1 : 0) - (st.left ? 1 : 0);
