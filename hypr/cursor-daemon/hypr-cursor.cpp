@@ -129,8 +129,10 @@ public:
     }
 
     void move_cursor(int x, int y) {
-        char c[96];
-        snprintf(c, sizeof(c), "dispatch movecursor %d %d", x, y);
+        // 注意：这个 Hyprland 版本的 dispatch 走 Lua 表达式，
+        // 不能写 "dispatch movecursor x y"，必须用 hl.dsp.cursor.move({...})
+        char c[160];
+        snprintf(c, sizeof(c), "dispatch hl.dsp.cursor.move({ x = %d, y = %d })", x, y);
         command(c);
     }
 
