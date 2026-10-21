@@ -1,0 +1,147 @@
+#!/usr/bin/env bash
+# ============================================================================
+# we-import-image —— 把静态图片包成 we-layerd 能渲染的「web 壁纸」，导入 we-gui 库。
+#
+# 用法:
+#   we-import-image <图片> [标题] [--fit contain|cover|scale-down|fill] [--pos POS] [--screen WxH]
+#   we-import-image list                 # 枚举已导入的
+#   we-import-image remove <关键词|id>   # 删除（按 id、标题或标题片段匹配）
+#
+# 说明:
+#   we-layerd 只有 scene/video/web 三类，没有"静态图"类型；这里用最小 web 壁纸包装。
+#   导入前会用 ImageMagick 把过大的图片「只缩小、不放大」到屏幕尺寸附近，然后按 --fit 显示：
+#     contain   (默认) 完整显示整张图，比例不符时留黑边 —— 尽可能多展示内容
+#     cover            铺满屏幕，比例不符时裁掉超出部分（可能只看到中间/一侧）
+#     scale-down       同 contain，但不放大小图
+#     fill             拉伸铺满
+#   --pos   object-position，默认 center；可取 left/right/top/bottom 等。
+#   --screen 目标分辨率，默认自动探测所有显示器（取包围盒）。
+# ============================================================================
+set -euo pipefail
+
+err(){ echo "错误: $*" >&2; exit 1; }
+
+find_ws() {
+    for base in "$HOME/.local/share/Steam" "$HOME/.steam/steam" \
+                "$HOME/.var/app/com.valvesoftware.Steam/data/Steam"; do
+        [ -d "$base/steamapps/workshop/content/431960" ] \
+            && { printf '%s' "$base/steamapps/workshop/content/431960"; return; }
+    done
+}
+
+detect_screen() {
+    local s=""
+    s=$(hyprctl -j monitors 2>/dev/null | jq -r '
+        map(if ((.transform // 0) % 2 == 1) then {w:.height,h:.width} else {w:.width,h:.height} end)
+        | {w:(map(.w)|max), h:(map(.h)|max)} | "\(.w)x\(.h)"' 2>/dev/null) || true
+    [ -n "$s" ] && [ "$s" != "nullxnull" ] && printf '%s' "$s" || printf '1920x1080'
+}
+
+WS="$(find_ws)"; [ -n "$WS" ] || err "找不到 Steam 工坊目录 431960（Wallpaper Engine）"
+meta_of(){ printf '%s/.we-import.json' "$1"; }
+
+cmd_list() {
+    local found=0 d id title src fit pos m
+    for d in "$WS"/local-*; do
+        [ -d "$d" ] || continue
+        found=1
+        id="$(basename "$d")"
+        m="$(meta_of "$d")"
+        if [ -f "$m" ]; then
+            title="$(jq -r '.title // "?"' "$m")"
+            src="$(jq -r '.source // "?"' "$m")"
+            fit="$(jq -r '.fit // "?"' "$m")"
+            pos="$(jq -r '.pos // "?"' "$m")"
+        else
+            title="$(jq -r '.title // "?"' "$d/project.json" 2>/dev/null || true)"
+            [ -n "$title" ] || title="?"
+            src="(旧版导入：无元数据)"
+            fit="?"; pos="?"
+        fi
+        printf '%-22s  %s   [fit=%s pos=%s]\n      %s\n' "$id" "$title" "$fit" "$pos" "$src"
+    done
+    [ "$found" = 1 ] || echo "(没有通过 we-import-image 导入的项目)"
+}
+
+cmd_remove() {
+    local kw="${1:?用法: we-import-image remove <关键词|id>}" d id title hit=0 m
+    for d in "$WS"/local-*; do
+        [ -d "$d" ] || continue
+        id="$(basename "$d")"
+        m="$(meta_of "$d")"
+        if [ -f "$m" ]; then
+            title="$(jq -r '.title // ""' "$m")"
+        else
+            title="$(jq -r '.title // ""' "$d/project.json" 2>/dev/null || true)"
+        fi
+        if [ "$id" = "$kw" ] || [ "$title" = "$kw" ] \
+           || { [ -n "$title" ] && [[ "$title" == *"$kw"* ]]; }; then
+            rm -rf -- "$d"
+            echo "已删除: $id  ($title)"
+            hit=1
+        fi
+    done
+    [ "$hit" = 1 ] || err "没找到匹配的导入项: $kw"
+}
+
+cmd_import() {
+    local IMG="" TITLE="" FIT="contain" POS="center" SCREEN=""
+    IMG="${1:?用法: we-import-image <图片> [标题] [--fit contain|cover|scale-down|fill] [--pos POS] [--screen WxH]}"
+    shift
+    if [ $# -gt 0 ] && [[ "$1" != --* ]]; then TITLE="$1"; shift; fi
+    TITLE="${TITLE:-$(basename "${IMG%.*}")}"
+    while [ $# -gt 0 ]; do
+        case "$1" in
+            --fit)    FIT="${2:?}"; shift 2;;
+            --pos)    POS="${2:?}"; shift 2;;
+            --screen) SCREEN="${2:?}"; shift 2;;
+            *) err "未知参数: $1";;
+        esac
+    done
+    [ -f "$IMG" ] || err "找不到图片: $IMG"
+    case "$FIT" in contain|cover|scale-down|fill) ;; *) err "--fit 只能取 contain|cover|scale-down|fill";; esac
+
+    SCREEN="${SCREEN:-$(detect_screen)}"
+    local SW="${SCREEN%x*}" SH="${SCREEN#*x}"
+
+    local ID="local-$(date +%s)"
+    local DEST="$WS/$ID"
+    mkdir -p "$DEST"
+
+    # 预处理：只缩小、不放大，缩进屏幕尺寸框内；并生成缩略图
+    if command -v magick >/dev/null 2>&1; then
+        magick "$IMG" -auto-orient -resize "${SW}x${SH}>" "$DEST/bg.png"
+        magick "$IMG" -auto-orient -resize '512x512^' -gravity center -extent 512x512 \
+            "$DEST/preview.jpg" 2>/dev/null || cp -- "$IMG" "$DEST/preview.jpg"
+    else
+        cp -- "$IMG" "$DEST/bg.png"
+        cp -- "$IMG" "$DEST/preview.jpg"
+    fi
+
+    cat > "$DEST/index.html" <<HTML
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #000; }
+  img { width: 100%; height: 100%; object-fit: ${FIT}; object-position: ${POS}; }
+</style></head>
+<body><img src="bg.png" alt=""></body></html>
+HTML
+
+    jq -n --arg t "$TITLE" '{title:$t, type:"web", file:"index.html", preview:"preview.jpg", tags:[], contentrating:"Everyone"}' \
+        > "$DEST/project.json"
+    jq -n --arg t "$TITLE" --arg s "$IMG" --arg f "$FIT" --arg p "$POS" --arg sc "$SCREEN" \
+        '{title:$t, source:$s, fit:$f, pos:$p, screen:$sc}' > "$(meta_of "$DEST")"
+
+    echo "已导入 → $DEST"
+    echo "标题: $TITLE   fit=$FIT   pos=$POS   屏幕≈$SCREEN"
+    echo "在 we-gui 里刷新壁纸库即可看到「$TITLE」。"
+    echo "显示区域：改 $DEST/index.html 的 object-fit / object-position，或直接改 bg.png。"
+}
+
+case "${1:-}" in
+    ""|-h|--help|help)  sed -n '2,24p' "$0"; exit 0;;
+    list|ls)            shift; cmd_list;;
+    remove|rm|del|delete) shift; cmd_remove "$@";;
+    *)                  cmd_import "$@";;
+esac

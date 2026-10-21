@@ -1,0 +1,7 @@
+# 第三方二进制 / 程序（不属于自写脚本，不进版本管理）
+animiko.appimage
+openlist
+NapCat-QCE-Linux-x64/
+
+# 运行时产物
+*.log

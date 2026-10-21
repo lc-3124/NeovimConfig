@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+# ============================================================================
+# 休眠：先进入 hyprlock 锁屏，确认锁住了，再执行系统 hibernate。
+#
+# 顺序很重要 —— 不能"后台起锁 + 定时睡觉"，那样锁常来不及建立，
+# 结果就是唤醒后桌面是未锁状态。这里改为「锁住 → 确认 → 才睡」，
+# 锁不上就取消休眠并弹通知（绝不裸睡）。
+#
+# 用于 META+ALT+H 之类的快捷键。
+# ============================================================================
+set -u
+D="$HOME/.config/hypr/scripts"
+
+lock_ok() { pgrep -x hyprlock >/dev/null 2>&1; }
+
+if ! lock_ok; then
+    # 锁屏（lock.sh 内部：点亮屏幕 → 遮罩 → 抓背景 → 准备指纹 → 拉起 hyprlock）
+    "$D/lock.sh" &
+
+    # 等 hyprlock 真的出现（最多 10 秒）
+    for _ in $(seq 1 200); do
+        lock_ok && break
+        sleep 0.05
+    done
+
+    if ! lock_ok; then
+        notify-send "锁屏失败，已取消休眠" 2>/dev/null || true
+        exit 1
+    fi
+
+    sleep 0.4        # 给锁面一点绘制时间
+fi
+
+systemctl hibernate
