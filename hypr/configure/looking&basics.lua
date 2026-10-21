@@ -72,9 +72,15 @@ hl.config({
   misc = {
     disable_splash_rendering = true,
     focus_on_activate = true,
+    mouse_move_focuses_monitor = true,   -- 鼠标移到另一块屏即聚焦该屏
     disable_hyprland_logo = true,
     force_default_wallpaper = 0,
     font_family = "JBMBold",  -- 粗体：JetBrainsMono Nerd Font Bold（fontconfig 别名）
+  },
+
+  -- 键位行为：方向移动窗口时不跨屏（跨屏只走 SUPER+W / SUPER+SHIFT+W 子图）
+  binds = {
+    window_direction_monitor_fallback = false,
   },
 
   -- XWayland 设置 -----------------------------------------------------------

@@ -265,19 +265,21 @@ hl.window_rule({
 
 
 -- ============================================================================
--- 锁屏遮罩（lock-veil）：浮动 + 置顶 + 比屏幕更大 + 无任何装饰
--- 目的：锁屏时盖一层半透明黑做强烈视觉切换，且不参与平铺、不挤压其它窗口，
---       尺寸超出屏幕让边框/圆角落在屏幕外，肉眼看不到边缘。
--- ============================================================================
+
+
 hl.window_rule({
-  name = "lock-veil·浮动超大无装饰",
-  match = { class = "^lock-veil$" },
+  name = "hypr-tuner:wechat",
+  match = {
+    class = "^wechat$",
+  },
   float = true,
-  size = "2200 1300",
-  move = "-140 -110",
-  decorate = false,
-  no_shadow = true,
-  no_blur = true,
-  no_anim = true,
-  stay_focused = false,
+})
+
+hl.window_rule({
+  name = "hypr-tuner:thunar",
+  match = {
+    class = "^thunar$",
+  },
+   size = "monitor_w*0.8 monitor_h*0.8",
+  float = true,
 })

@@ -6,3 +6,8 @@ fcitx5/conf/*.bak
 **/*.env
 **/*.secret
 **/*.local
+
+# 嵌套的独立仓库副本 / Python 缓存
+NeovimConfig-repo/
+**/__pycache__/
+*.pyc

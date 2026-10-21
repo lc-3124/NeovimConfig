@@ -9,17 +9,39 @@ dir="$HOME/Documents/Pictures/screenshot"
 mkdir -p "$dir"
 file="$dir/$(date +%Y%m%d_%H%M%S).png"
 
+fail() {
+  notify-send -u normal -t 2000 "截图失败" "$1"
+  exit 1
+}
+
 case "${1:-region}" in
   full)                                             # 全屏截图
-    grim "$file"
+    grim "$file" || fail "无法捕获屏幕"
     ;;
   region)                                           # 区域选择截图（slurp 交互选择）
-    grim -g "$(slurp -d)" "$file"
+    # ESC / 右键 / 无选区取消：slurp 退出码非 0 或无输出 → 静默退出，不截图、不提示
+    geometry="$(slurp -d)" || exit 0
+    [ -n "$geometry" ] || exit 0
+    grim -g "$geometry" "$file" || fail "无法捕获所选区域"
     ;;
   focused)                                          # 当前活跃窗口截图
-    grim -g "$(hyprctl activewindow -j | jq -r '"\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"')" "$file"
+    geometry="$(hyprctl activewindow -j 2>/dev/null |
+      jq -r 'select(.at and .size) | "\(.at[0]),\(.at[1]) \(.size[0])x\(.size[1])"')"
+    [ -n "$geometry" ] && [ "$geometry" != "null" ] || fail "没有可截图的窗口"
+    grim -g "$geometry" "$file" || fail "无法捕获窗口"
+    ;;
+  *)
+    echo "用法: screenshot [region|full|focused]" >&2
+    exit 1
     ;;
 esac
 
-wl-copy < "$file"                                   # 自动复制到剪贴板
-notify-send -t 2000 "截图已保存" "$(basename "$file")"
+# 执行到这里说明截图已成功落盘
+[ -s "$file" ] || fail "截图内容为空"
+
+# 复制到剪贴板（失败不影响已保存的截图）
+if wl-copy < "$file" 2>/dev/null; then
+  notify-send -t 2000 "截图已保存" "$(basename "$file")"
+else
+  notify-send -u low -t 2000 "截图已保存（复制剪贴板失败）" "$(basename "$file")"
+fi

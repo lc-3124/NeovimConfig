@@ -18,6 +18,11 @@ return {
       -- 从 cmp-nvim-lsp 获取标准 LSP capabilities（补全/悬浮等能力声明）
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+      -- 把 cmp 能力注入【所有】LSP 服务器（nvim 0.11+ 的 vim.lsp.config 通配符）。
+      -- 必需：新版 mason-lspconfig 已移除 handlers，旧的 per-server setup() 不会触发，
+      -- 用 "*" 才能保证 mason 自动启用的服务器也带上补全能力。
+      vim.lsp.config("*", { capabilities = capabilities })
+
       -- ----------------------------------------------------------------------
       -- 诊断符号（sign column 里显示的图标）
       -- ----------------------------------------------------------------------
@@ -86,7 +91,25 @@ return {
       })
 
       -- ----------------------------------------------------------------------
+      -- lua_ls 专属设置（用 nvim 原生 vim.lsp.config；旧 handlers 已被 mason 移除）
+      -- ----------------------------------------------------------------------
+      vim.lsp.config("lua_ls", {
+        settings = {
+          Lua = {
+            runtime = { version = "LuaJIT" },
+            diagnostics = { globals = { "vim" } },   -- 避免 vim 未定义告警
+            workspace = {
+              library = vim.api.nvim_get_runtime_file("", true), -- 加载 nvim runtime 的类型
+              checkThirdParty = false,               -- 不检查第三方库
+            },
+            telemetry = { enable = false },          -- 关闭遥测
+          },
+        },
+      })
+
+      -- ----------------------------------------------------------------------
       -- mason-lspconfig：声明要自动安装的语言服务器
+      --   automatic_enable = true（默认）：对已安装的服务器自动 vim.lsp.enable()
       -- ----------------------------------------------------------------------
       require("mason-lspconfig").setup({
         ensure_installed = {
@@ -97,27 +120,7 @@ return {
           "ts_ls",         -- TypeScript/JavaScript
           "marksman",      -- Markdown
         },
-        -- 统一的启动处理器：给每个服务器注入 capabilities
-        handlers = {
-          function(server_name)
-            local server_opts = { capabilities = capabilities }
-            -- Lua 服务器特殊配置：让 lua_ls 认识 vim 全局，并加载 Neovim 运行时库
-            if server_name == "lua_ls" then
-              server_opts.settings = {
-                Lua = {
-                  runtime = { version = "LuaJIT" },
-                  diagnostics = { globals = { "vim" } },   -- 避免 vim 未定义告警
-                  workspace = {
-                    library = vim.api.nvim_get_runtime_file("", true), -- 加载 nvim runtime 的类型
-                    checkThirdParty = false,               -- 不检查第三方库
-                  },
-                  telemetry = { enable = false },          -- 关闭遥测
-                },
-              }
-            end
-            require("lspconfig")[server_name].setup(server_opts)
-          end,
-        },
+        automatic_enable = true,
       })
     end,
   },

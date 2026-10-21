@@ -22,7 +22,10 @@ return {
       local luasnip = require("luasnip")
 
       -- 延迟加载 VS Code 风格的代码片段（friendly-snippets）
-      require("luasnip.loaders.from_vscode").lazy_load()
+      -- pcall 包裹：片段加载失败也不该让整个 cmp.setup 崩掉（那样补全会彻底失效）
+      pcall(function()
+        require("luasnip.loaders.from_vscode").lazy_load()
+      end)
 
       cmp.setup({
         -- 代码片段展开：交给 LuaSnip 处理

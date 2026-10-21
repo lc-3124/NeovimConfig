@@ -4,7 +4,7 @@
 -- hl.bind(keys, dispatcher, opts?)
 --   keys      : 修饰键组合，如 "SUPER + Q"（+ 两侧空格可选）
 --   dispatcher: hl.dsp.* 返回的 dispatcher 闭包
---   opts      : { locked, release, repeating, click, ... }
+--   opts      : { locked, release, repeating, click, description, ... }
 -- hl.define_submap(name, reset?, fn) — 定义子映射
 -- ============================================================================
 -- 注：本配置会被脚本解析生成 fuzzel 快捷键列表，添加绑定时需按约定格式
@@ -16,152 +16,201 @@ local fileManager = "thunar"
 local mainMod = "SUPER"
 
 -- 打开终端
-hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal))
--- 剪贴板历史：fuzzel 选条目 → decode 回填剪贴板（文本/图片均可）
-hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"), { description = "clipboard history" })
+hl.bind(mainMod .. " + Q", hl.dsp.exec_cmd(terminal), { description = "打开终端" })
+-- 剪贴板历史
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.exec_cmd("cliphist list | fuzzel --dmenu | cliphist decode | wl-copy"), { description = "剪贴板历史" })
 -- 关闭窗口
-hl.bind(mainMod .. " + C", hl.dsp.window.close())
+hl.bind(mainMod .. " + C", hl.dsp.window.close(), { description = "关闭窗口" })
 -- 强制结束进程
-hl.bind(mainMod .. " + F4", hl.dsp.window.kill())
+hl.bind(mainMod .. " + F4", hl.dsp.window.kill(), { description = "强制结束进程" })
 -- 退出 Hyprland
-hl.bind(mainMod .. " + M", hl.dsp.exit())
--- 锁定屏幕（Meta + L，使用固定壁纸背景）
-hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("~/.config/hypr/scripts/lock.sh"), { description = "lock screen" })
--- 锁屏并挂起（Meta+Alt+L / Ctrl+Alt+L；挂起后锁屏仍在，唤醒需输密码）
-hl.bind("META + ALT + L", hl.dsp.exec_cmd("~/.config/hypr/scripts/lock-suspend.sh"), { locked = true, description = "lock and suspend" })
--- 锁屏并挂起（Meta+Alt+L / Ctrl+Alt+L；挂起后锁屏仍在，唤醒需输密码）
-hl.bind("CTRL + ALT + L", hl.dsp.exec_cmd("~/.config/hypr/scripts/lock-suspend.sh"), { locked = true, description = "lock and suspend" })
--- 熄屏/恢复（Meta+Alt+K / Ctrl+Alt+K；关闭显示器，系统继续运行，再按一次恢复）
-hl.bind("META + ALT + K", hl.dsp.exec_cmd("~/.config/hypr/scripts/toggle-screen.sh"), { locked = true, description = "toggle screen off/on" })
--- 熄屏/恢复（Meta+Alt+K / Ctrl+Alt+K；关闭显示器，系统继续运行，再按一次恢复）
-hl.bind("CTRL + ALT + K", hl.dsp.exec_cmd("~/.config/hypr/scripts/toggle-screen.sh"), { locked = true, description = "toggle screen off/on" })
+hl.bind(mainMod .. " + M", hl.dsp.exit(), { description = "退出 Hyprland" })
+-- 锁定屏幕
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("~/.config/hypr/scripts/lock.sh"), { description = "锁定屏幕" })
+-- 锁屏并挂起
+hl.bind("META + ALT + L", hl.dsp.exec_cmd("~/.config/hypr/scripts/lock-suspend.sh"), { locked = true, description = "锁屏并挂起" })
+-- 熄屏/恢复
+hl.bind("META + ALT + K", hl.dsp.exec_cmd("~/.config/hypr/scripts/toggle-screen.sh"), { locked = true, description = "熄屏/恢复" })
 -- 文件管理器
-hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager), { description = "文件管理器" })
 -- 切换窗口浮动
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }), { description = "切换窗口浮动" })
 -- 启动器
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("fuzzel"))
+hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("fuzzel"), { description = "启动器" })
 -- 伪平铺
-hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
--- 显示快捷键列表
-hl.bind(mainMod .. " + H", hl.dsp.exec_cmd("~/.config/hypr/scripts/keybinds.sh"))
+hl.bind(mainMod .. " + P", hl.dsp.window.pseudo(), { description = "伪平铺" })
 
 -- 焦点向左移
-hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + left",  hl.dsp.focus({ direction = "left" }),  { description = "焦点向左" })
 -- 焦点向右移
-hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }), { description = "焦点向右" })
 -- 焦点向上移
-hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }),    { description = "焦点向上" })
 -- 焦点向下移
-hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }),  { description = "焦点向下" })
 
 -- 窗口向左移
-hl.bind(mainMod .. " + SHIFT + left",  hl.dsp.window.move({ direction = "left" }))
+hl.bind(mainMod .. " + SHIFT + left",  hl.dsp.window.move({ direction = "left" }),  { description = "窗口向左移" })
 -- 窗口向右移
-hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.move({ direction = "right" }))
+hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.move({ direction = "right" }), { description = "窗口向右移" })
 -- 窗口向上移
-hl.bind(mainMod .. " + SHIFT + up",    hl.dsp.window.move({ direction = "up" }))
+hl.bind(mainMod .. " + SHIFT + up",    hl.dsp.window.move({ direction = "up" }),    { description = "窗口向上移" })
 -- 窗口向下移
-hl.bind(mainMod .. " + SHIFT + down",  hl.dsp.window.move({ direction = "down" }))
+hl.bind(mainMod .. " + SHIFT + down",  hl.dsp.window.move({ direction = "down" }),  { description = "窗口向下移" })
 
 -- 窗口向上缩
-hl.bind(mainMod .. " + CTRL + up",    hl.dsp.window.resize({ x = 0, y = -50, relative = true }))
+hl.bind(mainMod .. " + CTRL + SHIFT + up",   hl.dsp.window.resize({ x = 0, y = -50, relative = true }), { description = "窗口高度 −50" })
 -- 窗口向下扩
-hl.bind(mainMod .. " + CTRL + down",  hl.dsp.window.resize({ x = 0, y = 50, relative = true }))
+hl.bind(mainMod .. " + CTRL + SHIFT + down", hl.dsp.window.resize({ x = 0, y = 50, relative = true }),  { description = "窗口高度 +50" })
 
--- 切换到工作区 1~9
-for i = 1, 9 do
-  hl.bind(mainMod .. " + " .. i, hl.dsp.focus({ workspace = tostring(i) }))
-end
--- 切换到工作区 10
-hl.bind(mainMod .. " + 0", hl.dsp.focus({ workspace = "10" }))
+-- ============================================================================
+-- 工作区操作：按「当前聚焦显示器」映射，两块屏完全隔离
+--   eDP-1（内置屏）    → 工作区 1–10
+--   HDMI-A-1（外接屏） → 工作区 11–20
+--   SUPER+1..0 只操作「当前屏」那一套，绝不会跳到另一块屏。
+-- ============================================================================
+local WS_BASE = { ["eDP-1"] = 1, ["HDMI-A-1"] = 11 }
 
--- 窗口移到工作区 1~9
-for i = 1, 9 do
-  hl.bind(mainMod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = tostring(i) }))
+local function ws_base()
+  local m = hl.get_active_monitor()
+  return (m and WS_BASE[m.name]) or 1
 end
--- 窗口移到工作区 10
-hl.bind(mainMod .. " + SHIFT + 0", hl.dsp.window.move({ workspace = "10" }))
+
+-- 聚焦当前屏的第 n 个工作区（n = 1..10）
+for i = 1, 10 do
+  local key = (i == 10) and "0" or tostring(i)
+  local offset = i - 1
+  hl.bind(mainMod .. " + " .. key, function()
+    hl.dispatch(hl.dsp.focus({ workspace = ws_base() + offset }))
+  end, { description = "当前屏第 " .. i .. " 工作区" })
+  hl.bind(mainMod .. " + SHIFT + " .. key, function()
+    hl.dispatch(hl.dsp.window.move({ workspace = ws_base() + offset }))
+  end, { description = "窗口 → 当前屏第 " .. i .. " 工作区" })
+end
+
+-- 在当前屏的 10 个工作区内循环切换（step = ±1）
+local function ws_focus_step(step)
+  return function()
+    local base = ws_base()
+    local cur = hl.get_active_workspace()
+    local idx = (((cur and cur.id or base) - base) % 10 + 10) % 10
+    hl.dispatch(hl.dsp.focus({ workspace = base + (idx + step) % 10 }))
+  end
+end
+local function ws_move_step(step)
+  return function()
+    local base = ws_base()
+    local cur = hl.get_active_workspace()
+    local idx = (((cur and cur.id or base) - base) % 10 + 10) % 10
+    hl.dispatch(hl.dsp.window.move({ workspace = base + (idx + step) % 10 }))
+  end
+end
 
 -- 切换草稿箱
-hl.bind(mainMod .. " + S",                    hl.dsp.workspace.toggle_special("magic"))
+hl.bind(mainMod .. " + S",                    hl.dsp.workspace.toggle_special("magic"), { description = "切换草稿箱 magic" })
 -- 窗口移入草稿箱
-hl.bind(mainMod .. " + SHIFT + S",            hl.dsp.window.move({ workspace = "special:magic" }))
+hl.bind(mainMod .. " + SHIFT + S",            hl.dsp.window.move({ workspace = "special:magic" }), { description = "窗口 → 草稿箱" })
 
--- 上一个工作区
-hl.bind(mainMod .. " + mouse_down",           hl.dsp.focus({ workspace = "+1" }))
--- 下一个工作区
-hl.bind(mainMod .. " + mouse_up",             hl.dsp.focus({ workspace = "-1" }))
+-- 在当前屏内滚动切换工作区（不越到另一块屏）
+hl.bind(mainMod .. " + mouse_down",           ws_focus_step(1))
+hl.bind(mainMod .. " + mouse_up",             ws_focus_step(-1))
 
--- 快速切换相邻工作区
-hl.bind(mainMod .. " + CTRL + left",          hl.dsp.focus({ workspace = "-1" }))
-hl.bind(mainMod .. " + CTRL + right",         hl.dsp.focus({ workspace = "+1" }))
--- 携带窗口移动到侧边工作区
-hl.bind(mainMod .. " + CTRL + SHIFT + left",  hl.dsp.window.move({ workspace = "-1" }))
-hl.bind(mainMod .. " + CTRL + SHIFT + right", hl.dsp.window.move({ workspace = "+1" }))
+-- 快速切换当前屏相邻工作区
+hl.bind(mainMod .. " + CTRL + left",          ws_focus_step(-1), { description = "当前屏上一工作区" })
+hl.bind(mainMod .. " + CTRL + right",         ws_focus_step(1),  { description = "当前屏下一工作区" })
+hl.bind(mainMod .. " + CTRL + up",            ws_focus_step(-1), { description = "当前屏上一工作区" })
+hl.bind(mainMod .. " + CTRL + down",          ws_focus_step(1),  { description = "当前屏下一工作区" })
+-- 调整窗口宽度（META+CTRL+SHIFT+←/→）
+hl.bind(mainMod .. " + CTRL + SHIFT + left",  hl.dsp.window.resize({ x = -50, y = 0, relative = true }), { description = "窗口宽度 −50" })
+hl.bind(mainMod .. " + CTRL + SHIFT + right", hl.dsp.window.resize({ x = 50, y = 0, relative = true }),  { description = "窗口宽度 +50" })
+
+-- ============================================================================
+-- 屏幕间导航（子图实现，Hyprland 不支持三键和弦）
+--   SUPER + W          → 进入选屏模式，再按 ← / →，焦点切到 左/右 显示器
+--   SUPER + SHIFT + W  → 进入携窗模式，再按 ← / →，把窗口带到 左/右 显示器
+--   ESC 退出子图；任何一次 ← / → 执行后也自动退出
+-- ============================================================================
+-- （screen / screen-move 子图的定义已移到 hyprland.lua，放在全局 ESC unbind 之后，
+--   以免子图内的 ESC 退出绑定被一并移除）
+
+hl.bind(mainMod .. " + W",         hl.dsp.submap("screen"),      { description = "+屏幕焦点" })
+hl.bind(mainMod .. " + SHIFT + W", hl.dsp.submap("screen-move"), { description = "+屏幕移动" })
 
 -- 关闭所有通知
--- 脚本：先 DismissAll 清通知中心，再枚举 id 逐个 Dismiss 关掉
--- 常驻通知(蓝牙连接提示等)卡住的弹窗，无需重启 wayle。
--- 脚本由 NeovimConfig 管理（local/bin → 软链到 ~/.local/bin）
-hl.bind(mainMod .. " + CTRL + R", hl.dsp.exec_cmd("/home/lc3124/.local/bin/wayle-dismiss-all"))
+hl.bind(mainMod .. " + CTRL + R", hl.dsp.exec_cmd("/home/lc3124/.local/bin/wayle-dismiss-all"), { description = "关闭所有通知" })
+
+-- 移动浮动窗口（META+ALT+方向，按住连续）
+hl.bind("META + ALT + left",  hl.dsp.window.move({ x = -50, y = 0, relative = true }), { repeating = true, description = "浮动窗口 ←" })
+hl.bind("META + ALT + right", hl.dsp.window.move({ x = 50, y = 0, relative = true }),  { repeating = true, description = "浮动窗口 →" })
+hl.bind("META + ALT + up",    hl.dsp.window.move({ x = 0, y = -50, relative = true }), { repeating = true, description = "浮动窗口 ↑" })
+hl.bind("META + ALT + down",  hl.dsp.window.move({ x = 0, y = 50, relative = true }),  { repeating = true, description = "浮动窗口 ↓" })
 
 -- 切换分割方向
-hl.bind(mainMod .. " + W", hl.dsp.layout("togglesplit"))
+hl.bind(mainMod .. " + G", hl.dsp.layout("togglesplit"), { description = "切换分割方向" })
+
+-- 开关鼠标（指针类设备：鼠标/触摸板/指点杆）
+hl.bind(mainMod .. " + SHIFT + X", hl.dsp.exec_cmd("~/.config/hypr/scripts/toggle-mouse.sh"), { description = "开关鼠标" })
+
+-- 键盘选点点击（hyprwarp + dotool）；选点后进入 cursor 子图做点击/拖拽/滚动
+hl.bind(mainMod .. " + semicolon", hl.dsp.exec_cmd("~/.config/hypr/scripts/cursor-enter.sh"), { description = "光标模式（居中）" })
+
+-- 光标模式操作手册
+hl.bind("META + SHIFT + semicolon", hl.dsp.exec_cmd("~/.config/hypr/scripts/hyprwarp-once.sh"), { description = "键盘选点点击 (hyprwarp)" })
+
+-- 紧急恢复：杀掉卡住的 hyprwarp / 退出子图（防输入被抢）
+hl.bind("META + SHIFT + escape", hl.dsp.exec_cmd("pkill -x hyprwarp 2>/dev/null; hyprctl dispatch 'hl.dsp.submap(\"reset\")'"), { locked = true, description = "紧急恢复(杀 hyprwarp)" })
+
+-- 光标模式操作手册
+hl.bind("META + ALT + semicolon", hl.dsp.exec_cmd("~/.config/hypr/scripts/cursor-help.sh"), { description = "光标模式手册" })
+
 
 -- 拖拽窗口
-hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),  { description = "move window" })
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { description = "拖拽窗口" })
 -- 调整窗口大小
-hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { description = "resize window" })
+hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { description = "调整窗口大小" })
 
 -- 音量增大
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),      { locked = true, release = true })
+hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),      { locked = true, release = true, description = "音量 +" })
 -- 音量减小
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),            { locked = true, release = true })
+hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),            { locked = true, release = true, description = "音量 −" })
 -- 静音切换
-hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),          { locked = true, release = true })
+hl.bind("XF86AudioMute",        hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),          { locked = true, release = true, description = "输出静音" })
 -- 麦克风静音
-hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),        { locked = true, release = true })
+hl.bind("XF86AudioMicMute",     hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),        { locked = true, release = true, description = "麦克风静音" })
 -- 亮度增加
-hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),                       { locked = true, release = true })
+hl.bind("XF86MonBrightnessUp",  hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"),                       { locked = true, release = true, description = "亮度 +" })
 -- 亮度减小
-hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),                      { locked = true, release = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"),                      { locked = true, release = true, description = "亮度 −" })
 
 -- 下一曲
-hl.bind("XF86AudioNext",   hl.dsp.exec_cmd("playerctl next"),       { locked = true })
+hl.bind("XF86AudioNext",   hl.dsp.exec_cmd("playerctl next"),       { locked = true, description = "下一曲" })
 -- 暂停/播放
-hl.bind("XF86AudioPause",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPause",  hl.dsp.exec_cmd("playerctl play-pause"), { locked = true, description = "暂停/播放" })
 -- 暂停/播放
-hl.bind("XF86AudioPlay",   hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
+hl.bind("XF86AudioPlay",   hl.dsp.exec_cmd("playerctl play-pause"), { locked = true, description = "播放" })
 -- 上一曲
-hl.bind("XF86AudioPrev",   hl.dsp.exec_cmd("playerctl previous"),   { locked = true })
+hl.bind("XF86AudioPrev",   hl.dsp.exec_cmd("playerctl previous"),   { locked = true, description = "上一曲" })
 
 -- 截取区域
-hl.bind("Print",          hl.dsp.exec_cmd("screenshot region"))
+hl.bind("Print",          hl.dsp.exec_cmd("$HOME/.local/bin/screenshot region"), { description = "区域截图" })
 -- 截取全屏
-hl.bind("SHIFT + Print",  hl.dsp.exec_cmd("screenshot full"))
+hl.bind("SHIFT + Print",  hl.dsp.exec_cmd("$HOME/.local/bin/screenshot full"),   { description = "全屏截图" })
 -- 截取当前窗口
-hl.bind("CTRL + Print",   hl.dsp.exec_cmd("screenshot focused"))
--- Meta + Ctrl + S：选择截图（slurp 交互框选区域）
-hl.bind(mainMod .. " + CTRL + S",         hl.dsp.exec_cmd("screenshot region"))
--- Meta + Ctrl + Shift + S：直接全屏截图
-hl.bind(mainMod .. " + CTRL + SHIFT + S", hl.dsp.exec_cmd("screenshot full"))
+hl.bind("CTRL + Print",   hl.dsp.exec_cmd("$HOME/.local/bin/screenshot focused"),{ description = "窗口截图" })
 
 -- 语音输入
-hl.bind("F2",                         hl.dsp.exec_cmd("busctl --user call org.fcitx.Fcitx5.AnyTalk.Overlay /overlay org.fcitx.Fcitx5.AnyTalk.Overlay ToggleRecording"))
--- 语音输入
--- hl.bind(mainMod .. " + SHIFT + Q",    hl.dsp.exec_cmd("busctl --user call org.fcitx.Fcitx5.AnyTalk.Overlay /overlay org.fcitx.Fcitx5.AnyTalk.Overlay ToggleRecording"))
+hl.bind("F2",                         hl.dsp.exec_cmd("busctl --user call org.fcitx.Fcitx5.AnyTalk.Overlay /overlay org.fcitx.Fcitx5.AnyTalk.Overlay ToggleRecording"), { description = "语音输入" })
 
 -- 放大镜放大
-hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd([[NEW_VAL=$(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.1'); hyprctl eval "hl.config({cursor={zoom_factor=$NEW_VAL}})"]]))
+hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd([[NEW_VAL=$(hyprctl getoption cursor:zoom_factor -j | jq '.float * 1.1'); hyprctl eval "hl.config({cursor={zoom_factor=$NEW_VAL}})"]]), { description = "放大镜 放大" })
 
 -- 放大镜缩小
-hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd([[NEW_VAL=$(hyprctl getoption cursor:zoom_factor -j | jq '.float * 0.9 | if . < 1 then 1 else . end'); hyprctl eval "hl.config({cursor={zoom_factor=$NEW_VAL}})"]]) )
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd([[NEW_VAL=$(hyprctl getoption cursor:zoom_factor -j | jq '.float * 0.9 | if . < 1 then 1 else . end'); hyprctl eval "hl.config({cursor={zoom_factor=$NEW_VAL}})"]]) , { description = "放大镜 缩小" })
 
 -- 屏幕缩放增大
-hl.bind(mainMod .. " + CTRL + P", hl.dsp.exec_cmd("~/.config/hypr/scripts/scale.sh +"))
+hl.bind(mainMod .. " + CTRL + P", hl.dsp.exec_cmd("~/.config/hypr/scripts/scale.sh +"), { description = "屏幕缩放 +" })
 -- 屏幕缩放减小
-hl.bind(mainMod .. " + CTRL + L", hl.dsp.exec_cmd("~/.config/hypr/scripts/scale.sh -"))
+hl.bind(mainMod .. " + CTRL + L", hl.dsp.exec_cmd("~/.config/hypr/scripts/scale.sh -"), { description = "屏幕缩放 −" })
 
 -- ============================================================================
 -- hl.bind() 全部可用参数参考
@@ -220,7 +269,7 @@ hl.bind(mainMod .. " + CTRL + L", hl.dsp.exec_cmd("~/.config/hypr/scripts/scale.
 --   { locked = true,         -- 锁屏下也可用（多媒体键常用）
 --     release = true,       -- 松手触发（而非按下）
 --     repeating = true,     -- 按住连续触发
---     description = "说明", -- 描述文本
+--     description = "说明", -- 描述文本（WhichKey / 速查表用）
 --     submap = "名称" }     -- 子映射名
 -- ============================================================================
 -- hl.define_submap(name, reset?, fn) ─ 定义子映射
@@ -231,4 +280,8 @@ hl.bind(mainMod .. " + CTRL + L", hl.dsp.exec_cmd("~/.config/hypr/scripts/scale.
 --     hl.bind("escape", hl.dsp.exec_cmd("hl.dispatch.submap.reset"))
 --   end)
 --   进入: hl.bind("SUPER + R", hl.dsp.exec_cmd("hl.dispatch.submap.resize"))
+-- ============================================================================
+
+
+-- ============================================================================
 -- ============================================================================
