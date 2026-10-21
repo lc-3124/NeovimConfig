@@ -25,8 +25,8 @@ hl.define_submap("cursor", function()
   hl.bind("META + ALT + semicolon", hl.dsp.exec_cmd("~/.config/hypr/scripts/cursor-help.sh"))
   hl.bind("META + SHIFT + escape", hl.dsp.exec_cmd("pkill -x hyprwarp 2>/dev/null; rm -f ${XDG_RUNTIME_DIR:-/tmp}/hypr-cursor-active; hyprctl dispatch 'hl.dsp.submap(\"reset\")'"))
   hl.bind("SUPER + semicolon", hl.dsp.exec_cmd(
-    "hyprctl eval 'hl.config({ cursor = { inactive_timeout = 3, hide_on_key_press = true }})'; hyprctl dispatch 'hl.dsp.submap(\"reset\")'; hyprctl dismissnotify; ~/.config/hypr/scripts/cursor-enter.sh"), { repeating = true })
+    "hyprctl dispatch 'hl.dsp.submap(\"reset\")'; hyprctl dismissnotify; ~/.config/hypr/scripts/cursor-enter.sh"), { repeating = true })
   hl.bind("SUPER + SHIFT + semicolon", hl.dsp.exec_cmd(
-    "hyprctl eval 'hl.config({ cursor = { inactive_timeout = 3, hide_on_key_press = true }})'; hyprctl dispatch 'hl.dsp.submap(\"reset\")'; hyprctl dismissnotify; ~/.config/hypr/scripts/hyprwarp-once.sh"), { repeating = true })
+    "hyprctl dispatch 'hl.dsp.submap(\"reset\")'; hyprctl dismissnotify; ~/.config/hypr/scripts/hyprwarp-once.sh"), { repeating = true })
   hl.bind("escape", hl.dsp.exec_cmd("~/.config/hypr/scripts/cursor-exit.sh"))
 end)
