@@ -40,8 +40,8 @@ namespace {
 
 constexpr const char* kActiveFile = "/run/user/1000/hypr-cursor-active";
 constexpr int kTickMs = 16;
-constexpr int kFastPx = 18;   // 每帧像素（≈1125 px/s）
-constexpr int kSlowPx = 3;    // 每帧像素（≈187 px/s）
+constexpr double kFastPx = 14.4;   // 原 18 × 0.8（高速再慢 20%）
+constexpr double kSlowPx = 3.3;    // 原 3  × 1.1（低速再快 10%）
 
 bool g_run = true;
 void on_signal(int) { g_run = false; }
@@ -178,6 +178,7 @@ int main() {
     bool was_cursor = false;
     double next_tick = now_ms() + kTickMs;
     double next_scan = 0;
+    double acc_x = 0.0, acc_y = 0.0;   // 亚像素余数累积
 
     while (g_run) {
         std::vector<pollfd> pfds;
@@ -254,10 +255,19 @@ int main() {
         int dx = (st.right ? 1 : 0) - (st.left ? 1 : 0);
         int dy = (st.down ? 1 : 0) - (st.up ? 1 : 0);
         if (dx != 0 || dy != 0) {
-            int s = st.slow ? kSlowPx : kFastPx;
-            if (dx != 0 && dy != 0) s = static_cast<int>(std::lround(s / std::sqrt(2.0)));
-            if (s < 1) s = 1;
-            vm.move(dx * s, dy * s);
+            double s = st.slow ? kSlowPx : kFastPx;
+            double vx = dx, vy = dy;
+            if (dx != 0 && dy != 0) s /= std::sqrt(2.0);   // 斜向保持合速度一致
+            // 小数像素余数累积，保证 14.4 / 3.3 这类速度不失精度
+            acc_x += vx * s;
+            acc_y += vy * s;
+            int mx = static_cast<int>(std::lround(acc_x));
+            int my = static_cast<int>(std::lround(acc_y));
+            acc_x -= mx;
+            acc_y -= my;
+            vm.move(mx, my);
+        } else {
+            acc_x = acc_y = 0.0;
         }
 
         // ---- 滚轮 ----
