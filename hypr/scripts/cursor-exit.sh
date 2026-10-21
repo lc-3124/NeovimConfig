@@ -1,11 +1,18 @@
 #!/bin/sh
-# cursor-exit.sh —— 退出光标模式：停移动、复位子图，并把物理鼠标隐藏禁用
+# cursor-exit.sh —— 退出光标模式：停移动、复位子图，并恢复进入前的鼠标状态
 RT="${XDG_RUNTIME_DIR:-/tmp}"
-printf '0 0 0\n' > "$RT/hypr-smooth.state" 2>/dev/null
-rm -f "$RT/hypr-cursor-active"                                                            # 通知守护：退出光标模式
-rm -f "$RT/hypr-cursor-dirs/left" "$RT/hypr-cursor-dirs/right" "$RT/hypr-cursor-dirs/up" "$RT/hypr-cursor-dirs/down" 2>/dev/null
-echo "buttonup left" | dotoolc 2>/dev/null
-hyprctl eval 'hl.config({ cursor = { inactive_timeout = 0.5 }})' >/dev/null 2>&1   # 隐藏指针
-sudo systemctl start mouse-grab.service 2>/dev/null                                 # 抓取禁用物理鼠标
+rm -f "$RT/hypr-cursor-active"
+
+# 恢复进入前的鼠标 grab 状态：
+#   进入前是「已禁用物理鼠标」→ 重新启用 grab
+#   进入前是「正常可用」→ 保持可用，不再无条件禁用
+if [ "$(cat "$RT/hypr-cursor-grab-was-active" 2>/dev/null)" = "1" ]; then
+  sudo systemctl start mouse-grab.service 2>/dev/null
+fi
+rm -f "$RT/hypr-cursor-grab-was-active"
+
+# 指针恢复常态：不自动隐藏（切换模式前 Hyprland 的默认行为）
+hyprctl eval 'hl.config({ cursor = { inactive_timeout = 0, hide_on_key_press = false }})' >/dev/null 2>&1
+
 hyprctl dispatch 'hl.dsp.submap("reset")' >/dev/null 2>&1
 hyprctl dismissnotify >/dev/null 2>&1
