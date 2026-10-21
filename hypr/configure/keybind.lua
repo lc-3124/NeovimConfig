@@ -158,7 +158,7 @@ hl.bind(mainMod .. " + semicolon", hl.dsp.exec_cmd("~/.config/hypr/scripts/curso
 hl.bind("META + SHIFT + semicolon", hl.dsp.exec_cmd("~/.config/hypr/scripts/hyprwarp-once.sh"), { description = "键盘选点点击 (hyprwarp)" })
 
 -- 紧急恢复：杀掉卡住的 hyprwarp / 退出子图（防输入被抢）
-hl.bind("META + SHIFT + escape", hl.dsp.exec_cmd("pkill -x hyprwarp 2>/dev/null; hyprctl dispatch 'hl.dsp.submap(\"reset\")'"), { locked = true, description = "紧急恢复(杀 hyprwarp)" })
+hl.bind("META + SHIFT + escape", hl.dsp.exec_cmd("pkill -x hyprwarp 2>/dev/null; rm -f ${XDG_RUNTIME_DIR:-/tmp}/hypr-cursor-active; hyprctl dispatch 'hl.dsp.submap(\"reset\")'"), { locked = true, description = "紧急恢复(杀 hyprwarp)" })
 
 -- 光标模式操作手册
 hl.bind("META + ALT + semicolon", hl.dsp.exec_cmd("~/.config/hypr/scripts/cursor-help.sh"), { description = "光标模式手册" })

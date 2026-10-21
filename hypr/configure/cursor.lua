@@ -10,6 +10,11 @@
 -- 源码：hypr/cursor-daemon/hypr-cursor.cpp
 -- ============================================================================
 
+-- 每次加载/重载配置都会执行到这里。`hyprctl reload` 会重置 submap，
+-- 但不会走 cursor-exit.sh，所以这里主动清掉标志，
+-- 避免守护一直停在「光标模式」而按键不响应。
+hl.exec_cmd("rm -f ${XDG_RUNTIME_DIR:-/tmp}/hypr-cursor-active")
+
 hl.define_submap("cursor", function()
   -- 只消费，不执行任何动作（真正的处理在 hypr-cursor 守护里）
   local function consume() end

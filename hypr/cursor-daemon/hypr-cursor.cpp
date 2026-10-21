@@ -220,6 +220,12 @@ int main() {
                             break;
                         case KEY_Q: st.wheel = down ? -1 : 0; break;
                         case KEY_E: st.wheel = down ? 1 : 0; break;
+                        // 兜底：ESC 按下时清标志。正常情况下 submap 内 ESC 会调用
+                        // cursor-exit.sh；这里防的是异常路径（reload/崩溃等）导致
+                        // 标志残留、守护一直停在光标模式。
+                        case KEY_ESC:
+                            if (down && cursor_active()) unlink(kActiveFile);
+                            break;
                         default: break;
                     }
                 }
