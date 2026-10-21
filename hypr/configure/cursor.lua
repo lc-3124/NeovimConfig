@@ -13,16 +13,23 @@ hl.define_submap("cursor", function()
     hl.bind(keys, hl.dsp.exec_cmd(MOVE .. " " .. dir))
     hl.bind(keys, hl.dsp.exec_cmd(RELEASE .. " " .. dir), { release = true })
   end
-  mvkey("h", "left"); mvkey("j", "down"); mvkey("k", "up"); mvkey("l", "right")
-  -- SHIFT 切换快/慢速（静默）
-  hl.bind("s", hl.dsp.exec_cmd("~/.config/hypr/scripts/cursor-speed.sh"))
-  hl.bind("v", hl.dsp.exec_cmd("echo \"buttondown left\" | dotoolc"))
-  hl.bind("space", hl.dsp.exec_cmd("echo \"click left\" | dotoolc"))
-  hl.bind("q",     hl.dsp.exec_cmd("echo \"click left\" | dotoolc"))
-  hl.bind("w",     hl.dsp.exec_cmd("echo \"click middle\" | dotoolc"))
-  hl.bind("e",     hl.dsp.exec_cmd("echo \"click right\" | dotoolc"))
-  hl.bind("bracketleft",  hl.dsp.exec_cmd("echo \"wheel 20\" | dotoolc"),  { repeating = true })
-  hl.bind("bracketright", hl.dsp.exec_cmd("echo \"wheel -20\" | dotoolc"), { repeating = true })
+  -- WASD 方向（可同时按两个方向 → 斜向）
+  mvkey("w", "up"); mvkey("a", "left"); mvkey("s", "down"); mvkey("d", "right")
+
+  -- 按住 i 缓速，松开恢复快速
+  local SPEED = "~/.config/hypr/scripts/cursor-speed.sh"
+  hl.bind("i", hl.dsp.exec_cmd(SPEED .. " slow"))
+  hl.bind("i", hl.dsp.exec_cmd(SPEED .. " fast"), { release = true })
+
+  -- 点击 / 拖拽
+  hl.bind("j",     hl.dsp.exec_cmd("echo \"click left\" | dotoolc"))
+  hl.bind("o",     hl.dsp.exec_cmd("echo \"click right\" | dotoolc"))
+  hl.bind("space", hl.dsp.exec_cmd("echo \"click middle\" | dotoolc"))
+  hl.bind("v",     hl.dsp.exec_cmd("echo \"buttondown left\" | dotoolc"))
+
+  -- 滚轮（按住持续）
+  hl.bind("q", hl.dsp.exec_cmd("echo \"wheel 20\" | dotoolc"),  { repeating = true })
+  hl.bind("e", hl.dsp.exec_cmd("echo \"wheel -20\" | dotoolc"), { repeating = true })
   hl.bind("META + ALT + semicolon", hl.dsp.exec_cmd("~/.config/hypr/scripts/cursor-help.sh"))
   hl.bind("META + SHIFT + escape", hl.dsp.exec_cmd("pkill -x hyprwarp 2>/dev/null; hyprctl dispatch 'hl.dsp.submap(\"reset\")'"))
   hl.bind("SUPER + semicolon", hl.dsp.exec_cmd(
