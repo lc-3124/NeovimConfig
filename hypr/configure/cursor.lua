@@ -7,9 +7,11 @@
 hl.define_submap("cursor", function()
   local MV = "~/.config/hypr/scripts/cursor-mv.sh"
   local MOVE = "~/.config/hypr/scripts/cursor-move.sh"
+  local RELEASE = "~/.config/hypr/scripts/cursor-release.sh"
+  -- press 记录方向，release 只移除该方向（支持多方向叠加成斜向）
   local function mvkey(keys, dir)
     hl.bind(keys, hl.dsp.exec_cmd(MOVE .. " " .. dir))
-    hl.bind(keys, hl.dsp.exec_cmd(MV .. " stop"), { release = true })
+    hl.bind(keys, hl.dsp.exec_cmd(RELEASE .. " " .. dir), { release = true })
   end
   mvkey("h", "left"); mvkey("j", "down"); mvkey("k", "up"); mvkey("l", "right")
   -- SHIFT 切换快/慢速（静默）

@@ -6,6 +6,7 @@ fuzzel --dmenu --prompt="光标模式: " --lines=22 --width=66 -f "monospace:siz
  META + :       网格选点（hyprwarp）→ 选点后进入光标模式
  ── 光标模式内 ──
  h j k l        移动指针（按住持续）
+                可同时按住两个方向 → 斜向（如 k+h 左上）
  s              切换 快 / 慢 速（静默）
  [  /  ]        向上 / 向下滚动（按住持续）
  空格 / q       左键点击
