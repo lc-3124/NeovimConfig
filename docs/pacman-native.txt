@@ -1,26 +1,43 @@
+# 仓库包（pacman）
 sudo pacman -S 7zip --noconfirm
 sudo pacman -S acpi --noconfirm
 sudo pacman -S adobe-source-han-sans-cn-fonts --noconfirm
 sudo pacman -S adobe-source-han-serif-cn-fonts --noconfirm
 sudo pacman -S alsa-utils --noconfirm
-sudo pacman -S amd-ucode --noconfirm
+sudo pacman -S an-anime-game-launcher-bwrap --noconfirm
 sudo pacman -S archlinuxcn-keyring --noconfirm
 sudo pacman -S asciiquarium --noconfirm
+sudo pacman -S atril --noconfirm
 sudo pacman -S audacious --noconfirm
+sudo pacman -S audacity --noconfirm
 sudo pacman -S awww --noconfirm
+sudo pacman -S baobab --noconfirm
 sudo pacman -S base --noconfirm
 sudo pacman -S base-devel --noconfirm
 sudo pacman -S bat --noconfirm
+sudo pacman -S batsignal --noconfirm
+sudo pacman -S blueman --noconfirm
 sudo pacman -S bluez-utils --noconfirm
 sudo pacman -S btop --noconfirm
+sudo pacman -S cairo --noconfirm
 sudo pacman -S cef --noconfirm
 sudo pacman -S cmatrix --noconfirm
+sudo pacman -S colord --noconfirm
+sudo pacman -S cups --noconfirm
+sudo pacman -S curl --noconfirm
 sudo pacman -S davfs2 --noconfirm
+sudo pacman -S dbus --noconfirm
+sudo pacman -S deepseek-harness --noconfirm
+sudo pacman -S deja-dup --noconfirm
 sudo pacman -S directx-shader-compiler --noconfirm
+sudo pacman -S dmidecode --noconfirm
+sudo pacman -S docker --noconfirm
 sudo pacman -S dosfstools --noconfirm
 sudo pacman -S duf --noconfirm
 sudo pacman -S dust --noconfirm
+sudo pacman -S efibootmgr --noconfirm
 sudo pacman -S egl-wayland --noconfirm
+sudo pacman -S engrampa --noconfirm
 sudo pacman -S eog --noconfirm
 sudo pacman -S evtest --noconfirm
 sudo pacman -S exfatprogs --noconfirm
@@ -28,53 +45,116 @@ sudo pacman -S fcitx5 --noconfirm
 sudo pacman -S fcitx5-chinese-addons --noconfirm
 sudo pacman -S fcitx5-configtool --noconfirm
 sudo pacman -S fcitx5-gtk --noconfirm
+sudo pacman -S fcitx5-pinyin-moegirl --noconfirm
 sudo pacman -S fcitx5-pinyin-zhwiki --noconfirm
-sudo pacman -S fcitx5-qt --noconfirm
+sudo pacman -S fcitx5-rime --noconfirm
 sudo pacman -S fd --noconfirm
 sudo pacman -S firefox --noconfirm
 sudo pacman -S flclash --noconfirm
+sudo pacman -S fontconfig --noconfirm
 sudo pacman -S fooyin --noconfirm
+sudo pacman -S fprintd --noconfirm
+sudo pacman -S frpc --noconfirm
 sudo pacman -S fuzzel --noconfirm
+sudo pacman -S fzf --noconfirm
 sudo pacman -S gamemode --noconfirm
 sudo pacman -S gdu --noconfirm
 sudo pacman -S gimp --noconfirm
 sudo pacman -S git --noconfirm
+sudo pacman -S gnome-disk-utility --noconfirm
+sudo pacman -S gnome-keyring --noconfirm
+sudo pacman -S gnome-packagekit --noconfirm
+sudo pacman -S gnuplot --noconfirm
+sudo pacman -S grim --noconfirm
+sudo pacman -S gsfonts --noconfirm
+sudo pacman -S gvfs --noconfirm
+sudo pacman -S hardinfo2 --noconfirm
 sudo pacman -S hmcl --noconfirm
+sudo pacman -S hwdata --noconfirm
 sudo pacman -S hypridle --noconfirm
 sudo pacman -S hyprland --noconfirm
 sudo pacman -S hyprlock --noconfirm
 sudo pacman -S hyprpaper --noconfirm
+sudo pacman -S intel-ucode --noconfirm
+sudo pacman -S jack2 --noconfirm
+sudo pacman -S jellyfin-server --noconfirm
+sudo pacman -S jellyfin-web --noconfirm
+sudo pacman -S jre17-openjdk --noconfirm
 sudo pacman -S kdeconnect --noconfirm
+sudo pacman -S kdenlive --noconfirm
 sudo pacman -S kexec-tools --noconfirm
 sudo pacman -S keyd --noconfirm
 sudo pacman -S kitty --noconfirm
 sudo pacman -S kvantum --noconfirm
 sudo pacman -S kvantum-qt5 --noconfirm
+sudo pacman -S layer-shell-qt --noconfirm
+sudo pacman -S lib32-nvidia-utils --noconfirm
+sudo pacman -S lib32-opencl-nvidia --noconfirm
+sudo pacman -S lib32-vulkan-intel --noconfirm
+sudo pacman -S libayatana-appindicator --noconfirm
+sudo pacman -S libdisplay-info --noconfirm
+sudo pacman -S libdrm --noconfirm
+sudo pacman -S libglvnd --noconfirm
+sudo pacman -S libinput --noconfirm
 sudo pacman -S libinput-tools --noconfirm
+sudo pacman -S libnotify --noconfirm
+sudo pacman -S libpulse --noconfirm
 sudo pacman -S libreoffice-fresh --noconfirm
 sudo pacman -S libreoffice-fresh-zh-cn --noconfirm
+sudo pacman -S librime-data --noconfirm
 sudo pacman -S libva-utils --noconfirm
+sudo pacman -S libx11 --noconfirm
+sudo pacman -S libxcb --noconfirm
+sudo pacman -S libxkbcommon --noconfirm
 sudo pacman -S linux --noconfirm
-sudo pacman -S linux-firmware --noconfirm
+sudo pacman -S linux-cachyos --noconfirm
+sudo pacman -S linux-cachyos-headers --noconfirm
+sudo pacman -S linux-firmware-atheros --noconfirm
+sudo pacman -S linux-firmware-broadcom --noconfirm
+sudo pacman -S linux-firmware-cirrus --noconfirm
+sudo pacman -S linux-firmware-intel --noconfirm
+sudo pacman -S linux-firmware-mediatek --noconfirm
+sudo pacman -S linux-firmware-nvidia --noconfirm
+sudo pacman -S linux-firmware-other --noconfirm
+sudo pacman -S linux-firmware-realtek --noconfirm
+sudo pacman -S linux-firmware-ti --noconfirm
+sudo pacman -S linux-headers --noconfirm
+sudo pacman -S llvm22-libs --noconfirm
 sudo pacman -S localsend --noconfirm
 sudo pacman -S lolcat --noconfirm
 sudo pacman -S lua-language-server --noconfirm
+sudo pacman -S lxqt-admin --noconfirm
+sudo pacman -S lyx --noconfirm
+sudo pacman -S mate-polkit --noconfirm
 sudo pacman -S mesa --noconfirm
 sudo pacman -S mesa-utils --noconfirm
+sudo pacman -S meson --noconfirm
+sudo pacman -S mousepad --noconfirm
+sudo pacman -S mugshot --noconfirm
 sudo pacman -S ncdu --noconfirm
 sudo pacman -S neovide --noconfirm
 sudo pacman -S neovim --noconfirm
 sudo pacman -S networkmanager --noconfirm
+sudo pacman -S network-manager-applet --noconfirm
+sudo pacman -S ninja --noconfirm
 sudo pacman -S nmap --noconfirm
+sudo pacman -S nm-connection-editor --noconfirm
 sudo pacman -S nodejs --noconfirm
 sudo pacman -S nordic-theme-git --noconfirm
+sudo pacman -S noto-fonts --noconfirm
 sudo pacman -S noto-fonts-cjk --noconfirm
+sudo pacman -S noto-fonts-emoji --noconfirm
 sudo pacman -S npm --noconfirm
+sudo pacman -S nvidia-open-dkms --noconfirm
+sudo pacman -S nvidia-prime --noconfirm
+sudo pacman -S nvidia-settings --noconfirm
+sudo pacman -S nvidia-utils --noconfirm
 sudo pacman -S nvm --noconfirm
 sudo pacman -S nwg-look --noconfirm
 sudo pacman -S nyancat --noconfirm
 sudo pacman -S obs-studio --noconfirm
 sudo pacman -S openbsd-netcat --noconfirm
+sudo pacman -S opencl-nvidia --noconfirm
 sudo pacman -S opencode --noconfirm
 sudo pacman -S openssh --noconfirm
 sudo pacman -S otf-aurulent-nerd --noconfirm
@@ -90,25 +170,39 @@ sudo pacman -S otf-monaspace-nerd --noconfirm
 sudo pacman -S otf-opendyslexic-nerd --noconfirm
 sudo pacman -S otf-overpass-nerd --noconfirm
 sudo pacman -S pacman-contrib --noconfirm
+sudo pacman -S pam --noconfirm
+sudo pacman -S parole --noconfirm
 sudo pacman -S paru --noconfirm
 sudo pacman -S pavucontrol --noconfirm
 sudo pacman -S peazip --noconfirm
-sudo pacman -S pipewire --noconfirm
 sudo pacman -S pipewire-alsa --noconfirm
+sudo pacman -S pipewire-pulse --noconfirm
+sudo pacman -S pixman --noconfirm
+sudo pacman -S pkgconf --noconfirm
 sudo pacman -S plasma-sdk --noconfirm
 sudo pacman -S pnpm --noconfirm
-sudo pacman -S polkit --noconfirm
 sudo pacman -S progress --noconfirm
 sudo pacman -S proxychains-ng --noconfirm
+sudo pacman -S python --noconfirm
 sudo pacman -S python-pip --noconfirm
+sudo pacman -S python-pipx --noconfirm
 sudo pacman -S qbittorrent --noconfirm
 sudo pacman -S qdiskinfo --noconfirm
 sudo pacman -S qt5ct --noconfirm
+sudo pacman -S qt5-graphicaleffects --noconfirm
+sudo pacman -S qt5-quickcontrols --noconfirm
+sudo pacman -S qt5-wayland --noconfirm
 sudo pacman -S qt6ct --noconfirm
+sudo pacman -S qt6-wayland --noconfirm
 sudo pacman -S rar --noconfirm
 sudo pacman -S rclone --noconfirm
+sudo pacman -S ristretto --noconfirm
 sudo pacman -S scrcpy --noconfirm
-sudo pacman -S sddm --noconfirm
+sudo pacman -S seahorse --noconfirm
+sudo pacman -S seatd --noconfirm
+sudo pacman -S sl --noconfirm
+sudo pacman -S slurp --noconfirm
+sudo pacman -S socat --noconfirm
 sudo pacman -S sof-firmware --noconfirm
 sudo pacman -S soundconverter --noconfirm
 sudo pacman -S speedtest-cli --noconfirm
@@ -116,9 +210,14 @@ sudo pacman -S sshfs --noconfirm
 sudo pacman -S sshpass --noconfirm
 sudo pacman -S steam --noconfirm
 sudo pacman -S stress --noconfirm
+sudo pacman -S system-config-printer --noconfirm
+sudo pacman -S systemd-libs --noconfirm
 sudo pacman -S termusic --noconfirm
 sudo pacman -S tesseract-data-chi_sim --noconfirm
+sudo pacman -S texmacs --noconfirm
+sudo pacman -S texstudio --noconfirm
 sudo pacman -S thunar --noconfirm
+sudo pacman -S thunar-volman --noconfirm
 sudo pacman -S thunderbird --noconfirm
 sudo pacman -S tmux --noconfirm
 sudo pacman -S trash-cli --noconfirm
@@ -142,8 +241,8 @@ sudo pacman -S ttf-dejavu-nerd --noconfirm
 sudo pacman -S ttf-envycoder-nerd --noconfirm
 sudo pacman -S ttf-fantasque-nerd --noconfirm
 sudo pacman -S ttf-firacode-nerd --noconfirm
-sudo pacman -S ttf-go-nerd --noconfirm
 sudo pacman -S ttf-gohu-nerd --noconfirm
+sudo pacman -S ttf-go-nerd --noconfirm
 sudo pacman -S ttf-hack-nerd --noconfirm
 sudo pacman -S ttf-heavydata-nerd --noconfirm
 sudo pacman -S ttf-iawriter-nerd --noconfirm
@@ -167,6 +266,7 @@ sudo pacman -S ttf-mplus-nerd --noconfirm
 sudo pacman -S ttf-nerd-fonts-symbols --noconfirm
 sudo pacman -S ttf-nerd-fonts-symbols-mono --noconfirm
 sudo pacman -S ttf-noto-nerd --noconfirm
+sudo pacman -S ttf-nunito --noconfirm
 sudo pacman -S ttf-profont-nerd --noconfirm
 sudo pacman -S ttf-proggyclean-nerd --noconfirm
 sudo pacman -S ttf-recursive-nerd --noconfirm
@@ -179,23 +279,102 @@ sudo pacman -S ttf-ubuntu-mono-nerd --noconfirm
 sudo pacman -S ttf-ubuntu-nerd --noconfirm
 sudo pacman -S ttf-victor-mono-nerd --noconfirm
 sudo pacman -S ttf-zed-mono-nerd --noconfirm
+sudo pacman -S tumbler --noconfirm
+sudo pacman -S udiskie --noconfirm
+sudo pacman -S udisks2 --noconfirm
+sudo pacman -S umu-launcher --noconfirm
 sudo pacman -S unixodbc --noconfirm
+sudo pacman -S unzip --noconfirm
 sudo pacman -S usbutils --noconfirm
+sudo pacman -S v4l2loopback-dkms --noconfirm
 sudo pacman -S vim --noconfirm
-sudo pacman -S vulkan-radeon --noconfirm
+sudo pacman -S vlc --noconfirm
+sudo pacman -S vulkan-intel --noconfirm
 sudo pacman -S vulkan-tools --noconfirm
+sudo pacman -S wayland --noconfirm
+sudo pacman -S wayland-protocols --noconfirm
+sudo pacman -S wdisplays --noconfirm
 sudo pacman -S wine-mono --noconfirm
-sudo pacman -S wine-staging --noconfirm
 sudo pacman -S winetricks --noconfirm
+sudo pacman -S wireplumber --noconfirm
+sudo pacman -S wl-clipboard --noconfirm
 sudo pacman -S wlopm --noconfirm
 sudo pacman -S wqy-microhei --noconfirm
 sudo pacman -S wqy-zenhei --noconfirm
+sudo pacman -S xcb-util-renderutil --noconfirm
+sudo pacman -S xcb-util-wm --noconfirm
+sudo pacman -S xdg-desktop-portal --noconfirm
+sudo pacman -S xdg-desktop-portal-gtk --noconfirm
+sudo pacman -S xdg-desktop-portal-wlr --noconfirm
+sudo pacman -S xdg-user-dirs --noconfirm
+sudo pacman -S xdg-utils --noconfirm
 sudo pacman -S xdotool --noconfirm
 sudo pacman -S xfce4-settings --noconfirm
+sudo pacman -S xfce4-taskmanager --noconfirm
+sudo pacman -S xfce4-terminal --noconfirm
+sudo pacman -S xorg-xwayland --noconfirm
 sudo pacman -S yazi --noconfirm
-sudo pacman -S zbar --noconfirm
 sudo pacman -S zen-browser --noconfirm
 sudo pacman -S zen-browser-i18n-zh-cn --noconfirm
 sudo pacman -S zip --noconfirm
 sudo pacman -S zram-generator --noconfirm
 sudo pacman -S zsh --noconfirm
+
+# AUR 包（paru）
+paru -S activate-linux --noconfirm
+paru -S adw-gtk-theme-git --noconfirm
+paru -S android-sdk-platform-tools --noconfirm
+paru -S baidunetdisk-bin --noconfirm
+paru -S bibata-cursor-theme --noconfirm
+paru -S bookokrat-bin --noconfirm
+paru -S cbonsai --noconfirm
+paru -S classin-bin --noconfirm
+paru -S dotool --noconfirm
+paru -S dwproton-bin --noconfirm
+paru -S dwproton-launcher --noconfirm
+paru -S dxvk-bin --noconfirm
+paru -S fcitx5-anytalk --noconfirm
+paru -S hypr-tuner --noconfirm
+paru -S input-remapper-bin --noconfirm
+paru -S jhentai-bin --noconfirm
+paru -S kvantum-theme-catppuccin-git --noconfirm
+paru -S lib32-giflib --noconfirm
+paru -S libsoup --noconfirm
+paru -S linnote --noconfirm
+paru -S linux-id --noconfirm
+paru -S linuxqq-wayland-fix-git --noconfirm
+paru -S linux-wallpaperengine-git --noconfirm
+paru -S listen1-desktop-appimage --noconfirm
+paru -S luckybackup --noconfirm
+paru -S mainstream-audio --noconfirm
+paru -S mainstream-backlight --noconfirm
+paru -S mainstream-basic --noconfirm
+paru -S mainstream-fonts-themes --noconfirm
+paru -S mainstream-hyprland --noconfirm
+paru -S mainstream-portal --noconfirm
+paru -S mainstream-python --noconfirm
+paru -S mainstream-screencapture --noconfirm
+paru -S mainstream-toolkit --noconfirm
+paru -S mkvextract-gtk --noconfirm
+paru -S mmtui --noconfirm
+paru -S mogan-bin --noconfirm
+paru -S mpvpaper --noconfirm
+paru -S neofetch --noconfirm
+paru -S nmgui-bin --noconfirm
+paru -S opencode-desktop-bin --noconfirm
+paru -S oss-browser2 --noconfirm
+paru -S ossutil --noconfirm
+paru -S pam-fprint-grosshack --noconfirm
+paru -S pamtester --noconfirm
+paru -S pipes.sh --noconfirm
+paru -S quickshell-git --noconfirm
+paru -S tokyonight-gtk-theme-git --noconfirm
+paru -S ttf-wps-fonts --noconfirm
+paru -S ttf-zhuque-fangsong-bin --noconfirm
+paru -S wayle-bin --noconfirm
+paru -S waypaper --noconfirm
+paru -S wechat-appimage --noconfirm
+paru -S we-layerd-git --noconfirm
+paru -S wemeet-bin --noconfirm
+paru -S wps-office-cn --noconfirm
+paru -S xdg-desktop-portal-termfilechooser-hunkyburrito-git --noconfirm
