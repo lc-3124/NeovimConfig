@@ -19,9 +19,6 @@ sleep 0.4
 
 "$D/hyprlock-bg.sh" || true
 
-# 锁屏前重置指纹栈：保证第一次触摸就有效
-"$D/fprintd-prep.sh"
-
 # --- 锁屏期间：60 秒无操作自动熄屏（走 META+ALT+K 的 toggle-screen.sh）---
 # 有输入时自动点亮；解锁后立刻停掉这个 idle 守护
 hypridle -c "$HOME/.config/hypr/hypridle-lock.conf" &

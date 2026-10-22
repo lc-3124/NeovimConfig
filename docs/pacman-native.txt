@@ -1,3 +1,7 @@
+# xiaoxin 机器软件清单
+# 已剔除：NVIDIA 全家桶、fprintd / pam-fprint-grosshack（无指纹）
+# 若小新为 AMD 平台：intel-ucode → amd-ucode，vulkan-intel → vulkan-radeon
+
 # 仓库包（pacman）
 sudo pacman -S 7zip --noconfirm
 sudo pacman -S acpi --noconfirm
@@ -53,7 +57,6 @@ sudo pacman -S firefox --noconfirm
 sudo pacman -S flclash --noconfirm
 sudo pacman -S fontconfig --noconfirm
 sudo pacman -S fooyin --noconfirm
-sudo pacman -S fprintd --noconfirm
 sudo pacman -S frpc --noconfirm
 sudo pacman -S fuzzel --noconfirm
 sudo pacman -S fzf --noconfirm
@@ -88,8 +91,6 @@ sudo pacman -S kitty --noconfirm
 sudo pacman -S kvantum --noconfirm
 sudo pacman -S kvantum-qt5 --noconfirm
 sudo pacman -S layer-shell-qt --noconfirm
-sudo pacman -S lib32-nvidia-utils --noconfirm
-sudo pacman -S lib32-opencl-nvidia --noconfirm
 sudo pacman -S lib32-vulkan-intel --noconfirm
 sudo pacman -S libayatana-appindicator --noconfirm
 sudo pacman -S libdisplay-info --noconfirm
@@ -114,7 +115,6 @@ sudo pacman -S linux-firmware-broadcom --noconfirm
 sudo pacman -S linux-firmware-cirrus --noconfirm
 sudo pacman -S linux-firmware-intel --noconfirm
 sudo pacman -S linux-firmware-mediatek --noconfirm
-sudo pacman -S linux-firmware-nvidia --noconfirm
 sudo pacman -S linux-firmware-other --noconfirm
 sudo pacman -S linux-firmware-realtek --noconfirm
 sudo pacman -S linux-firmware-ti --noconfirm
@@ -145,16 +145,11 @@ sudo pacman -S noto-fonts --noconfirm
 sudo pacman -S noto-fonts-cjk --noconfirm
 sudo pacman -S noto-fonts-emoji --noconfirm
 sudo pacman -S npm --noconfirm
-sudo pacman -S nvidia-open-dkms --noconfirm
-sudo pacman -S nvidia-prime --noconfirm
-sudo pacman -S nvidia-settings --noconfirm
-sudo pacman -S nvidia-utils --noconfirm
 sudo pacman -S nvm --noconfirm
 sudo pacman -S nwg-look --noconfirm
 sudo pacman -S nyancat --noconfirm
 sudo pacman -S obs-studio --noconfirm
 sudo pacman -S openbsd-netcat --noconfirm
-sudo pacman -S opencl-nvidia --noconfirm
 sudo pacman -S opencode --noconfirm
 sudo pacman -S openssh --noconfirm
 sudo pacman -S otf-aurulent-nerd --noconfirm
@@ -364,7 +359,6 @@ paru -S nmgui-bin --noconfirm
 paru -S opencode-desktop-bin --noconfirm
 paru -S oss-browser2 --noconfirm
 paru -S ossutil --noconfirm
-paru -S pam-fprint-grosshack --noconfirm
 paru -S pamtester --noconfirm
 paru -S pipes.sh --noconfirm
 paru -S quickshell-git --noconfirm
