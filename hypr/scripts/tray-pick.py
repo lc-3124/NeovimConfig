@@ -55,6 +55,25 @@ def resolve_item(item):
     return item, "/StatusNotifierItem"
 
 
+def owner_pid(svc):
+    """通过 DBus 反查服务名对应的 PID"""
+    try:
+        db = BUS.get_object("org.freedesktop.DBus", "/org/freedesktop/DBus")
+        return int(dbus.Interface(db, "org.freedesktop.DBus").GetConnectionUnixProcessID(svc))
+    except Exception:
+        return None
+
+
+def proc_name(pid):
+    if not pid:
+        return ""
+    try:
+        with open(f"/proc/{pid}/comm") as f:
+            return f.read().strip()
+    except Exception:
+        return ""
+
+
 def list_items():
     out = []
     w = BUS.get_object(*WATCHER)
@@ -63,13 +82,25 @@ def list_items():
         svc, path = resolve_item(str(it))
         try:
             p = props(svc, path)
-            title = str(p.Get(IFACE_SNI, "Title")) or str(p.Get(IFACE_SNI, "Id")) or svc
-            ident = str(p.Get(IFACE_SNI, "Id"))
+            title = str(p.Get(IFACE_SNI, "Title")).strip()
+            ident = str(p.Get(IFACE_SNI, "Id")).strip()
             menu = str(p.Get(IFACE_SNI, "Menu"))
         except Exception:
             continue
+        # Electron 应用（QQ / Chrome 系）通常 Title 为空、Id 固定为
+        # chrome_status_icon_N，只能用进程名来标识
+        if not title or ident.startswith("chrome_status_icon"):
+            title = proc_name(owner_pid(svc)) or title or ident or svc
         out.append({"svc": svc, "path": path, "title": title, "id": ident, "menu": menu})
-    return out
+
+    # 同名项去重（同一个 Electron 应用常注册多个 item）
+    seen, uniq = set(), []
+    for it in out:
+        if it["title"] in seen:
+            continue
+        seen.add(it["title"])
+        uniq.append(it)
+    return uniq
 
 
 def menu_nodes(svc, menu_path, parent_id=0):
