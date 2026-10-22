@@ -8,7 +8,6 @@
 require("configure.env")
 require("configure.looking&basics")
 require("configure.monitor")
-require("configure.workspaces")
 require("configure.permissions")
 require("configure.keybind")
 require("configure.typical")

@@ -9,7 +9,7 @@ RUNDIR="${XDG_RUNTIME_DIR:-/run/user/$(id -u)}"
 FALLBACK=/home/lc3124/.config/hypr/resource/images/lock-bg.png
 
 monitors="$(hyprctl -j monitors 2>/dev/null | jq -r '.[].name')"
-[ -n "$monitors" ] || monitors="eDP-1 HDMI-A-1"
+[ -n "$monitors" ] || monitors="eDP-1"
 
 for m in $monitors; do
     out="$RUNDIR/hyprlock-bg-$m.png"
