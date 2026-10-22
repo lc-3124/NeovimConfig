@@ -162,6 +162,7 @@ hl.bind("META + SHIFT + escape", hl.dsp.exec_cmd("pkill -x hyprwarp 2>/dev/null;
 
 -- 光标模式操作手册
 hl.bind("META + ALT + semicolon", hl.dsp.exec_cmd("~/.config/hypr/scripts/cursor-help.sh"), { description = "光标模式手册" })
+hl.bind("META + ALT + T", hl.dsp.exec_cmd("~/.config/hypr/scripts/tray-pick.py"), { description = "托盘（键盘选择）" })
 
 
 -- 拖拽窗口
