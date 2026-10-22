@@ -83,6 +83,9 @@ hl.on("hyprland.start", function()
   -- hl.exec_cmd("pgrep -x hypridle >/dev/null || hypridle")
   -- dotool 常驻服务端（hyprwarp 的点击/移动回调经 dotoolc 发给它）
   hl.exec_cmd("pgrep -x dotoold >/dev/null || dotoold")
+
+  -- 蓝牙配对 agent：负责弹出配对码输入/确认框（blueman-applet 提供 Agent1）
+  hl.exec_cmd("pgrep -f blueman-applet >/dev/null || blueman-applet")
   -- 平滑光标/滚动守护（hyprwarp 光标模式用）
   -- 光标移动改由常驻守护 hypr-cursor（systemd，直接读 evdev）负责
   -- hl.exec_cmd("~/.config/hypr/scripts/cursor-mover.sh")
