@@ -89,17 +89,33 @@ def list_items():
             continue
         # Electron 应用（QQ / Chrome 系）通常 Title 为空、Id 固定为
         # chrome_status_icon_N，只能用进程名来标识
+        pid = owner_pid(svc)
         if not title or ident.startswith("chrome_status_icon"):
-            title = proc_name(owner_pid(svc)) or title or ident or svc
-        out.append({"svc": svc, "path": path, "title": title, "id": ident, "menu": menu})
+            title = proc_name(pid) or title or ident or svc
+        out.append({"svc": svc, "path": path, "title": title, "id": ident,
+                    "menu": menu, "pid": pid})
 
-    # 同名项去重（同一个 Electron 应用常注册多个 item）
+    # 去重键用 (pid, title)：同一实例注册的多个 item 合并，
+    # 但两个 QQ 实例（不同 PID）都要保留
     seen, uniq = set(), []
     for it in out:
-        if it["title"] in seen:
+        key = (it["pid"], it["title"])
+        if key in seen:
             continue
-        seen.add(it["title"])
+        seen.add(key)
         uniq.append(it)
+
+    # 同名但不同实例 → 加序号区分
+    counts = {}
+    for it in uniq:
+        counts[it["title"]] = counts.get(it["title"], 0) + 1
+    if any(v > 1 for v in counts.values()):
+        idx = {}
+        for it in uniq:
+            t = it["title"]
+            if counts[t] > 1:
+                idx[t] = idx.get(t, 0) + 1
+                it["title"] = f"{t} #{idx[t]}"
     return uniq
 
 
