@@ -14,3 +14,6 @@ NeovimConfig-repo/
 
 # 编译产物
 hypr/cursor-daemon/hypr-cursor
+
+# 本地工具目录：二进制与脚本不纳入仓库管理
+Executable/
